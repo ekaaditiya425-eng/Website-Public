@@ -1,0 +1,434 @@
+<!-- Fase 2: Operasi Bilangan Bulat Lengkap -->
+<div id="fase2" class="phase-content">
+    <section class="about-section">
+      <h2 class="section-title">Fase 2: Petualangan Operasi Bilangan Bulat</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <h2>Misteri Garis Bilangan Rina</h2>
+  
+          <div class="story-intro" style="background: rgba(100, 149, 237, 0.05); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem; border-left: 4px solid cornflowerblue;">
+            <p>
+              <i class="fas fa-search" style="color: cornflowerblue;"></i>
+              <em>Rina menemukan semua rahasia operasi bilangan bulat! Mari kita ikuti petualangannya dalam kehidupan sehari-hari.</em>
+            </p>
+          </div>
+  
+          <!-- ========== PENJUMLAHAN ========== -->
+          <div style="background: rgba(70, 130, 180, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 2rem;">
+            <h3 style="color: cornflowerblue; text-align: center;">
+              <i class="fas fa-plus-circle"></i> PENJUMLAHAN BILANGAN BULAT
+            </h3>
+            <p style="text-align: center;">Mari kita eksplorasi penjumlahan melalui situasi nyata dalam kehidupan Rina</p>
+          </div>
+  
+          <!-- 1. Penjumlahan: Positif + Positif -->
+          <div class="context-example" style="background: rgba(46, 196, 182, 0.1); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+            <h3><i class="fas fa-coins"></i> 💰 Kasus 1: Penjumlahan (3 + 5)</h3>
+            <p>Rina mendapat 3 ribu rupiah dari ibu dan 5 ribu dari ayah. Berapa total uang Rina?</p>
+            
+            <div class="number-line" style="margin: 1.5rem 0; text-align: center;">
+              <p style="font-weight: bold; margin-bottom: 0.5rem;">3 + 5 = ?</p>
+              <div style="display: inline-block; position: relative; width: 100%; height: 60px;">
+                <div style="position: absolute; height: 2px; width: 100%; background: #333; top: 50%;"></div>
+                <!-- Ticks -->
+                <div style="position: absolute; left: 0%; transform: translateX(-50%); top: 45%;">0</div>
+                <div style="position: absolute; left: 12.5%; transform: translateX(-50%); top: 45%;">1</div>
+                <div style="position: absolute; left: 25%; transform: translateX(-50%); top: 45%;">2</div>
+                <div style="position: absolute; left: 37.5%; transform: translateX(-50%); top: 45%;">3</div>
+                <div style="position: absolute; left: 50%; transform: translateX(-50%); top: 45%;">4</div>
+                <div style="position: absolute; left: 62.5%; transform: translateX(-50%); top: 45%;">5</div>
+                <div style="position: absolute; left: 75%; transform: translateX(-50%); top: 45%;">6</div>
+                <div style="position: absolute; left: 87.5%; transform: translateX(-50%); top: 45%;">7</div>
+                <div style="position: absolute; left: 100%; transform: translateX(-50%); top: 45%;">8</div>
+                
+                <!-- Starting Point -->
+                <div style="position: absolute; left: 37.5%; top: 30%; transform: translateX(-50%);">
+                  <i class="fas fa-play" style="color: var(--rme-blue);"></i>
+                </div>
+                
+                <!-- First Arrow -->
+                <div style="position: absolute; left: 37.5%; width: 50%; top: 50%; transform: rotate(0deg);">
+                  <div style="height: 2px; background: var(--rme-green); position: relative;">
+                    <div style="position: absolute; right: -5px; top: -4px; width: 0; height: 0; border-left: 6px solid var(--rme-green); border-top: 4px solid transparent; border-bottom: 4px solid transparent;"></div>
+                  </div>
+                  <div style="position: absolute; right: 0; top: -8px; color: var(--rme-green); font-size: 0.8rem;">+5</div>
+                </div>
+                
+                <!-- Result Marker -->
+                <div style="position: absolute; left: 87.5%; top: 60%; color: var(--rme-green); font-weight: bold;">
+                  Hasil: 8
+                </div>
+              </div>
+            </div>
+            <p><strong>Kesimpulan:</strong> 3 + 5 = 8 (positif + positif = positif)</p>
+          </div>
+  
+          <!-- 2. Penjumlahan: Positif + Negatif (Positif > Negatif) -->
+          <div class="context-example" style="background: rgba(46, 196, 182, 0.1); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+            <h3><i class="fas fa-temperature-high"></i> 🌡️ Kasus 2: Penjumlahan (5 + (-3))</h3>
+            <p>Suhu pagi 5°C, turun 3°C di malam hari:</p>
+            
+            <div class="number-line" style="margin: 1.5rem 0; text-align: center;">
+              <p style="font-weight: bold; margin-bottom: 0.5rem;">5 + (-3) = ?</p>
+              <div style="display: inline-block; position: relative; width: 100%; height: 60px;">
+                <div style="position: absolute; height: 2px; width: 100%; background: #333; top: 50%;"></div>
+                <!-- Ticks -->
+                <div style="position: absolute; left: 0%; transform: translateX(-50%); top: 45%;">0</div>
+                <div style="position: absolute; left: 20%; transform: translateX(-50%); top: 45%;">1</div>
+                <div style="position: absolute; left: 40%; transform: translateX(-50%); top: 45%;">2</div>
+                <div style="position: absolute; left: 60%; transform: translateX(-50%); top: 45%;">3</div>
+                <div style="position: absolute; left: 80%; transform: translateX(-50%); top: 45%;">4</div>
+                <div style="position: absolute; left: 100%; transform: translateX(-50%); top: 45%;">5</div>
+                
+                <!-- Starting Point -->
+                <div style="position: absolute; left: 100%; top: 30%; transform: translateX(-50%);">
+                  <i class="fas fa-play" style="color: var(--rme-blue);"></i>
+                </div>
+                
+                <!-- Arrow -->
+                <div style="position: absolute; left: 100%; width: 60%; top: 50%; transform: rotate(180deg);">
+                  <div style="height: 2px; background: var(--rme-red); position: relative;">
+                    <div style="position: absolute; right: -5px; top: -4px; width: 0; height: 0; border-left: 6px solid var(--rme-red); border-top: 4px solid transparent; border-bottom: 4px solid transparent;"></div>
+                  </div>
+                  <div style="position: absolute; right: 0; top: -8px; color: var(--rme-red); font-size: 0.8rem;">3 langkah</div>
+                </div>
+                
+                <!-- Result Marker -->
+                <div style="position: absolute; left: 40%; top: 60%; color: var(--rme-green); font-weight: bold;">
+                  Hasil: 2
+                </div>
+              </div>
+            </div>
+            <p><strong>Kesimpulan:</strong> 5 + (-3) = 2 (positif karena angka positif lebih besar)</p>
+          </div>
+  
+          <!-- 3. Penjumlahan: Positif + Negatif (Negatif > Positif) -->
+          <div class="context-example" style="background: rgba(255, 125, 0, 0.1); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+            <h3><i class="fas fa-piggy-bank"></i> 💰 Kasus 3: Penjumlahan (3 + (-5))</h3>
+            <p>Tabungan Rina 3 ribu, tapi dia belanja 5 ribu:</p>
+            
+            <div class="number-line" style="margin: 1.5rem 0; text-align: center;">
+              <p style="font-weight: bold; margin-bottom: 0.5rem;">3 + (-5) = ?</p>
+              <div style="display: inline-block; position: relative; width: 100%; height: 60px;">
+                <div style="position: absolute; height: 2px; width: 100%; background: #333; top: 50%;"></div>
+                <!-- Ticks -->
+                <div style="position: absolute; left: 0%; transform: translateX(-50%); top: 45%;">-2</div>
+                <div style="position: absolute; left: 20%; transform: translateX(-50%); top: 45%;">0</div>
+                <div style="position: absolute; left: 40%; transform: translateX(-50%); top: 45%;">2</div>
+                <div style="position: absolute; left: 60%; transform: translateX(-50%); top: 45%;">4</div>
+                
+                <!-- Starting Point -->
+                <div style="position: absolute; left: 40%; top: 30%; transform: translateX(-50%);">
+                  <i class="fas fa-play" style="color: var(--rme-blue);"></i>
+                </div>
+                
+                <!-- Arrow -->
+                <div style="position: absolute; left: 40%; width: 60%; top: 50%; transform: rotate(180deg);">
+                  <div style="height: 2px; background: var(--rme-red); position: relative;">
+                    <div style="position: absolute; right: -5px; top: -4px; width: 0; height: 0; border-left: 6px solid var(--rme-red); border-top: 4px solid transparent; border-bottom: 4px solid transparent;"></div>
+                  </div>
+                  <div style="position: absolute; right: 0; top: -8px; color: var(--rme-red); font-size: 0.8rem;">5 langkah</div>
+                </div>
+                
+                <!-- Result Marker -->
+                <div style="position: absolute; left: 0%; top: 60%; color: var(--rme-red); font-weight: bold;">
+                  Hasil: -2
+                </div>
+              </div>
+            </div>
+            <p><strong>Kesimpulan:</strong> 3 + (-5) = -2 (negatif karena angka negatif lebih besar)</p>
+          </div>
+  
+          <!-- 4. Penjumlahan: Negatif + Negatif -->
+          <div class="context-example" style="background: rgba(153, 50, 204, 0.1); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+            <h3><i class="fas fa-snowflake"></i> ❄️ Kasus 4: Penjumlahan (-3 + (-2))</h3>
+            <p>Suhu malam -3°C, turun lagi 2°C di dini hari:</p>
+            
+            <div class="number-line" style="margin: 1.5rem 0; text-align: center;">
+              <p style="font-weight: bold; margin-bottom: 0.5rem;">-3 + (-2) = ?</p>
+              <div style="display: inline-block; position: relative; width: 100%; height: 60px;">
+                <div style="position: absolute; height: 2px; width: 100%; background: #333; top: 50%;"></div>
+                <!-- Ticks -->
+                <div style="position: absolute; left: 0%; transform: translateX(-50%); top: 45%;">-5</div>
+                <div style="position: absolute; left: 20%; transform: translateX(-50%); top: 45%;">-4</div>
+                <div style="position: absolute; left: 40%; transform: translateX(-50%); top: 45%;">-3</div>
+                <div style="position: absolute; left: 60%; transform: translateX(-50%); top: 45%;">-2</div>
+                <div style="position: absolute; left: 80%; transform: translateX(-50%); top: 45%;">-1</div>
+                <div style="position: absolute; left: 100%; transform: translateX(-50%); top: 45%;">0</div>
+                
+                <!-- Starting Point -->
+                <div style="position: absolute; left: 40%; top: 30%; transform: translateX(-50%);">
+                  <i class="fas fa-play" style="color: var(--rme-blue);"></i>
+                </div>
+                
+                <!-- Arrow -->
+                <div style="position: absolute; left: 40%; width: 40%; top: 50%; transform: rotate(180deg);">
+                  <div style="height: 2px; background: var(--rme-red); position: relative;">
+                    <div style="position: absolute; right: -5px; top: -4px; width: 0; height: 0; border-left: 6px solid var(--rme-red); border-top: 4px solid transparent; border-bottom: 4px solid transparent;"></div>
+                  </div>
+                  <div style="position: absolute; right: 0; top: -8px; color: var(--rme-red); font-size: 0.8rem;">2 langkah</div>
+                </div>
+                
+                <!-- Result Marker -->
+                <div style="position: absolute; left: 0%; top: 60%; color: var(--rme-red); font-weight: bold;">
+                  Hasil: -5
+                </div>
+              </div>
+            </div>
+            <p><strong>Kesimpulan:</strong> -3 + (-2) = -5 (negatif + negatif = negatif)</p>
+          </div>
+  
+          <!-- ========== PENGURANGAN ========== -->
+          <div style="background: rgba(70, 130, 180, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 2rem;">
+            <h3 style="color: cornflowerblue; text-align: center;">
+              <i class="fas fa-minus-circle"></i> PENGURANGAN BILANGAN BULAT
+            </h3>
+            <p style="text-align: center;">Mari kita pelajari pengurangan melalui cerita sehari-hari Rina</p>
+          </div>
+  
+          <!-- 1. Pengurangan: Positif - Positif -->
+          <div class="context-example" style="background: rgba(46, 196, 182, 0.1); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+            <h3><i class="fas fa-apple-alt"></i> 🍎 Kasus 5: Pengurangan (5 - 2)</h3>
+            <p>Rina punya 5 apel, diberikan 2 apel kepada adiknya. Berapa sisa apel Rina?</p>
+            
+            <div class="number-line" style="margin: 1.5rem 0; text-align: center;">
+              <p style="font-weight: bold; margin-bottom: 0.5rem;">5 - 2 = ?</p>
+              <div style="display: inline-block; position: relative; width: 100%; height: 60px;">
+                <div style="position: absolute; height: 2px; width: 100%; background: #333; top: 50%;"></div>
+                <!-- Ticks -->
+                <div style="position: absolute; left: 0%; transform: translateX(-50%); top: 45%;">0</div>
+                <div style="position: absolute; left: 20%; transform: translateX(-50%); top: 45%;">1</div>
+                <div style="position: absolute; left: 40%; transform: translateX(-50%); top: 45%;">2</div>
+                <div style="position: absolute; left: 60%; transform: translateX(-50%); top: 45%;">3</div>
+                <div style="position: absolute; left: 80%; transform: translateX(-50%); top: 45%;">4</div>
+                <div style="position: absolute; left: 100%; transform: translateX(-50%); top: 45%;">5</div>
+                
+                <!-- Starting Point -->
+                <div style="position: absolute; left: 100%; top: 30%; transform: translateX(-50%);">
+                  <i class="fas fa-play" style="color: var(--rme-blue);"></i>
+                </div>
+                
+                <!-- Arrow -->
+                <div style="position: absolute; left: 100%; width: 40%; top: 50%; transform: rotate(180deg);">
+                  <div style="height: 2px; background: var(--rme-red); position: relative;">
+                    <div style="position: absolute; right: -5px; top: -4px; width: 0; height: 0; border-left: 6px solid var(--rme-red); border-top: 4px solid transparent; border-bottom: 4px solid transparent;"></div>
+                  </div>
+                  <div style="position: absolute; right: 0; top: -8px; color: var(--rme-red); font-size: 0.8rem;">2 langkah</div>
+                </div>
+                
+                <!-- Result Marker -->
+                <div style="position: absolute; left: 60%; top: 60%; color: var(--rme-green); font-weight: bold;">
+                  Hasil: 3
+                </div>
+              </div>
+            </div>
+            <p><strong>Kesimpulan:</strong> 5 - 2 = 3 (positif - positif = positif jika bilangan pertama lebih besar)</p>
+          </div>
+  
+          <!-- 2. Pengurangan: Positif - Negatif -->
+          <div class="context-example" style="background: rgba(153, 102, 255, 0.1); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+            <h3><i class="fas fa-arrow-up"></i> 📈 Kasus 6: Pengurangan (2 - (-4))</h3>
+            <p>Suhu naik dari -4°C ke 2°C. Berapa kenaikannya?</p>
+            
+            <div class="number-line" style="margin: 1.5rem 0; text-align: center;">
+              <p style="font-weight: bold; margin-bottom: 0.5rem;">2 - (-4) = ?</p>
+              <div style="display: inline-block; position: relative; width: 100%; height: 60px;">
+                <div style="position: absolute; height: 2px; width: 100%; background: #333; top: 50%;"></div>
+                <!-- Ticks -->
+                <div style="position: absolute; left: 0%; transform: translateX(-50%); top: 45%;">-4</div>
+                <div style="position: absolute; left: 25%; transform: translateX(-50%); top: 45%;">-2</div>
+                <div style="position: absolute; left: 50%; transform: translateX(-50%); top: 45%;">0</div>
+                <div style="position: absolute; left: 75%; transform: translateX(-50%); top: 45%;">2</div>
+                <div style="position: absolute; left: 100%; transform: translateX(-50%); top: 45%;">4</div>
+                
+                <!-- Starting Point -->
+                <div style="position: absolute; left: 75%; top: 30%; transform: translateX(-50%);">
+                  <i class="fas fa-play" style="color: var(--rme-blue);"></i>
+                </div>
+                
+                <!-- Arrow -->
+                <div style="position: absolute; left: 75%; width: 75%; top: 50%; transform: rotate(0deg);">
+                  <div style="height: 2px; background: var(--rme-green); position: relative;">
+                    <div style="position: absolute; right: -5px; top: -4px; width: 0; height: 0; border-left: 6px solid var(--rme-green); border-top: 4px solid transparent; border-bottom: 4px solid transparent;"></div>
+                  </div>
+                  <div style="position: absolute; right: 0; top: -8px; color: var(--rme-green); font-size: 0.8rem;">+4</div>
+                </div>
+                
+                <!-- Result Marker -->
+                <div style="position: absolute; left: 100%; top: 60%; color: var(--rme-green); font-weight: bold;">
+                  Hasil: 6
+                </div>
+              </div>
+            </div>
+            <p><strong>Kesimpulan:</strong> 2 - (-4) = 6 (minus bertemu minus jadi plus)</p>
+          </div>
+  
+          <!-- 3. Pengurangan: Negatif - Positif -->
+          <div class="context-example" style="background: rgba(255, 159, 28, 0.1); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+            <h3><i class="fas fa-thermometer-empty"></i> ❄️ Kasus 7: Pengurangan (-3 - 2)</h3>
+            <p>Suhu -3°C, turun lagi 2°C. Berapa suhu sekarang?</p>
+            
+            <div class="number-line" style="margin: 1.5rem 0; text-align: center;">
+              <p style="font-weight: bold; margin-bottom: 0.5rem;">-3 - 2 = ?</p>
+              <div style="display: inline-block; position: relative; width: 100%; height: 60px;">
+                <div style="position: absolute; height: 2px; width: 100%; background: #333; top: 50%;"></div>
+                <!-- Ticks -->
+                <div style="position: absolute; left: 0%; transform: translateX(-50%); top: 45%;">-5</div>
+                <div style="position: absolute; left: 25%; transform: translateX(-50%); top: 45%;">-4</div>
+                <div style="position: absolute; left: 50%; transform: translateX(-50%); top: 45%;">-3</div>
+                <div style="position: absolute; left: 75%; transform: translateX(-50%); top: 45%;">-2</div>
+                <div style="position: absolute; left: 100%; transform: translateX(-50%); top: 45%;">-1</div>
+                
+                <!-- Starting Point -->
+                <div style="position: absolute; left: 50%; top: 30%; transform: translateX(-50%);">
+                  <i class="fas fa-play" style="color: var(--rme-blue);"></i>
+                </div>
+                
+                <!-- Arrow -->
+                <div style="position: absolute; left: 50%; width: 50%; top: 50%; transform: rotate(180deg);">
+                  <div style="height: 2px; background: var(--rme-red); position: relative;">
+                    <div style="position: absolute; right: -5px; top: -4px; width: 0; height: 0; border-left: 6px solid var(--rme-red); border-top: 4px solid transparent; border-bottom: 4px solid transparent;"></div>
+                  </div>
+                  <div style="position: absolute; right: 0; top: -8px; color: var(--rme-red); font-size: 0.8rem;">2 langkah</div>
+                </div>
+                
+                <!-- Result Marker -->
+                <div style="position: absolute; left: 0%; top: 60%; color: var(--rme-red); font-weight: bold;">
+                  Hasil: -5
+                </div>
+              </div>
+            </div>
+            <p><strong>Kesimpulan:</strong> -3 - 2 = -5 (negatif dikurangi positif menjadi lebih negatif)</p>
+          </div>
+  
+          <!-- 4. Pengurangan: Negatif - Negatif -->
+          <div class="context-example" style="background: rgba(231, 29, 54, 0.1); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+            <h3><i class="fas fa-undo-alt"></i> 🔄 Kasus 8: Pengurangan (-2 - (-5))</h3>
+            <p>Utang Rina berkurang 5 ribu dari utang awal 2 ribu. Berapa uang Rina sekarang?</p>
+            
+            <div class="number-line" style="margin: 1.5rem 0; text-align: center;">
+              <p style="font-weight: bold; margin-bottom: 0.5rem;">-2 - (-5) = ?</p>
+              <div style="display: inline-block; position: relative; width: 100%; height: 60px;">
+                <div style="position: absolute; height: 2px; width: 100%; background: #333; top: 50%;"></div>
+                <!-- Ticks -->
+                <div style="position: absolute; left: 0%; transform: translateX(-50%); top: 45%;">-5</div>
+                <div style="position: absolute; left: 25%; transform: translateX(-50%); top: 45%;">-4</div>
+                <div style="position: absolute; left: 50%; transform: translateX(-50%); top: 45%;">-3</div>
+                <div style="position: absolute; left: 75%; transform: translateX(-50%); top: 45%;">-2</div>
+                <div style="position: absolute; left: 100%; transform: translateX(-50%); top: 45%;">-1</div>
+                
+                <!-- Starting Point -->
+                <div style="position: absolute; left: 75%; top: 30%; transform: translateX(-50%);">
+                  <i class="fas fa-play" style="color: var(--rme-blue);"></i>
+                </div>
+                
+                <!-- Arrow -->
+                <div style="position: absolute; left: 75%; width: 75%; top: 50%; transform: rotate(0deg);">
+                  <div style="height: 2px; background: var(--rme-green); position: relative;">
+                    <div style="position: absolute; right: -5px; top: -4px; width: 0; height: 0; border-left: 6px solid var(--rme-green); border-top: 4px solid transparent; border-bottom: 4px solid transparent;"></div>
+                  </div>
+                  <div style="position: absolute; right: 0; top: -8px; color: var(--rme-green); font-size: 0.8rem;">+5</div>
+                </div>
+                
+                <!-- Result Marker -->
+                <div style="position: absolute; left: 100%; top: 60%; color: var(--rme-green); font-weight: bold;">
+                  Hasil: 3
+                </div>
+              </div>
+            </div>
+            <p><strong>Kesimpulan:</strong> -2 - (-5) = 3 (minus bertemu minus jadi plus)</p>
+          </div>
+  
+          <!-- ========== PERKALIAN ========== -->
+          <div style="background: rgba(70, 130, 180, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 2rem;">
+            <h3 style="color: cornflowerblue; text-align: center;">
+              <i class="fas fa-times-circle"></i> PERKALIAN BILANGAN BULAT
+            </h3>
+            <p style="text-align: center;">Mari pahami perkalian melalui pengalaman nyata Rina</p>
+          </div>
+  
+          <!-- 1. Perkalian: Positif × Positif -->
+          <div class="context-example" style="background: rgba(46, 196, 182, 0.1); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+            <h3><i class="fas fa-cookie"></i> 🍪 Kasus 9: Perkalian (3 × 4)</h3>
+            <p>Rina makan 4 kue setiap hari selama 3 hari. Berapa total kue yang dimakan?</p>
+            
+            <div class="visualization" style="margin: 1.5rem 0; text-align: center;">
+              <p style="font-weight: bold; margin-bottom: 0.5rem;">3 × 4 = ?</p>
+              <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                <div style="border: 1px dashed #999; padding: 0.5rem; border-radius: 5px;">
+                  <div>Hari 1</div>
+                  <div style="color: var(--rme-green);">+4</div>
+                </div>
+                <div style="border: 1px dashed #999; padding: 0.5rem; border-radius: 5px;">
+                  <div>Hari 2</div>
+                  <div style="color: var(--rme-green);">+4</div>
+                </div>
+                <div style="border: 1px dashed #999; padding: 0.5rem; border-radius: 5px;">
+                  <div>Hari 3</div>
+                  <div style="color: var(--rme-green);">+4</div>
+                </div>
+              </div>
+              <div style="font-weight: bold; color: var(--rme-green);">
+                Total: 12 kue
+              </div>
+            </div>
+            <p><strong>Kesimpulan:</strong> 3 × 4 = 12 (positif × positif = positif)</p>
+          </div>
+  
+          <!-- 2. Perkalian: Positif × Negatif -->
+          <div class="context-example" style="background: rgba(255, 125, 0, 0.1); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+            <h3><i class="fas fa-cookie"></i> 🍪 Kasus 10: Perkalian (3 × (-2))</h3>
+            <p>Setiap hari Rina makan 2 kue, tapi 3 hari yang lalu dia mengurangi 2 kue per hari:</p>
+            
+            <div class="visualization" style="margin: 1.5rem 0; text-align: center;">
+              <p style="font-weight: bold; margin-bottom: 0.5rem;">3 × (-2) = ?</p>
+              <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                <div style="border: 1px dashed #999; padding: 0.5rem; border-radius: 5px;">
+                  <div>Hari 1</div>
+                  <div style="color: var(--rme-red);">-2</div>
+                </div>
+                <div style="border: 1px dashed #999; padding: 0.5rem; border-radius: 5px;">
+                  <div>Hari 2</div>
+                  <div style="color: var(--rme-red);">-2</div>
+                </div>
+                <div style="border: 1px dashed #999; padding: 0.5rem; border-radius: 5px;">
+                  <div>Hari 3</div>
+                  <div style="color: var(--rme-red);">-2</div>
+                </div>
+              </div>
+              <div style="font-weight: bold; color: var(--rme-red);">
+                Total: -6 kue
+              </div>
+            </div>
+            <p><strong>Kesimpulan:</strong> 3 × (-2) = -6 (positif × negatif = negatif)</p>
+          </div>
+  
+          <!-- 3. Perkalian: Negatif × Positif -->
+          <div class="context-example" style="background: rgba(153, 102, 255, 0.1); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+            <h3><i class="fas fa-money-bill-wave"></i> 💸 Kasus 11: Perkalian (-4 × 3)</h3>
+            <p>Rina harus membayar utang 4 ribu rupiah kepada 3 temannya. Berapa total utangnya?</p>
+            
+            <div class="visualization" style="margin: 1.5rem 0; text-align: center;">
+              <p style="font-weight: bold; margin-bottom: 0.5rem;">-4 × 3 = ?</p>
+              <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                <div style="border: 1px dashed #999; padding: 0.5rem; border-radius: 5px;">
+                  <div>Teman 1</div>
+                  <div style="color: var(--rme-red);">-4</div>
+                </div>
+                <div style="border: 1px dashed #999; padding: 0.5rem; border-radius: 5px;">
+                  <div>Teman 2</div>
+                  <div style="color: var(--rme-red);">-4</div>
+                </div>
+                <div style="border: 1px dashed #999; padding: 0.5rem; border-radius: 5px;">
+                  <div>Teman 3</div>
+                  <div style="color: var(--rme-red);">-4</div>
+                </div>
+              </div>
+              <div style="font-weight: bold; color: var(--rme-red);">
+                Total: -12 ribu
+              </div>
+            </div>
+            <p><strong>Kesimpulan:</strong> -4 × 3 = -12 (negatif × positif = negatif)</p>
+          </div>
+  
+          <!--

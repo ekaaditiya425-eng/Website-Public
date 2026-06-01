@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathRME - Eksplorasi Matematika Nyata</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Variabel Warna */
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #f72585;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --rme-orange: #FF7D00;
+            --rme-blue: #4CC9F0;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e2f4ff 100%);
+            color: var(--dark-color);
+            line-height: 1.6;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--rme-orange), #FF5400);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            animation: slideDown 0.8s ease;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--rme-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--rme-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown styles */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--rme-orange);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            z-index: 1;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            display: block;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-toggle i {
+            margin-left: 5px;
+            font-size: 0.8em;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-toggle i {
+            transform: rotate(180deg);
+        }
+
+        /* Mobile menu button */
+        .mobile-menu-btn {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .explore-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .explore-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            overflow: hidden;
+        }
+
+        .explore-header h1 {
+            font-size: 2.8rem;
+            color: var(--rme-orange);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: textSlideUp 1s ease forwards 0.3s;
+        }
+
+        .explore-header p {
+            color: #6c757d;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: textSlideUp 1s ease forwards 0.6s;
+        }
+
+        @keyframes textSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Interactive Cards */
+        .discovery-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .discovery-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .discovery-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--rme-blue);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--rme-orange);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .discovery-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .card-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, var(--rme-orange), var(--rme-blue));
+        }
+
+        .card-content p {
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            color: var(--rme-orange);
+            font-weight: 600;
+        }
+
+        .card-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--rme-orange), #FF5400);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(255, 125, 0, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .card-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 125, 0, 0.4);
+            background: linear-gradient(to right, #FF5400, var(--rme-orange));
+        }
+
+        /* Interactive Timeline */
+        .timeline-section {
+            margin: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--rme-orange);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: #6c757d;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, var(--rme-orange), var(--rme-blue));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 4px solid var(--rme-orange);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::after {
+            right: -12px;
+        }
+
+        .right::after {
+            left: -12px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-content h3 {
+            color: var(--rme-orange);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content p {
+            color: #6c757d;
+        }
+
+        .timeline-date {
+            color: var(--rme-blue);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-date i {
+            margin-right: 8px;
+        }
+
+        /* Interactive Numbers */
+        .numbers-section {
+            background: linear-gradient(135deg, rgba(76, 201, 240, 0.1) 0%, rgba(255, 125, 0, 0.1) 100%);
+            padding: 4rem 2rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+        }
+
+        .numbers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .number-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .number-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .number-value {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--rme-orange);
+            margin-bottom: 0.5rem;
+            transition: all 0.5s ease;
+        }
+
+        .number-card:hover .number-value {
+            transform: scale(1.2);
+        }
+
+        .number-label {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #2b2d42, #1a1a2e);
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--rme-blue);
+        }
+
+        .footer-column p {
+            margin-bottom: 1rem;
+            color: #adb5bd;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--rme-blue);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--rme-orange);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, var(--rme-orange), #FF5400);
+                padding: 1rem;
+                z-index: 100;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .dropdown-content {
+                position: static;
+                transform: none;
+                box-shadow: none;
+                background-color: rgba(255,125,0,0.8);
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .left::after, .right::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span>MathRME</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Materi <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="cp.html">CP ATP</a>
+                        <a href="petakonsep.html">Peta Konsep</a>
+                    </div>
+                <li><a href="tentangrme.html">Tentang RME</a></li>
+            </ul>
+            
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="explore-container">
+        <div class="explore-header">
+            <h1><i class="fas fa-compass"></i> Eksplorasi Matematika dalam Kehidupan</h1>
+            <p>Temukan bagaimana konsep bilangan hadir dalam aktivitas sehari-hari dan profesi menarik di sekitar kita</p>
+        </div>
+        
+        <!-- Discovery Cards -->
+        <div class="discovery-cards">
+            <div class="discovery-card">
+                <div class="card-badge">Hot!</div>
+                <div class="card-image">
+                    <img src="g11.jpg" alt="Koki Profesional">
+                </div>
+                <div class="card-content">
+                    <h2>Matematika di Dapur Restoran</h2>
+                    <p>Koki profesional menggunakan matematika setiap hari untuk mengukur bahan, menyesuaikan resep, dan mengatur waktu memasak. Pecahan dan perbandingan adalah alat penting mereka!</p>
+                    <div class="card-stats">
+                        <span><i class="fas fa-clock"></i> 5 min baca</span>
+                        <span><i class="fas fa-fire"></i> 1.2K views</span>
+                    </div>
+                    <a href="dapur.html" class="card-button">Telusuri Profesi <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="discovery-card">
+                <div class="card-badge">New!</div>
+                <div class="card-image">
+                    <img src="g12.jpg" alt="Arsitek">
+                </div>
+                <div class="card-content">
+                    <h2>Angka dalam Desain Arsitektur</h2>
+                    <p>Arsitek mengandalkan geometri, proporsi, dan perhitungan presisi untuk menciptakan bangunan yang indah dan fungsional. Setiap sudut dan kurva adalah hasil perhitungan matematis.</p>
+                    <div class="card-stats">
+                        <span><i class="fas fa-clock"></i> 7 min baca</span>
+                        <span><i class="fas fa-fire"></i> 890 views</span>
+                    </div>
+                    <a href="arsitek.html" class="card-button">Telusuri Profesi <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Timeline Section -->
+        <div class="timeline-section">
+            <div class="section-title">
+                <h2>Sejarah Penggunaan Bilangan</h2>
+                <p>Perjalanan panjang konsep bilangan dalam peradaban manusia</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date"><i class="fas fa-calendar-day"></i> 30,000 SM</div>
+                        <h3>Bilangan Primitif</h3>
+                        <p>Manusia purba menggunakan garis dan simbol pada tulang untuk menghitung hewan buruan dan hari.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date"><i class="fas fa-calendar-day"></i> 3,000 SM</div>
+                        <h3>Sistem Bilangan Mesopotamia</h3>
+                        <p>Bangsa Sumeria mengembangkan sistem bilangan berbasis 60 (sexagesimal) yang masih kita gunakan untuk waktu dan sudut.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date"><i class="fas fa-calendar-day"></i> 300 SM</div>
+                        <h3>Angka Romawi</h3>
+                        <p>Sistem bilangan Romawi berkembang dengan simbol I, V, X, L, C, D, dan M yang digunakan di seluruh Eropa.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date"><i class="fas fa-calendar-day"></i> 500 M</div>
+                        <h3>Angka Hindu-Arab</h3>
+                        <p>Konsep nol dan sistem bilangan posisional modern dikembangkan di India dan dibawa ke Eropa oleh matematikawan Arab.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Numbers Section -->
+        <div class="numbers-section">
+            <div class="section-title">
+                <h2>Fakta Menarik tentang Bilangan</h2>
+                <p>Beberapa fakta unik yang menunjukkan keindahan matematika</p>
+            </div>
+            
+            <div class="numbers-grid">
+                <div class="number-card">
+                    <div class="number-value" id="number1">0</div>
+                    <div class="number-label">Jumlah bilangan prima antara 1-100</div>
+                </div>
+                
+                <div class="number-card">
+                    <div class="number-value" id="number2">0</div>
+                    <div class="number-label">Derajat sudut dalam segitiga</div>
+                </div>
+                
+                <div class="number-card">
+                    <div class="number-value" id="number3">0</div>
+                    <div class="number-label">Digit π yang diketahui</div>
+                </div>
+                
+                <div class="number-card">
+                    <div class="number-value" id="number4">0</div>
+                    <div class="number-label">Tahun penemuan angka nol</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Tentang MathRME</h3>
+                <p>MathRME adalah platform pembelajaran matematika berbasis Realistic Mathematics Education yang menghubungkan konsep matematika dengan kehidupan nyata.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Konteks Pembelajaran</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Keuangan</a></li>
+                    <li><a href="#">Kuliner</a></li>
+                    <li><a href="#">Olahraga</a></li>
+                    <li><a href="#">Seni & Desain</a></li>
+                    <li><a href="#">Lingkungan</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Kontak Kami</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Perjuangan By Pass Sunyaragi, Kota Cirebon, jawa Barat, Indonesia</p>
+                <p><i class="fas fa-phone"></i> +62 123 4567 890</p>
+                <p><i class="fas fa-envelope"></i> info@mathrme.id</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 MathRME - Realistic Mathematics Education. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animate numbers
+        function animateNumber(id, finalValue, duration) {
+            let start = 0;
+            const increment = finalValue / (duration / 16);
+            const element = document.getElementById(id);
+            
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= finalValue) {
+                    element.textContent = finalValue;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start);
+                }
+            }, 16);
+        }
+        
+        // Start animations when numbers are in view
+        window.addEventListener('load', () => {
+            animateNumber('number1', 25, 2000);
+            animateNumber('number2', 180, 2000);
+            animateNumber('number3', 628, 2000);
+            animateNumber('number4', 628, 2000);
+        });
+        
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

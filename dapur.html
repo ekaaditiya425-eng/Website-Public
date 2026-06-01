@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathRME - Matematika dalam Profesi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Variabel Warna */
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #f72585;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --rme-orange: #FF7D00;
+            --rme-blue: #4CC9F0;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e2f4ff 100%);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--rme-orange), #FF5400);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--rme-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--rme-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown styles */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--rme-orange);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            z-index: 1;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            display: block;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-toggle i {
+            margin-left: 5px;
+            font-size: 0.8em;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-toggle i {
+            transform: rotate(180deg);
+        }
+
+        /* Mobile menu button */
+        .mobile-menu-btn {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+         /* Hero Section */
+         .profession-hero {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
+                        url('https://img.freepik.com/free-photo/recipe-book-with-math-symbols_23-2148880089.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 0 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease;
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-breadcrumb {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb-item {
+            color: white;
+            margin: 0 0.5rem;
+        }
+        .breadcrumb-item a {
+            color: var(--rme-blue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .breadcrumb-item a:hover {
+            color: white;
+        }
+
+        .breadcrumb-separator {
+            margin: 0 0.5rem;
+            color: var(--rme-blue);
+        }
+        /* Main Content */
+        .profession-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        /* Profession Intro */
+        .profession-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .intro-text h2 {
+            font-size: 2.5rem;
+            color: var(--rme-orange);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .intro-text p {
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .intro-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .intro-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Math Applications */
+        .math-applications {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--rme-orange);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: #6c757d;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .application-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .application-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--rme-blue);
+        }
+
+        .application-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(76, 201, 240, 0.1) 0%, rgba(255, 125, 0, 0.1) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--rme-orange);
+            font-size: 2rem;
+        }
+
+        .application-card h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .application-card p {
+            color: #6c757d;
+            text-align: center;
+        }
+
+        /* Real World Examples */
+        .real-world-examples {
+            background: linear-gradient(135deg, rgba(76, 201, 240, 0.1) 0%, rgba(255, 125, 0, 0.1) 100%);
+            padding: 4rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 4rem;
+        }
+
+        .examples-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .example-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--rme-orange);
+        }
+
+        .example-card h3 {
+            color: var(--rme-orange);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .example-card h3 i {
+            margin-right: 10px;
+            color: var(--rme-blue);
+        }
+
+        .example-card p {
+            color: #6c757d;
+            margin-bottom: 1rem;
+        }
+
+        .example-image {
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .example-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Career Path */
+        .career-path {
+            margin-bottom: 4rem;
+        }
+
+        .path-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .path-step {
+            flex: 0 0 calc(20% - 2rem);
+            text-align: center;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .path-step::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: -60px;
+            width: 60px;
+            height: 2px;
+            background: var(--rme-orange);
+            z-index: 1;
+        }
+
+        .path-step:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(to right, var(--rme-orange), #FF5400);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(255, 125, 0, 0.3);
+        }
+
+        .step-content h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        /* Testimonial */
+        .testimonial-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://img.freepik.com/free-photo/restaurant-interior_1127-3394.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 5rem 2rem;
+            color: white;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 4rem;
+        }
+
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-content i {
+            font-size: 3rem;
+            color: var(--rme-orange);
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-role {
+            color: var(--rme-blue);
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #2b2d42, #1a1a2e);
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--rme-blue);
+        }
+
+        .footer-column p {
+            margin-bottom: 1rem;
+            color: #adb5bd;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--rme-blue);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--rme-orange);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .profession-intro {
+                grid-template-columns: 1fr;
+            }
+            
+            .path-step {
+                flex: 0 0 calc(33.333% - 2rem);
+            }
+            
+            .path-step:nth-child(3)::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, var(--rme-orange), #FF5400);
+                padding: 1rem;
+                z-index: 100;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .dropdown-content {
+                position: static;
+                transform: none;
+                box-shadow: none;
+                background-color: rgba(255,125,0,0.8);
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .path-step {
+                flex: 0 0 100%;
+                margin-bottom: 3rem;
+            }
+            
+            .path-step::after {
+                display: none;
+            }
+            
+            .testimonial-content p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span>MathRME</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Materi <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="cp.html">CP ATP</a>
+                        <a href="petakonsep.html">Peta Konsep</a>
+                    </div>
+                <li><a href="tentangrme.html">Tentang RME</a></li>
+            </ul>
+            
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="profession-hero">
+        <div class="hero-content">
+            <div class="hero-breadcrumb">
+                <span class="breadcrumb-item"><a href="index.html">Beranda</a></span>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-item"><a href="eksplor.html">Eksplorasi</a></span>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-item">Koki Profesional</span>
+            </div>
+            <h1>Matematika dalam Profesi Koki</h1>
+            <p>Temukan bagaimana konsep bilangan dan perhitungan menjadi bagian tak terpisahkan dari seni kuliner</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="profession-container">
+        <!-- Profession Introduction -->
+        <section class="profession-intro">
+            <div class="intro-text">
+                <h2>Ketika Matematika Bertemu Seni Kuliner</h2>
+                <p>Koki profesional tidak hanya membutuhkan kreativitas, tetapi juga ketepatan matematis dalam setiap hidangan yang mereka buat. Dari mengukur bahan hingga menentukan waktu memasak, matematika adalah alat penting di dapur restoran.</p>
+                <p>Pecahan, perbandingan, konversi satuan, dan perhitungan waktu adalah beberapa konsep matematika yang digunakan setiap hari oleh para koki. Tanpa pemahaman ini, resep yang sempurna tidak mungkin tercipta.</p>
+                <p>Di dunia kuliner tingkat tinggi, bahkan geometri dan perhitungan presisi menjadi bagian dari presentasi hidangan.</p>
+            </div>
+            <div class="intro-image">
+                <img src="g14.jpg" alt="Koki Profesional">
+            </div>
+        </section>
+
+        <!-- Math Applications -->
+        <section class="math-applications">
+            <div class="section-title">
+                <h2>Aplikasi Matematika di Dapur Profesional</h2>
+                <p>Berbagai cara matematika digunakan dalam profesi koki</p>
+            </div>
+            
+            <div class="applications-grid">
+                <div class="application-card">
+                    <div class="application-icon">
+                        <i class="fas fa-weight-hanging"></i>
+                    </div>
+                    <h3>Pengukuran Bahan</h3>
+                    <p>Koki menggunakan pecahan dan perbandingan untuk mengukur bahan dengan tepat, terutama saat menyesuaikan porsi resep.</p>
+                </div>
+                
+                <div class="application-card">
+                    <div class="application-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Manajemen Waktu</h3>
+                    <p>Perhitungan waktu yang tepat untuk setiap tahap memasak memastikan semua hidangan siap bersamaan dengan kualitas terbaik.</p>
+                </div>
+                
+                <div class="application-card">
+                    <div class="application-icon">
+                        <i class="fas fa-temperature-high"></i>
+                    </div>
+                    <h3>Kontrol Suhu</h3>
+                    <p>Konversi antara Celsius dan Fahrenheit serta perhitungan waktu pemasakan berdasarkan suhu adalah keterampilan matematis penting.</p>
+                </div>
+                
+                <div class="application-card">
+                    <div class="application-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Biaya dan Profit</h3>
+                    <p>Koki eksekutif menghitung biaya bahan, harga jual, dan profit margin untuk memastikan keberlanjutan bisnis restoran.</p>
+                </div>
+                
+                <div class="application-card">
+                    <div class="application-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Presentasi Hidangan</h3>
+                    <p>Prinsip geometri dan simetri digunakan untuk menata makanan di piring secara estetis dan seimbang.</p>
+                </div>
+                
+                <div class="application-card">
+                    <div class="application-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Skala Resep</h3>
+                    <p>Menyesuaikan resep untuk jumlah tamu yang berbeda membutuhkan perhitungan proporsi yang akurat.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Real World Examples -->
+        <section class="real-world-examples">
+            <div class="examples-container">
+                <div class="section-title">
+                    <h2>Contoh Nyata dalam Profesi Koki</h2>
+                    <p>Bagaimana matematika diterapkan dalam situasi nyata</p>
+                </div>
+                
+                <div class="example-card">
+                    <h3><i class="fas fa-cookie"></i> Menyesuaikan Resep</h3>
+                    <p>Sebuah resep kue dirancang untuk 8 orang, tetapi Anda perlu membuatnya untuk 12 orang. Resep asli membutuhkan:</p>
+                    <ul>
+                        <li>2 1/4 cangkir tepung</li>
+                        <li>1 1/2 sendok teh baking powder</li>
+                        <li>3/4 cangkir gula</li>
+                    </ul>
+                    <p>Berapa jumlah masing-masing bahan yang dibutuhkan untuk 12 orang?</p>
+                    
+                    <div class="example-image">
+                        <img src="g13.jpg" alt="Bahan Kue">
+                    </div>
+                    
+                    <div class="solution" style="background: #f8f9fa; padding: 1rem; border-radius: 5px; margin-top: 1rem; border-left: 3px solid var(--rme-blue);">
+                        <h4 style="color: var(--rme-blue); margin-bottom: 0.5rem;">Konsep Matematika:</h4>
+                        <p>Ini adalah masalah perbandingan dan perkalian pecahan. Dari 8 ke 12 orang adalah peningkatan 1.5× (karena 12 ÷ 8 = 1.5). Jadi setiap bahan harus dikalikan 1.5.</p>
+                    </div>
+                </div>
+                
+                <div class="example-card">
+                    <h3><i class="fas fa-drumstick-bite"></i> Perhitungan Waktu Memasak</h3>
+                    <p>Sebuah ayam dengan berat 1.5 kg membutuhkan waktu memasak 45 menit. Berapa waktu yang dibutuhkan untuk ayam dengan berat 2.2 kg jika waktu memasak bertambah 15 menit per 0.5 kg setelah berat pertama?</p>
+                    
+                    <div class="example-image">
+                        <img src="https://img.freepik.com/free-photo/roast-chicken-with-herbs_2829-10995.jpg" alt="Ayam Panggang">
+                    </div>
+                    
+                    <div class="solution" style="background: #f8f9fa; padding: 1rem; border-radius: 5px; margin-top: 1rem; border-left: 3px solid var(--rme-blue);">
+                        <h4 style="color: var(--rme-blue); margin-bottom: 0.5rem;">Konsep Matematika:</h4>
+                        <p>Ini melibatkan perhitungan proporsi dan penambahan bertahap. Dari 1.5 kg ke 2.2 kg ada selisih 0.7 kg, yang berarti 1 interval 0.5 kg dan sisa 0.2 kg.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Path -->
+        <section class="career-path">
+            <div class="section-title">
+                <h2>Jalur Karir dalam Profesi Kuliner</h2>
+                <p>Bagaimana matematika membantu perkembangan karir seorang koki</p>
+            </div>
+            
+            <div class="path-steps">
+                <div class="path-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Commis Chef</h4>
+                        <p>Mengukur bahan dengan tepat sesuai resep</p>
+                    </div>
+                </div>
+                
+                <div class="path-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Chef de Partie</h4>
+                        <p>Mengatur waktu memasak beberapa hidangan</p>
+                    </div>
+                </div>
+                
+                <div class="path-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Sous Chef</h4>
+                        <p>Menghitung biaya dan kebutuhan stok</p>
+                    </div>
+                </div>
+                
+                <div class="path-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Head Chef</h4>
+                        <p>Membuat menu dengan perhitungan profit</p>
+                    </div>
+                </div>
+                
+                <div class="path-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h4>Executive Chef</h4>
+                        <p>Analisis bisnis dan pengembangan konsep</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial -->
+        <section class="testimonial-section">
+            <div class="testimonial-content">
+                <i class="fas fa-quote-left"></i>
+                <p>"Matematika adalah bumbu rahasia di balik setiap hidangan sukses. Tanpa pemahaman pecahan, perbandingan, dan waktu, bahkan resep terbaik akan gagal."</p>
+                <div class="testimonial-author">Aditiya Eka Nugraha</div>
+                <div class="testimonial-role">Student, UIN Siber Syekh Nurjati Cirebon</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Tentang MathRME</h3>
+                <p>MathRME adalah platform pembelajaran matematika berbasis Realistic Mathematics Education yang menghubungkan konsep matematika dengan kehidupan nyata.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Konteks Pembelajaran</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Keuangan</a></li>
+                    <li><a href="#">Kuliner</a></li>
+                    <li><a href="#">Olahraga</a></li>
+                    <li><a href="#">Seni & Desain</a></li>
+                    <li><a href="#">Lingkungan</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Kontak Kami</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Perjuangan By Pass Sunyaragi, Kota Cirebon, jawa Barat, Indonesia</p>
+                <p><i class="fas fa-phone"></i> +62 123 4567 890</p>
+                <p><i class="fas fa-envelope"></i> info@mathrme.id</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 MathRME - Realistic Mathematics Education. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Simple animation for step numbers
+        document.addEventListener('DOMContentLoaded', function() {
+            const stepNumbers = document.querySelectorAll('.step-number');
+            
+            stepNumbers.forEach((number, index) => {
+                // Delay animation for each step
+                setTimeout(() => {
+                    number.style.transform = 'scale(1.1)';
+                    number.style.boxShadow = '0 0 20px rgba(255, 125, 0, 0.5)';
+                    
+                    setTimeout(() => {
+                        number.style.transform = 'scale(1)';
+                        number.style.boxShadow = '0 5px 15px rgba(255, 125, 0, 0.3)';
+                    }, 300);
+                }, index * 200);
+            });
+        });
+    </script>
+     <!-- Tambahkan ini sebelum tag </body> di file index2.html Anda -->
+<style>
+    /* Tombol Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(to right, var(--rme-orange), #FF5400);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+  
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+  
+    .back-to-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+  
+  <div class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+  
+  <script>
+    // Tampilkan/sembunyikan tombol saat scroll
+    window.onscroll = function() {
+      const backToTopBtn = document.querySelector('.back-to-top');
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    };
+  
+    // Fungsi untuk scroll ke atas
+    function scrollToTop() {
+      // Scroll ke tab container
+      const tabsContainer = document.querySelector('.tabs-container');
+      if (tabsContainer) {
+        tabsContainer.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        // Fallback jika tidak menemukan tabs container
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+    }
+  </script>
+</body>
+</html>

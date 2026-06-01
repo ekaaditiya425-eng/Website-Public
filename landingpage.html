@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathRME - Belajar Matematika Kontekstual</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Variabel Warna */
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #f72585;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --rme-orange: #FF7D00;
+            --rme-blue: #4CC9F0;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e2f4ff 100%);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--rme-orange), #FF5400);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--rme-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--rme-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            background: linear-gradient(135deg, rgba(255, 125, 0, 0.1) 0%, rgba(76, 201, 240, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(76, 201, 240, 0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: fadeInLeft 1s ease;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--rme-orange);
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            color: var(--rme-blue);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--dark-color);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--rme-orange), #FF5400);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(255, 125, 0, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 125, 0, 0.6);
+            background: linear-gradient(to right, #FF5400, var(--rme-orange));
+        }
+
+        .hero-image {
+            animation: fadeInRight 1s ease;
+            position: relative;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            display: block;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Fitur RME Section */
+        .rme-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-top: -50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--rme-orange);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: #6c757d;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .rme-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--rme-blue);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(76, 201, 240, 0.1) 0%, rgba(255, 125, 0, 0.1) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--rme-orange);
+            font-size: 2rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .feature-card p {
+            color: #6c757d;
+        }
+
+        /* Materi Section */
+        .materi-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .materi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .materi-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .materi-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            border-color: var(--rme-blue);
+        }
+
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card-image .context-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--rme-orange);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .materi-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--rme-orange);
+        }
+
+        .card-content p {
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-button {
+            display: inline-block;
+            color: var(--rme-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .card-button:hover {
+            color: var(--rme-orange);
+        }
+
+        .card-button i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .card-button:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Contoh Masalah Nyata */
+        .real-problems {
+            background: linear-gradient(135deg, rgba(76, 201, 240, 0.1) 0%, rgba(255, 125, 0, 0.1) 100%);
+            padding: 5rem 2rem;
+            margin: 3rem 0;
+        }
+
+        .problems-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .problem-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--rme-orange);
+        }
+
+        .problem-card h3 {
+            color: var(--rme-orange);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .problem-card h3 i {
+            margin-right: 10px;
+            color: var(--rme-blue);
+        }
+
+        .problem-card p {
+            margin-bottom: 1rem;
+            color: #6c757d;
+        }
+
+        .problem-solution {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            border-left: 3px solid var(--rme-blue);
+        }
+
+        .problem-solution h4 {
+            color: var(--rme-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #2b2d42, #1a1a2e);
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--rme-blue);
+        }
+
+        .footer-column p {
+            margin-bottom: 1rem;
+            color: #adb5bd;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--rme-blue);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--rme-orange);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-image {
+                margin-top: 2rem;
+            }
+
+            .rme-section {
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+   <!-- Header -->
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <span>MathRME</span>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Materi <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="cp.html">CP ATP</a>
+                    <a href="petakonsep.html">Peta Konsep</a>
+                </div>
+            </li>
+            <li><a href="#">Log in</a></li>
+            <li><a href="#">Sign Up</a></li>
+            <li><a href="tentangrme.html">Tentang RME</a></li>
+        </ul>
+        
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+</header>
+
+<style>
+/* Existing navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+    position: relative;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+/* Dropdown styles - CHANGED TO SOLID ORANGE */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--rme-orange); /* Changed to solid orange */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dropdown-content a {
+    color: white; /* Changed text color to white */
+    padding: 12px 16px;
+    display: block;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255,255,255,0.2); /* Slightly lighter orange on hover */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-toggle i {
+    margin-left: 5px;
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-toggle i {
+    transform: rotate(180deg);
+}
+
+/* Hide mobile menu button on desktop */
+.mobile-menu-btn {
+    display: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+    
+    /* Show menu when active */
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, var(--rme-orange), #FF5400);
+        padding: 1rem;
+        z-index: 100;
+    }
+    
+    .nav-links.active li {
+        margin: 0.5rem 0;
+    }
+    
+    .dropdown-content {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        background-color: rgba(255,125,0,0.8); /* Semi-transparent orange for mobile */
+    }
+    
+    .dropdown-content a {
+        color: white;
+        padding: 8px 0;
+    }
+}
+</style>
+
+<script>
+// Mobile menu toggle functionality
+document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('active');
+});
+</script>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1>Matematika <span>Nyata</span> untuk Kehidupan</h1>
+            <p>Temukan keindahan matematika melalui pendekatan Realistic Mathematics Education (RME) yang menghubungkan konsep bilangan dengan situasi dunia nyata. Belajar melalui konteks nyata, model, dan interaksi sosial.</p>
+            <a href="#" class="cta-button">Mulai Eksplorasi <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="hero-image">
+            <!-- Corrected Google Drive URL format -->
+            <img src="BelajarBilangan.png" 
+                 alt="Ilustrasi Matematika Kontekstual"
+                 style="max-width:100%;height:auto;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+        </div>
+    </div>
+</section>
+
+    <!-- Fitur RME Section -->
+    <section class="rme-section">
+        <div class="section-title">
+            <h2>Pendekatan Realistic Mathematics Education</h2>
+            <p>Metode pembelajaran yang membuat matematika bermakna melalui konteks kehidupan sehari-hari</p>
+        </div>
+        <div class="rme-features">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-globe-asia"></i>
+                </div>
+                <h3>Konteks Nyata</h3>
+                <p>Belajar matematika dimulai dari masalah-masalah nyata yang relevan dengan kehidupan siswa, membuat pembelajaran lebih bermakna.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shapes"></i>
+                </div>
+                <h3>Model Matematika</h3>
+                <p>Siswa mengembangkan model matematika sendiri untuk memecahkan masalah, membangun pemahaman konseptual yang kuat.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Interaksi Sosial</h3>
+                <p>Diskusi dan kolaborasi dengan teman sekelas membantu mengkonstruksi pengetahuan matematika secara bersama-sama.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Materi Section -->
+    <section class="materi-section">
+        <div class="section-title">
+            <h2>Materi Pembelajaran Kontekstual</h2>
+            <p>Pelajari konsep bilangan melalui situasi nyata dan masalah autentik</p>
+        </div>
+        <div class="materi-grid">
+            <div class="materi-card">
+                <div class="card-image">
+                    <img src="https://img.freepik.com/free-vector/supermarket-shopping-cart-concept-illustration_114360-8436.jpg" alt="Bilangan Bulat">
+                    <span class="context-badge">Konteks: Belanja</span>
+                </div>
+                <div class="card-content">
+                    <h3>Bilangan Bulat</h3>
+                    <p>Pelajari konsep bilangan bulat melalui situasi nyata seperti transaksi keuangan (untung-rugi), suhu udara, dan elevasi geografis.</p>
+                    <a href="bilanganbulat.html" class="card-button">Eksplorasi Konteks <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="materi-card">
+                <div class="card-image">
+                    <img src="https://img.freepik.com/free-vector/hand-drawn-baking-theme_23-2148889407.jpg" alt="Bilangan Pecahan">
+                    <span class="context-badge">Konteks: Memasak</span>
+                </div>
+                <div class="card-content">
+                    <h3>Bilangan Pecahan</h3>
+                    <p>Pahami pecahan melalui aktivitas memasak (resep), pembagian kue, dan pengukuran bahan bangunan dalam proyek sederhana.</p>
+                    <a href="bilanganpecahan.html" class="card-button">Eksplorasi Konteks <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="materi-card">
+                <div class="card-image">
+                    <img src="https://img.freepik.com/free-vector/hand-drawn-science-education-background_23-2148499325.jpg" alt="Bilangan Berpangkat">
+                    <span class="context-badge">Konteks: Sains</span>
+                </div>
+                <div class="card-content">
+                    <h3>Bilangan Berpangkat</h3>
+                    <p>Eksplorasi bilangan berpangkat melalui pertumbuhan bakteri, peluruhan radioaktif, dan notasi ilmiah dalam astronomi.</p>
+                    <a href="bilanganpangkat.html" class="card-button">Eksplorasi Konteks <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contoh Masalah Nyata -->
+    <section class="real-problems">
+        <div class="problems-container">
+            <div class="section-title">
+                <h2>Contoh Masalah Nyata</h2>
+                <p>Belajar matematika melalui masalah autentik dari kehidupan sehari-hari</p>
+            </div>
+            
+            <div class="problem-card">
+                <h3><i class="fas fa-shopping-cart"></i> Masalah Belanja Bulanan</h3>
+                <p>Ibu membeli 5 paket mie instan @Rp 3.500, 2 liter minyak goreng @Rp 15.000, dan 3 kaleng susu @Rp 12.500. Ibu membayar dengan uang Rp 100.000. Berapa kembalian yang ibu terima?</p>
+                <div class="problem-solution">
+                    <h4>Konsep Matematika:</h4>
+                    <p>Operasi hitung bilangan bulat (perkalian, penjumlahan, pengurangan) dalam konteks transaksi keuangan sehari-hari.</p>
+                </div>
+            </div>
+            
+            <div class="problem-card">
+                <h3><i class="fas fa-utensils"></i> Masalah Pembagian Kue</h3>
+                <p>Sebuah kue ulang tahun akan dibagi untuk 8 orang teman. Jika Andi ingin membagikan 3/4 bagian kue tersebut secara merata, berapa bagian yang diperoleh setiap teman?</p>
+                <div class="problem-solution">
+                    <h4>Konsep Matematika:</h4>
+                    <p>Operasi pembagian bilangan pecahan dalam konteks pembagian makanan yang adil.</p>
+                </div>
+            </div>
+            
+            <div class="problem-card">
+                <h3><i class="fas fa-chart-line"></i> Masalah Pertumbuhan Bakteri</h3>
+                <p>Sebuah bakteri membelah diri menjadi 2 setiap 20 menit. Jika awalnya ada 5 bakteri, berapa jumlah bakteri setelah 2 jam?</p>
+                <div class="problem-solution">
+                    <h4>Konsep Matematika:</h4>
+                    <p>Bilangan berpangkat dalam konteks pertumbuhan populasi biologis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Tentang MathRME</h3>
+                <p>MathRME adalah platform pembelajaran matematika berbasis Realistic Mathematics Education yang menghubungkan konsep matematika dengan kehidupan nyata.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Konteks Pembelajaran</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Keuangan</a></li>
+                    <li><a href="#">Kuliner</a></li>
+                    <li><a href="#">Olahraga</a></li>
+                    <li><a href="#">Seni & Desain</a></li>
+                    <li><a href="#">Lingkungan</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Kontak Kami</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Perjuangan By Pass Sunyaragi, Kota Cirebon, jawa Barat, Indonesia</p>
+                <p><i class="fas fa-phone"></i> +62 123 4567 890</p>
+                <p><i class="fas fa-envelope"></i> info@mathrme.id</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 MathRME - Realistic Mathematics Education. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,4008 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tentang RME | MathRME</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <i class="fas fa-chalkboard-teacher"></i>
+          <span>MathRME</span>
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="index.html">Beranda</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle"
+              >Materi <i class="fas fa-chevron-down"></i
+            ></a>
+            <div class="dropdown-content">
+              <a href="cp.html">CP ATP</a>
+              <a href="petakonsep.html">Peta Konsep</a>
+            </div>
+          <li><a href="tentangrme.html">Tentang RME</a></li>
+        </ul>
+
+        <div class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </header>
+    <section class="about-hero">
+      <h1>Bilangan Bulat dengan Pendekatan RME</h1>
+      <p>
+        Belajar bilangan bulat melalui konteks nyata menuju pemahaman abstrak
+      </p>
+    </section>
+    <div class="main-container">
+      <div class="tabs-container">
+        <div class="tabs">
+          <button class="tab-button active" onclick="scroolToTarget('fase1')">
+            <i class="fas fa-binoculars"></i> Fase 1: Eksplorasi
+          </button>
+          <button class="tab-button" onclick="scroolToTarget('fase2')">
+            <i class="fas fa-shapes"></i> Fase 2: Garis Bilangan
+          </button>
+          <button class="tab-button" onclick="scroolToTarget('fase3')">
+            <i class="fas fa-wand-magic-sparkles"></i> Fase 3: Operasi Bilangan Bulat
+          </button>
+          <button class="tab-button" onclick="scroolToTarget('fase4')">
+            <i class="fas fa-wand-magic-sparkles"></i> Fase 4: Operasi Campuran Bilangan Bulat
+          </button>
+          <button class="tab-button" onclick="scroolToTarget('fase5')">
+            <i class="fas fa-wand-magic-sparkles"></i> Fase 5: Sifat-sifat Bilangan Bulat
+          </button>
+          <button class="tab-button" onclick="scroolToTarget('fase6')">
+            <i class="fas fa-lock-open"></i> Fase 6: FPB & KPK
+          </button>
+          <button class="tab-button" onclick="scroolToTarget('fase7')">
+            <i class="fas fa-mirror"></i> Fase 7: Refleksi
+          </button>
+          <button class="tab-button" onclick="scroolToTarget('fase8')">
+            <i class="fas fa-question-circle"></i> Fase 8: Penerapan
+          </button>
+        </div>
+      </div>
+      <!--Fase 1-->
+      <div id="fase1" class="phase-content active">
+        <section class="about-section">
+          <h2 class="section-title">Fase 1: Petualangan Bilangan Bulat</h2>
+          <div class="about-content">
+            <div class="about-text">
+              <h2>Kisah Sehari dengan Angka Ajaib</h2>
+
+              <div
+                class="story-intro"
+                style="
+                  background: rgba(255, 125, 0, 0.05);
+                  padding: 1.5rem;
+                  border-radius: 10px;
+                  margin-bottom: 2rem;
+                  border-left: 4px solid var(--rme-orange);
+                "
+              >
+                <p>
+                  <i
+                    class="fas fa-book-open"
+                    style="color: var(--rme-orange)"
+                  ></i>
+                  <em
+                    >Hari itu dimulai seperti biasa, sampai angka-angka
+                    misterius mengubah segalanya. Ikuti petualangan Rina dalam
+                    satu hari penuh kejutan matematika!</em
+                  >
+                </p>
+              </div>
+
+              <div
+                class="context-example"
+                style="background: rgba(76, 201, 240, 0.1)"
+              >
+                <h3>
+                  <i class="fas fa-snowflake"></i> ❄️ Kejutan di Pagi Dingin
+                </h3>
+                <p>
+                  Pukul 06.00, Rina menggeser tirai jendela kabin liburannya di
+                  pegunungan. Matanya langsung tertuju pada termometer digital
+                  di dinding:
+                </p>
+                <p
+                  style="font-size: 1.1rem; text-align: center; margin: 1rem 0"
+                >
+                  "<span
+                    style="
+                      color: var(--rme-blue);
+                      font-weight: bold;
+                      font-size: 1.3rem;
+                    "
+                    >-5°C</span
+                  >? Kok ada tanda minusnya?"
+                </p>
+                <p>
+                  Ibunya menjelaskan sambil mengembunkan napas: "Itu artinya
+                  lima derajat di bawah nol, lebih dingin dari es yang mencair!"
+                </p>
+
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-around;
+                    margin: 1rem 0;
+                  "
+                >
+                  <div style="text-align: center">
+                    <div style="color: var(--rme-red)">Pukul 03.00</div>
+                    <div style="font-weight: bold">-7°C</div>
+                  </div>
+                  <div style="text-align: center">
+                    <div style="color: var(--rme-blue)">Sekarang</div>
+                    <div style="font-weight: bold">-5°C</div>
+                  </div>
+                  <div style="text-align: center">
+                    <div style="color: var(--rme-green)">Pukul 10.00</div>
+                    <div style="font-weight: bold">2°C</div>
+                  </div>
+                </div>
+
+                <p>
+                  <strong>Misteri:</strong> "Jadi kalau suhu naik dari -5°C ke
+                  2°C, itu artinya perubahan sebesar...?" Rina menggaruk-garuk
+                  kepala sambil menatap grafik suhu di aplikasi cuacanya.
+                </p>
+              </div>
+
+              <div
+                class="context-example"
+                style="background: rgba(255, 125, 0, 0.1); margin-top: 2rem"
+              >
+                <h3><i class="fas fa-wallet"></i> 💸 Drama di Minimarket</h3>
+                <p>
+                  Siang hari, Rina ingin membeli cokelat panas di minimarket
+                  dekat kabin. Saat scan QR Code, kasir tiba-tiba menggeleng:
+                </p>
+                <p
+                  style="
+                    font-size: 1.1rem;
+                    text-align: center;
+                    margin: 1rem 0;
+                    padding: 0.5rem;
+                    background: rgba(231, 29, 54, 0.1);
+                    border-radius: 8px;
+                  "
+                >
+                  "Saldomu
+                  <span style="color: var(--rme-red); font-weight: bold"
+                    >-Rp5.000</span
+                  >. Mau isi ulang dulu?"
+                </p>
+
+                <p>Dengan panik, Rina membuka riwayat transaksi:</p>
+                <ul
+                  style="
+                    margin-left: 1.5rem;
+                    color: #555;
+                    list-style-type: none;
+                  "
+                >
+                  <li style="margin-bottom: 0.5rem">
+                    📈
+                    <span style="color: var(--rme-green)">+Rp20.000</span> (Isi
+                    ulang dari Ayah)
+                  </li>
+                  <li style="margin-bottom: 0.5rem">
+                    📉
+                    <span style="color: var(--rme-red)">-Rp25.000</span> (Makan
+                    siang kemarin)
+                  </li>
+                  <li>
+                    🟠 <span style="font-weight: bold">Total: -Rp5.000</span>
+                  </li>
+                </ul>
+
+                <p>
+                  <strong>Kilas Balik:</strong> "Aha! Jadi 20.000 dikurangi
+                  25.000 hasilnya minus 5.000!" Rina tersenyum sambil mengisi
+                  ulang saldo. "Sekarang aku paham arti angka negatif di dunia
+                  nyata!"
+                </p>
+              </div>
+
+              <div
+                class="context-example"
+                style="background: rgba(46, 196, 182, 0.1); margin-top: 2rem"
+              >
+                <h3>
+                  <i class="fas fa-gamepad"></i> 🎮 Pertarungan di Dunia Digital
+                </h3>
+                <p>
+                  Malam hari, Rina bermain game survival favoritnya. Tiba-tiba:
+                </p>
+
+                <div
+                  style="
+                    background: #2b2d42;
+                    color: white;
+                    padding: 1rem;
+                    border-radius: 8px;
+                    font-family: monospace;
+                    margin: 1rem 0;
+                  "
+                >
+                  <div style="color: var(--rme-yellow)">
+                    ⚔️ Kamu terkena jebakan!
+                    <span style="color: var(--rme-red)">-15 poin</span>
+                  </div>
+                  <div style="color: var(--rme-green)">
+                    💰 Menemukan harta karun!
+                    <span style="color: var(--rme-green)">+10 poin</span>
+                  </div>
+                  <div style="margin-top: 0.5rem">
+                    🔄 Skor sekarang:
+                    <span style="color: var(--rme-red); font-weight: bold"
+                      >-5</span
+                    >
+                  </div>
+                </div>
+
+                <p>Rina melihat leaderboard:</p>
+                <table
+                  style="width: 100%; border-collapse: collapse; margin: 1rem 0"
+                >
+                  <tr style="background: rgba(46, 196, 182, 0.2)">
+                    <td style="padding: 0.5rem">🥇 Pemain A</td>
+                    <td style="text-align: right; color: var(--rme-green)">
+                      +120
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 0.5rem">🧩 Kamu</td>
+                    <td style="text-align: right; color: var(--rme-red)">-5</td>
+                  </tr>
+                  <tr style="background: rgba(231, 29, 54, 0.1)">
+                    <td style="padding: 0.5rem">😵 Pemain B</td>
+                    <td style="text-align: right; color: var(--rme-red)">
+                      -30
+                    </td>
+                  </tr>
+                </table>
+
+                <p>
+                  <strong>Strategi:</strong> "Jika aku perlu mencapai zona
+                  positif (0+), berarti butuh..." Rina mencoret-coret di kertas:
+                </p>
+                <p
+                  style="text-align: center; font-size: 1.2rem; margin: 1rem 0"
+                >
+                  <span style="color: var(--rme-red)">-5</span> +
+                  <span style="color: var(--rme-green)">X</span> =
+                  <span style="color: var(--rme-blue)">1</span><br />
+                  <span style="color: var(--rme-green)">X = 6 poin!</span>
+                </p>
+              </div>
+
+              <div
+                class="story-ending"
+                style="
+                  background: rgba(255, 159, 28, 0.1);
+                  padding: 1.5rem;
+                  border-radius: 10px;
+                  margin-top: 2rem;
+                  text-align: center;
+                "
+              >
+                <p>
+                  📚 <strong>Pelajaran Hari Ini:</strong> Angka negatif ternyata
+                  ada di mana-mana! Dari suhu dingin, saldo minus, sampai skor
+                  game. Mereka adalah petunjuk saat sesuatu
+                  <em>kurang dari</em> titik nol.
+                </p>
+                <button
+                  style="
+                    background: var(--rme-orange);
+                    color: white;
+                    border: none;
+                    padding: 0.7rem 1.5rem;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    margin-top: 1rem;
+                  "
+                >
+                  <i class="fas fa-question-circle"></i> Diskusikan Pengalamanmu
+                </button>
+              </div>
+            </div>
+            <div class="about-image">
+              <img
+                src="gambar1.png"
+                alt="Ilustrasi Petualangan Bilangan"
+                style="
+                  border-radius: 15px;
+                  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <div style="margin-top: 1rem; text-align: center">
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- Fase 2 -->
+      <div id="fase2" class="phase-content">
+        <section class="about-section">
+          <h2 class="section-title">Fase 2: Garis Bilangan</h2>
+          <div class="about-content">
+            <div class="about-image">
+              <img
+                src="g15.jpg.png"
+                alt="Ilustrasi Garis Bilangan"
+                style="
+                  border-radius: 15px;
+                  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+                  max-width: 100%;
+                  height: auto;
+                  border: 1px solid #eee;
+                "
+              />
+              <div style="margin-top: 1.5rem; text-align: center">
+              </div>
+            </div>
+            <div class="about-text">
+              <h2
+                style="
+                  color: #4a5568;
+                  font-weight: 600;
+                  border-bottom: 2px solid #e2e8f0;
+                  padding-bottom: 0.5rem;
+                "
+              >
+                🔍 Mengembangkan Model Representasi
+              </h2>
+              <div
+                class="context-example"
+                style="
+                  background: #f8fafc;
+                  padding: 1.5rem;
+                  border-radius: 12px;
+                  border-left: 4px solid #4a6cf7;
+                  margin-bottom: 2rem;
+                "
+              >
+                <p
+                  style="
+                    font-style: italic;
+                    color: #4a5568;
+                    margin: 0;
+                    font-size: 1.05rem;
+                  "
+                >
+                  "Setelah mengalami situasi nyata—suhu udara di pegunungan,
+                  saldo e-wallet minus, dan skor game yang turun—kita mulai
+                  melihat pola bilangan yang muncul. Tapi bagaimana
+                  menggambarkannya secara sistematis?"
+                </p>
+              </div>
+
+              <!-- Kasus 1: Termometer -->
+              <div style="margin: 2rem 0">
+                <h3
+                  style="
+                    color: #4a5568;
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    font-weight: 600;
+                  "
+                >
+                  <i
+                    class="fas fa-temperature-low"
+                    style="color: #e53e3e; font-size: 1.2em"
+                  ></i>
+                  Kasus 1: Termometer Pegunungan
+                </h3>
+                <p style="color: #4a5568">
+                  Ingat saat termometer menunjukkan
+                  <span style="color: #e53e3e; font-weight: bold">-5°C</span>?
+                  Mari buat skala visual:
+                </p>
+
+                <div
+                  style="
+                    background: #f8fafc;
+                    padding: 1.5rem;
+                    border-radius: 12px;
+                    margin-top: 1rem;
+                  "
+                >
+                  <!-- Number Line -->
+                  <div style="position: relative; height: 60px; margin: 20px 0">
+                    <!-- Garis Utama -->
+                    <div
+                      style="
+                        position: absolute;
+                        height: 4px;
+                        width: 100%;
+                        background: linear-gradient(to right, #e53e3e, #38b2ac);
+                        top: 50%;
+                        transform: translateY(-50%);
+                        border-radius: 2px;
+                      "
+                    ></div>
+
+                    <!-- Titik dan Label -->
+                    <div
+                      style="
+                        position: absolute;
+                        left: 0%;
+                        transform: translateX(-50%);
+                        top: 50%;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          width: 12px;
+                          height: 12px;
+                          background: #e53e3e;
+                          border-radius: 50%;
+                          margin: 0 auto 5px;
+                        "
+                      ></div>
+                      <span style="font-weight: 500">-10</span>
+                    </div>
+                    <div
+                      style="
+                        position: absolute;
+                        left: 25%;
+                        transform: translateX(-50%);
+                        top: 50%;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          width: 16px;
+                          height: 16px;
+                          background: #e53e3e;
+                          border-radius: 50%;
+                          margin: 0 auto 5px;
+                          border: 3px solid white;
+                          box-shadow: 0 0 0 2px #e53e3e;
+                        "
+                      ></div>
+                      <span style="font-weight: 600; color: #e53e3e">-5</span>
+                    </div>
+                    <div
+                      style="
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        top: 50%;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          width: 20px;
+                          height: 20px;
+                          background: #2d3748;
+                          border-radius: 50%;
+                          margin: 0 auto 5px;
+                        "
+                      ></div>
+                      <span style="font-weight: 700">0</span>
+                    </div>
+                    <div
+                      style="
+                        position: absolute;
+                        left: 75%;
+                        transform: translateX(-50%);
+                        top: 50%;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          width: 12px;
+                          height: 12px;
+                          background: #38b2ac;
+                          border-radius: 50%;
+                          margin: 0 auto 5px;
+                        "
+                      ></div>
+                      <span style="font-weight: 500">5</span>
+                    </div>
+                    <div
+                      style="
+                        position: absolute;
+                        left: 100%;
+                        transform: translateX(-50%);
+                        top: 50%;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          width: 12px;
+                          height: 12px;
+                          background: #38b2ac;
+                          border-radius: 50%;
+                          margin: 0 auto 5px;
+                        "
+                      ></div>
+                      <span style="font-weight: 500">10</span>
+                    </div>
+                  </div>
+                  <p
+                    style="
+                      color: #e53e3e;
+                      text-align: center;
+                      margin-top: 0.5rem;
+                    "
+                  >
+                    Titik Beku
+                  </p>
+                </div>
+              </div>
+
+              <!-- Kasus 2: E-Wallet -->
+              <div style="margin: 2rem 0">
+                <h3
+                  style="
+                    color: #4a5568;
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    font-weight: 600;
+                  "
+                >
+                  <i
+                    class="fas fa-wallet"
+                    style="color: #38b2ac; font-size: 1.2em"
+                  ></i>
+                  Kasus 2: Drama E-Wallet
+                </h3>
+                <p style="color: #4a5568">
+                  Dari saldo
+                  <span style="color: #e53e3e; font-weight: bold"
+                    >-Rp5.000</span
+                  >
+                  ke
+                  <span style="color: #38b2ac; font-weight: bold">Rp15.000</span
+                  >, bagaimana perjalanannya?
+                </p>
+
+                <div
+                  style="
+                    background: #f8fafc;
+                    padding: 1.5rem;
+                    border-radius: 12px;
+                    margin-top: 1rem;
+                  "
+                >
+                  <!-- Number Line -->
+                  <div style="position: relative; height: 80px; margin: 20px 0">
+                    <!-- Garis Utama -->
+                    <div
+                      style="
+                        position: absolute;
+                        height: 4px;
+                        width: 100%;
+                        background: linear-gradient(to right, #e53e3e, #38b2ac);
+                        top: 50%;
+                        transform: translateY(-50%);
+                        border-radius: 2px;
+                      "
+                    ></div>
+
+                    <!-- Titik dan Label -->
+                    <div
+                      style="
+                        position: absolute;
+                        left: 0%;
+                        transform: translateX(-50%);
+                        top: 50%;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          width: 12px;
+                          height: 12px;
+                          background: #e53e3e;
+                          border-radius: 50%;
+                          margin: 0 auto 5px;
+                        "
+                      ></div>
+                      <span style="font-weight: 500">-10k</span>
+                    </div>
+                    <div
+                      style="
+                        position: absolute;
+                        left: 16.66%;
+                        transform: translateX(-50%);
+                        top: 50%;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          width: 16px;
+                          height: 16px;
+                          background: #e53e3e;
+                          border-radius: 50%;
+                          margin: 0 auto 5px;
+                          border: 3px solid white;
+                          box-shadow: 0 0 0 2px #e53e3e;
+                        "
+                      ></div>
+                      <span style="font-weight: 600; color: #e53e3e">-5k</span>
+                    </div>
+                    <div
+                      style="
+                        position: absolute;
+                        left: 33.33%;
+                        transform: translateX(-50%);
+                        top: 50%;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          width: 20px;
+                          height: 20px;
+                          background: #2d3748;
+                          border-radius: 50%;
+                          margin: 0 auto 5px;
+                        "
+                      ></div>
+                      <span style="font-weight: 700">0</span>
+                    </div>
+                    <div
+                      style="
+                        position: absolute;
+                        left: 66.66%;
+                        transform: translateX(-50%);
+                        top: 50%;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          width: 16px;
+                          height: 16px;
+                          background: #38b2ac;
+                          border-radius: 50%;
+                          margin: 0 auto 5px;
+                          border: 3px solid white;
+                          box-shadow: 0 0 0 2px #38b2ac;
+                        "
+                      ></div>
+                      <span style="font-weight: 600; color: #38b2ac">15k</span>
+                    </div>
+
+                    <!-- Panah Perubahan -->
+                    <div
+                      style="
+                        position: absolute;
+                        left: 16.66%;
+                        width: 50%;
+                        top: 60%;
+                      "
+                    >
+                      <div
+                        style="
+                          height: 2px;
+                          background: #4a5568;
+                          position: relative;
+                        "
+                      >
+                        <div
+                          style="
+                            position: absolute;
+                            right: 0;
+                            top: -5px;
+                            width: 0;
+                            height: 0;
+                            border-left: 8px solid #4a5568;
+                            border-top: 5px solid transparent;
+                            border-bottom: 5px solid transparent;
+                          "
+                        ></div>
+                      </div>
+                      <div
+                        style="
+                          text-align: center;
+                          color: #4a5568;
+                          font-weight: 500;
+                          margin-top: 5px;
+                        "
+                      >
+                        +Rp20.000
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      max-width: 300px;
+                      margin: 0 auto;
+                    "
+                  >
+                    <span style="color: #e53e3e">Awal</span>
+                    <span style="color: #38b2ac">Akhir</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Kasus 3: Game -->
+              <div style="margin: 2rem 0">
+                <h3
+                  style="
+                    color: #4a5568;
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    font-weight: 600;
+                  "
+                >
+                  <i
+                    class="fas fa-gamepad"
+                    style="color: #2ec4b6; font-size: 1.2em"
+                  ></i>
+                  Kasus 3: Mission Escape Negative Zone
+                </h3>
+                <p style="color: #4a5568">Perjalanan skor game:</p>
+                <p style="color: #4a5568">
+                  Skor awal:
+                  <span style="color: #38b2ac; font-weight: bold">0</span><br />
+                  Terkena jebakan:
+                  <span style="color: #e53e3e; font-weight: bold">-15</span
+                  ><br />
+                  Menemukan harta:
+                  <span style="color: #38b2ac; font-weight: bold">+10</span
+                  ><br />
+                  Skor akhir:
+                  <span style="color: #e53e3e; font-weight: bold">-5</span>
+                </p>
+
+                <div
+                  style="
+                    background: #f8fafc;
+                    padding: 1.5rem;
+                    border-radius: 12px;
+                    margin-top: 1rem;
+                  "
+                >
+                  <!-- Number Line -->
+                  <div
+                    style="position: relative; height: 100px; margin: 20px 0"
+                  >
+                    <!-- Garis Utama -->
+                    <div
+                      style="
+                        position: absolute;
+                        height: 4px;
+                        width: 100%;
+                        background: linear-gradient(to right, #e53e3e, #2ec4b6);
+                        top: 50%;
+                        transform: translateY(-50%);
+                        border-radius: 2px;
+                      "
+                    ></div>
+
+                    <!-- Titik dan Label -->
+                    <div
+                      style="
+                        position: absolute;
+                        left: 0%;
+                        transform: translateX(-50%);
+                        top: 50%;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          width: 12px;
+                          height: 12px;
+                          background: #e53e3e;
+                          border-radius: 50%;
+                          margin: 0 auto 5px;
+                        "
+                      ></div>
+                      <span style="font-weight: 500">-20</span>
+                    </div>
+                    <div
+                      style="
+                        position: absolute;
+                        left: 25%;
+                        transform: translateX(-50%);
+                        top: 50%;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          width: 12px;
+                          height: 12px;
+                          background: #e53e3e;
+                          border-radius: 50%;
+                          margin: 0 auto 5px;
+                        "
+                      ></div>
+                      <span style="font-weight: 500">-15</span>
+                    </div>
+                    <div
+                      style="
+                        position: absolute;
+                        left: 37.5%;
+                        transform: translateX(-50%);
+                        top: 50%;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          width: 16px;
+                          height: 16px;
+                          background: #e53e3e;
+                          border-radius: 50%;
+                          margin: 0 auto 5px;
+                          border: 3px solid white;
+                          box-shadow: 0 0 0 2px #e53e3e;
+                        "
+                      ></div>
+                      <span style="font-weight: 600; color: #e53e3e">-5</span>
+                    </div>
+                    <div
+                      style="
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        top: 50%;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          width: 20px;
+                          height: 20px;
+                          background: #2d3748;
+                          border-radius: 50%;
+                          margin: 0 auto 5px;
+                        "
+                      ></div>
+                      <span style="font-weight: 700">0</span>
+                    </div>
+                    <div
+                      style="
+                        position: absolute;
+                        left: 75%;
+                        transform: translateX(-50%);
+                        top: 50%;
+                        text-align: center;
+                      "
+                    >
+                      <div
+                        style="
+                          width: 12px;
+                          height: 12px;
+                          background: #2ec4b6;
+                          border-radius: 50%;
+                          margin: 0 auto 5px;
+                        "
+                      ></div>
+                      <span style="font-weight: 500">+10</span>
+                    </div>
+
+                    <!-- Perjalanan Skor -->
+                    <div
+                      style="
+                        position: absolute;
+                        left: 50%;
+                        width: 25px;
+                        height: 25px;
+                        background: #38b2ac;
+                        border-radius: 50%;
+                        top: 20%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: white;
+                        font-weight: bold;
+                      "
+                    >
+                      0
+                    </div>
+                    <div
+                      style="
+                        position: absolute;
+                        left: 25%;
+                        width: 25px;
+                        height: 25px;
+                        background: #e53e3e;
+                        border-radius: 50%;
+                        top: 20%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: white;
+                        font-weight: bold;
+                      "
+                    >
+                      -15
+                    </div>
+                    <div
+                      style="
+                        position: absolute;
+                        left: 37.5%;
+                        width: 25px;
+                        height: 25px;
+                        background: #e53e3e;
+                        border-radius: 50%;
+                        top: 20%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: white;
+                        font-weight: bold;
+                      "
+                    >
+                      -5
+                    </div>
+
+                    <!-- Panah -->
+                    <div
+                      style="
+                        position: absolute;
+                        left: 50%;
+                        width: 12.5%;
+                        height: 2px;
+                        background: #4a5568;
+                        top: 32.5%;
+                      "
+                    ></div>
+                    <div
+                      style="
+                        position: absolute;
+                        left: 25%;
+                        width: 25%;
+                        height: 2px;
+                        background: #4a5568;
+                        top: 32.5%;
+                      "
+                    ></div>
+                    <div
+                      style="
+                        position: absolute;
+                        left: 37.5%;
+                        width: 12.5%;
+                        height: 2px;
+                        background: #4a5568;
+                        top: 32.5%;
+                      "
+                    ></div>
+                    <div
+                      style="
+                        position: absolute;
+                        left: 62.5%;
+                        top: 30%;
+                        width: 0;
+                        height: 0;
+                        border-left: 8px solid #4a5568;
+                        border-top: 5px solid transparent;
+                        border-bottom: 5px solid transparent;
+                      "
+                    ></div>
+                  </div>
+                  <p
+                    style="
+                      color: #4a5568;
+                      text-align: center;
+                      margin-top: 0.5rem;
+                    "
+                  >
+                    Butuh
+                    <span style="color: #38b2ac; font-weight: bold"
+                      >+5 poin</span
+                    >
+                    untuk mencapai zona positif
+                  </p>
+                </div>
+              </div>
+
+              <div
+                style="
+                  background: #f0fff4;
+                  padding: 1.5rem;
+                  border-radius: 12px;
+                  margin-top: 2rem;
+                  border-left: 4px solid #38b2ac;
+                "
+              >
+                <h3 style="color: #2f855a; margin-top: 0; font-weight: 600">
+                  💡 Aktivitas Pembelajaran
+                </h3>
+                <ul
+                  style="margin-left: 1rem; color: #4a5568; padding-left: 1rem"
+                >
+                  <li style="margin-bottom: 0.5rem">
+                    <strong>Garasi Bilangan</strong>: Buat garis bilangan
+                    raksasa di lantai kelas dengan lakban warna-warni
+                  </li>
+                  <li style="margin-bottom: 0.5rem">
+                    <strong>Simulasi Transaksi</strong>: Gunakan kartu bilangan
+                    (+/-) untuk simulasi transaksi keuangan
+                  </li>
+                  <li>
+                    <strong>Termometer Kelas</strong>: Tempelkan garis bilangan
+                    vertikal untuk merekam suhu harian
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- Fase 3: Operasi Bilangan Bulat -->
+<div id="fase3" class="phase-content">
+  <section class="about-section">
+    <h2 class="section-title">Fase 3: Operasi Bilangan Bulat</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <h2>Petualangan Rina dengan Operasi Bilangan</h2>
+
+        <div class="story-intro" style="background: rgba(255, 125, 0, 0.05); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem; border-left: 4px solid var(--rme-orange);">
+          <p>
+            <i class="fas fa-book-open" style="color: var(--rme-orange)"></i>
+            <em>Setelah memahami bilangan positif dan negatif, Rina kini menjelajahi bagaimana bilangan-bilangan ini berinteraksi melalui operasi matematika. Mari ikuti petualangannya!</em>
+          </p>
+        </div>
+
+        <!-- Penjumlahan -->
+        <div class="context-example" style="background: rgba(76, 201, 240, 0.1)">
+          <h3><i class="fas fa-plus-circle"></i> ➕ Petualangan Penjumlahan</h3>
+          <p>Rina menemukan beberapa pola menarik saat menambahkan bilangan:</p>
+          
+          <div style="background: white; padding: 1rem; border-radius: 8px; margin: 1rem 0; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div>
+                <p><strong>Positif + Positif</strong></p>
+                <p>5 + 3 = <span style="color: var(--rme-green); font-weight: bold">8</span></p>
+                <div class="number-line" style="height: 40px; position: relative; margin: 0.5rem 0;">
+                  <div style="position: absolute; height: 2px; width: 100%; background: #ddd; top: 50%;"></div>
+                  <div style="position: absolute; left: 20%; top: 50%; transform: translateY(-50%); width: 60%; height: 0; border-bottom: 2px solid var(--rme-green);">
+                    <div style="position: absolute; right: 0; top: -5px; width: 0; height: 0; border-left: 8px solid var(--rme-green); border-top: 5px solid transparent; border-bottom: 5px solid transparent;"></div>
+                  </div>
+                  <div style="position: absolute; left: 20%; top: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; background: var(--rme-blue); border-radius: 50%;"></div>
+                  <div style="position: absolute; left: 80%; top: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; background: var(--rme-green); border-radius: 50%;"></div>
+                  <div style="position: absolute; left: 20%; top: 70%; transform: translateX(-50%); font-size: 0.8rem;">5</div>
+                  <div style="position: absolute; left: 80%; top: 70%; transform: translateX(-50%); font-size: 0.8rem;">8</div>
+                </div>
+              </div>
+              <div>
+                <p><strong>Positif + Negatif</strong></p>
+                <p>5 + (-3) = <span style="color: var(--rme-green); font-weight: bold">2</span></p>
+                <div class="number-line" style="height: 40px; position: relative; margin: 0.5rem 0;">
+                  <div style="position: absolute; height: 2px; width: 100%; background: #ddd; top: 50%;"></div>
+                  <div style="position: absolute; left: 50%; top: 50%; transform: translateY(-50%); width: 30%; height: 0; border-bottom: 2px solid var(--rme-red);">
+                    <div style="position: absolute; left: 0; top: -5px; width: 0; height: 0; border-right: 8px solid var(--rme-red); border-top: 5px solid transparent; border-bottom: 5px solid transparent;"></div>
+                  </div>
+                  <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; background: var(--rme-blue); border-radius: 50%;"></div>
+                  <div style="position: absolute; left: 20%; top: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; background: var(--rme-green); border-radius: 50%;"></div>
+                  <div style="position: absolute; left: 50%; top: 70%; transform: translateX(-50%); font-size: 0.8rem;">5</div>
+                  <div style="position: absolute; left: 20%; top: 70%; transform: translateX(-50%); font-size: 0.8rem;">2</div>
+                </div>
+              </div>
+              <div>
+                <p><strong>Negatif + Positif</strong></p>
+                <p>-5 + 3 = <span style="color: var(--rme-red); font-weight: bold">-2</span></p>
+                <div class="number-line" style="height: 40px; position: relative; margin: 0.5rem 0;">
+                  <div style="position: absolute; height: 2px; width: 100%; background: #ddd; top: 50%;"></div>
+                  <div style="position: absolute; left: 30%; top: 50%; transform: translateY(-50%); width: 30%; height: 0; border-bottom: 2px solid var(--rme-green);">
+                    <div style="position: absolute; right: 0; top: -5px; width: 0; height: 0; border-left: 8px solid var(--rme-green); border-top: 5px solid transparent; border-bottom: 5px solid transparent;"></div>
+                  </div>
+                  <div style="position: absolute; left: 30%; top: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; background: var(--rme-red); border-radius: 50%;"></div>
+                  <div style="position: absolute; left: 60%; top: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; background: var(--rme-red); border-radius: 50%;"></div>
+                  <div style="position: absolute; left: 30%; top: 70%; transform: translateX(-50%); font-size: 0.8rem;">-5</div>
+                  <div style="position: absolute; left: 60%; top: 70%; transform: translateX(-50%); font-size: 0.8rem;">-2</div>
+                </div>
+              </div>
+              <div>
+                <p><strong>Negatif + Negatif</strong></p>
+                <p>-5 + (-3) = <span style="color: var(--rme-red); font-weight: bold">-8</span></p>
+                <div class="number-line" style="height: 40px; position: relative; margin: 0.5rem 0;">
+                  <div style="position: absolute; height: 2px; width: 100%; background: #ddd; top: 50%;"></div>
+                  <div style="position: absolute; left: 50%; top: 50%; transform: translateY(-50%); width: 30%; height: 0; border-bottom: 2px solid var(--rme-red);">
+                    <div style="position: absolute; left: 0; top: -5px; width: 0; height: 0; border-right: 8px solid var(--rme-red); border-top: 5px solid transparent; border-bottom: 5px solid transparent;"></div>
+                  </div>
+                  <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; background: var(--rme-red); border-radius: 50%;"></div>
+                  <div style="position: absolute; left: 20%; top: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; background: var(--rme-red); border-radius: 50%;"></div>
+                  <div style="position: absolute; left: 50%; top: 70%; transform: translateX(-50%); font-size: 0.8rem;">-5</div>
+                  <div style="position: absolute; left: 20%; top: 70%; transform: translateX(-50%); font-size: 0.8rem;">-8</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: rgba(76, 201, 240, 0.2); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+            <p><i class="fas fa-lightbulb" style="color: var(--rme-blue)"></i> <strong>Pola Penjumlahan:</strong></p>
+            <ul style="margin-left: 1.5rem;">
+              <li>Positif + Positif = <span style="color: var(--rme-green); font-weight: bold">Positif</span> (jumlahkan)</li>
+              <li>Positif + Negatif = <span style="color: var(--rme-blue); font-weight: bold">Kurangkan</span> (ikuti tanda bilangan lebih besar)</li>
+              <li>Negatif + Positif = <span style="color: var(--rme-blue); font-weight: bold">Kurangkan</span> (ikuti tanda bilangan lebih besar)</li>
+              <li>Negatif + Negatif = <span style="color: var(--rme-red); font-weight: bold">Negatif</span> (jumlahkan)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pengurangan -->
+        <div class="context-example" style="background: rgba(255, 125, 0, 0.1); margin-top: 2rem;">
+          <h3><i class="fas fa-minus-circle"></i> ➖ Misteri Pengurangan</h3>
+          <p>Rina menemukan bahwa pengurangan bisa diubah menjadi penjumlahan:</p>
+          
+          <div style="background: white; padding: 1rem; border-radius: 8px; margin: 1rem 0; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div>
+                <p><strong>Positif - Positif</strong></p>
+                <p>5 - 3 = 5 + (-3) = <span style="color: var(--rme-green); font-weight: bold">2</span></p>
+                <div class="number-line" style="height: 40px; position: relative; margin: 0.5rem 0;">
+                  <div style="position: absolute; height: 2px; width: 100%; background: #ddd; top: 50%;"></div>
+                  <div style="position: absolute; left: 50%; top: 50%; transform: translateY(-50%); width: 30%; height: 0; border-bottom: 2px solid var(--rme-red);">
+                    <div style="position: absolute; left: 0; top: -5px; width: 0; height: 0; border-right: 8px solid var(--rme-red); border-top: 5px solid transparent; border-bottom: 5px solid transparent;"></div>
+                  </div>
+                  <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; background: var(--rme-blue); border-radius: 50%;"></div>
+                  <div style="position: absolute; left: 20%; top: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; background: var(--rme-green); border-radius: 50%;"></div>
+                  <div style="position: absolute; left: 50%; top: 70%; transform: translateX(-50%); font-size: 0.8rem;">5</div>
+                  <div style="position: absolute; left: 20%; top: 70%; transform: translateX(-50%); font-size: 0.8rem;">2</div>
+                </div>
+              </div>
+              <div>
+                <p><strong>Positif - Negatif</strong></p>
+                <p>5 - (-3) = 5 + 3 = <span style="color: var(--rme-green); font-weight: bold">8</span></p>
+                <div class="number-line" style="height: 40px; position: relative; margin: 0.5rem 0;">
+                  <div style="position: absolute; height: 2px; width: 100%; background: #ddd; top: 50%;"></div>
+                  <div style="position: absolute; left: 20%; top: 50%; transform: translateY(-50%); width: 60%; height: 0; border-bottom: 2px solid var(--rme-green);">
+                    <div style="position: absolute; right: 0; top: -5px; width: 0; height: 0; border-left: 8px solid var(--rme-green); border-top: 5px solid transparent; border-bottom: 5px solid transparent;"></div>
+                  </div>
+                  <div style="position: absolute; left: 20%; top: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; background: var(--rme-blue); border-radius: 50%;"></div>
+                  <div style="position: absolute; left: 80%; top: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; background: var(--rme-green); border-radius: 50%;"></div>
+                  <div style="position: absolute; left: 20%; top: 70%; transform: translateX(-50%); font-size: 0.8rem;">5</div>
+                  <div style="position: absolute; left: 80%; top: 70%; transform: translateX(-50%); font-size: 0.8rem;">8</div>
+                </div>
+              </div>
+              <div>
+                <p><strong>Negatif - Positif</strong></p>
+                <p>-5 - 3 = -5 + (-3) = <span style="color: var(--rme-red); font-weight: bold">-8</span></p>
+                <div class="number-line" style="height: 40px; position: relative; margin: 0.5rem 0;">
+                  <div style="position: absolute; height: 2px; width: 100%; background: #ddd; top: 50%;"></div>
+                  <div style="position: absolute; left: 50%; top: 50%; transform: translateY(-50%); width: 30%; height: 0; border-bottom: 2px solid var(--rme-red);">
+                    <div style="position: absolute; left: 0; top: -5px; width: 0; height: 0; border-right: 8px solid var(--rme-red); border-top: 5px solid transparent; border-bottom: 5px solid transparent;"></div>
+                  </div>
+                  <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; background: var(--rme-red); border-radius: 50%;"></div>
+                  <div style="position: absolute; left: 20%; top: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; background: var(--rme-red); border-radius: 50%;"></div>
+                  <div style="position: absolute; left: 50%; top: 70%; transform: translateX(-50%); font-size: 0.8rem;">-5</div>
+                  <div style="position: absolute; left: 20%; top: 70%; transform: translateX(-50%); font-size: 0.8rem;">-8</div>
+                </div>
+              </div>
+              <div>
+                <p><strong>Negatif - Negatif</strong></p>
+                <p>-5 - (-3) = -5 + 3 = <span style="color: var(--rme-red); font-weight: bold">-2</span></p>
+                <div class="number-line" style="height: 40px; position: relative; margin: 0.5rem 0;">
+                  <div style="position: absolute; height: 2px; width: 100%; background: #ddd; top: 50%;"></div>
+                  <div style="position: absolute; left: 30%; top: 50%; transform: translateY(-50%); width: 30%; height: 0; border-bottom: 2px solid var(--rme-green);">
+                    <div style="position: absolute; right: 0; top: -5px; width: 0; height: 0; border-left: 8px solid var(--rme-green); border-top: 5px solid transparent; border-bottom: 5px solid transparent;"></div>
+                  </div>
+                  <div style="position: absolute; left: 30%; top: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; background: var(--rme-red); border-radius: 50%;"></div>
+                  <div style="position: absolute; left: 60%; top: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; background: var(--rme-red); border-radius: 50%;"></div>
+                  <div style="position: absolute; left: 30%; top: 70%; transform: translateX(-50%); font-size: 0.8rem;">-5</div>
+                  <div style="position: absolute; left: 60%; top: 70%; transform: translateX(-50%); font-size: 0.8rem;">-2</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: rgba(255, 125, 0, 0.2); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+            <p><i class="fas fa-lightbulb" style="color: var(--rme-orange)"></i> <strong>Rahasia Pengurangan:</strong></p>
+            <p>"Mengurangi sama dengan menambah lawannya!"</p>
+            <p style="font-family: monospace; text-align: center; margin: 0.5rem 0;">a - b = a + (-b)</p>
+            <p style="font-family: monospace; text-align: center;">a - (-b) = a + b</p>
+          </div>
+        </div>
+
+        <!-- Perkalian dan Pembagian -->
+        <div class="context-example" style="background: rgba(46, 196, 182, 0.1); margin-top: 2rem;">
+          <h3><i class="fas fa-times-circle"></i> ✖️ & <i class="fas fa-divide"></i> ➗ Keajaiban Perkalian & Pembagian</h3>
+          <p>Rina menemukan pola menarik dalam perkalian dan pembagian:</p>
+          
+          <div style="background: white; padding: 1rem; border-radius: 8px; margin: 1rem 0; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div>
+                <p><strong>Perkalian</strong></p>
+                <p>5 × 3 = <span style="color: var(--rme-green); font-weight: bold">15</span></p>
+                <p>5 × (-3) = <span style="color: var(--rme-red); font-weight: bold">-15</span></p>
+                <p>-5 × 3 = <span style="color: var(--rme-red); font-weight: bold">-15</span></p>
+                <p>-5 × (-3) = <span style="color: var(--rme-green); font-weight: bold">15</span></p>
+              </div>
+              <div>
+                <p><strong>Pembagian</strong></p>
+                <p>15 ÷ 3 = <span style="color: var(--rme-green); font-weight: bold">5</span></p>
+                <p>15 ÷ (-3) = <span style="color: var(--rme-red); font-weight: bold">-5</span></p>
+                <p>-15 ÷ 3 = <span style="color: var(--rme-red); font-weight: bold">-5</span></p>
+                <p>-15 ÷ (-3) = <span style="color: var(--rme-green); font-weight: bold">5</span></p>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: rgba(46, 196, 182, 0.2); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+            <p><i class="fas fa-lightbulb" style="color: var(--rme-teal)"></i> <strong>Pola Tanda:</strong></p>
+            <ul style="margin-left: 1.5rem;">
+              <li><span style="color: var(--rme-green); font-weight: bold">Positif ×/÷ Positif = Positif</span></li>
+              <li><span style="color: var(--rme-red); font-weight: bold">Positif ×/÷ Negatif = Negatif</span></li>
+              <li><span style="color: var(--rme-red); font-weight: bold">Negatif ×/÷ Positif = Negatif</span></li>
+              <li><span style="color: var(--rme-green); font-weight: bold">Negatif ×/÷ Negatif = Positif</span></li>
+            </ul>
+            <p style="text-align: center; margin-top: 0.5rem; font-family: monospace;">
+              "Tanda sama → Hasil positif"<br>
+              "Tanda beda → Hasil negatif"
+            </p>
+          </div>
+        </div>
+
+        <!-- Aktivitas Interaktif -->
+        <div class="story-ending" style="background: rgba(255, 159, 28, 0.1); padding: 1.5rem; border-radius: 10px; margin-top: 2rem; text-align: center;">
+          <p>📚 <strong>Pelajaran Hari Ini:</strong> Operasi bilangan bulat memiliki pola yang konsisten!</p>
+          <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0;">
+            <span style="background: rgba(76, 201, 240, 0.2); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.9rem;">Penjumlahan</span>
+            <span style="background: rgba(255, 125, 0, 0.2); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.9rem;">Pengurangan</span>
+            <span style="background: rgba(46, 196, 182, 0.2); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.9rem;">Perkalian</span>
+            <span style="background: rgba(159, 89, 255, 0.2); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.9rem;">Pembagian</span>
+          </div>
+         <button 
+  onclick="window.location.href='latihan1.html'"
+  style="background: var(--rme-orange); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 50px; cursor: pointer; margin-top: 1rem;"
+>
+  <i class="fas fa-puzzle-piece"></i> Coba Tantangan Operasi Bilangan
+</button>
+        </div>
+      </div>
+      <div class="about-image">
+        <img src="g22.png" alt="Ilustrasi Operasi Bilangan" style="border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
+        <div style="margin-top: 1rem; text-align: center;">
+          <div style="background: white; padding: 1rem; border-radius: 8px; margin-top: 1rem; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+            <p style="margin: 0; font-weight: bold; color: var(--rme-orange);">💡 Tips Rina</p>
+            <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">"Ingat pola tanda untuk perkalian/pembagian: Sama = Positif, Beda = Negatif!"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+       <!-- Fase 4: Operasi Campuran Bilangan Bulat -->
+<div id="fase4" class="phase-content">
+  <section class="about-section">
+    <h2 class="section-title">Fase 4: Operasi Campuran Bilangan Bulat</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <h2>Petualangan Rina dengan Operasi Campuran</h2>
+
+        <div class="story-intro" style="background: rgba(255, 125, 0, 0.05); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem; border-left: 4px solid var(--rme-orange);">
+          <p>
+            <i class="fas fa-book-open" style="color: var(--rme-orange)"></i>
+            <em>Setelah memahami operasi dasar bilangan bulat, Rina menemukan tantangan baru ketika operasi penjumlahan, pengurangan, perkalian, dan pembagian bercampur dalam satu permasalahan...</em>
+          </p>
+        </div>
+
+        <!-- Kasus 1: Perjalanan Naik Turun Gunung -->
+        <div class="context-example" style="background: rgba(76, 201, 240, 0.1)">
+          <h3><i class="fas fa-mountain"></i> ⛰️ Ekspedisi Pendakian</h3>
+          <p>Rina mendaki gunung dengan tim sekolahnya. Mereka mencatat perubahan ketinggian:</p>
+          
+          <div style="background: white; padding: 1rem; border-radius: 8px; margin: 1rem 0; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+            <div style="display: flex; justify-content: space-around; text-align: center; flex-wrap: wrap;">
+              <div style="margin: 0.5rem;">
+                <p><strong>Basecamp</strong></p>
+                <p>0 meter</p>
+              </div>
+              <div style="margin: 0.5rem;">
+                <p><i class="fas fa-arrow-up" style="color: var(--rme-green)"></i> +500m</p>
+                <p>Pos 1</p>
+              </div>
+              <div style="margin: 0.5rem;">
+                <p><i class="fas fa-arrow-down" style="color: var(--rme-red)"></i> -200m</p>
+                <p>Turun ke lembah</p>
+              </div>
+              <div style="margin: 0.5rem;">
+                <p><i class="fas fa-arrow-up" style="color: var(--rme-green)"></i> +800m</p>
+                <p>Pos 2</p>
+              </div>
+            </div>
+          </div>
+
+          <p><strong>Masalah:</strong> "Berapa total ketinggian yang telah kami capai?" Rina menulis di buku catatannya:</p>
+          
+          <div style="background: #f8f9fc; padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid var(--rme-blue);">
+            <p style="text-align: center; font-family: monospace; font-size: 1.1rem;">
+              0 + 500 + (-200) + 800 = ?
+            </p>
+            <p style="text-align: center;">
+              "Aku bisa hitung berurutan: (0+500)=500, lalu (500-200)=300, terakhir (300+800)=<span style="color: var(--rme-green); font-weight: bold;">1100 meter</span>"
+            </p>
+          </div>
+        </div>
+
+        <!-- Kasus 2: Belanja dan Diskon -->
+        <div class="context-example" style="background: rgba(255, 125, 0, 0.1); margin-top: 2rem;">
+          <h3><i class="fas fa-shopping-bag"></i> 🛍️ Strategi Belanja Pintar</h3>
+          <p>Rina ingin membeli 3 buku (@Rp25.000) dan 2 pensil (@Rp5.000) dengan diskon Rp10.000:</p>
+          
+          <div style="background: white; padding: 1rem; border-radius: 8px; margin: 1rem 0; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span>3 buku × Rp25.000</span>
+              <span style="color: var(--rme-blue);">+ Rp75.000</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span>2 pensil × Rp5.000</span>
+              <span style="color: var(--rme-blue);">+ Rp10.000</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; border-top: 1px dashed #ddd; padding-top: 0.5rem;">
+              <span>Subtotal</span>
+              <span style="font-weight: bold;">Rp85.000</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; color: var(--rme-red);">
+              <span>Diskon</span>
+              <span>- Rp10.000</span>
+            </div>
+          </div>
+
+          <p><strong>Perhitungan:</strong> "Bagaimana menulis ini dalam satu ekspresi matematika?"</p>
+          
+          <div style="background: #f8f9fc; padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid var(--rme-orange);">
+            <p style="text-align: center; font-family: monospace; font-size: 1.1rem;">
+              (3 × 25.000) + (2 × 5.000) - 10.000 = ?
+            </p>
+            <p style="text-align: center;">
+              "Kerjakan perkalian dulu: 75.000 + 10.000 = 85.000, lalu kurangi diskon: 85.000 - 10.000 = <span style="color: var(--rme-green); font-weight: bold;">Rp75.000</span>"
+            </p>
+          </div>
+          
+          <div style="background: rgba(255, 159, 28, 0.1); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+            <p><i class="fas fa-lightbulb" style="color: var(--rme-orange)"></i> <strong>Aturan Operasi Campuran:</strong> Perkalian/pembagian dikerjakan sebelum penjumlahan/pengurangan (DMAS: Division, Multiplication, Addition, Subtraction)</p>
+          </div>
+        </div>
+
+        <!-- Kasus 3: Tantangan Game Matematika -->
+        <div class="context-example" style="background: rgba(46, 196, 182, 0.1); margin-top: 2rem;">
+          <h3><i class="fas fa-gamepad"></i> 🎮 Level Baru di Math Quest</h3>
+          <p>Rina memainkan game matematika dengan tantangan operasi campuran:</p>
+          
+          <div style="background: #2b2d42; color: white; padding: 1.5rem; border-radius: 8px; margin: 1rem 0; font-family: monospace;">
+            <div style="text-align: center; margin-bottom: 1rem; color: var(--rme-yellow);">
+              🧩 LEVEL 4: OPERASI CAMPURAN 🧩
+            </div>
+            <div style="background: #3a3d5a; padding: 1rem; border-radius: 5px; margin-bottom: 0.5rem;">
+              <p style="margin: 0; text-align: center;">
+                12 + (-4) × 3 = ?
+              </p>
+            </div>
+            <div style="display: flex; justify-content: space-around; margin-top: 1rem;">
+              <button style="background: #e63946; border: none; padding: 0.5rem 1rem; border-radius: 5px; color: white; cursor: pointer;">24</button>
+              <button style="background: #2ec4b6; border: none; padding: 0.5rem 1rem; border-radius: 5px; color: white; cursor: pointer;">0</button>
+              <button style="background: #457b9d; border: none; padding: 0.5rem 1rem; border-radius: 5px; color: white; cursor: pointer;">-24</button>
+            </div>
+          </div>
+
+          <p><strong>Strategi Rina:</strong> "Aku ingat aturan DMAS! Kerjakan perkalian dulu:"</p>
+          
+          <div style="background: #f8f9fc; padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid var(--rme-teal);">
+            <p style="text-align: center; font-family: monospace; font-size: 1.1rem;">
+              12 + (-4 × 3) = 12 + (-12) = 0
+            </p>
+            <p style="text-align: center; color: var(--rme-teal); font-weight: bold;">
+              Jawaban benar: 0
+            </p>
+          </div>
+        </div>
+
+        <!-- Kasus 4: Pembagian dalam Operasi Campuran -->
+        <div class="context-example" style="background: rgba(159, 89, 255, 0.1); margin-top: 2rem;">
+          <h3><i class="fas fa-cookie-bite"></i> 🍪 Pembagian Kue yang Adil</h3>
+          <p>Rina ingin membagi 24 kue untuk 3 temannya, dengan masing-masing mendapat 2 kue coklat:</p>
+          
+          <div style="background: white; padding: 1rem; border-radius: 8px; margin: 1rem 0; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span>Total kue</span>
+              <span>24</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span>Jumlah teman</span>
+              <span>3</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; border-top: 1px dashed #ddd; padding-top: 0.5rem;">
+              <span>Kue per orang</span>
+              <span>24 ÷ 3 = 8</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; color: var(--rme-purple);">
+              <span>Dikurangi 2 coklat</span>
+              <span>- 2</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 0.5rem; font-weight: bold; border-top: 1px dashed #ddd; padding-top: 0.5rem;">
+              <span>Sisa kue lainnya</span>
+              <span>(24 ÷ 3) - 2 = 6</span>
+            </div>
+          </div>
+
+          <p><strong>Ekspresi Matematika:</strong> "Bagaimana jika ditulis dalam satu ekspresi?"</p>
+          
+          <div style="background: #f8f9fc; padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid var(--rme-purple);">
+            <p style="text-align: center; font-family: monospace; font-size: 1.1rem;">
+              (24 ÷ 3) - 2 = 8 - 2 = 6
+            </p>
+            <p style="text-align: center;">
+              "Tanda kurung membantu menentukan operasi yang harus dikerjakan lebih dulu!"
+            </p>
+          </div>
+        </div>
+
+        <!-- Kesimpulan dan Aktivitas -->
+        <div class="story-ending" style="background: rgba(255, 159, 28, 0.1); padding: 1.5rem; border-radius: 10px; margin-top: 2rem; text-align: center;">
+          <p>📚 <strong>Pelajaran Hari Ini:</strong> Dalam operasi campuran, kita harus memperhatikan:</p>
+          <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0;">
+            <span style="background: rgba(76, 201, 240, 0.2); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.9rem;">Urutan operasi (DMAS)</span>
+            <span style="background: rgba(255, 125, 0, 0.2); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.9rem;">Penggunaan tanda kurung</span>
+            <span style="background: rgba(46, 196, 182, 0.2); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.9rem;">Operasi bilangan negatif</span>
+          </div>
+          <button 
+  onclick="window.location.href='latihan2.html'"
+  style="background: var(--rme-orange); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 50px; cursor: pointer; margin-top: 1rem;"
+>
+  <i class="fas fa-puzzle-piece"></i> Coba Tantangan Operasi Hitung Campuran Bilangan
+</button>
+        </div>
+      </div>
+      <div class="about-image">
+        <img src="g20.png" alt="Ilustrasi Operasi Campuran" style="border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
+        <div style="margin-top: 1rem; text-align: center;">
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+      <!-- Fase 5 -->
+      <div id="fase5" class="phase-content">
+        <section class="about-section">
+          <h2 class="section-title">Fase 5: Sifat-sifat Bilangan Bulat</h2>
+          <div class="about-content">
+            <div class="about-text">
+              <h2>Petualangan Lanjutan Rina dengan Angka</h2>
+
+              <div
+                class="story-intro"
+                style="
+                  background: rgba(255, 125, 0, 0.05);
+                  padding: 1.5rem;
+                  border-radius: 10px;
+                  margin-bottom: 2rem;
+                  border-left: 4px solid var(--rme-orange);
+                "
+              >
+                <p>
+                  <i
+                    class="fas fa-book-open"
+                    style="color: var(--rme-orange)"
+                  ></i>
+                  <em
+                    >Setelah memahami bilangan negatif, Rina menemukan keajaiban
+                    saat angka-angka ini saling berinteraksi. Mari ikuti
+                    penemuannya!</em
+                  >
+                </p>
+              </div>
+
+              <!-- Komutatif -->
+              <div
+                class="context-example"
+                style="background: rgba(76, 201, 240, 0.1)"
+              >
+                <h3><i class="fas fa-random"></i> 🔄 Kejutan di Toko Buku</h3>
+                <p>
+                  Rina ingin membeli buku seharga Rp15.000 dan pensil Rp5.000.
+                  Saat di kasir terjadi percakapan lucu:
+                </p>
+
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-around;
+                    margin: 1rem 0;
+                    flex-wrap: wrap;
+                  "
+                >
+                  <div
+                    style="
+                      background: white;
+                      padding: 1rem;
+                      border-radius: 8px;
+                      margin: 0.5rem;
+                      text-align: center;
+                      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                    "
+                  >
+                    <p><strong>Cara 1:</strong></p>
+                    <p>
+                      Buku dulu:
+                      <span style="color: var(--rme-blue)">+15.000</span>
+                    </p>
+                    <p>
+                      Lalu pensil:
+                      <span style="color: var(--rme-blue)">+5.000</span>
+                    </p>
+                    <div
+                      style="
+                        border-top: 1px dashed #ccc;
+                        margin: 0.5rem 0;
+                        padding-top: 0.5rem;
+                      "
+                    >
+                      Total: <span style="font-weight: bold">+20.000</span>
+                    </div>
+                  </div>
+                  <div
+                    style="
+                      background: white;
+                      padding: 1rem;
+                      border-radius: 8px;
+                      margin: 0.5rem;
+                      text-align: center;
+                      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                    "
+                  >
+                    <p><strong>Cara 2:</strong></p>
+                    <p>
+                      Pensil dulu:
+                      <span style="color: var(--rme-blue)">+5.000</span>
+                    </p>
+                    <p>
+                      Lalu buku:
+                      <span style="color: var(--rme-blue)">+15.000</span>
+                    </p>
+                    <div
+                      style="
+                        border-top: 1px dashed #ccc;
+                        margin: 0.5rem 0;
+                        padding-top: 0.5rem;
+                      "
+                    >
+                      Total: <span style="font-weight: bold">+20.000</span>
+                    </div>
+                  </div>
+                </div>
+
+                <p>
+                  <strong>Penemuan:</strong> "Wah, ternyata urutan belanja tidak
+                  mengubah total bayar!" Rina mencatat di buku hariannya:
+                </p>
+                <div
+                  style="
+                    background: white;
+                    padding: 1rem;
+                    border-radius: 8px;
+                    margin: 1rem 0;
+                    text-align: center;
+                    font-family: monospace;
+                    border: 1px solid var(--rme-blue);
+                  "
+                >
+                  a + b = b + a
+                </div>
+                <p
+                  style="
+                    color: var(--rme-blue);
+                    font-weight: bold;
+                    text-align: center;
+                  "
+                >
+                  Sifat Komutatif Penjumlahan
+                </p>
+              </div>
+
+              <!-- Asosiatif -->
+              <div
+                class="context-example"
+                style="background: rgba(255, 125, 0, 0.1); margin-top: 2rem"
+              >
+                <h3>
+                  <i class="fas fa-layer-group"></i> 🧩 Teka-teki Hadiah Ulang
+                  Tahun
+                </h3>
+                <p>Rina mendapat 3 paket hadiah yang masing-masing berisi:</p>
+
+                <div
+                  style="
+                    background: white;
+                    padding: 1rem;
+                    border-radius: 8px;
+                    margin: 1rem 0;
+                    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                  "
+                >
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-around;
+                      flex-wrap: wrap;
+                    "
+                  >
+                    <div style="text-align: center; margin: 0.5rem">
+                      <div>📦 Paket A</div>
+                      <div>2 coklat + 3 permen</div>
+                    </div>
+                    <div style="text-align: center; margin: 0.5rem">
+                      <div>🎁 Paket B</div>
+                      <div>3 coklat + 1 permen</div>
+                    </div>
+                  </div>
+                </div>
+
+                <p>Saat menghitung total, Rina menemukan dua cara:</p>
+
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-around;
+                    margin: 1rem 0;
+                    flex-wrap: wrap;
+                  "
+                >
+                  <div
+                    style="
+                      background: white;
+                      padding: 1rem;
+                      border-radius: 8px;
+                      margin: 0.5rem;
+                      text-align: center;
+                      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                    "
+                  >
+                    <p><strong>Cara Kelompok 1:</strong></p>
+                    <p>(2 + 3) coklat = 5</p>
+                    <p>+ (3 + 1) permen = 4</p>
+                    <div
+                      style="
+                        border-top: 1px dashed #ccc;
+                        margin: 0.5rem 0;
+                        padding-top: 0.5rem;
+                      "
+                    >
+                      Total: 9 item
+                    </div>
+                  </div>
+                  <div
+                    style="
+                      background: white;
+                      padding: 1rem;
+                      border-radius: 8px;
+                      margin: 0.5rem;
+                      text-align: center;
+                      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                    "
+                  >
+                    <p><strong>Cara Kelompok 2:</strong></p>
+                    <p>2 coklat + 3 permen = 5</p>
+                    <p>+ 3 coklat + 1 permen = 4</p>
+                    <div
+                      style="
+                        border-top: 1px dashed #ccc;
+                        margin: 0.5rem 0;
+                        padding-top: 0.5rem;
+                      "
+                    >
+                      Total: 9 item
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  style="
+                    background: #f8f9fc;
+                    padding: 1rem;
+                    border-radius: 8px;
+                    margin: 1rem 0;
+                    border-left: 4px solid var(--rme-orange);
+                  "
+                >
+                  <p>
+                    <strong>Catatan Rina:</strong> "Ternyata cara mengelompokkan
+                    hadiah tidak mengubah totalnya!"
+                  </p>
+                  <div
+                    style="
+                      font-family: monospace;
+                      text-align: center;
+                      margin-top: 0.5rem;
+                    "
+                  >
+                    (a + b) + c = a + (b + c)
+                  </div>
+                  <p
+                    style="
+                      color: var(--rme-orange);
+                      font-weight: bold;
+                      text-align: center;
+                    "
+                  >
+                    Sifat Asosiatif Penjumlahan
+                  </p>
+                </div>
+              </div>
+
+              <!-- Distributif -->
+              <div
+                class="context-example"
+                style="background: rgba(46, 196, 182, 0.1); margin-top: 2rem"
+              >
+                <h3><i class="fas fa-gift"></i> 🎁 Strategi Berbagi Kue</h3>
+                <p>
+                  Rina ingin membagikan kue ke 2 teman. Masing-masing mendapat:
+                </p>
+
+                <div
+                  style="
+                    background: white;
+                    padding: 1rem;
+                    border-radius: 8px;
+                    margin: 1rem 0;
+                    text-align: center;
+                    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                  "
+                >
+                  <p>
+                    1 kue coklat
+                    <span style="color: var(--rme-green)">+</span> 2 kue
+                    stroberi
+                  </p>
+                  <p><strong>Untuk 2 orang</strong></p>
+                </div>
+
+                <p>Rina menghitung dengan dua cara:</p>
+
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-around;
+                    margin: 1rem 0;
+                    flex-wrap: wrap;
+                  "
+                >
+                  <div
+                    style="
+                      background: white;
+                      padding: 1rem;
+                      border-radius: 8px;
+                      margin: 0.5rem;
+                      text-align: center;
+                      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                    "
+                  >
+                    <p><strong>Cara 1:</strong></p>
+                    <p>2 × (1 coklat + 2 stroberi)</p>
+                    <p>= 2 × 3 = 6 kue</p>
+                  </div>
+                  <div
+                    style="
+                      background: white;
+                      padding: 1rem;
+                      border-radius: 8px;
+                      margin: 0.5rem;
+                      text-align: center;
+                      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                    "
+                  >
+                    <p><strong>Cara 2:</strong></p>
+                    <p>(2×1 coklat) + (2×2 stroberi)</p>
+                    <p>= 2 + 4 = 6 kue</p>
+                  </div>
+                </div>
+
+                <div
+                  style="
+                    background: #2b2d42;
+                    color: white;
+                    padding: 1rem;
+                    border-radius: 8px;
+                    margin: 1rem 0;
+                    font-family: monospace;
+                  "
+                >
+                  <p style="text-align: center; margin: 0">
+                    a × (b + c) = (a × b) + (a × c)
+                  </p>
+                </div>
+                <p
+                  style="
+                    color: var(--rme-teal);
+                    font-weight: bold;
+                    text-align: center;
+                  "
+                >
+                  Sifat Distributif Perkalian
+                </p>
+              </div>
+              <!-- Identitas -->
+              <div
+                class="context-example"
+                style="background: rgba(159, 89, 255, 0.1); margin-top: 2rem"
+              >
+                <h3><i class="fas fa-magic"></i> ✨ Keajaiban Angka Netral</h3>
+                <p>
+                  Di perpustakaan sekolah, Rina menemukan buku catatan
+                  matematika lama:
+                </p>
+
+                <div
+                  style="
+                    background: white;
+                    padding: 1rem;
+                    border-radius: 8px;
+                    margin: 1rem 0;
+                    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                    text-align: center;
+                  "
+                >
+                  <p><strong>Eksperimen Penjumlahan:</strong></p>
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: center;
+                      gap: 1rem;
+                      margin: 1rem 0;
+                    "
+                  >
+                    <div>
+                      <p>
+                        5 +
+                        <span
+                          style="color: var(--rme-purple); font-weight: bold"
+                          >0</span
+                        >
+                        = 5
+                      </p>
+                      <p>
+                        -3 +
+                        <span
+                          style="color: var(--rme-purple); font-weight: bold"
+                          >0</span
+                        >
+                        = -3
+                      </p>
+                    </div>
+                  </div>
+                  <p><strong>Eksperimen Perkalian:</strong></p>
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: center;
+                      gap: 1rem;
+                      margin: 1rem 0;
+                    "
+                  >
+                    <div>
+                      <p>
+                        7 ×
+                        <span
+                          style="color: var(--rme-purple); font-weight: bold"
+                          >1</span
+                        >
+                        = 7
+                      </p>
+                      <p>
+                        -4 ×
+                        <span
+                          style="color: var(--rme-purple); font-weight: bold"
+                          >1</span
+                        >
+                        = -4
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <p>
+                  <strong>Penemuan:</strong> "Aha! Ada angka spesial yang tidak
+                  mengubah nilai saat dioperasikan!" Rina menyimpulkan:
+                </p>
+
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-around;
+                    margin: 1rem 0;
+                    flex-wrap: wrap;
+                  "
+                >
+                  <div
+                    style="
+                      background: white;
+                      padding: 1rem;
+                      border-radius: 8px;
+                      margin: 0.5rem;
+                      text-align: center;
+                      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                    "
+                  >
+                    <p>
+                      <i
+                        class="fas fa-plus-circle"
+                        style="color: var(--rme-purple)"
+                      ></i>
+                    </p>
+                    <p>
+                      a +
+                      <span style="color: var(--rme-purple); font-weight: bold"
+                        >0</span
+                      >
+                      = a
+                    </p>
+                    <p style="color: var(--rme-purple); font-weight: bold">
+                      Identitas Penjumlahan
+                    </p>
+                  </div>
+                  <div
+                    style="
+                      background: white;
+                      padding: 1rem;
+                      border-radius: 8px;
+                      margin: 0.5rem;
+                      text-align: center;
+                      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                    "
+                  >
+                    <p>
+                      <i
+                        class="fas fa-times-circle"
+                        style="color: var(--rme-purple)"
+                      ></i>
+                    </p>
+                    <p>
+                      a ×
+                      <span style="color: var(--rme-purple); font-weight: bold"
+                        >1</span
+                      >
+                      = a
+                    </p>
+                    <p style="color: var(--rme-purple); font-weight: bold">
+                      Identitas Perkalian
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Invers -->
+              <div
+                class="context-example"
+                style="background: rgba(231, 29, 54, 0.1); margin-top: 2rem"
+              >
+                <h3>
+                  <i class="fas fa-undo-alt"></i> 🔁 Permainan Kembalikan Angka
+                </h3>
+                <p>
+                  Ketika bermain game matematika, Rina menemukan pola menarik:
+                </p>
+
+                <div
+                  style="
+                    background: white;
+                    padding: 1rem;
+                    border-radius: 8px;
+                    margin: 1rem 0;
+                    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                  "
+                >
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-around;
+                      flex-wrap: wrap;
+                    "
+                  >
+                    <div style="text-align: center; margin: 0.5rem">
+                      <p>
+                        5 +
+                        <span style="color: var(--rme-red); font-weight: bold"
+                          >(-5)</span
+                        >
+                        = 0
+                      </p>
+                      <p style="color: #777">"Lima ditambah lawannya"</p>
+                    </div>
+                    <div style="text-align: center; margin: 0.5rem">
+                      <p>
+                        3 ×
+                        <span style="color: var(--rme-red); font-weight: bold"
+                          >(1/3)</span
+                        >
+                        = 1
+                      </p>
+                      <p style="color: #777">"Tiga dikali kebalikannya"</p>
+                    </div>
+                  </div>
+                </div>
+
+                <p>
+                  <strong>Pola:</strong> "Ternyata setiap bilangan punya
+                  pasangan khusus yang bisa mengembalikannya ke angka
+                  identitas!"
+                </p>
+
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-around;
+                    margin: 1rem 0;
+                    flex-wrap: wrap;
+                  "
+                >
+                  <div
+                    style="
+                      background: white;
+                      padding: 1rem;
+                      border-radius: 8px;
+                      margin: 0.5rem;
+                      text-align: center;
+                      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                    "
+                  >
+                    <p>
+                      <i
+                        class="fas fa-plus-circle"
+                        style="color: var(--rme-red)"
+                      ></i>
+                    </p>
+                    <p>
+                      a + (-a) =
+                      <span style="color: var(--rme-red); font-weight: bold"
+                        >0</span
+                      >
+                    </p>
+                    <p style="color: var(--rme-red); font-weight: bold">
+                      Invers Penjumlahan
+                    </p>
+                  </div>
+                  <div
+                    style="
+                      background: white;
+                      padding: 1rem;
+                      border-radius: 8px;
+                      margin: 0.5rem;
+                      text-align: center;
+                      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                    "
+                  >
+                    <p>
+                      <i
+                        class="fas fa-times-circle"
+                        style="color: var(--rme-red)"
+                      ></i>
+                    </p>
+                    <p>
+                      a × (1/a) =
+                      <span style="color: var(--rme-red); font-weight: bold"
+                        >1</span
+                      >
+                    </p>
+                    <p style="color: var(--rme-red); font-weight: bold">
+                      Invers Perkalian
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  style="
+                    background: #fff5f5;
+                    padding: 1rem;
+                    border-radius: 8px;
+                    margin-top: 1rem;
+                    border-left: 4px solid var(--rme-red);
+                  "
+                >
+                  <p>
+                    <i
+                      class="fas fa-exclamation-circle"
+                      style="color: var(--rme-red)"
+                    ></i>
+                    <strong>Catatan:</strong> "Invers perkalian hanya berlaku
+                    untuk bilangan bukan nol (a ≠ 0)!"
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="story-ending"
+                style="
+                  background: rgba(255, 159, 28, 0.1);
+                  padding: 1.5rem;
+                  border-radius: 10px;
+                  margin-top: 2rem;
+                  text-align: center;
+                "
+              >
+                <p>
+                  📚 <strong>Pelajaran Hari Ini:</strong> Operasi bilangan
+                  memiliki 5 sifat ajaib:
+                </p>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    gap: 0.5rem;
+                    margin: 1rem 0;
+                  "
+                >
+                  <span
+                    style="
+                      background: rgba(76, 201, 240, 0.2);
+                      padding: 0.3rem 0.8rem;
+                      border-radius: 50px;
+                      font-size: 0.9rem;
+                    "
+                    >Komutatif</span
+                  >
+                  <span
+                    style="
+                      background: rgba(255, 125, 0, 0.2);
+                      padding: 0.3rem 0.8rem;
+                      border-radius: 50px;
+                      font-size: 0.9rem;
+                    "
+                    >Asosiatif</span
+                  >
+                  <span
+                    style="
+                      background: rgba(46, 196, 182, 0.2);
+                      padding: 0.3rem 0.8rem;
+                      border-radius: 50px;
+                      font-size: 0.9rem;
+                    "
+                    >Distributif</span
+                  >
+                  <span
+                    style="
+                      background: rgba(159, 89, 255, 0.2);
+                      padding: 0.3rem 0.8rem;
+                      border-radius: 50px;
+                      font-size: 0.9rem;
+                    "
+                    >Identitas</span
+                  >
+                  <span
+                    style="
+                      background: rgba(231, 29, 54, 0.2);
+                      padding: 0.3rem 0.8rem;
+                      border-radius: 50px;
+                      font-size: 0.9rem;
+                    "
+                    >Invers</span
+                  >
+                </div>
+                <button 
+  onclick="window.location.href='latihan3.html'"
+  style="background: var(--rme-orange); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 50px; cursor: pointer; margin-top: 1rem;"
+>
+  <i class="fas fa-puzzle-piece"></i> Coba Tantangan Sifat Bilangan Bulat
+</button>       
+              </div>
+            </div>
+            <div class="about-image">
+              <img
+                src="g16.png"
+                alt="Ilustrasi Sifat Bilangan"
+                style="
+                  border-radius: 15px;
+                  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <div style="margin-top: 1rem; text-align: center">
+        
+              </div>
+            </div>
+          </div>
+        </section>
+        <div
+          class="story-ending"
+          style="
+            background: rgba(255, 159, 28, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            text-align: center;
+          "
+        >
+          <p>
+            📚 <strong>Pelajaran Hari Ini:</strong> Operasi bilangan memiliki
+            pola ajaib! Urutan dan pengelompokan bisa fleksibel, dan perkalian
+            bisa "disebarkan" seperti membagi hadiah.
+          </p>
+        </div>
+      </div>
+      <div id="fase6" class="phase-content">
+        <section class="about-section">
+          <h2 class="section-title">Fase 6: FPB & KPK</h2>
+          <div class="about-content">
+            <div class="about-image">
+              <img
+                src="g17.jpg"
+                alt="Petualangan FPB KPK"
+                style="
+                  border-radius: 15px;
+                  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+            </div>
+            <div class="about-text">
+              <h2>Penemuan Rina tentang Pola Tersembunyi</h2>
+
+              <div
+                class="story-intro"
+                style="
+                  background: rgba(46, 196, 182, 0.05);
+                  padding: 1.5rem;
+                  border-radius: 10px;
+                  margin-bottom: 2rem;
+                  border-left: 4px solid var(--rme-teal);
+                "
+              >
+                <p>
+                  <i
+                    class="fas fa-book-open"
+                    style="color: var(--rme-teal)"
+                  ></i>
+                  <em
+                    >Hari Senin pagi yang cerah, Rina sedang menunggu di halte
+                    bis sekolah ketika dia melihat sesuatu yang menarik...</em
+                  >
+                </p>
+              </div>
+
+              <!-- Cerita Awal -->
+              <div
+                class="story-part"
+                style="
+                  background: rgba(76, 201, 240, 0.05);
+                  padding: 1.5rem;
+                  border-radius: 10px;
+                  margin-bottom: 2rem;
+                "
+              >
+                <h3><i class="fas fa-bus"></i> 🚌 Kejutan di Halte Bis</h3>
+                <p>Rina memperhatikan papan jadwal di halte:</p>
+
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-around;
+                    margin: 1rem 0;
+                    flex-wrap: wrap;
+                  "
+                >
+                  <div
+                    style="
+                      background: white;
+                      padding: 1rem;
+                      border-radius: 8px;
+                      margin: 0.5rem;
+                      text-align: center;
+                      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                      width: 45%;
+                      min-width: 200px;
+                    "
+                  >
+                    <p style="color: var(--rme-orange); font-weight: bold">
+                      Bis Kuning
+                    </p>
+                    <p>
+                      <i class="fas fa-clock"></i> Setiap
+                      <strong>15 menit</strong>
+                    </p>
+                    <p><i class="fas fa-flag-checkered"></i> Terakhir: 08.00</p>
+                  </div>
+                  <div
+                    style="
+                      background: white;
+                      padding: 1rem;
+                      border-radius: 8px;
+                      margin: 0.5rem;
+                      text-align: center;
+                      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                      width: 45%;
+                      min-width: 200px;
+                    "
+                  >
+                    <p style="color: var(--rme-blue); font-weight: bold">
+                      Bis Biru
+                    </p>
+                    <p>
+                      <i class="fas fa-clock"></i> Setiap
+                      <strong>20 menit</strong>
+                    </p>
+                    <p><i class="fas fa-flag-checkered"></i> Terakhir: 08.00</p>
+                  </div>
+                </div>
+
+                <p>
+                  "Wah, bis kuning dan biru baru saja berangkat bersama pukul
+                  08.00," pikir Rina. "Kira-kira kapan ya mereka akan datang
+                  bersamaan lagi?"
+                </p>
+
+                <div
+                  style="
+                    background: #f8f9fc;
+                    padding: 1rem;
+                    border-radius: 8px;
+                    margin-top: 1rem;
+                    border-left: 4px solid var(--rme-blue);
+                  "
+                >
+                  <p>
+                    <i
+                      class="fas fa-lightbulb"
+                      style="color: var(--rme-yellow)"
+                    ></i>
+                    <strong>Eksperimen Rina:</strong>
+                  </p>
+                  <p>Rina mencoba mencatat jadwal kedatangan:</p>
+                  <ul style="columns: 2; margin-left: 1.5rem">
+                    <li>Bis Kuning: 08:00</li>
+                    <li>Bis Kuning: 08:15</li>
+                    <li>Bis Kuning: 08:30</li>
+                    <li>Bis Kuning: 08:45</li>
+                    <li>Bis Kuning: 09:00</li>
+                    <li>Bis Biru: 08:00</li>
+                    <li>Bis Biru: 08:20</li>
+                    <li>Bis Biru: 08:40</li>
+                    <li>Bis Biru: 09:00</li>
+                  </ul>
+                  <p style="text-align: center; margin-top: 0.5rem">
+                    <span style="font-weight: bold; color: var(--rme-blue)"
+                      >Ternyata bertemu lagi pukul 09.00!</span
+                    ><br />
+                    <small
+                      >(Setelah 60 menit dari keberangkatan terakhir)</small
+                    >
+                  </p>
+                </div>
+              </div>
+
+              <!-- Kasus KPK -->
+              <div
+                class="context-example"
+                style="background: rgba(76, 201, 240, 0.1)"
+              >
+                <h3><i class="fas fa-search"></i> 🔍 Mencari Pola</h3>
+                <p>
+                  "Menulis satu-satu seperti tadi melelahkan. Pasti ada cara
+                  lebih cepat!" pikir Rina.
+                </p>
+
+                <div class="solution-method">
+                  <h4>
+                    <i class="fas fa-calculator"></i> Solusi dengan KPK
+                    (Kelipatan Persekutuan Terkecil)
+                  </h4>
+
+                  <div class="method-tabs">
+                    <button
+                      class="tab-button active"
+                      onclick="openMethod(event, 'faktorisasi-kpk')"
+                    >
+                      Faktorisasi Prima
+                    </button>
+                    <button
+                      class="tab-button"
+                      onclick="openMethod(event, 'tabel-kpk')"
+                    >
+                      Tabel Faktor
+                    </button>
+                  </div>
+
+                  <div
+                    id="faktorisasi-kpk"
+                    class="tab-content"
+                    style="display: block"
+                  >
+                    <p><strong>Langkah-langkah:</strong></p>
+                    <ol>
+                      <li>
+                        Faktorkan bilangan:
+                        <div
+                          style="
+                            font-family: monospace;
+                            margin: 0.5rem 0 0.5rem 1.5rem;
+                            background: #f8f9fc;
+                            padding: 0.8rem;
+                            border-radius: 5px;
+                          "
+                        >
+                          15 = 3 × 5<br />
+                          20 = 2² × 5
+                        </div>
+                      </li>
+                      <li>
+                        Ambil semua faktor dengan pangkat tertinggi:
+                        <div
+                          style="
+                            font-family: monospace;
+                            margin: 0.5rem 0 0.5rem 1.5rem;
+                            background: #f8f9fc;
+                            padding: 0.8rem;
+                            border-radius: 5px;
+                          "
+                        >
+                          2² × 3 × 5 = 60
+                        </div>
+                      </li>
+                    </ol>
+                    <p
+                      style="
+                        text-align: center;
+                        background: var(--rme-blue);
+                        color: white;
+                        padding: 0.8rem;
+                        border-radius: 5px;
+                      "
+                    >
+                      <strong>KPK(15,20) = 60 menit</strong><br />
+                      Jadi bis akan bertemu lagi setiap 60 menit (1 jam)
+                    </p>
+                  </div>
+
+                  <div
+                    id="tabel-kpk"
+                    class="tab-content"
+                    style="display: block"
+                  >
+                    <p><strong>Langkah-langkah:</strong></p>
+                    <ol>
+                      <li>
+                        Buat tabel pembagian:
+                        <div style="overflow-x: auto; margin: 0.5rem 0">
+                          <table
+                            style="
+                              border-collapse: collapse;
+                              width: 100%;
+                              background: #f8f9fc;
+                            "
+                          >
+                            <tr
+                              style="background: var(--rme-blue); color: white"
+                            >
+                              <th style="padding: 8px; text-align: center">
+                                15
+                              </th>
+                              <th style="padding: 8px; text-align: center">
+                                20
+                              </th>
+                              <th style="padding: 8px; text-align: center">
+                                Bagi dengan
+                              </th>
+                            </tr>
+                            <tr>
+                              <td
+                                style="
+                                  border: 1px solid #ddd;
+                                  padding: 8px;
+                                  text-align: center;
+                                "
+                              >
+                                15
+                              </td>
+                              <td
+                                style="
+                                  border: 1px solid #ddd;
+                                  padding: 8px;
+                                  text-align: center;
+                                "
+                              >
+                                20
+                              </td>
+                              <td
+                                style="
+                                  border: 1px solid #ddd;
+                                  padding: 8px;
+                                  text-align: center;
+                                "
+                              >
+                                2
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                style="
+                                  border: 1px solid #ddd;
+                                  padding: 8px;
+                                  text-align: center;
+                                "
+                              >
+                                15
+                              </td>
+                              <td
+                                style="
+                                  border: 1px solid #ddd;
+                                  padding: 8px;
+                                  text-align: center;
+                                "
+                              >
+                                10
+                              </td>
+                              <td
+                                style="
+                                  border: 1px solid #ddd;
+                                  padding: 8px;
+                                  text-align: center;
+                                "
+                              >
+                                2
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                style="
+                                  border: 1px solid #ddd;
+                                  padding: 8px;
+                                  text-align: center;
+                                "
+                              >
+                                15
+                              </td>
+                              <td
+                                style="
+                                  border: 1px solid #ddd;
+                                  padding: 8px;
+                                  text-align: center;
+                                "
+                              >
+                                5
+                              </td>
+                              <td
+                                style="
+                                  border: 1px solid #ddd;
+                                  padding: 8px;
+                                  text-align: center;
+                                "
+                              >
+                                5
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                style="
+                                  border: 1px solid #ddd;
+                                  padding: 8px;
+                                  text-align: center;
+                                "
+                              >
+                                3
+                              </td>
+                              <td
+                                style="
+                                  border: 1px solid #ddd;
+                                  padding: 8px;
+                                  text-align: center;
+                                "
+                              >
+                                1
+                              </td>
+                              <td
+                                style="
+                                  border: 1px solid #ddd;
+                                  padding: 8px;
+                                  text-align: center;
+                                "
+                              >
+                                -
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+                      </li>
+                      <li>
+                        Kalikan semua pembagi:
+                        <div
+                          style="
+                            font-family: monospace;
+                            margin: 0.5rem 0 0.5rem 1.5rem;
+                            background: #f8f9fc;
+                            padding: 0.8rem;
+                            border-radius: 5px;
+                          "
+                        >
+                          2 × 2 × 5 × 3 = 60
+                        </div>
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Cerita Lanjutan -->
+              <div
+                class="story-part"
+                style="
+                  background: rgba(255, 125, 0, 0.05);
+                  padding: 1.5rem;
+                  border-radius: 10px;
+                  margin: 2rem 0;
+                "
+              >
+                <h3><i class="fas fa-home"></i> 🏠 Masalah di Rumah</h3>
+                <p>Sesampainya di rumah, Rina ingin membagikan:</p>
+
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-around;
+                    margin: 1rem 0;
+                    flex-wrap: wrap;
+                  "
+                >
+                  <div
+                    style="
+                      background: white;
+                      padding: 1rem;
+                      border-radius: 8px;
+                      margin: 0.5rem;
+                      text-align: center;
+                      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                      width: 45%;
+                      min-width: 200px;
+                    "
+                  >
+                    <p style="color: #8b4513; font-weight: bold">
+                      🍫 12 Coklat
+                    </p>
+                    <p>Untuk dibagi rata</p>
+                  </div>
+                  <div
+                    style="
+                      background: white;
+                      padding: 1rem;
+                      border-radius: 8px;
+                      margin: 0.5rem;
+                      text-align: center;
+                      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                      width: 45%;
+                      min-width: 200px;
+                    "
+                  >
+                    <p style="color: var(--rme-yellow); font-weight: bold">
+                      🧀 18 Keju
+                    </p>
+                    <p>Untuk dibagi rata</p>
+                  </div>
+                </div>
+
+                <p>
+                  "Aku ingin membuat kotak hadiah dengan komposisi sama. Berapa
+                  ya kotak terbanyak yang bisa kubuat?"
+                </p>
+
+                <div
+                  style="
+                    background: #f8f9fc;
+                    padding: 1rem;
+                    border-radius: 8px;
+                    margin-top: 1rem;
+                    border-left: 4px solid var(--rme-orange);
+                  "
+                >
+                  <p>
+                    <i
+                      class="fas fa-lightbulb"
+                      style="color: var(--rme-yellow)"
+                    ></i>
+                    <strong>Percobaan Rina:</strong>
+                  </p>
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-around;
+                      text-align: center;
+                      flex-wrap: wrap;
+                    "
+                  >
+                    <div style="margin: 0.5rem; min-width: 120px">
+                      <p><strong>2 Kotak</strong></p>
+                      <p>6 coklat + 9 keju</p>
+                    </div>
+                    <div style="margin: 0.5rem; min-width: 120px">
+                      <p><strong>3 Kotak</strong></p>
+                      <p>4 coklat + 6 keju</p>
+                    </div>
+                    <div style="margin: 0.5rem; min-width: 120px">
+                      <p><strong>6 Kotak</strong></p>
+                      <p>2 coklat + 3 keju</p>
+                    </div>
+                  </div>
+                  <p style="text-align: center; margin-top: 0.5rem">
+                    <span style="font-weight: bold; color: var(--rme-orange)"
+                      >Paling banyak 6 kotak!</span
+                    ><br />
+                    <small>(Tidak bisa lebih karena 18÷6=3 dan 12÷6=2)</small>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Kasus FPB -->
+              <div
+                class="context-example"
+                style="background: rgba(255, 125, 0, 0.1)"
+              >
+                <h3><i class="fas fa-search"></i> 🔍 Mencari Pola Pembagian</h3>
+                <p>
+                  "Pasti ada cara menghitungnya tanpa mencoba satu-satu," tekad
+                  Rina.
+                </p>
+
+                <div class="solution-method">
+                  <h4>
+                    <i class="fas fa-calculator"></i> Solusi dengan FPB (Faktor
+                    Persekutuan Terbesar)
+                  </h4>
+
+                  <div class="method-tabs">
+                    <button
+                      class="tab-button active"
+                      onclick="openMethod(event, 'faktorisasi-fpb')"
+                    >
+                      Faktorisasi Prima
+                    </button>
+                    <button
+                      class="tab-button"
+                      onclick="openMethod(event, 'tabel-fpb')"
+                    >
+                      Tabel Faktor
+                    </button>
+                  </div>
+
+                  <div
+                    id="faktorisasi-fpb"
+                    class="tab-content"
+                    style="display: block"
+                  >
+                    <p><strong>Langkah-langkah:</strong></p>
+                    <ol>
+                      <li>
+                        Faktorkan bilangan:
+                        <div
+                          style="
+                            font-family: monospace;
+                            margin: 0.5rem 0 0.5rem 1.5rem;
+                            background: #f8f9fc;
+                            padding: 0.8rem;
+                            border-radius: 5px;
+                          "
+                        >
+                          12 = 2² × 3<br />
+                          18 = 2 × 3²
+                        </div>
+                      </li>
+                      <li>
+                        Ambil faktor yang sama dengan pangkat terkecil:
+                        <div
+                          style="
+                            font-family: monospace;
+                            margin: 0.5rem 0 0.5rem 1.5rem;
+                            background: #f8f9fc;
+                            padding: 0.8rem;
+                            border-radius: 5px;
+                          "
+                        >
+                          2 × 3 = 6
+                        </div>
+                      </li>
+                    </ol>
+                    <p
+                      style="
+                        text-align: center;
+                        background: var(--rme-orange);
+                        color: white;
+                        padding: 0.8rem;
+                        border-radius: 5px;
+                      "
+                    >
+                      <strong>FPB(12,18) = 6 kotak</strong><br />
+                      Masing-masing berisi 2 coklat dan 3 keju
+                    </p>
+                  </div>
+
+                  <div id="tabel-fpb" class="tab-content" style="display: none">
+                    <p><strong>Langkah-langkah:</strong></p>
+                    <ol>
+                      <li>
+                        Buat tabel pembagian:
+                        <div style="overflow-x: auto; margin: 0.5rem 0">
+                          <table
+                            style="
+                              border-collapse: collapse;
+                              width: 100%;
+                              background: #f8f9fc;
+                            "
+                          >
+                            <tr
+                              style="
+                                background: var(--rme-orange);
+                                color: white;
+                              "
+                            >
+                              <th style="padding: 8px; text-align: center">
+                                12
+                              </th>
+                              <th style="padding: 8px; text-align: center">
+                                18
+                              </th>
+                              <th style="padding: 8px; text-align: center">
+                                Bagi dengan
+                              </th>
+                            </tr>
+                            <tr>
+                              <td
+                                style="
+                                  border: 1px solid #ddd;
+                                  padding: 8px;
+                                  text-align: center;
+                                "
+                              >
+                                12
+                              </td>
+                              <td
+                                style="
+                                  border: 1px solid #ddd;
+                                  padding: 8px;
+                                  text-align: center;
+                                "
+                              >
+                                18
+                              </td>
+                              <td
+                                style="
+                                  border: 1px solid #ddd;
+                                  padding: 8px;
+                                  text-align: center;
+                                "
+                              >
+                                2
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                style="
+                                  border: 1px solid #ddd;
+                                  padding: 8px;
+                                  text-align: center;
+                                "
+                              >
+                                6
+                              </td>
+                              <td
+                                style="
+                                  border: 1px solid #ddd;
+                                  padding: 8px;
+                                  text-align: center;
+                                "
+                              >
+                                9
+                              </td>
+                              <td
+                                style="
+                                  border: 1px solid #ddd;
+                                  padding: 8px;
+                                  text-align: center;
+                                "
+                              >
+                                3
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                style="
+                                  border: 1px solid #ddd;
+                                  padding: 8px;
+                                  text-align: center;
+                                "
+                              >
+                                2
+                              </td>
+                              <td
+                                style="
+                                  border: 1px solid #ddd;
+                                  padding: 8px;
+                                  text-align: center;
+                                "
+                              >
+                                3
+                              </td>
+                              <td
+                                style="
+                                  border: 1px solid #ddd;
+                                  padding: 8px;
+                                  text-align: center;
+                                "
+                              >
+                                -
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+                      </li>
+                      <li>
+                        Kalikan pembagi yang bisa membagi keduanya:
+                        <div
+                          style="
+                            font-family: monospace;
+                            margin: 0.5rem 0 0.5rem 1.5rem;
+                            background: #f8f9fc;
+                            padding: 0.8rem;
+                            border-radius: 5px;
+                          "
+                        >
+                          2 × 3 = 6
+                        </div>
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="story-ending"
+                style="
+                  background: rgba(46, 196, 182, 0.1);
+                  padding: 1.5rem;
+                  border-radius: 10px;
+                  margin-top: 2rem;
+                  text-align: center;
+                "
+              >
+                <p>📚 <strong>Catatan Rina:</strong></p>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-around;
+                    margin-top: 1rem;
+                    flex-wrap: wrap;
+                  "
+                >
+                  <div
+                    style="
+                      background: white;
+                      padding: 1rem;
+                      border-radius: 8px;
+                      margin: 0.5rem;
+                      width: 45%;
+                      min-width: 200px;
+                    "
+                  >
+                    <p style="color: var(--rme-blue); font-weight: bold">
+                      <i class="fas fa-sync-alt"></i> KPK
+                    </p>
+                    <p>
+                      Untuk mencari <strong>waktu bertemu</strong> dalam siklus
+                      berulang
+                    </p>
+                    <p><small>Contoh: jadwal, rotasi, pengulangan</small></p>
+                  </div>
+                  <div
+                    style="
+                      background: white;
+                      padding: 1rem;
+                      border-radius: 8px;
+                      margin: 0.5rem;
+                      width: 45%;
+                      min-width: 200px;
+                    "
+                  >
+                    <p style="color: var(--rme-orange); font-weight: bold">
+                      <i class="fas fa-divide"></i> FPB
+                    </p>
+                    <p>
+                      Untuk mencari <strong>pembagian maksimal</strong> dengan
+                      komposisi sama
+                    </p>
+                    <p>
+                      <small
+                        >Contoh: pembagian, pengelompokan, penyederhanaan</small
+                      >
+                    </p>
+                  </div>
+                </div>
+                <button
+                  style="
+                    background: var(--rme-teal);
+                    color: white;
+                    border: none;
+                    padding: 0.7rem 1.5rem;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    margin-top: 1rem;
+                    transition: all 0.3s ease;
+                  "
+                >
+                  <i class="fas fa-puzzle-piece"></i> Coba Soal Lainnya
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- Fase 7: Refleksi & Kesimpulan -->
+      <div id="fase7" class="phase-content">
+        <section class="about-section">
+          <h2 class="section-title">
+            Fase 7: Refleksi & Kesimpulan
+          </h2>
+          <div class="about-content">
+            <div class="about-text">
+              <h2>Perjalanan Rina Menguasai Bilangan</h2>
+
+              <div
+                class="story-intro"
+                style="
+                  background: rgba(159, 89, 255, 0.05);
+                  padding: 1.5rem;
+                  border-radius: 10px;
+                  margin-bottom: 2rem;
+                  border-left: 4px solid var(--rme-purple);
+                "
+              >
+                <p>
+                  <i class="fas fa-star" style="color: var(--rme-purple)"></i>
+                  <em
+                    >Setelah menjelajahi dunia bilangan melalui 4 fase, Rina
+                    kini duduk di taman sekolah sambil merefleksikan semua
+                    penemuannya...</em
+                  >
+                </p>
+              </div>
+
+              <!-- Peta Perjalanan -->
+              <div
+                class="journey-map"
+                style="
+                  background: white;
+                  padding: 1.5rem;
+                  border-radius: 10px;
+                  margin-bottom: 2rem;
+                  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                "
+              >
+                <h3
+                  style="
+                    color: var(--rme-purple);
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                  "
+                >
+                  <i class="fas fa-map-marked-alt"></i> 🗺️ Peta Petualangan
+                  Matematika
+                </h3>
+
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1.5rem;
+                    margin-top: 1.5rem;
+                    position: relative;
+                    padding-left: 2rem;
+                  "
+                >
+                  <!-- Garis Vertikal -->
+                  <div
+                    style="
+                      position: absolute;
+                      left: 2rem;
+                      top: 0;
+                      bottom: 0;
+                      width: 3px;
+                      background: linear-gradient(
+                        to bottom,
+                        var(--rme-blue),
+                        var(--rme-orange),
+                        var(--rme-teal),
+                        var(--rme-purple)
+                      );
+                      border-radius: 3px;
+                    "
+                  ></div>
+
+                  <!-- Fase 1 -->
+                  <div
+                    style="
+                      display: flex;
+                      gap: 1rem;
+                      align-items: flex-start;
+                      position: relative;
+                    "
+                  >
+                    <div
+                      style="
+                        background: var(--rme-blue);
+                        color: white;
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-shrink: 0;
+                      "
+                    >
+                      1
+                    </div>
+                    <div>
+                      <h4 style="margin: 0; color: var(--rme-blue)">
+                        Fase 1: Dunia Nyata
+                      </h4>
+                      <p style="margin: 0.5rem 0; color: #555">
+                        "Aku belajar bahwa bilangan negatif ada di mana-mana!
+                        Dari termometer pegunungan (<span
+                          style="color: var(--rme-blue); font-weight: bold"
+                          >-5°C</span
+                        >), saldo e-wallet (<span
+                          style="color: var(--rme-red); font-weight: bold"
+                          >-Rp5.000</span
+                        >), sampai skor game (<span
+                          style="color: var(--rme-red); font-weight: bold"
+                          >-5 poin</span
+                        >)."
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Fase 2 -->
+                  <div
+                    style="
+                      display: flex;
+                      gap: 1rem;
+                      align-items: flex-start;
+                      position: relative;
+                    "
+                  >
+                    <div
+                      style="
+                        background: var(--rme-orange);
+                        color: white;
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-shrink: 0;
+                      "
+                    >
+                      2
+                    </div>
+                    <div>
+                      <h4 style="margin: 0; color: var(--rme-orange)">
+                        Fase 2: Garis Bilangan
+                      </h4>
+                      <p style="margin: 0.5rem 0; color: #555">
+                        "Garis bilangan membantuku memvisualisasikan perubahan
+                        suhu dari
+                        <span style="color: var(--rme-red); font-weight: bold"
+                          >-5°C</span
+                        >
+                        ke
+                        <span style="color: var(--rme-green); font-weight: bold"
+                          >2°C</span
+                        >
+                        sebagai lompatan sebesar
+                        <span style="font-weight: bold">7 satuan</span> ke
+                        kanan!"
+                      </p>
+                     
+                     
+                    </div>
+                  </div>
+                  <!-- Fase 3: Operasi Bilangan Bulat -->
+<div
+  style="
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    position: relative;
+    margin-bottom: 1.5rem;
+  "
+>
+  <div
+    style="
+      background: var(--rme-red);
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    "
+  >
+    5
+  </div>
+  <div>
+    <h4 style="margin: 0; color: var(--rme-red)">
+      Fase 3: Menguasai Operasi Bilangan Bulat
+    </h4>
+    <p style="margin: 0.5rem 0; color: #555">
+      "Petualangan operasi bilangan bulat mengungkap pola yang sangat konsisten! Aku menemukan bahwa:
+    </p>
+    
+    <div style="margin: 0.5rem 0 1rem 0;">
+      <p style="margin: 0.3rem 0; display: flex; align-items: flex-start;">
+        <span style="color: var(--rme-blue); margin-right: 8px;">•</span>
+        <strong>Penjumlahan/Pengurangan</strong>: Bisa divisualisasikan sebagai pergerakan di <span style="color: var(--rme-blue); font-weight: bold">garis bilangan</span>:
+        <ul style="margin: 0.3rem 0 0 1.5rem; color: #555;">
+          <li>Positif = langkah ke kanan</li>
+          <li>Negatif = langkah ke kiri</li>
+          <li>Mengurangi = menambah lawannya</li>
+        </ul>
+      </p>
+      
+      <p style="margin: 0.3rem 0; display: flex; align-items: flex-start;">
+        <span style="color: var(--rme-orange); margin-right: 8px;">•</span>
+        <strong>Perkalian/Pembagian</strong>: Mengikuti <span style="color: var(--rme-orange); font-weight: bold">aturan tanda</span> yang elegan:
+        <ul style="margin: 0.3rem 0 0 1.5rem; color: #555;">
+          <li>Tanda sama → Hasil positif</li>
+          <li>Tanda berbeda → Hasil negatif</li>
+          <li>Nol selalu menjadi batas netral</li>
+        </ul>
+      </p>
+    </div>
+
+    <div
+      style="
+        background: rgba(231, 29, 54, 0.1);
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 0.5rem;
+      "
+    >
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div>
+          <p style="margin: 0 0 0.5rem 0; font-weight: bold; color: var(--rme-blue);">Contoh Penjumlahan:</p>
+          <p style="margin: 0.3rem 0; font-family: monospace;">
+            5 + (-8) = -3<br>
+            <small style="color: #777;">(Dari 5, 8 langkah ke kiri)</small>
+          </p>
+          <p style="margin: 0.3rem 0; font-family: monospace;">
+            -4 - (-6) = 2<br>
+            <small style="color: #777;">(Mengurangi negatif = menambah positif)</small>
+          </p>
+        </div>
+        <div>
+          <p style="margin: 0 0 0.5rem 0; font-weight: bold; color: var(--rme-orange);">Contoh Perkalian:</p>
+          <p style="margin: 0.3rem 0; font-family: monospace;">
+            (-3) × (-5) = 15<br>
+            <small style="color: #777;">(Negatif × Negatif = Positif)</small>
+          </p>
+          <p style="margin: 0.3rem 0; font-family: monospace;">
+            12 ÷ (-4) = -3<br>
+            <small style="color: #777;">(Positif ÷ Negatif = Negatif)</small>
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <p style="margin: 1rem 0 0.5rem 0; color: #555;">
+      "Yang paling menakjubkan, semua operasi ini saling terkait dan konsisten! Pengurangan bisa diubah menjadi penjumlahan, dan pembagian adalah kebalikan dari perkalian."
+    </p>
+  </div>
+</div>
+<!-- Fase 4 -->
+<div
+  style="
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    position: relative;
+  "
+>
+  <div
+    style="
+ background: var(--rme-orange);
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    "
+  >
+    3
+  </div>
+  <div>
+    <h4 style="margin: 0; color: var(--rme-orange)">
+      Fase 4: Operasi Campuran
+    </h4>
+    <p style="margin: 0.5rem 0; color: #555">
+      "Aku belajar mengurutkan operasi matematika dengan benar! Pertama 
+      <span style="color: var(--rme-orange); font-weight: bold">perkalian/pembagian</span>, 
+      baru kemudian 
+      <span style="color: var(--rme-orange); font-weight: bold">penjumlahan/pengurangan</span>. 
+      Tanda kurung juga bisa mengubah urutan perhitungan!"
+    </p>
+    <div
+      style="
+        background: rgba(255, 125, 0, 0.1);
+        padding: 0.8rem;
+        border-radius: 8px;
+        margin-top: 0.5rem;
+      "
+    >
+    <p style="margin: 0.3rem 0; text-align: center;">
+        <span style="font-family: monospace">12 + (-4) × 3 = 0</span><br>
+        <small>(Perkalian dulu: -4×3=-12, lalu 12+(-12)=0)</small>
+      </p>
+    </div>
+  </div>
+</div>
+                  <!-- Fase 5 -->
+                  <div
+                    style="
+                      display: flex;
+                      gap: 1rem;
+                      align-items: flex-start;
+                      position: relative;
+                    "
+                  >
+                    <div
+                      style="
+                        background: var(--rme-teal);
+                        color: white;
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-shrink: 0;
+                      "
+                    >
+                      3
+                    </div>
+                    <div>
+                      <h4 style="margin: 0; color: var(--rme-teal)">
+                        Fase 5: Sifat Ajaib
+                      </h4>
+                      <p style="margin: 0.5rem 0; color: #555">
+                        "Ternyata bilangan punya sifat rahasia! Aku bisa menukar
+                        urutan (<span
+                          style="color: var(--rme-teal); font-weight: bold"
+                          >komutatif</span
+                        >), mengelompokkan (<span
+                          style="color: var(--rme-teal); font-weight: bold"
+                          >asosiatif</span
+                        >), atau menyebarkan (<span
+                          style="color: var(--rme-teal); font-weight: bold"
+                          >distributif</span
+                        >) operasi tanpa mengubah hasil."
+                      </p>
+                      <div
+                        style="
+                          display: flex;
+                          gap: 0.5rem;
+                          flex-wrap: wrap;
+                          margin-top: 0.5rem;
+                        "
+                      >
+                        <span
+                          style="
+                            background: rgba(76, 201, 240, 0.1);
+                            padding: 0.3rem 0.8rem;
+                            border-radius: 50px;
+                            font-size: 0.9rem;
+                            color: var(--rme-blue);
+                          "
+                          >a + b = b + a</span
+                        >
+                        <span
+                          style="
+                            background: rgba(255, 125, 0, 0.1);
+                            padding: 0.3rem 0.8rem;
+                            border-radius: 50px;
+                            font-size: 0.9rem;
+                            color: var(--rme-orange);
+                          "
+                          >(a+b)+c = a+(b+c)</span
+                        >
+                        <span
+                          style="
+                            background: rgba(46, 196, 182, 0.1);
+                            padding: 0.3rem 0.8rem;
+                            border-radius: 50px;
+                            font-size: 0.9rem;
+                            color: var(--rme-teal);
+                          "
+                          >a×(b+c) = a×b + a×c</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Fase 6 -->
+                  <div
+                    style="
+                      display: flex;
+                      gap: 1rem;
+                      align-items: flex-start;
+                      position: relative;
+                    "
+                  >
+                    <div
+                      style="
+                        background: var(--rme-purple);
+                        color: white;
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-shrink: 0;
+                      "
+                    >
+                      4
+                    </div>
+                    <div>
+                      <h4 style="margin: 0; color: var(--rme-purple)">
+                        Fase 6: Pola Tersembunyi
+                      </h4>
+                      <p style="margin: 0.5rem 0; color: #555">
+                        "FPB dan KPK seperti kunci rahasia! Aku bisa menghitung
+                        <span
+                          style="color: var(--rme-purple); font-weight: bold"
+                          >jadwal bis bertemu</span
+                        >
+                        (KPK) atau
+                        <span
+                          style="color: var(--rme-purple); font-weight: bold"
+                          >kotak hadiah maksimal</span
+                        >
+                        (FPB) dengan faktorisasi prima."
+                      </p>
+                      <div
+                        style="
+                          display: flex;
+                          gap: 1rem;
+                          flex-wrap: wrap;
+                          margin-top: 0.5rem;
+                        "
+                      >
+                        <div
+                          style="
+                            background: rgba(159, 89, 255, 0.1);
+                            padding: 0.8rem;
+                            border-radius: 8px;
+                            text-align: center;
+                          "
+                        >
+                          <p
+                            style="
+                              margin: 0;
+                              font-weight: bold;
+                              color: var(--rme-purple);
+                            "
+                          >
+                            KPK(15,20)
+                          </p>
+                          <p style="margin: 0; font-size: 0.9rem">= 60 menit</p>
+                        </div>
+                        <div
+                          style="
+                            background: rgba(159, 89, 255, 0.1);
+                            padding: 0.8rem;
+                            border-radius: 8px;
+                            text-align: center;
+                          "
+                        >
+                          <p
+                            style="
+                              margin: 0;
+                              font-weight: bold;
+                              color: var(--rme-purple);
+                            "
+                          >
+                            FPB(12,18)
+                          </p>
+                          <p style="margin: 0; font-size: 0.9rem">= 6 kotak</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Kesimpulan Utama -->
+              <div
+                class="key-takeaways"
+                style="
+                  background: rgba(159, 89, 255, 0.1);
+                  padding: 1.5rem;
+                  border-radius: 10px;
+                  margin-bottom: 2rem;
+                "
+              >
+                <h3
+                  style="
+                    color: var(--rme-purple);
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                  "
+                >
+                  <i class="fas fa-key"></i> 🔑 Kesimpulan Utama
+                </h3>
+
+                <div
+                  style="
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+                    margin-top: 1rem;
+                  "
+                >
+                  <div
+                    style="
+                      flex: 1;
+                      min-width: 200px;
+                      background: white;
+                      padding: 1rem;
+                      border-radius: 8px;
+                      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+                    "
+                  >
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--rme-blue)">
+                      Bilangan Negatif
+                    </h4>
+                    <p style="margin: 0; color: #555; font-size: 0.95rem">
+                      Mewakili nilai <em>di bawah nol</em> dalam suhu, saldo,
+                      atau skor. Bisa dioperasikan dengan garis bilangan.
+                    </p>
+                  </div>
+
+                  <div
+                    style="
+                      flex: 1;
+                      min-width: 200px;
+                      background: white;
+                      padding: 1rem;
+                      border-radius: 8px;
+                      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+                    "
+                  >
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--rme-orange)">
+                      Sifat Operasi
+                    </h4>
+                    <p style="margin: 0; color: #555; font-size: 0.95rem">
+                      Penjumlahan dan perkalian punya pola tetap (komutatif,
+                      asosiatif, distributif) yang mempermudah perhitungan.
+                    </p>
+                  </div>
+
+                  <div
+                    style="
+                      flex: 1;
+                      min-width: 200px;
+                      background: white;
+                      padding: 1rem;
+                      border-radius: 8px;
+                      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+                    "
+                  >
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--rme-purple)">
+                      FPB & KPK
+                    </h4>
+                    <p style="margin: 0; color: #555; font-size: 0.95rem">
+                      FPB untuk <em>pembagian maksimal</em>, KPK untuk
+                      <em>pengulangan bersama</em>. Dipecahkan dengan
+                      faktorisasi prima.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- Ajakan Aksi -->
+              <div
+                class="call-to-action"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    var(--rme-purple),
+                    #9f59ff
+                  );
+                  color: white;
+                  padding: 2rem;
+                  border-radius: 10px;
+                  text-align: center;
+                "
+              >
+                <h3 style="margin: 0 0 1rem 0">
+                  🚀 Ingin Petualangan Lanjutan?
+                </h3>
+                <p style="margin: 0 0 1.5rem 0; opacity: 0.9">
+                  Eksplorasi lebih dalam dengan tantangan interaktif!
+                </p>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: center;
+                    gap: 1rem;
+                    flex-wrap: wrap;
+                  "
+                >
+                  <button
+                    style="
+                      background: white;
+                      color: var(--rme-purple);
+                      border: none;
+                      padding: 0.8rem 1.8rem;
+                      border-radius: 50px;
+                      cursor: pointer;
+                      font-weight: bold;
+                      display: flex;
+                      align-items: center;
+                      gap: 8px;
+                    "
+                  >
+                    <i class="fas fa-gamepad"></i> Game Bilangan
+                  </button>
+                  <button
+                    style="
+                      background: rgba(255, 255, 255, 0.2);
+                      color: white;
+                      border: 2px solid white;
+                      padding: 0.8rem 1.8rem;
+                      border-radius: 50px;
+                      cursor: pointer;
+                      font-weight: bold;
+                      display: flex;
+                      align-items: center;
+                      gap: 8px;
+                    "
+                  >
+                    <i class="fas fa-book"></i> Buku Catatan Rina
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="about-image">
+              <img
+                src="g18.jpg.png"
+                alt="Ilustrasi Refleksi Matematika"
+                style="
+                  border-radius: 15px;
+                  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <div style="margin-top: 1.5rem; text-align: center">
+                <div
+                  style="
+                    background: white;
+                    padding: 1.2rem;
+                    border-radius: 10px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                    margin-bottom: 1rem;
+                  "
+                >
+                  <p
+                    style="
+                      font-weight: bold;
+                      margin: 0 0 0.5rem 0;
+                      color: var(--rme-purple);
+                    "
+                  >
+                    💡 Kata Rina
+                  </p>
+                  <p style="margin: 0; font-style: italic; color: #555">
+                    "Matematika itu seperti petualangan—semakin sering
+                    menjelajah, semakin banyak harta karun yang ditemukan!"
+                  </p>
+                </div>
+                <button
+                  style="
+                    background: var(--rme-purple);
+                    color: white;
+                    border: none;
+                    padding: 0.8rem 1.5rem;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    width: 100%;
+                    font-weight: bold;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                  "
+                >
+                  <i class="fas fa-share-alt"></i> Bagikan Petualanganmu
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- Fase 8: Penerapan -->
+      <div id="fase8" class="phase-content">
+        <section class="about-section">
+          <h2 class="section-title">Fase 8: Penerapan </h2>
+          <div class="about-content">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-chart-bar"></i>
+              </div>
+              <h3>Analisis Data</h3>
+              <p>
+                Menginterpretasikan data suhu harian, fluktuasi harga saham,
+                atau perubahan populasi yang melibatkan bilangan negatif.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <h3>Pemrograman Dasar</h3>
+              <p>
+                Menerapkan operasi bilangan bulat dalam algoritma sederhana
+                seperti menghitung selisih waktu atau posisi relatif.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-gamepad"></i>
+              </div>
+              <h3>Desain Permainan</h3>
+              <p>
+                Membuat permainan sederhana yang menggunakan konsep bilangan
+                bulat untuk sistem skor atau posisi karakter.
+              </p>
+            </div>
+          </div>
+        </section>
+
+      <!-- Proses Matematisasi -->
+      <section class="about-section">
+        <h2 class="section-title">Proses Matematisasi dalam RME</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Fase 1</div>
+              <h3 class="timeline-title">Konteks Nyata</h3>
+              <p>
+                Memulai dengan masalah autentik dari kehidupan sehari-hari
+                yang melibatkan bilangan bulat.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Fase 2</div>
+              <h3 class="timeline-title">Model of</h3>
+              <p>
+                Siswa mengembangkan model representasi (garis bilangan,
+                diagram) untuk memahami konsep.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Fase 3</div>
+              <h3 class="timeline-title">Model Through</h3>
+              <p>
+                  Menerapkan operasi bilangan bulat (penjumlahan, pengurangan, perkalian, pembagian)
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Fase 4</div>
+              <h3 class="timeline-title">Model with</h3>
+              <p>
+                  Menerapkan operasi campuran bilangan bulat (penjumlahan, pengurangan, perkalian, pembagian) dalam masalah kontekstual melalui pemodelan matematis.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-date">Fase 5</div>
+                <h3 class="timeline-title">Model for</h3>
+                <p>
+                  Mengidentifikasi pola dan sifat-sifat operasi bilangan bulat
+                  melalui eksplorasi.
+                </p>
+              </div>
+            </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Fase 6</div>
+              <h3 class="timeline-title">Abstraksi</h3>
+              <p>
+                Mengembangkan konsep matematika formal (FPB, KPK) melalui
+                generalisasi.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Fase 7</div>
+              <h3 class="timeline-title">Penerapan</h3>
+              <p>
+                Mengaplikasikan konsep ke situasi baru yang lebih kompleks.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div style="text-align: center; padding: 1.5rem 0; background: #f8f9fc;">
+  <button 
+    onclick="window.location.href='open1.html'"
+    style="
+      background: var(--rme-orange);
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    "
+    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.2)'"
+    onmouseout="this.style.transform=''; this.style.boxShadow=''"
+  >
+    <i class="fas fa-arrow-left"></i> Kembali ke Materi Utama
+  </button>
+</div>
+  </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Tentang MathRME</h3>
+          <p>
+            MathRME adalah platform pembelajaran matematika berbasis Realistic
+            Mathematics Education yang menghubungkan konsep matematika dengan
+            kehidupan nyata.
+          </p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Sumber Belajar</h3>
+          <ul class="footer-links">
+            <li><a href="#">Modul Pembelajaran</a></li>
+            <li><a href="#">Video Pembelajaran</a></li>
+            <li><a href="#">Lembar Aktivitas</a></li>
+            <li><a href="#">Bank Soal Kontekstual</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Kontak Kami</h3>
+          <p>
+            <i class="fas fa-map-marker-alt"></i> Jl. Pendidikan Realistik No.
+            123, Jakarta
+          </p>
+          <p><i class="fas fa-phone"></i> +62 123 4567 890</p>
+          <p><i class="fas fa-envelope"></i> info@mathrme.id</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 MathRME - Realistic Mathematics Education. All Rights
+          Reserved.
+        </p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+    <!-- Tambahkan ini sebelum tag </body> di file index2.html Anda -->
+<style>
+  /* Tombol Back to Top */
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(to right, var(--rme-orange), #FF5400);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+</style>
+
+<div class="back-to-top" onclick="scrollToTop()">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
+<script>
+  // Tampilkan/sembunyikan tombol saat scroll
+  window.onscroll = function() {
+    const backToTopBtn = document.querySelector('.back-to-top');
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      backToTopBtn.classList.add('visible');
+    } else {
+      backToTopBtn.classList.remove('visible');
+    }
+  };
+
+  // Fungsi untuk scroll ke atas
+  function scrollToTop() {
+    // Scroll ke tab container
+    const tabsContainer = document.querySelector('.tabs-container');
+    if (tabsContainer) {
+      tabsContainer.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Fallback jika tidak menemukan tabs container
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  }
+</script>
+  </body>
+</html>

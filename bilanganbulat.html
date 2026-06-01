@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang RME | MathRME</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset dan Variabel Warna */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --rme-orange: #FF7D00;
+            --rme-blue: #4CC9F0;
+            --rme-dark: #2b2d42;
+            --rme-light: #f8f9fa;
+            --rme-green: #2EC4B6;
+            --rme-red: #E71D36;
+            --rme-yellow: #FF9F1C;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--rme-orange), #FF5400);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--rme-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--rme-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Tentang RME */
+        .about-hero {
+            background: linear-gradient(135deg, rgba(255, 125, 0, 0.1), rgba(76, 201, 240, 0.2));
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://img.freepik.com/free-vector/hand-drawn-math-formula-pattern_23-2148156772.jpg') center/cover;
+            opacity: 0.05;
+            z-index: -1;
+        }
+
+        .about-hero h1 {
+            font-size: 3.5rem;
+            color: var(--rme-orange);
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            color: var(--rme-dark);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Container Utama */
+        .main-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Tab Navigasi */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .tab-button {
+            padding: 1rem 2rem;
+            background: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            color: var(--rme-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-button::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--rme-orange);
+            transition: width 0.3s ease;
+        }
+
+        .tab-button.active {
+            background: var(--rme-orange);
+            color: white;
+        }
+
+        .tab-button.active::before {
+            width: 100%;
+        }
+
+        .tab-button:hover:not(.active) {
+            background: #f0f0f0;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Konten Tentang RME */
+        .about-section {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            color: var(--rme-orange);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--rme-orange), var(--rme-blue));
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            color: var(--rme-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .about-image:hover {
+            transform: translateY(-10px);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Karakteristik RME */
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-top-color: var(--rme-orange);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(255, 125, 0, 0.1), rgba(76, 201, 240, 0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--rme-orange);
+            font-size: 1.8rem;
+        }
+
+        .feature-card h3 {
+            color: var(--rme-blue);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #666;
+        }
+
+        /* Timeline RME */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 3rem auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--rme-orange), var(--rme-blue));
+        }
+
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: -15px;
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 15px solid white;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -15px;
+            border-left: none;
+            border-right: 15px solid white;
+        }
+
+        .timeline-date {
+            color: var(--rme-orange);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            color: var(--rme-blue);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--rme-orange);
+            top: 30px;
+            right: -10px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+
+        /* Interaktif FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: linear-gradient(to right, rgba(255, 125, 0, 0.1), white);
+            color: var(--rme-dark);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(to right, rgba(255, 125, 0, 0.2), white);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-question {
+            background: linear-gradient(to right, var(--rme-orange), rgba(255, 125, 0, 0.2));
+            color: white;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 1.5rem;
+            padding-top: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, var(--rme-dark), #1a1a2e);
+            color: white;
+            padding: 3rem 2rem 1rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--rme-blue);
+        }
+
+        .footer-column p {
+            margin-bottom: 1rem;
+            color: #adb5bd;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--rme-blue);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--rme-orange);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                margin-top: 2rem;
+            }
+
+            .timeline::before {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-content::before {
+                left: -15px;
+                border-left: none;
+                border-right: 15px solid white;
+            }
+
+            .timeline-dot {
+                left: 21px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .about-section {
+                padding: 2rem 1rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <span>MathRME</span>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Materi <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="cp.html">CP ATP</a>
+                    <a href="petakonsep.html">Peta Konsep</a>
+                </div>
+            </li>
+            <li><a href="#">Log in</a></li>
+            <li><a href="#">Sign Up</a></li>
+            <li><a href="tentangrme.html">Tentang RME</a></li>
+        </ul>
+        
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+</header>
+
+<style>
+/* Existing navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+    position: relative;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+/* Dropdown styles - CHANGED TO SOLID ORANGE */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--rme-orange); /* Changed to solid orange */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dropdown-content a {
+    color: white; /* Changed text color to white */
+    padding: 12px 16px;
+    display: block;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255,255,255,0.2); /* Slightly lighter orange on hover */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-toggle i {
+    margin-left: 5px;
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-toggle i {
+    transform: rotate(180deg);
+}
+
+/* Hide mobile menu button on desktop */
+.mobile-menu-btn {
+    display: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+    
+    /* Show menu when active */
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, var(--rme-orange), #FF5400);
+        padding: 1rem;
+        z-index: 100;
+    }
+    
+    .nav-links.active li {
+        margin: 0.5rem 0;
+    }
+    
+    .dropdown-content {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        background-color: rgba(255,125,0,0.8); /* Semi-transparent orange for mobile */
+    }
+    
+    .dropdown-content a {
+        color: white;
+        padding: 8px 0;
+    }
+}
+</style>
+
+<script>
+// Mobile menu toggle functionality
+document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('active');
+});
+</script>
+
+    <!-- Hero Bilangan Bulat -->
+    <section class="about-hero">
+        <h1>Bilangan Bulat dengan Pendekatan RME</h1>
+        <p>Belajar bilangan bulat melalui konteks nyata menuju pemahaman abstrak</p>
+    </section>
+
+    <!-- Konten Utama -->
+    <div class="main-container">
+        <!-- Tab Navigasi -->
+    <div class="tabs-container">
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event, 'fase1')">
+                <i class="fas fa-binoculars"></i> Fase 1: Eksplorasi
+            </button>
+            <button class="tab-button" onclick="openTab(event, 'fase2')">
+                <i class="fas fa-shapes"></i> Fase 2: Model of
+            </button>
+            <button class="tab-button" onclick="openTab(event, 'fase3')">
+                <i class="fas fa-wand-magic-sparkles"></i> Fase 3: Keajaiban
+            </button>
+            <button class="tab-button" onclick="openTab(event, 'fase4')">
+                <i class="fas fa-lock-open"></i> Fase 4: Rahasia
+            </button>
+            <button class="tab-button" onclick="openTab(event, 'fase5')">
+                <i class="fas fa-mirror"></i> Fase 5: Refleksi
+            </button>
+            <button class="tab-button" onclick="openTab(event, 'fase6')">
+                <i class="fas fa-question-circle"></i> Fase 6: Pengen tau
+            </button>
+        </div>
+    </div>
+
+       <!-- Fase 1 Content -->
+    <div id="fase1" class="phase-content active">
+        <section class="about-section">
+    <h2 class="section-title">Fase 1: Petualangan Bilangan Bulat</h2>
+    <div class="about-content">
+        <div class="about-text">
+            <h2>Kisah Sehari dengan Angka Ajaib</h2>
+            
+            <div class="story-intro" style="background: rgba(255,125,0,0.05); padding:1.5rem; border-radius:10px; margin-bottom:2rem; border-left:4px solid var(--rme-orange);">
+                <p><i class="fas fa-book-open" style="color:var(--rme-orange);"></i> <em>Hari itu dimulai seperti biasa, sampai angka-angka misterius mengubah segalanya. Ikuti petualangan Rina dalam satu hari penuh kejutan matematika!</em></p>
+            </div>
+            
+            <div class="context-example" style="background: rgba(76, 201, 240, 0.1);">
+                <h3><i class="fas fa-snowflake"></i> ❄️ Kejutan di Pagi Dingin</h3>
+                <p>Pukul 06.00, Rina menggeser tirai jendela kabin liburannya di pegunungan. Matanya langsung tertuju pada termometer digital di dinding:</p>
+                <p style="font-size:1.1rem; text-align:center; margin:1rem 0;">"<span style="color:var(--rme-blue);font-weight:bold;font-size:1.3rem;">-5°C</span>? Kok ada tanda minusnya?"</p>
+                <p>Ibunya menjelaskan sambil mengembunkan napas: "Itu artinya lima derajat di bawah nol, lebih dingin dari es yang mencair!"</p>
+                
+                <div style="display:flex; justify-content:space-around; margin:1rem 0;">
+                    <div style="text-align:center;">
+                        <div style="color:var(--rme-red);">Pukul 03.00</div>
+                        <div style="font-weight:bold;">-7°C</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <div style="color:var(--rme-blue);">Sekarang</div>
+                        <div style="font-weight:bold;">-5°C</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <div style="color:var(--rme-green);">Pukul 10.00</div>
+                        <div style="font-weight:bold;">2°C</div>
+                    </div>
+                </div>
+                
+                <p><strong>Misteri:</strong> "Jadi kalau suhu naik dari -5°C ke 2°C, itu artinya perubahan sebesar...?" Rina menggaruk-garuk kepala sambil menatap grafik suhu di aplikasi cuacanya.</p>
+            </div>
+            
+            <div class="context-example" style="background: rgba(255,125,0,0.1); margin-top:2rem;">
+                <h3><i class="fas fa-wallet"></i> 💸 Drama di Minimarket</h3>
+                <p>Siang hari, Rina ingin membeli cokelat panas di minimarket dekat kabin. Saat scan QR Code, kasir tiba-tiba menggeleng:</p>
+                <p style="font-size:1.1rem; text-align:center; margin:1rem 0; padding:0.5rem; background:rgba(231,29,54,0.1); border-radius:8px;">
+                    "Saldomu <span style="color:var(--rme-red);font-weight:bold;">-Rp5.000</span>. Mau isi ulang dulu?"
+                </p>
+                
+                <p>Dengan panik, Rina membuka riwayat transaksi:</p>
+                <ul style="margin-left:1.5rem;color:#555; list-style-type: none;">
+                    <li style="margin-bottom:0.5rem;">📈 <span style="color:var(--rme-green);">+Rp20.000</span> (Isi ulang dari Ayah)</li>
+                    <li style="margin-bottom:0.5rem;">📉 <span style="color:var(--rme-red);">-Rp25.000</span> (Makan siang kemarin)</li>
+                    <li>🟠 <span style="font-weight:bold;">Total: -Rp5.000</span></li>
+                </ul>
+                
+                <p><strong>Kilas Balik:</strong> "Aha! Jadi 20.000 dikurangi 25.000 hasilnya minus 5.000!" Rina tersenyum sambil mengisi ulang saldo. "Sekarang aku paham arti angka negatif di dunia nyata!"</p>
+            </div>
+            
+            <div class="context-example" style="background: rgba(46,196,182,0.1); margin-top:2rem;">
+                <h3><i class="fas fa-gamepad"></i> 🎮 Pertarungan di Dunia Digital</h3>
+                <p>Malam hari, Rina bermain game survival favoritnya. Tiba-tiba:</p>
+                
+                <div style="background:#2b2d42; color:white; padding:1rem; border-radius:8px; font-family:monospace; margin:1rem 0;">
+                    <div style="color:var(--rme-yellow);">⚔️ Kamu terkena jebakan! <span style="color:var(--rme-red);">-15 poin</span></div>
+                    <div style="color:var(--rme-green);">💰 Menemukan harta karun! <span style="color:var(--rme-green);">+10 poin</span></div>
+                    <div style="margin-top:0.5rem;">🔄 Skor sekarang: <span style="color:var(--rme-red);font-weight:bold;">-5</span></div>
+                </div>
+                
+                <p>Rina melihat leaderboard:</p>
+                <table style="width:100%; border-collapse:collapse; margin:1rem 0;">
+                    <tr style="background:rgba(46,196,182,0.2);">
+                        <td style="padding:0.5rem;">🥇 Pemain A</td>
+                        <td style="text-align:right; color:var(--rme-green);">+120</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0.5rem;">🧩 Kamu</td>
+                        <td style="text-align:right; color:var(--rme-red);">-5</td>
+                    </tr>
+                    <tr style="background:rgba(231,29,54,0.1);">
+                        <td style="padding:0.5rem;">😵 Pemain B</td>
+                        <td style="text-align:right; color:var(--rme-red);">-30</td>
+                    </tr>
+                </table>
+                
+                <p><strong>Strategi:</strong> "Jika aku perlu mencapai zona positif (0+), berarti butuh..." Rina mencoret-coret di kertas:</p>
+                <p style="text-align:center; font-size:1.2rem; margin:1rem 0;">
+                    <span style="color:var(--rme-red);">-5</span> + <span style="color:var(--rme-green);">X</span> = <span style="color:var(--rme-blue);">1</span><br>
+                    <span style="color:var(--rme-green);">X = 6 poin!</span>
+                </p>
+            </div>
+            
+            <div class="story-ending" style="background: rgba(255,159,28,0.1); padding:1.5rem; border-radius:10px; margin-top:2rem; text-align:center;">
+                <p>📚 <strong>Pelajaran Hari Ini:</strong> Angka negatif ternyata ada di mana-mana! Dari suhu dingin, saldo minus, sampai skor game. Mereka adalah petunjuk saat sesuatu <em>kurang dari</em> titik nol.</p>
+                <button style="background:var(--rme-orange);color:white;border:none;padding:0.7rem 1.5rem;border-radius:50px;cursor:pointer;margin-top:1rem;">
+                    <i class="fas fa-question-circle"></i> Diskusikan Pengalamanmu
+                </button>
+            </div>
+        </div>
+        <div class="about-image">
+            <img src="gambar1.png" 
+                 alt="Ilustrasi Petualangan Bilangan" 
+                 style="border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.1);max-width:100%;height:auto;">
+            <div style="margin-top:1rem;text-align:center;">
+                <button style="background:var(--rme-orange);color:white;border:none;padding:0.7rem 1.5rem;border-radius:50px;cursor:pointer;margin:0.5rem;width:100%;">
+                    <i class="fas fa-play"></i> Simulasikan Cerita Ini
+                </button>
+                <button style="background:white;color:var(--rme-orange);border:2px solid var(--rme-orange);padding:0.7rem 1.5rem;border-radius:50px;cursor:pointer;margin:0.5rem;width:100%;">
+                    <i class="fas fa-book"></i> Lihat Catatan Rina
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+ <!-- Fase 2 Model of (Representasi) -->
+ <div id="fase2" class="phase-content">
+    <section class="about-section">
+        <h2 class="section-title">Fase 2: Model of (Representasi)</h2>
+        <div class="about-content">
+    <div class="about-image">
+        <img src="https://i.ibb.co/7YfXZzT/number-line.png" 
+             alt="Ilustrasi Garis Bilangan" 
+             style="border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.15);max-width:100%;height:auto;border:1px solid #eee;">
+        <div style="margin-top:1.5rem;text-align:center;">
+            <button onclick="showNumberLineDemo()" style="background:linear-gradient(135deg, #6e8efb, #4a6cf7);color:white;border:none;padding:0.7rem 1.5rem;border-radius:8px;cursor:pointer;font-weight:500;transition:all 0.3s ease;box-shadow:0 4px 6px rgba(0,0,0,0.1);">
+                <i class="fas fa-play-circle" style="margin-right:8px;"></i> Lihat Demo Interaktif
+            </button>
+        </div>
+    </div>
+    <div class="about-text">
+        <h2 style="color:#4a5568;font-weight:600;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;">🔍 Mengembangkan Model Representasi</h2>
+        <div class="context-example" style="background:#f8fafc;padding:1.5rem;border-radius:12px;border-left:4px solid #4a6cf7;margin-bottom:2rem;">
+            <p style="font-style:italic;color:#4a5568;margin:0;font-size:1.05rem;">"Setelah mengalami situasi nyata—suhu udara di pegunungan, saldo e-wallet minus, dan skor game yang turun—kita mulai melihat pola bilangan yang muncul. Tapi bagaimana menggambarkannya secara sistematis?"</p>
+        </div>
+
+        <!-- Kasus 1: Termometer -->
+        <div style="margin:2rem 0;">
+            <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                <i class="fas fa-temperature-low" style="color:#e53e3e;font-size:1.2em;"></i> Kasus 1: Termometer Pegunungan
+            </h3>
+            <p style="color:#4a5568;">Ingat saat termometer menunjukkan <span style="color:#e53e3e;font-weight:bold;">-5°C</span>? Mari buat skala visual:</p>
+            
+            <div style="background:#f8fafc;padding:1.5rem;border-radius:12px;margin-top:1rem;">
+                <!-- Number Line -->
+                <div style="position:relative; height:60px; margin:20px 0;">
+                    <!-- Garis Utama -->
+                    <div style="position:absolute; height:4px; width:100%; background:linear-gradient(to right, #e53e3e, #38b2ac); top:50%; transform:translateY(-50%); border-radius:2px;"></div>
+                    
+                    <!-- Titik dan Label -->
+                    <div style="position:absolute; left:0%; transform:translateX(-50%); top:50%; text-align:center;">
+                        <div style="width:12px; height:12px; background:#e53e3e; border-radius:50%; margin:0 auto 5px;"></div>
+                        <span style="font-weight:500;">-10</span>
+                    </div>
+                    <div style="position:absolute; left:25%; transform:translateX(-50%); top:50%; text-align:center;">
+                        <div style="width:16px; height:16px; background:#e53e3e; border-radius:50%; margin:0 auto 5px; border:3px solid white; box-shadow:0 0 0 2px #e53e3e;"></div>
+                        <span style="font-weight:600; color:#e53e3e;">-5</span>
+                    </div>
+                    <div style="position:absolute; left:50%; transform:translateX(-50%); top:50%; text-align:center;">
+                        <div style="width:20px; height:20px; background:#2d3748; border-radius:50%; margin:0 auto 5px;"></div>
+                        <span style="font-weight:700;">0</span>
+                    </div>
+                    <div style="position:absolute; left:75%; transform:translateX(-50%); top:50%; text-align:center;">
+                        <div style="width:12px; height:12px; background:#38b2ac; border-radius:50%; margin:0 auto 5px;"></div>
+                        <span style="font-weight:500;">5</span>
+                    </div>
+                    <div style="position:absolute; left:100%; transform:translateX(-50%); top:50%; text-align:center;">
+                        <div style="width:12px; height:12px; background:#38b2ac; border-radius:50%; margin:0 auto 5px;"></div>
+                        <span style="font-weight:500;">10</span>
+                    </div>
+                </div>
+                <p style="color:#e53e3e;text-align:center;margin-top:0.5rem;">Titik Beku</p>
+            </div>
+        </div>
+
+        <!-- Kasus 2: E-Wallet -->
+        <div style="margin:2rem 0;">
+            <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                <i class="fas fa-wallet" style="color:#38b2ac;font-size:1.2em;"></i> Kasus 2: Drama E-Wallet
+            </h3>
+            <p style="color:#4a5568;">Dari saldo <span style="color:#e53e3e;font-weight:bold;">-Rp5.000</span> ke <span style="color:#38b2ac;font-weight:bold;">Rp15.000</span>, bagaimana perjalanannya?</p>
+            
+            <div style="background:#f8fafc;padding:1.5rem;border-radius:12px;margin-top:1rem;">
+                <!-- Number Line -->
+                <div style="position:relative; height:80px; margin:20px 0;">
+                    <!-- Garis Utama -->
+                    <div style="position:absolute; height:4px; width:100%; background:linear-gradient(to right, #e53e3e, #38b2ac); top:50%; transform:translateY(-50%); border-radius:2px;"></div>
+                    
+                    <!-- Titik dan Label -->
+                    <div style="position:absolute; left:0%; transform:translateX(-50%); top:50%; text-align:center;">
+                        <div style="width:12px; height:12px; background:#e53e3e; border-radius:50%; margin:0 auto 5px;"></div>
+                        <span style="font-weight:500;">-10k</span>
+                    </div>
+                    <div style="position:absolute; left:16.66%; transform:translateX(-50%); top:50%; text-align:center;">
+                        <div style="width:16px; height:16px; background:#e53e3e; border-radius:50%; margin:0 auto 5px; border:3px solid white; box-shadow:0 0 0 2px #e53e3e;"></div>
+                        <span style="font-weight:600; color:#e53e3e;">-5k</span>
+                    </div>
+                    <div style="position:absolute; left:33.33%; transform:translateX(-50%); top:50%; text-align:center;">
+                        <div style="width:20px; height:20px; background:#2d3748; border-radius:50%; margin:0 auto 5px;"></div>
+                        <span style="font-weight:700;">0</span>
+                    </div>
+                    <div style="position:absolute; left:66.66%; transform:translateX(-50%); top:50%; text-align:center;">
+                        <div style="width:16px; height:16px; background:#38b2ac; border-radius:50%; margin:0 auto 5px; border:3px solid white; box-shadow:0 0 0 2px #38b2ac;"></div>
+                        <span style="font-weight:600; color:#38b2ac;">15k</span>
+                    </div>
+                    
+                    <!-- Panah Perubahan -->
+                    <div style="position:absolute; left:16.66%; width:50%; top:60%;">
+                        <div style="height:2px; background:#4a5568; position:relative;">
+                            <div style="position:absolute; right:0; top:-5px; width:0; height:0; border-left:8px solid #4a5568; border-top:5px solid transparent; border-bottom:5px solid transparent;"></div>
+                        </div>
+                        <div style="text-align:center; color:#4a5568; font-weight:500; margin-top:5px;">+Rp20.000</div>
+                    </div>
+                </div>
+                <div style="display:flex;justify-content:space-between;max-width:300px;margin:0 auto;">
+                    <span style="color:#e53e3e;">Awal</span>
+                    <span style="color:#38b2ac;">Akhir</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kasus 3: Game -->
+        <div style="margin:2rem 0;">
+            <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                <i class="fas fa-gamepad" style="color:#2ec4b6;font-size:1.2em;"></i> Kasus 3: Mission Escape Negative Zone
+            </h3>
+            <p style="color:#4a5568;">Perjalanan skor game:</p>
+            <p style="color:#4a5568;">
+                Skor awal: <span style="color:#38b2ac;font-weight:bold;">0</span><br>
+                Terkena jebakan: <span style="color:#e53e3e;font-weight:bold;">-15</span><br>
+                Menemukan harta: <span style="color:#38b2ac;font-weight:bold;">+10</span><br>
+                Skor akhir: <span style="color:#e53e3e;font-weight:bold;">-5</span>
+            </p>
+            
+            <div style="background:#f8fafc;padding:1.5rem;border-radius:12px;margin-top:1rem;">
+                <!-- Number Line -->
+                <div style="position:relative; height:100px; margin:20px 0;">
+                    <!-- Garis Utama -->
+                    <div style="position:absolute; height:4px; width:100%; background:linear-gradient(to right, #e53e3e, #2ec4b6); top:50%; transform:translateY(-50%); border-radius:2px;"></div>
+                    
+                    <!-- Titik dan Label -->
+                    <div style="position:absolute; left:0%; transform:translateX(-50%); top:50%; text-align:center;">
+                        <div style="width:12px; height:12px; background:#e53e3e; border-radius:50%; margin:0 auto 5px;"></div>
+                        <span style="font-weight:500;">-20</span>
+                    </div>
+                    <div style="position:absolute; left:25%; transform:translateX(-50%); top:50%; text-align:center;">
+                        <div style="width:12px; height:12px; background:#e53e3e; border-radius:50%; margin:0 auto 5px;"></div>
+                        <span style="font-weight:500;">-15</span>
+                    </div>
+                    <div style="position:absolute; left:37.5%; transform:translateX(-50%); top:50%; text-align:center;">
+                        <div style="width:16px; height:16px; background:#e53e3e; border-radius:50%; margin:0 auto 5px; border:3px solid white; box-shadow:0 0 0 2px #e53e3e;"></div>
+                        <span style="font-weight:600; color:#e53e3e;">-5</span>
+                    </div>
+                    <div style="position:absolute; left:50%; transform:translateX(-50%); top:50%; text-align:center;">
+                        <div style="width:20px; height:20px; background:#2d3748; border-radius:50%; margin:0 auto 5px;"></div>
+                        <span style="font-weight:700;">0</span>
+                    </div>
+                    <div style="position:absolute; left:75%; transform:translateX(-50%); top:50%; text-align:center;">
+                        <div style="width:12px; height:12px; background:#2ec4b6; border-radius:50%; margin:0 auto 5px;"></div>
+                        <span style="font-weight:500;">+10</span>
+                    </div>
+                    
+                    <!-- Perjalanan Skor -->
+                    <div style="position:absolute; left:50%; width:25px; height:25px; background:#38b2ac; border-radius:50%; top:20%; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;">0</div>
+                    <div style="position:absolute; left:25%; width:25px; height:25px; background:#e53e3e; border-radius:50%; top:20%; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;">-15</div>
+                    <div style="position:absolute; left:37.5%; width:25px; height:25px; background:#e53e3e; border-radius:50%; top:20%; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;">-5</div>
+                    
+                    <!-- Panah -->
+                    <div style="position:absolute; left:50%; width:12.5%; height:2px; background:#4a5568; top:32.5%;"></div>
+                    <div style="position:absolute; left:25%; width:25%; height:2px; background:#4a5568; top:32.5%;"></div>
+                    <div style="position:absolute; left:37.5%; width:12.5%; height:2px; background:#4a5568; top:32.5%;"></div>
+                    <div style="position:absolute; left:62.5%; top:30%; width:0; height:0; border-left:8px solid #4a5568; border-top:5px solid transparent; border-bottom:5px solid transparent;"></div>
+                </div>
+                <p style="color:#4a5568;text-align:center;margin-top:0.5rem;">Butuh <span style="color:#38b2ac;font-weight:bold;">+5 poin</span> untuk mencapai zona positif</p>
+            </div>
+        </div>
+
+        <div style="background:#f0fff4;padding:1.5rem;border-radius:12px;margin-top:2rem;border-left:4px solid #38b2ac;">
+            <h3 style="color:#2f855a;margin-top:0;font-weight:600;">💡 Aktivitas Pembelajaran</h3>
+            <ul style="margin-left:1rem;color:#4a5568;padding-left:1rem;">
+                <li style="margin-bottom:0.5rem;"><strong>Garasi Bilangan</strong>: Buat garis bilangan raksasa di lantai kelas dengan lakban warna-warni</li>
+                <li style="margin-bottom:0.5rem;"><strong>Simulasi Transaksi</strong>: Gunakan kartu bilangan (+/-) untuk simulasi transaksi keuangan</li>
+                <li><strong>Termometer Kelas</strong>: Tempelkan garis bilangan vertikal untuk merekam suhu harian</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+function showNumberLineDemo() {
+    alert("Demo interaktif akan muncul di sini!\n(Fitur ini dapat dikembangkan dengan animasi JavaScript)");
+}
+</script>
+
+       <!-- Fase 3 Model for (Sifat-sifat) -->
+ <div id="fase3" class="phase-content">
+    <section class="about-section">
+    <h2 class="section-title">Fase 3: Keajaiban Operasi Bilangan</h2>
+    <div class="about-content">
+        <div class="about-text">
+            <h2>Petualangan Lanjutan Rina dengan Angka</h2>
+            
+            <div class="story-intro" style="background: rgba(255,125,0,0.05); padding:1.5rem; border-radius:10px; margin-bottom:2rem; border-left:4px solid var(--rme-orange);">
+                <p><i class="fas fa-book-open" style="color:var(--rme-orange);"></i> <em>Setelah memahami bilangan negatif, Rina menemukan keajaiban saat angka-angka ini saling berinteraksi. Mari ikuti penemuannya!</em></p>
+            </div>
+
+            <!-- Komutatif -->
+            <div class="context-example" style="background: rgba(76, 201, 240, 0.1);">
+                <h3><i class="fas fa-random"></i> 🔄 Kejutan di Toko Buku</h3>
+                <p>Rina ingin membeli buku seharga Rp15.000 dan pensil Rp5.000. Saat di kasir terjadi percakapan lucu:</p>
+                
+                <div style="display:flex; justify-content:space-around; margin:1rem 0; flex-wrap:wrap;">
+                    <div style="background:white; padding:1rem; border-radius:8px; margin:0.5rem; text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                        <p><strong>Cara 1:</strong></p>
+                        <p>Buku dulu: <span style="color:var(--rme-blue);">+15.000</span></p>
+                        <p>Lalu pensil: <span style="color:var(--rme-blue);">+5.000</span></p>
+                        <div style="border-top:1px dashed #ccc; margin:0.5rem 0; padding-top:0.5rem;">
+                            Total: <span style="font-weight:bold;">+20.000</span>
+                        </div>
+                    </div>
+                    <div style="background:white; padding:1rem; border-radius:8px; margin:0.5rem; text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                        <p><strong>Cara 2:</strong></p>
+                        <p>Pensil dulu: <span style="color:var(--rme-blue);">+5.000</span></p>
+                        <p>Lalu buku: <span style="color:var(--rme-blue);">+15.000</span></p>
+                        <div style="border-top:1px dashed #ccc; margin:0.5rem 0; padding-top:0.5rem;">
+                            Total: <span style="font-weight:bold;">+20.000</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <p><strong>Penemuan:</strong> "Wah, ternyata urutan belanja tidak mengubah total bayar!" Rina mencatat di buku hariannya:</p>
+                <div style="background:white; padding:1rem; border-radius:8px; margin:1rem 0; text-align:center; font-family:monospace; border:1px solid var(--rme-blue);">
+                    a + b = b + a
+                </div>
+                <p style="color:var(--rme-blue);font-weight:bold;text-align:center;">Sifat Komutatif Penjumlahan</p>
+            </div>
+
+            <!-- Asosiatif -->
+            <div class="context-example" style="background: rgba(255,125,0,0.1); margin-top:2rem;">
+                <h3><i class="fas fa-layer-group"></i> 🧩 Teka-teki Hadiah Ulang Tahun</h3>
+                <p>Rina mendapat 3 paket hadiah yang masing-masing berisi:</p>
+                
+                <div style="background:white; padding:1rem; border-radius:8px; margin:1rem 0; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                    <div style="display:flex; justify-content:space-around; flex-wrap:wrap;">
+                        <div style="text-align:center; margin:0.5rem;">
+                            <div>📦 Paket A</div>
+                            <div>2 coklat + 3 permen</div>
+                        </div>
+                        <div style="text-align:center; margin:0.5rem;">
+                            <div>🎁 Paket B</div>
+                            <div>3 coklat + 1 permen</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>Saat menghitung total, Rina menemukan dua cara:</p>
+                
+                <div style="display:flex; justify-content:space-around; margin:1rem 0; flex-wrap:wrap;">
+                    <div style="background:white; padding:1rem; border-radius:8px; margin:0.5rem; text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                        <p><strong>Cara Kelompok 1:</strong></p>
+                        <p>(2 + 3) coklat = 5</p>
+                        <p>+ (3 + 1) permen = 4</p>
+                        <div style="border-top:1px dashed #ccc; margin:0.5rem 0; padding-top:0.5rem;">
+                            Total: 9 item
+                        </div>
+                    </div>
+                    <div style="background:white; padding:1rem; border-radius:8px; margin:0.5rem; text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                        <p><strong>Cara Kelompok 2:</strong></p>
+                        <p>2 coklat + 3 permen = 5</p>
+                        <p>+ 3 coklat + 1 permen = 4</p>
+                        <div style="border-top:1px dashed #ccc; margin:0.5rem 0; padding-top:0.5rem;">
+                            Total: 9 item
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background:#f8f9fc; padding:1rem; border-radius:8px; margin:1rem 0; border-left:4px solid var(--rme-orange);">
+                    <p><strong>Catatan Rina:</strong> "Ternyata cara mengelompokkan hadiah tidak mengubah totalnya!"</p>
+                    <div style="font-family:monospace; text-align:center; margin-top:0.5rem;">
+                        (a + b) + c = a + (b + c)
+                    </div>
+                    <p style="color:var(--rme-orange);font-weight:bold;text-align:center;">Sifat Asosiatif Penjumlahan</p>
+                </div>
+            </div>
+
+            <!-- Distributif -->
+            <div class="context-example" style="background: rgba(46,196,182,0.1); margin-top:2rem;">
+                <h3><i class="fas fa-gift"></i> 🎁 Strategi Berbagi Kue</h3>
+                <p>Rina ingin membagikan kue ke 2 teman. Masing-masing mendapat:</p>
+                
+                <div style="background:white; padding:1rem; border-radius:8px; margin:1rem 0; text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                    <p>1 kue coklat <span style="color:var(--rme-green);">+</span> 2 kue stroberi</p>
+                    <p><strong>Untuk 2 orang</strong></p>
+                </div>
+                
+                <p>Rina menghitung dengan dua cara:</p>
+                
+                <div style="display:flex; justify-content:space-around; margin:1rem 0; flex-wrap:wrap;">
+                    <div style="background:white; padding:1rem; border-radius:8px; margin:0.5rem; text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                        <p><strong>Cara 1:</strong></p>
+                        <p>2 × (1 coklat + 2 stroberi)</p>
+                        <p>= 2 × 3 = 6 kue</p>
+                    </div>
+                    <div style="background:white; padding:1rem; border-radius:8px; margin:0.5rem; text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                        <p><strong>Cara 2:</strong></p>
+                        <p>(2×1 coklat) + (2×2 stroberi)</p>
+                        <p>= 2 + 4 = 6 kue</p>
+                    </div>
+                </div>
+                
+                <div style="background:#2b2d42; color:white; padding:1rem; border-radius:8px; margin:1rem 0; font-family:monospace;">
+                    <p style="text-align:center; margin:0;">a × (b + c) = (a × b) + (a × c)</p>
+                </div>
+                <p style="color:var(--rme-teal);font-weight:bold;text-align:center;">Sifat Distributif Perkalian</p>
+            </div>
+ <!-- Identitas -->
+ <div class="context-example" style="background: rgba(159, 89, 255, 0.1); margin-top:2rem;">
+    <h3><i class="fas fa-magic"></i> ✨ Keajaiban Angka Netral</h3>
+    <p>Di perpustakaan sekolah, Rina menemukan buku catatan matematika lama:</p>
+    
+    <div style="background:white; padding:1rem; border-radius:8px; margin:1rem 0; box-shadow:0 3px 10px rgba(0,0,0,0.1); text-align:center;">
+        <p><strong>Eksperimen Penjumlahan:</strong></p>
+        <div style="display:flex; justify-content:center; gap:1rem; margin:1rem 0;">
+            <div>
+                <p>5 + <span style="color:var(--rme-purple);font-weight:bold;">0</span> = 5</p>
+                <p>-3 + <span style="color:var(--rme-purple);font-weight:bold;">0</span> = -3</p>
+            </div>
+        </div>
+        <p><strong>Eksperimen Perkalian:</strong></p>
+        <div style="display:flex; justify-content:center; gap:1rem; margin:1rem 0;">
+            <div>
+                <p>7 × <span style="color:var(--rme-purple);font-weight:bold;">1</span> = 7</p>
+                <p>-4 × <span style="color:var(--rme-purple);font-weight:bold;">1</span> = -4</p>
+            </div>
+        </div>
+    </div>
+    
+    <p><strong>Penemuan:</strong> "Aha! Ada angka spesial yang tidak mengubah nilai saat dioperasikan!" Rina menyimpulkan:</p>
+    
+    <div style="display:flex; justify-content:space-around; margin:1rem 0; flex-wrap:wrap;">
+        <div style="background:white; padding:1rem; border-radius:8px; margin:0.5rem; text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+            <p><i class="fas fa-plus-circle" style="color:var(--rme-purple);"></i></p>
+            <p>a + <span style="color:var(--rme-purple);font-weight:bold;">0</span> = a</p>
+            <p style="color:var(--rme-purple);font-weight:bold;">Identitas Penjumlahan</p>
+        </div>
+        <div style="background:white; padding:1rem; border-radius:8px; margin:0.5rem; text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+            <p><i class="fas fa-times-circle" style="color:var(--rme-purple);"></i></p>
+            <p>a × <span style="color:var(--rme-purple);font-weight:bold;">1</span> = a</p>
+            <p style="color:var(--rme-purple);font-weight:bold;">Identitas Perkalian</p>
+        </div>
+    </div>
+</div>
+
+<!-- Invers -->
+<div class="context-example" style="background: rgba(231, 29, 54, 0.1); margin-top:2rem;">
+    <h3><i class="fas fa-undo-alt"></i> 🔁 Permainan Kembalikan Angka</h3>
+    <p>Ketika bermain game matematika, Rina menemukan pola menarik:</p>
+    
+    <div style="background:white; padding:1rem; border-radius:8px; margin:1rem 0; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+        <div style="display:flex; justify-content:space-around; flex-wrap:wrap;">
+            <div style="text-align:center; margin:0.5rem;">
+                <p>5 + <span style="color:var(--rme-red);font-weight:bold;">(-5)</span> = 0</p>
+                <p style="color:#777;">"Lima ditambah lawannya"</p>
+            </div>
+            <div style="text-align:center; margin:0.5rem;">
+                <p>3 × <span style="color:var(--rme-red);font-weight:bold;">(1/3)</span> = 1</p>
+                <p style="color:#777;">"Tiga dikali kebalikannya"</p>
+            </div>
+        </div>
+    </div>
+    
+    <p><strong>Pola:</strong> "Ternyata setiap bilangan punya pasangan khusus yang bisa mengembalikannya ke angka identitas!"</p>
+    
+    <div style="display:flex; justify-content:space-around; margin:1rem 0; flex-wrap:wrap;">
+        <div style="background:white; padding:1rem; border-radius:8px; margin:0.5rem; text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+            <p><i class="fas fa-plus-circle" style="color:var(--rme-red);"></i></p>
+            <p>a + (-a) = <span style="color:var(--rme-red);font-weight:bold;">0</span></p>
+            <p style="color:var(--rme-red);font-weight:bold;">Invers Penjumlahan</p>
+        </div>
+        <div style="background:white; padding:1rem; border-radius:8px; margin:0.5rem; text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+            <p><i class="fas fa-times-circle" style="color:var(--rme-red);"></i></p>
+            <p>a × (1/a) = <span style="color:var(--rme-red);font-weight:bold;">1</span></p>
+            <p style="color:var(--rme-red);font-weight:bold;">Invers Perkalian</p>
+        </div>
+    </div>
+    
+    <div style="background:#fff5f5; padding:1rem; border-radius:8px; margin-top:1rem; border-left:4px solid var(--rme-red);">
+        <p><i class="fas fa-exclamation-circle" style="color:var(--rme-red);"></i> <strong>Catatan:</strong> "Invers perkalian hanya berlaku untuk bilangan bukan nol (a ≠ 0)!"</p>
+    </div>
+</div>
+
+<div class="story-ending" style="background: rgba(255,159,28,0.1); padding:1.5rem; border-radius:10px; margin-top:2rem; text-align:center;">
+    <p>📚 <strong>Pelajaran Hari Ini:</strong> Operasi bilangan memiliki 5 sifat ajaib:</p>
+    <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:0.5rem; margin:1rem 0;">
+        <span style="background:rgba(76, 201, 240, 0.2); padding:0.3rem 0.8rem; border-radius:50px; font-size:0.9rem;">Komutatif</span>
+        <span style="background:rgba(255,125,0,0.2); padding:0.3rem 0.8rem; border-radius:50px; font-size:0.9rem;">Asosiatif</span>
+        <span style="background:rgba(46,196,182,0.2); padding:0.3rem 0.8rem; border-radius:50px; font-size:0.9rem;">Distributif</span>
+        <span style="background:rgba(159, 89, 255, 0.2); padding:0.3rem 0.8rem; border-radius:50px; font-size:0.9rem;">Identitas</span>
+        <span style="background:rgba(231, 29, 54, 0.2); padding:0.3rem 0.8rem; border-radius:50px; font-size:0.9rem;">Invers</span>
+    </div>
+    <button style="background:var(--rme-orange);color:white;border:none;padding:0.7rem 1.5rem;border-radius:50px;cursor:pointer;margin-top:1rem;">
+        <i class="fas fa-lightbulb"></i> Temukan Pola Lainnya
+    </button>
+</div>
+</div>
+<div class="about-image">
+<img src="gambar2.png" 
+     alt="Ilustrasi Sifat Bilangan" 
+     style="border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.1);max-width:100%;height:auto;">
+<div style="margin-top:1rem;text-align:center;">
+    <button style="background:var(--rme-orange);color:white;border:none;padding:0.7rem 1.5rem;border-radius:50px;cursor:pointer;margin:0.5rem;width:100%;">
+        <i class="fas fa-calculator"></i> Coba Hitung Sendiri
+    </button>
+    <button style="background:white;color:var(--rme-orange);border:2px solid var(--rme-orange);padding:0.7rem 1.5rem;border-radius:50px;cursor:pointer;margin:0.5rem;width:100%;">
+        <i class="fas fa-chart-bar"></i> Lihat Pola Grafik
+    </button>
+</div>
+</div>
+</div>
+</section>
+            <div class="story-ending" style="background: rgba(255,159,28,0.1); padding:1.5rem; border-radius:10px; margin-top:2rem; text-align:center;">
+                <p>📚 <strong>Pelajaran Hari Ini:</strong> Operasi bilangan memiliki pola ajaib! Urutan dan pengelompokan bisa fleksibel, dan perkalian bisa "disebarkan" seperti membagi hadiah.</p>
+                <button style="background:var(--rme-orange);color:white;border:none;padding:0.7rem 1.5rem;border-radius:50px;cursor:pointer;margin-top:1rem;">
+                    <i class="fas fa-lightbulb"></i> Temukan Pola Lainnya
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+       <!-- Fase 4: Abstraksi Formal (FPB & KPK) -->
+ <div id="fase4" class="phase-content ">
+    <section class="about-section">
+    <h2 class="section-title">Fase 4: Rahasia FPB & KPK</h2>
+    <div class="about-content">
+        <div class="about-image">
+            <img src="https://img.freepik.com/free-vector/abstract-math-concept-illustration_114360-8503.jpg" 
+                 alt="Petualangan FPB KPK" 
+                 style="border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.1);max-width:100%;height:auto;">
+        </div>
+        <div class="about-text">
+            <h2>Penemuan Rina tentang Pola Tersembunyi</h2>
+            
+            <div class="story-intro" style="background: rgba(46,196,182,0.05); padding:1.5rem; border-radius:10px; margin-bottom:2rem; border-left:4px solid var(--rme-teal);">
+                <p><i class="fas fa-book-open" style="color:var(--rme-teal);"></i> <em>Hari Senin pagi yang cerah, Rina sedang menunggu di halte bis sekolah ketika dia melihat sesuatu yang menarik...</em></p>
+            </div>
+
+            <!-- Cerita Awal -->
+            <div class="story-part" style="background: rgba(76, 201, 240, 0.05); padding:1.5rem; border-radius:10px; margin-bottom:2rem;">
+                <h3><i class="fas fa-bus"></i> 🚌 Kejutan di Halte Bis</h3>
+                <p>Rina memperhatikan papan jadwal di halte:</p>
+                
+                <div style="display:flex; justify-content:space-around; margin:1rem 0; flex-wrap:wrap;">
+                    <div style="background:white; padding:1rem; border-radius:8px; margin:0.5rem; text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.1); width:45%; min-width:200px;">
+                        <p style="color:var(--rme-orange);font-weight:bold;">Bis Kuning</p>
+                        <p><i class="fas fa-clock"></i> Setiap <strong>15 menit</strong></p>
+                        <p><i class="fas fa-flag-checkered"></i> Terakhir: 08.00</p>
+                    </div>
+                    <div style="background:white; padding:1rem; border-radius:8px; margin:0.5rem; text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.1); width:45%; min-width:200px;">
+                        <p style="color:var(--rme-blue);font-weight:bold;">Bis Biru</p>
+                        <p><i class="fas fa-clock"></i> Setiap <strong>20 menit</strong></p>
+                        <p><i class="fas fa-flag-checkered"></i> Terakhir: 08.00</p>
+                    </div>
+                </div>
+                
+                <p>"Wah, bis kuning dan biru baru saja berangkat bersama pukul 08.00," pikir Rina. "Kira-kira kapan ya mereka akan datang bersamaan lagi?"</p>
+                
+                <div style="background:#f8f9fc; padding:1rem; border-radius:8px; margin-top:1rem; border-left:4px solid var(--rme-blue);">
+                    <p><i class="fas fa-lightbulb" style="color:var(--rme-yellow);"></i> <strong>Eksperimen Rina:</strong></p>
+                    <p>Rina mencoba mencatat jadwal kedatangan:</p>
+                    <ul style="columns:2; margin-left:1.5rem;">
+                        <li>Bis Kuning: 08:00</li>
+                        <li>Bis Kuning: 08:15</li>
+                        <li>Bis Kuning: 08:30</li>
+                        <li>Bis Kuning: 08:45</li>
+                        <li>Bis Kuning: 09:00</li>
+                        <li>Bis Biru: 08:00</li>
+                        <li>Bis Biru: 08:20</li>
+                        <li>Bis Biru: 08:40</li>
+                        <li>Bis Biru: 09:00</li>
+                    </ul>
+                    <p style="text-align:center; margin-top:0.5rem;">
+                        <span style="font-weight:bold; color:var(--rme-blue);">Ternyata bertemu lagi pukul 09.00!</span><br>
+                        <small>(Setelah 60 menit dari keberangkatan terakhir)</small>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Kasus KPK -->
+            <div class="context-example" style="background: rgba(76, 201, 240, 0.1);">
+                <h3><i class="fas fa-search"></i> 🔍 Mencari Pola</h3>
+                <p>"Menulis satu-satu seperti tadi melelahkan. Pasti ada cara lebih cepat!" pikir Rina.</p>
+                
+                <div class="solution-method">
+                    <h4><i class="fas fa-calculator"></i> Solusi dengan KPK (Kelipatan Persekutuan Terkecil)</h4>
+                    
+                    <div class="method-tabs">
+                        <button class="tab-button active" onclick="openMethod(event, 'faktorisasi-kpk')">Faktorisasi Prima</button>
+                        <button class="tab-button" onclick="openMethod(event, 'tabel-kpk')">Tabel Faktor</button>
+                    </div>
+                    
+                    <div id="faktorisasi-kpk" class="tab-content" style="display:block;">
+                        <p><strong>Langkah-langkah:</strong></p>
+                        <ol>
+                            <li>Faktorkan bilangan:
+                                <div style="font-family:monospace; margin:0.5rem 0 0.5rem 1.5rem; background:#f8f9fc; padding:0.8rem; border-radius:5px;">
+                                    15 = 3 × 5<br>
+                                    20 = 2² × 5
+                                </div>
+                            </li>
+                            <li>Ambil semua faktor dengan pangkat tertinggi:
+                                <div style="font-family:monospace; margin:0.5rem 0 0.5rem 1.5rem; background:#f8f9fc; padding:0.8rem; border-radius:5px;">
+                                    2² × 3 × 5 = 60
+                                </div>
+                            </li>
+                        </ol>
+                        <p style="text-align:center; background:var(--rme-blue);color:white;padding:0.8rem;border-radius:5px;">
+                            <strong>KPK(15,20) = 60 menit</strong><br>
+                            Jadi bis akan bertemu lagi setiap 60 menit (1 jam)
+                        </p>
+                    </div>
+                    
+                    <div id="tabel-kpk" class="tab-content" style="display:block;">
+                        <p><strong>Langkah-langkah:</strong></p>
+                        <ol>
+                            <li>Buat tabel pembagian:
+                                <div style="overflow-x:auto; margin:0.5rem 0;">
+                                    <table style="border-collapse:collapse; width:100%; background:#f8f9fc;">
+                                        <tr style="background:var(--rme-blue);color:white;">
+                                            <th style="padding:8px; text-align:center;">15</th>
+                                            <th style="padding:8px; text-align:center;">20</th>
+                                            <th style="padding:8px; text-align:center;">Bagi dengan</th>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:1px solid #ddd; padding:8px; text-align:center;">15</td>
+                                            <td style="border:1px solid #ddd; padding:8px; text-align:center;">20</td>
+                                            <td style="border:1px solid #ddd; padding:8px; text-align:center;">2</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:1px solid #ddd; padding:8px; text-align:center;">15</td>
+                                            <td style="border:1px solid #ddd; padding:8px; text-align:center;">10</td>
+                                            <td style="border:1px solid #ddd; padding:8px; text-align:center;">2</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:1px solid #ddd; padding:8px; text-align:center;">15</td>
+                                            <td style="border:1px solid #ddd; padding:8px; text-align:center;">5</td>
+                                            <td style="border:1px solid #ddd; padding:8px; text-align:center;">5</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:1px solid #ddd; padding:8px; text-align:center;">3</td>
+                                            <td style="border:1px solid #ddd; padding:8px; text-align:center;">1</td>
+                                            <td style="border:1px solid #ddd; padding:8px; text-align:center;">-</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </li>
+                            <li>Kalikan semua pembagi:
+                                <div style="font-family:monospace; margin:0.5rem 0 0.5rem 1.5rem; background:#f8f9fc; padding:0.8rem; border-radius:5px;">
+                                    2 × 2 × 5 × 3 = 60
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cerita Lanjutan -->
+            <div class="story-part" style="background: rgba(255,125,0,0.05); padding:1.5rem; border-radius:10px; margin:2rem 0;">
+                <h3><i class="fas fa-home"></i> 🏠 Masalah di Rumah</h3>
+                <p>Sesampainya di rumah, Rina ingin membagikan:</p>
+                
+                <div style="display:flex; justify-content:space-around; margin:1rem 0; flex-wrap:wrap;">
+                    <div style="background:white; padding:1rem; border-radius:8px; margin:0.5rem; text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.1); width:45%; min-width:200px;">
+                        <p style="color:#8b4513;font-weight:bold;">🍫 12 Coklat</p>
+                        <p>Untuk dibagi rata</p>
+                    </div>
+                    <div style="background:white; padding:1rem; border-radius:8px; margin:0.5rem; text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.1); width:45%; min-width:200px;">
+                        <p style="color:var(--rme-yellow);font-weight:bold;">🧀 18 Keju</p>
+                        <p>Untuk dibagi rata</p>
+                    </div>
+                </div>
+                
+                <p>"Aku ingin membuat kotak hadiah dengan komposisi sama. Berapa ya kotak terbanyak yang bisa kubuat?"</p>
+                
+                <div style="background:#f8f9fc; padding:1rem; border-radius:8px; margin-top:1rem; border-left:4px solid var(--rme-orange);">
+                    <p><i class="fas fa-lightbulb" style="color:var(--rme-yellow);"></i> <strong>Percobaan Rina:</strong></p>
+                    <div style="display:flex; justify-content:space-around; text-align:center; flex-wrap:wrap;">
+                        <div style="margin:0.5rem; min-width:120px;">
+                            <p><strong>2 Kotak</strong></p>
+                            <p>6 coklat + 9 keju</p>
+                        </div>
+                        <div style="margin:0.5rem; min-width:120px;">
+                            <p><strong>3 Kotak</strong></p>
+                            <p>4 coklat + 6 keju</p>
+                        </div>
+                        <div style="margin:0.5rem; min-width:120px;">
+                            <p><strong>6 Kotak</strong></p>
+                            <p>2 coklat + 3 keju</p>
+                        </div>
+                    </div>
+                    <p style="text-align:center; margin-top:0.5rem;">
+                        <span style="font-weight:bold; color:var(--rme-orange);">Paling banyak 6 kotak!</span><br>
+                        <small>(Tidak bisa lebih karena 18÷6=3 dan 12÷6=2)</small>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Kasus FPB -->
+            <div class="context-example" style="background: rgba(255,125,0,0.1);">
+                <h3><i class="fas fa-search"></i> 🔍 Mencari Pola Pembagian</h3>
+                <p>"Pasti ada cara menghitungnya tanpa mencoba satu-satu," tekad Rina.</p>
+                
+                <div class="solution-method">
+                    <h4><i class="fas fa-calculator"></i> Solusi dengan FPB (Faktor Persekutuan Terbesar)</h4>
+                    
+                    <div class="method-tabs">
+                        <button class="tab-button active" onclick="openMethod(event, 'faktorisasi-fpb')">Faktorisasi Prima</button>
+                        <button class="tab-button" onclick="openMethod(event, 'tabel-fpb')">Tabel Faktor</button>
+                    </div>
+                    
+                    <div id="faktorisasi-fpb" class="tab-content" style="display:block;">
+                        <p><strong>Langkah-langkah:</strong></p>
+                        <ol>
+                            <li>Faktorkan bilangan:
+                                <div style="font-family:monospace; margin:0.5rem 0 0.5rem 1.5rem; background:#f8f9fc; padding:0.8rem; border-radius:5px;">
+                                    12 = 2² × 3<br>
+                                    18 = 2 × 3²
+                                </div>
+                            </li>
+                            <li>Ambil faktor yang sama dengan pangkat terkecil:
+                                <div style="font-family:monospace; margin:0.5rem 0 0.5rem 1.5rem; background:#f8f9fc; padding:0.8rem; border-radius:5px;">
+                                    2 × 3 = 6
+                                </div>
+                            </li>
+                        </ol>
+                        <p style="text-align:center; background:var(--rme-orange);color:white;padding:0.8rem;border-radius:5px;">
+                            <strong>FPB(12,18) = 6 kotak</strong><br>
+                            Masing-masing berisi 2 coklat dan 3 keju
+                        </p>
+                    </div>
+                    
+                    <div id="tabel-fpb" class="tab-content" style="display:none;">
+                        <p><strong>Langkah-langkah:</strong></p>
+                        <ol>
+                            <li>Buat tabel pembagian:
+                                <div style="overflow-x:auto; margin:0.5rem 0;">
+                                    <table style="border-collapse:collapse; width:100%; background:#f8f9fc;">
+                                        <tr style="background:var(--rme-orange);color:white;">
+                                            <th style="padding:8px; text-align:center;">12</th>
+                                            <th style="padding:8px; text-align:center;">18</th>
+                                            <th style="padding:8px; text-align:center;">Bagi dengan</th>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:1px solid #ddd; padding:8px; text-align:center;">12</td>
+                                            <td style="border:1px solid #ddd; padding:8px; text-align:center;">18</td>
+                                            <td style="border:1px solid #ddd; padding:8px; text-align:center;">2</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:1px solid #ddd; padding:8px; text-align:center;">6</td>
+                                            <td style="border:1px solid #ddd; padding:8px; text-align:center;">9</td>
+                                            <td style="border:1px solid #ddd; padding:8px; text-align:center;">3</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:1px solid #ddd; padding:8px; text-align:center;">2</td>
+                                            <td style="border:1px solid #ddd; padding:8px; text-align:center;">3</td>
+                                            <td style="border:1px solid #ddd; padding:8px; text-align:center;">-</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </li>
+                            <li>Kalikan pembagi yang bisa membagi keduanya:
+                                <div style="font-family:monospace; margin:0.5rem 0 0.5rem 1.5rem; background:#f8f9fc; padding:0.8rem; border-radius:5px;">
+                                    2 × 3 = 6
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="story-ending" style="background: rgba(46,196,182,0.1); padding:1.5rem; border-radius:10px; margin-top:2rem; text-align:center;">
+                <p>📚 <strong>Catatan Rina:</strong></p>
+                <div style="display:flex; justify-content:space-around; margin-top:1rem; flex-wrap:wrap;">
+                    <div style="background:white; padding:1rem; border-radius:8px; margin:0.5rem; width:45%; min-width:200px;">
+                        <p style="color:var(--rme-blue);font-weight:bold;"><i class="fas fa-sync-alt"></i> KPK</p>
+                        <p>Untuk mencari <strong>waktu bertemu</strong> dalam siklus berulang</p>
+                        <p><small>Contoh: jadwal, rotasi, pengulangan</small></p>
+                    </div>
+                    <div style="background:white; padding:1rem; border-radius:8px; margin:0.5rem; width:45%; min-width:200px;">
+                        <p style="color:var(--rme-orange);font-weight:bold;"><i class="fas fa-divide"></i> FPB</p>
+                        <p>Untuk mencari <strong>pembagian maksimal</strong> dengan komposisi sama</p>
+                        <p><small>Contoh: pembagian, pengelompokan, penyederhanaan</small></p>
+                    </div>
+                </div>
+                <button style="background:var(--rme-teal);color:white;border:none;padding:0.7rem 1.5rem;border-radius:50px;cursor:pointer;margin-top:1rem;transition:all 0.3s ease;">
+                    <i class="fas fa-puzzle-piece"></i> Coba Soal Lainnya
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .solution-method {
+        background: white;
+        padding: 1.2rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    .method-tabs {
+        display: flex;
+        border-bottom: 1px solid #ddd;
+        margin: 1rem 0;
+    }
+    .tab-button {
+        background: none;
+        border: none;
+        padding: 0.8rem 1.2rem;
+        cursor: pointer;
+        font-size: 0.9rem;
+        border-bottom: 3px solid transparent;
+        transition: all 0.3s ease;
+    }
+    .tab-button:hover {
+        background: rgba(46,196,182,0.1);
+    }
+    .tab-button.active {
+        border-bottom: 3px solid var(--rme-teal);
+        font-weight: bold;
+        color: var(--rme-teal);
+    }
+    .tab-content {
+        padding: 0.5rem;
+    }
+    .rme-teal {
+        color: #2ec4b6;
+    }
+    .story-part {
+        transition: transform 0.3s ease;
+    }
+    .story-part:hover {
+        transform: translateY(-5px);
+    }
+    button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+</style>
+
+<script>
+    function openMethod(evt, methodName) {
+        // Hide all tab content
+        const tabContents = document.getElementsByClassName("tab-content");
+        for (let i = 0; i < tabContents.length; i++) {
+            tabContents[i].style.display = "none";
+        }
+        
+        // Remove active class from all buttons
+        const tabButtons = document.getElementsByClassName("tab-button");
+        for (let i = 0; i < tabButtons.length; i++) {
+            tabButtons[i].className = tabButtons[i].className.replace(" active", "");
+        }
+        
+        // Show current tab and mark button as active
+        document.getElementById(methodName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
+<!-- Fase 5: Refleksi & Kesimpulan -->
+ <div id="fase5" class="phase-content">
+    <section class="about-section">
+    <h2 class="section-title">Fase 5: Petualangan Berakhir, Ilmu Tetap Abadi</h2>
+    <div class="about-content">
+        <div class="about-text">
+            <h2>Perjalanan Rina Menguasai Bilangan</h2>
+            
+            <div class="story-intro" style="background: rgba(159, 89, 255, 0.05); padding:1.5rem; border-radius:10px; margin-bottom:2rem; border-left:4px solid var(--rme-purple);">
+                <p><i class="fas fa-star" style="color:var(--rme-purple);"></i> <em>Setelah menjelajahi dunia bilangan melalui 4 fase, Rina kini duduk di taman sekolah sambil merefleksikan semua penemuannya...</em></p>
+            </div>
+
+            <!-- Peta Perjalanan -->
+            <div class="journey-map" style="background: white; padding:1.5rem; border-radius:10px; margin-bottom:2rem; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
+                <h3 style="color:var(--rme-purple); display:flex; align-items:center; gap:10px;">
+                    <i class="fas fa-map-marked-alt"></i> 🗺️ Peta Petualangan Matematika
+                </h3>
+                
+                <div style="display:flex; flex-direction:column; gap:1.5rem; margin-top:1.5rem; position:relative; padding-left:2rem;">
+                    <!-- Garis Vertikal -->
+                    <div style="position:absolute; left:2rem; top:0; bottom:0; width:3px; background:linear-gradient(to bottom, var(--rme-blue), var(--rme-orange), var(--rme-teal), var(--rme-purple)); border-radius:3px;"></div>
+                    
+                    <!-- Fase 1 -->
+                    <div style="display:flex; gap:1rem; align-items:flex-start; position:relative;">
+                        <div style="background:var(--rme-blue); color:white; width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                            1
+                        </div>
+                        <div>
+                            <h4 style="margin:0; color:var(--rme-blue);">Fase 1: Dunia Nyata</h4>
+                            <p style="margin:0.5rem 0; color:#555;">"Aku belajar bahwa bilangan negatif ada di mana-mana! Dari termometer pegunungan (<span style="color:var(--rme-blue);font-weight:bold;">-5°C</span>), saldo e-wallet (<span style="color:var(--rme-red);font-weight:bold;">-Rp5.000</span>), sampai skor game (<span style="color:var(--rme-red);font-weight:bold;">-5 poin</span>)."</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Fase 2 -->
+                    <div style="display:flex; gap:1rem; align-items:flex-start; position:relative;">
+                        <div style="background:var(--rme-orange); color:white; width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                            2
+                        </div>
+                        <div>
+                            <h4 style="margin:0; color:var(--rme-orange);">Fase 2: Garis Bilangan</h4>
+                            <p style="margin:0.5rem 0; color:#555;">"Garis bilangan membantuku memvisualisasikan perubahan suhu dari <span style="color:var(--rme-red);font-weight:bold;">-5°C</span> ke <span style="color:var(--rme-green);font-weight:bold;">2°C</span> sebagai lompatan sebesar <span style="font-weight:bold;">7 satuan</span> ke kanan!"</p>
+                            <img src="https://i.ibb.co/7YfXZzT/number-line.png" alt="Garis Bilangan" style="width:100%; max-width:300px; border-radius:8px; margin-top:0.5rem; border:1px solid #eee;">
+                        </div>
+                    </div>
+                    
+                    <!-- Fase 3 -->
+                    <div style="display:flex; gap:1rem; align-items:flex-start; position:relative;">
+                        <div style="background:var(--rme-teal); color:white; width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                            3
+                        </div>
+                        <div>
+                            <h4 style="margin:0; color:var(--rme-teal);">Fase 3: Sifat Ajaib</h4>
+                            <p style="margin:0.5rem 0; color:#555;">"Ternyata bilangan punya sifat rahasia! Aku bisa menukar urutan (<span style="color:var(--rme-teal);font-weight:bold;">komutatif</span>), mengelompokkan (<span style="color:var(--rme-teal);font-weight:bold;">asosiatif</span>), atau menyebarkan (<span style="color:var(--rme-teal);font-weight:bold;">distributif</span>) operasi tanpa mengubah hasil."</p>
+                            <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.5rem;">
+                                <span style="background:rgba(76, 201, 240, 0.1); padding:0.3rem 0.8rem; border-radius:50px; font-size:0.9rem; color:var(--rme-blue);">a + b = b + a</span>
+                                <span style="background:rgba(255,125,0,0.1); padding:0.3rem 0.8rem; border-radius:50px; font-size:0.9rem; color:var(--rme-orange);">(a+b)+c = a+(b+c)</span>
+                                <span style="background:rgba(46,196,182,0.1); padding:0.3rem 0.8rem; border-radius:50px; font-size:0.9rem; color:var(--rme-teal);">a×(b+c) = a×b + a×c</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Fase 4 -->
+                    <div style="display:flex; gap:1rem; align-items:flex-start; position:relative;">
+                        <div style="background:var(--rme-purple); color:white; width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                            4
+                        </div>
+                        <div>
+                            <h4 style="margin:0; color:var(--rme-purple);">Fase 4: Pola Tersembunyi</h4>
+                            <p style="margin:0.5rem 0; color:#555;">"FPB dan KPK seperti kunci rahasia! Aku bisa menghitung <span style="color:var(--rme-purple);font-weight:bold;">jadwal bis bertemu</span> (KPK) atau <span style="color:var(--rme-purple);font-weight:bold;">kotak hadiah maksimal</span> (FPB) dengan faktorisasi prima."</p>
+                            <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:0.5rem;">
+                                <div style="background:rgba(159, 89, 255, 0.1); padding:0.8rem; border-radius:8px; text-align:center;">
+                                    <p style="margin:0; font-weight:bold; color:var(--rme-purple);">KPK(15,20)</p>
+                                    <p style="margin:0; font-size:0.9rem;">= 60 menit</p>
+                                </div>
+                                <div style="background:rgba(159, 89, 255, 0.1); padding:0.8rem; border-radius:8px; text-align:center;">
+                                    <p style="margin:0; font-weight:bold; color:var(--rme-purple);">FPB(12,18)</p>
+                                    <p style="margin:0; font-size:0.9rem;">= 6 kotak</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kesimpulan Utama -->
+            <div class="key-takeaways" style="background: rgba(159, 89, 255, 0.1); padding:1.5rem; border-radius:10px; margin-bottom:2rem;">
+                <h3 style="color:var(--rme-purple); display:flex; align-items:center; gap:10px;">
+                    <i class="fas fa-key"></i> 🔑 Kesimpulan Utama
+                </h3>
+                
+                <div style="display:flex; flex-wrap:wrap; gap:1rem; margin-top:1rem;">
+                    <div style="flex:1; min-width:200px; background:white; padding:1rem; border-radius:8px; box-shadow:0 3px 10px rgba(0,0,0,0.05);">
+                        <h4 style="margin:0 0 0.5rem 0; color:var(--rme-blue);">Bilangan Negatif</h4>
+                        <p style="margin:0; color:#555; font-size:0.95rem;">Mewakili nilai <em>di bawah nol</em> dalam suhu, saldo, atau skor. Bisa dioperasikan dengan garis bilangan.</p>
+                    </div>
+                    
+                    <div style="flex:1; min-width:200px; background:white; padding:1rem; border-radius:8px; box-shadow:0 3px 10px rgba(0,0,0,0.05);">
+                        <h4 style="margin:0 0 0.5rem 0; color:var(--rme-orange);">Sifat Operasi</h4>
+                        <p style="margin:0; color:#555; font-size:0.95rem;">Penjumlahan dan perkalian punya pola tetap (komutatif, asosiatif, distributif) yang mempermudah perhitungan.</p>
+                    </div>
+                    
+                    <div style="flex:1; min-width:200px; background:white; padding:1rem; border-radius:8px; box-shadow:0 3px 10px rgba(0,0,0,0.05);">
+                        <h4 style="margin:0 0 0.5rem 0; color:var(--rme-purple);">FPB & KPK</h4>
+                        <p style="margin:0; color:#555; font-size:0.95rem;">FPB untuk <em>pembagian maksimal</em>, KPK untuk <em>pengulangan bersama</em>. Dipecahkan dengan faktorisasi prima.</p>
+                    </div>
+                </div>
+            </div>
+<!-- Ajakan Aksi -->
+<div class="call-to-action" style="background: linear-gradient(135deg, var(--rme-purple), #9f59ff); color:white; padding:2rem; border-radius:10px; text-align:center;">
+    <h3 style="margin:0 0 1rem 0;">🚀 Ingin Petualangan Lanjutan?</h3>
+    <p style="margin:0 0 1.5rem 0; opacity:0.9;">Eksplorasi lebih dalam dengan tantangan interaktif!</p>
+    <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+        <button style="background:white; color:var(--rme-purple); border:none; padding:0.8rem 1.8rem; border-radius:50px; cursor:pointer; font-weight:bold; display:flex; align-items:center; gap:8px;">
+            <i class="fas fa-gamepad"></i> Game Bilangan
+        </button>
+        <button style="background:rgba(255,255,255,0.2); color:white; border:2px solid white; padding:0.8rem 1.8rem; border-radius:50px; cursor:pointer; font-weight:bold; display:flex; align-items:center; gap:8px;">
+            <i class="fas fa-book"></i> Buku Catatan Rina
+        </button>
+    </div>
+</div>
+</div>
+        <div class="about-image">
+            <img src="https://img.freepik.com/free-vector/hand-drawn-math-formula-illustration_23-2149072395.jpg" 
+                 alt="Ilustrasi Refleksi Matematika" 
+                 style="border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.1);max-width:100%;height:auto;">
+            <div style="margin-top:1.5rem; text-align:center;">
+                <div style="background:white; padding:1.2rem; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.05); margin-bottom:1rem;">
+                    <p style="font-weight:bold; margin:0 0 0.5rem 0; color:var(--rme-purple);">💡 Kata Rina</p>
+                    <p style="margin:0; font-style:italic; color:#555;">"Matematika itu seperti petualangan—semakin sering menjelajah, semakin banyak harta karun yang ditemukan!"</p>
+                </div>
+                <button style="background:var(--rme-purple); color:white; border:none; padding:0.8rem 1.5rem; border-radius:50px; cursor:pointer; width:100%; font-weight:bold; display:flex; align-items:center; justify-content:center; gap:8px;">
+                    <i class="fas fa-share-alt"></i> Bagikan Petualanganmu
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .journey-map h4 {
+        transition: all 0.3s ease;
+    }
+    .journey-map h4:hover {
+        transform: translateX(5px);
+    }
+    .call-to-action button {
+        transition: all 0.3s ease;
+    }
+    .call-to-action button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+</style>
+        <!-- Fase 6: Penerapan -->
+ <div id="fase6" class="phase-content">
+    <section class="about-section">
+            <h2 class="section-title">Fase 6: Penerapan Kembali</h2>
+                <div class="about-content">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                    <h3>Analisis Data</h3>
+                    <p>Menginterpretasikan data suhu harian, fluktuasi harga saham, atau perubahan populasi yang melibatkan bilangan negatif.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Pemrograman Dasar</h3>
+                    <p>Menerapkan operasi bilangan bulat dalam algoritma sederhana seperti menghitung selisih waktu atau posisi relatif.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Desain Permainan</h3>
+                    <p>Membuat permainan sederhana yang menggunakan konsep bilangan bulat untuk sistem skor atau posisi karakter.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proses Matematisasi -->
+        <section class="about-section">
+            <h2 class="section-title">Proses Matematisasi dalam RME</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Fase 1</div>
+                        <h3 class="timeline-title">Konteks Nyata</h3>
+                        <p>Memulai dengan masalah autentik dari kehidupan sehari-hari yang melibatkan bilangan bulat.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Fase 2</div>
+                        <h3 class="timeline-title">Model of</h3>
+                        <p>Siswa mengembangkan model representasi (garis bilangan, diagram) untuk memahami konsep.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Fase 3</div>
+                        <h3 class="timeline-title">Model for</h3>
+                        <p>Mengidentifikasi pola dan sifat-sifat operasi bilangan bulat melalui eksplorasi.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Fase 4</div>
+                        <h3 class="timeline-title">Abstraksi</h3>
+                        <p>Mengembangkan konsep matematika formal (FPB, KPK) melalui generalisasi.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Fase 5</div>
+                        <h3 class="timeline-title">Penerapan</h3>
+                        <p>Mengaplikasikan konsep ke situasi baru yang lebih kompleks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Tentang MathRME</h3>
+                <p>MathRME adalah platform pembelajaran matematika berbasis Realistic Mathematics Education yang menghubungkan konsep matematika dengan kehidupan nyata.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Sumber Belajar</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Modul Pembelajaran</a></li>
+                    <li><a href="#">Video Pembelajaran</a></li>
+                    <li><a href="#">Lembar Aktivitas</a></li>
+                    <li><a href="#">Bank Soal Kontekstual</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Kontak Kami</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Pendidikan Realistik No. 123, Jakarta</p>
+                <p><i class="fas fa-phone"></i> +62 123 4567 890</p>
+                <p><i class="fas fa-envelope"></i> info@mathrme.id</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 MathRME - Realistic Mathematics Education. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+        // Fungsi untuk tab navigasi
+        function openTab(evt, tabName) {
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+
+            const tabButtons = document.getElementsByClassName("tab-button");
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Fungsi untuk FAQ dropdown
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentNode;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

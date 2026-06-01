@@ -1,0 +1,3229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang RME | MathRME</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset dan Variabel Warna */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --rme-orange: #FF7D00;
+            --rme-blue: #4CC9F0;
+            --rme-dark: #2b2d42;
+            --rme-light: #f8f9fa;
+            --rme-green: #2EC4B6;
+            --rme-red: #E71D36;
+            --rme-yellow: #FF9F1C;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--rme-orange), #FF5400);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--rme-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--rme-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Tentang RME */
+        .about-hero {
+            background: linear-gradient(135deg, rgba(255, 125, 0, 0.1), rgba(76, 201, 240, 0.2));
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://img.freepik.com/free-vector/hand-drawn-math-formula-pattern_23-2148156772.jpg') center/cover;
+            opacity: 0.05;
+            z-index: -1;
+        }
+
+        .about-hero h1 {
+            font-size: 3.5rem;
+            color: var(--rme-orange);
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            color: var(--rme-dark);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Container Utama */
+        .main-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Tab Navigasi */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .tab-button {
+            padding: 1rem 2rem;
+            background: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            color: var(--rme-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-button::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--rme-orange);
+            transition: width 0.3s ease;
+        }
+
+        .tab-button.active {
+            background: var(--rme-orange);
+            color: white;
+        }
+
+        .tab-button.active::before {
+            width: 100%;
+        }
+
+        .tab-button:hover:not(.active) {
+            background: #f0f0f0;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Konten Tentang RME */
+        .about-section {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            color: var(--rme-orange);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--rme-orange), var(--rme-blue));
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            color: var(--rme-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .about-image:hover {
+            transform: translateY(-10px);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Karakteristik RME */
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-top-color: var(--rme-orange);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(255, 125, 0, 0.1), rgba(76, 201, 240, 0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--rme-orange);
+            font-size: 1.8rem;
+        }
+
+        .feature-card h3 {
+            color: var(--rme-blue);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #666;
+        }
+
+        /* Timeline RME */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 3rem auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--rme-orange), var(--rme-blue));
+        }
+
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: -15px;
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 15px solid white;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -15px;
+            border-left: none;
+            border-right: 15px solid white;
+        }
+
+        .timeline-date {
+            color: var(--rme-orange);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            color: var(--rme-blue);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--rme-orange);
+            top: 30px;
+            right: -10px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+
+        /* Interaktif FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: linear-gradient(to right, rgba(255, 125, 0, 0.1), white);
+            color: var(--rme-dark);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(to right, rgba(255, 125, 0, 0.2), white);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-question {
+            background: linear-gradient(to right, var(--rme-orange), rgba(255, 125, 0, 0.2));
+            color: white;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 1.5rem;
+            padding-top: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, var(--rme-dark), #1a1a2e);
+            color: white;
+            padding: 3rem 2rem 1rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--rme-blue);
+        }
+
+        .footer-column p {
+            margin-bottom: 1rem;
+            color: #adb5bd;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--rme-blue);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--rme-orange);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                margin-top: 2rem;
+            }
+
+            .timeline::before {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-content::before {
+                left: -15px;
+                border-left: none;
+                border-right: 15px solid white;
+            }
+
+            .timeline-dot {
+                left: 21px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .about-section {
+                padding: 2rem 1rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+   <!-- Header -->
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <span>MathRME</span>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Materi <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="cp.html">CP ATP</a>
+                    <a href="petakonsep.html">Peta Konsep</a>
+                </div>
+            <li><a href="tentangrme.html">Tentang RME</a></li>
+        </ul>
+        
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+</header>
+
+<style>
+/* Existing navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+    position: relative;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+/* Dropdown styles - CHANGED TO SOLID ORANGE */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--rme-orange); /* Changed to solid orange */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dropdown-content a {
+    color: white; /* Changed text color to white */
+    padding: 12px 16px;
+    display: block;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255,255,255,0.2); /* Slightly lighter orange on hover */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-toggle i {
+    margin-left: 5px;
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-toggle i {
+    transform: rotate(180deg);
+}
+
+/* Hide mobile menu button on desktop */
+.mobile-menu-btn {
+    display: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+    
+    /* Show menu when active */
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, var(--rme-orange), #FF5400);
+        padding: 1rem;
+        z-index: 100;
+    }
+    
+    .nav-links.active li {
+        margin: 0.5rem 0;
+    }
+    
+    .dropdown-content {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        background-color: rgba(255,125,0,0.8); /* Semi-transparent orange for mobile */
+    }
+    
+    .dropdown-content a {
+        color: white;
+        padding: 8px 0;
+    }
+}
+</style>
+
+<script>
+// Mobile menu toggle functionality
+document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('active');
+});
+</script>
+    <!-- Hero Bilangan Bulat -->
+    <section class="about-hero">
+        <h1>Eksplorasi Bilangan Pecahan</h1>
+        <p>Memahami konsep bilangan pecahan melalui masalah dunia nyata dan pengalaman konkret</p>
+    </section>
+
+    <!-- Konten Utama -->
+    <div class="main-container">
+        <!-- Tab Navigasi -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event, 'konteks')">Fase 1: Konteks Nyata</button>
+            <button class="tab-button" onclick="openTab(event, 'sifat')">Fase 2: Bentuk Pecahan</button>
+            <button class="tab-button" onclick="openTab(event, 'faktor')"> Fase 3: Jenis-jenis Pecahan</button>
+             <button class="tab-button" onclick="openTab(event, 'perbandingan')">Fase 4: Perbandingan Pecahan</button>
+            <button class="tab-button" onclick="openTab(event, 'operasi-pecahan')">Fase 5: Operasi Pecahan</button>
+            <button class="tab-button" onclick="openTab(event, 'operasi-campuran-pecahan')">Fase 6: Operasi Campuran Pecahan</button>
+             <button class="tab-button" onclick="openTab(event, 'refleksi')">Fase 7: Refleksi</button>
+              <button class="tab-button" onclick="openTab(event, 'penerapan')">Fase 8: Penerapan</button>
+        </div>
+
+        <!-- Tab Masalah Kontekstual Bilangan Pecahan -->
+<div id="konteks" class="tab-content active">
+    <section class="about-section">
+        <h2 class="section-title">Belajar Pecahan melalui Cerita Nyata</h2>
+        
+      <!-- Cerita 1: Pembagian Bakpia Pathok -->
+<div class="story-container" style="margin-bottom: 3rem; display: flex; align-items: center; gap: 2rem;">
+    <div class="story-image" style="flex: 1;">
+        <img src="g24.png" alt="Pembagian Bakpia" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+    </div>
+    <div class="story-text" style="flex: 1;">
+        <h3 style="color: var(--rme-orange); margin-bottom: 1rem;">Bakpia Pathok Buatan Mbah Surti</h3>
+        <p style="color: #555; line-height: 1.6;">Mbah Surti dari Pathok membuat 1 dus bakpia kacang hijau untuk dibagikan ke 4 tetangga di kampungnya. "Yuk, kita bagi sama rata!" ujar Mbah Surti sambil memotong dus bakpia menjadi 4 bagian. Setiap tetangga mendapat 1 bagian dari 4 bagian bakpia, atau kita bisa menulisnya sebagai 1/4.</p>
+        <p style="color: var(--rme-dark); font-style: italic;">"Jika 2 tetangga ingin berbagi 1 bagian bakpia, berapa yang didapat masing-masing?"</p>
+    </div>
+</div>
+
+<!-- Cerita 2: Membuat Gudeg -->
+<div class="story-container" style="margin-bottom: 3rem; display: flex; align-items: center; gap: 2rem; flex-direction: row-reverse;">
+    <div class="story-image" style="flex: 1;">
+        <img src="g25.png" alt="Membuat Gudeg" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+    </div>
+    <div class="story-text" style="flex: 1;">
+        <h3 style="color: var(--rme-orange); margin-bottom: 1rem;">Gudeg Spesial Mbah Juminah</h3>
+        <p style="color: #555; line-height: 1.6;">Mbah Juminah dari Wijilan sedang membuat gudeg. Resep turun-temurunnya membutuhkan 3/4 kg gula jawa dan 1/2 sendok teh ketumbar. "Kenapa tidak 1 kg penuh, Mbah?" tanya Deni. Mbah Juminah menjelaskan bahwa takaran yang tepat penting agar gudeg tidak terlalu manis. Mereka mengukur 3/4 kg dengan timbangan tradisional.</p>
+        <p style="color: var(--rme-dark); font-style: italic;">"Jika ingin membuat untuk acara sekaten, perlu 3 kali resep, berapa kg gula jawa yang dibutuhkan?"</p>
+    </div>
+</div>
+
+<!-- Cerita 3: Membatik di Kampung Wisata -->
+<div class="story-container" style="margin-bottom: 3rem; display: flex; align-items: center; gap: 2rem;">
+    <div class="story-image" style="flex: 1;">
+        <img src="g26.png" alt="Kain Batik" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+    </div>
+    <div class="story-text" style="flex: 1;">
+        <h3 style="color: var(--rme-orange); margin-bottom: 1rem;">Batik di Kampung Taman</h3>
+        <p style="color: #555; line-height: 1.6;">Siti dari Kampung Taman memiliki kain mori sepanjang 1 meter untuk latihan membatik. Ia perlu membaginya untuk 3 motif: 1/3 meter untuk parang, 1/6 meter untuk kawung, dan sisanya untuk ceplok. Dengan menggunakan gawangan kayu, Siti mengukur panjang kain untuk setiap motif.</p>
+        <p style="color: var(--rme-dark); font-style: italic;">"Berapa meter kain yang tersisa untuk motif ceplok Siti?"</p>
+    </div>
+</div>
+
+        <div style="background-color: rgba(76, 201, 240, 0.1); padding: 2rem; border-radius: 10px; margin-top: 2rem;">
+            <h3 style="color: var(--rme-blue); margin-bottom: 1rem;">Diskusi Kelas:</h3>
+            <p style="color: #555;">Berdasarkan cerita-cerita di atas, coba temukan contoh lain dalam kehidupan sehari-hari di mana kita menggunakan bilangan pecahan. Bagaimana cara kita menyelesaikan masalah-masalah tersebut?</p>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <h2 class="section-title">Aktivitas Pembelajaran Pecahan</h2>
+        <div class="features-container">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-pizza-slice"></i>
+                </div>
+                <h3>Pembagian Makanan</h3>
+                <p>Praktik membagi kue atau buah menjadi bagian-bagian yang sama untuk memahami konsep pecahan sederhana.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-ruler-combined"></i>
+                </div>
+                <h3>Pengukuran Real</h3>
+                <p>Menggunakan alat ukur untuk membandingkan panjang benda dalam bentuk pecahan (1/2 meter, 1/4 meter).</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h3>Permainan Pecahan</h3>
+                <p>Permainan kartu dengan gambar pecahan untuk mencocokkan representasi visual dengan notasi pecahan.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Fase 2: Model of (Representasi Pecahan) -->
+ <div id="sifat" class="tab-content">
+            <section class="about-section">
+                <h2 class="section-title">Fase 2: Model Representasi Pecahan</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="g27.png" 
+                     alt="Ilustrasi Pecahan" 
+                     style="border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.15);max-width:100%;height:auto;border:1px solid #eee;">
+                <div style="margin-top:1.5rem;text-align:center;">
+                   
+                </div>
+            </div>
+            <div class="about-text">
+                <h2 style="color:#4a5568;font-weight:600;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;">🔍 Membangun Model Visual Pecahan</h2>
+                <div class="context-example" style="background:#f8fafc;padding:1.5rem;border-radius:12px;border-left:4px solid #FF7D00;margin-bottom:2rem;">
+                    <p style="font-style:italic;color:#4a5568;margin:0;font-size:1.05rem;">"Dari pembagian bakpia, takaran gudeg, hingga kain batik - mari kita wujudkan konsep pecahan dalam bentuk visual yang mudah dipahami!"</p>
+                </div>
+
+                <!-- Kasus 1: Bakpia Pathok -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-pie-chart" style="color:#FF7D00;font-size:1.2em;"></i> Kasus 1: Diagram Bakpia Mbah Surti
+                    </h3>
+                    <p style="color:#4a5568;">1 dus bakpia dibagi 4 tetangga → masing-masing <span style="color:#FF7D00;font-weight:bold;">¼ bagian</span>:</p>
+                    
+                    <div style="background:#f8fafc;padding:1.5rem;border-radius:12px;margin-top:1rem;text-align:center;">
+                        <!-- Pie Chart -->
+                        <div style="width:200px;height:200px;border-radius:50%;background:conic-gradient(
+                            #FF7D00 0% 25%, 
+                            #4CC9F0 25% 50%, 
+                            #2EC4B6 50% 75%, 
+                            #E71D36 75% 100%
+                        );margin:0 auto;position:relative;">
+                            <div style="position:absolute;width:160px;height:160px;background:white;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;font-weight:bold;color:#FF7D00;">
+                                1 Dus = 4/4
+                            </div>
+                        </div>
+                        
+                        <div style="display:flex;justify-content:center;gap:1rem;margin-top:1rem;flex-wrap:wrap;">
+                            <div style="display:flex;align-items:center;gap:5px;">
+                                <div style="width:15px;height:15px;background:#FF7D00;border-radius:3px;"></div>
+                                <span>1/4 untuk Pak Joko</span>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:5px;">
+                                <div style="width:15px;height:15px;background:#4CC9F0;border-radius:3px;"></div>
+                                <span>1/4 untuk Bu Siti</span>
+                            </div>
+                        </div>
+                        
+                        <p style="color:#FF7D00;margin-top:1rem;">Jika 2 tetangga berbagi 1 bagian → masing-masing dapat <span style="font-weight:bold;">½ dari ¼ = ⅛ dus</span></p>
+                    </div>
+                </div>
+
+                <!-- Kasus 2: Gudeg Mbah Juminah -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-balance-scale" style="color:#2EC4B6;font-size:1.2em;"></i> Kasus 2: Takaran Gudeg Spesial
+                    </h3>
+                    <p style="color:#4a5568;">Resep membutuhkan <span style="color:#2EC4B6;font-weight:bold;">¾ kg gula</span> dan <span style="color:#2EC4B6;font-weight:bold;">½ sdt ketumbar</span>:</p>
+                    
+                    <div style="background:#f8fafc;padding:1.5rem;border-radius:12px;margin-top:1rem;">
+                        <!-- Balance Scale -->
+                        <div style="display:flex;justify-content:center;align-items:flex-end;height:120px;margin-bottom:1rem;">
+                            <!-- Left Side -->
+                            <div style="display:flex;flex-direction:column;align-items:center;margin-right:2rem;">
+                                <div style="width:80px;height:20px;background:#FF9F1C;border-radius:5px;margin-bottom:5px;"></div>
+                                <div style="width:60px;height:60px;background:linear-gradient(to bottom, #FF7D00, #FF9F1C);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;">
+                                    ¾ kg
+                                </div>
+                            </div>
+                            
+                          <!-- Scale -->
+<div style="width:4px;height:100px;background:#4a5568;position:relative;">
+    <div style="position:absolute;top:50%;left:-15px;width:34px;height:4px;background:#4a5568;"></div>
+</div>
+
+<!-- Right Side -->
+<div style="display:flex;flex-direction:column;align-items:center;margin-left:2rem;">
+    <div style="width:60px;height:15px;background:#4CC9F0;border-radius:5px;margin-bottom:5px;"></div>
+    <div style="width:40px;height:40px;background:linear-gradient(to bottom, #4CC9F0, #2EC4B6);border-radius:50%;position:relative;">
+        <span style="position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);color:white;font-weight:bold;">
+            ½ sdt
+        </span>
+    </div>
+</div>
+                        
+                        <div style="text-align:center;">
+                            <p style="color:#4a5568;">Untuk 3 kali resep → <span style="color:#2EC4B6;font-weight:bold;">3 × ¾ = 2¼ kg gula</span></p>
+                            <div style="display:inline-block;margin-top:0.5rem;padding:0.5rem 1rem;background:#FF7D00;color:white;border-radius:5px;font-weight:bold;">
+                                ¾ + ¾ + ¾ = 2¼
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kasus 3: Kain Batik Siti -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-ruler-combined" style="color:#E71D36;font-size:1.2em;"></i> Kasus 3: Pembagian Kain Batik
+                    </h3>
+                    <p style="color:#4a5568;">1 meter kain dibagi untuk 3 motif:</p>
+                    
+                    <div style="background:#f8fafc;padding:1.5rem;border-radius:12px;margin-top:1rem;">
+                        <!-- Fabric Visualization -->
+                        <div style="height:80px;background:linear-gradient(to right, 
+                            #FF7D00 0% 33.33%, 
+                            #E71D36 33.33% 50%, 
+                            #4CC9F0 50% 100%);position:relative;border-radius:5px;margin-bottom:1rem;">
+                            
+                            <div style="position:absolute;left:33.33%;top:0;bottom:0;width:2px;background:white;transform:translateX(-50%);"></div>
+                            <div style="position:absolute;left:50%;top:0;bottom:0;width:2px;background:white;transform:translateX(-50%);"></div>
+                            
+                            <div style="position:absolute;left:16.66%;top:50%;transform:translate(-50%,-50%);background:white;padding:0.2rem 0.5rem;border-radius:3px;font-weight:bold;color:#FF7D00;">⅓m</div>
+                            <div style="position:absolute;left:41.66%;top:50%;transform:translate(-50%,-50%);background:white;padding:0.2rem 0.5rem;border-radius:3px;font-weight:bold;color:#E71D36;">⅙m</div>
+                            <div style="position:absolute;left:75%;top:50%;transform:translate(-50%,-50%);background:white;padding:0.2rem 0.5rem;border-radius:3px;font-weight:bold;color:#4CC9F0;">½m</div>
+                        </div>
+                        
+                        <div style="display:flex;justify-content:space-between;text-align:center;">
+                            <div>
+                                <div style="width:40px;height:40px;background:#FF7D00;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;">P</div>
+                                <p style="margin:0.5rem 0 0;color:#4a5568;">Parang<br>⅓ meter</p>
+                            </div>
+                            <div>
+                                <div style="width:40px;height:40px;background:#E71D36;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;">K</div>
+                                <p style="margin:0.5rem 0 0;color:#4a5568;">Kawung<br>⅙ meter</p>
+                            </div>
+                            <div>
+                                <div style="width:40px;height:40px;background:#4CC9F0;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;">C</div>
+                                <p style="margin:0.5rem 0 0;color:#4a5568;">Ceplok<br>½ meter</p>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align:center;margin-top:1rem;padding:0.8rem;background:#FF7D00;color:white;border-radius:5px;font-weight:bold;">
+                            1 - (⅓ + ⅙) = ½ meter untuk ceplok
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background:#fffaf0;padding:1.5rem;border-radius:12px;margin-top:2rem;border-left:4px solid #FF9F1C;">
+                    <h3 style="color:#DD6B20;margin-top:0;font-weight:600;">✂️ Aktivitas Pembelajaran Pecahan</h3>
+                    <ul style="margin-left:1rem;color:#4a5568;padding-left:1rem;">
+                        <li style="margin-bottom:0.5rem;"><strong>Pizza Kertas</strong>: Potong lingkaran kertas menjadi bagian pecahan dan susun kombinasi</li>
+                        <li style="margin-bottom:0.5rem;"><strong>Gelas Bertingkat</strong>: Ukur cairan berwarna dalam gelas transparan dengan skala pecahan</li>
+                        <li><strong>Puzzle Pecahan</strong>: Susun potongan kain/kertas dengan ukuran pecahan berbeda membentuk persegi utuh</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+function showFractionDemo() {
+    alert("Demo interaktif pecahan akan muncul di sini!\n(Fitur dapat dikembangkan dengan drag-and-drop pecahan)");
+}
+</script>
+                       
+       
+<!-- Fase 3: Pengertian & Jenis-Jenis Pecahan (Lengkap) -->
+<div id="faktor" class="tab-content">
+    <section class="about-section">
+        <h2 class="section-title">Fase 3: Mengenal Pecahan dan Jenisnya</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="g28.png" 
+                     alt="Jenis-Jenis Pecahan" 
+                     style="border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.15);max-width:100%;height:auto;border:1px solid #eee;">
+                <div style="margin-top:1.5rem;text-align:center;">
+                   
+                </div>
+            </div>
+            <div class="about-text">
+                <h2 style="color:#4a5568;font-weight:600;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;">🔢 Apa Itu Pecahan?</h2>
+                <div class="context-example" style="background:#f8fafc;padding:1.5rem;border-radius:12px;border-left:4px solid #2EC4B6;margin-bottom:2rem;">
+                    <p style="font-style:italic;color:#4a5568;margin:0;font-size:1.05rem;">"Pecahan adalah cara matematis untuk membagi 'keseluruhan' (seperti bakpia, gudeg, atau kain batik) menjadi bagian-bagian yang sama!"</p>
+                </div>
+
+                <!-- Definisi Pecahan -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-question-circle" style="color:#E71D36;font-size:1.2em;"></i> Definisi Matematis
+                    </h3>
+                    <p style="color:#4a5568;">Bentuk umum: <span style="color:#E71D36;font-weight:bold;">\(\frac{a}{b}\)</span>, di mana:</p>
+                    <ul style="color:#4a5568;margin-left:1.5rem;">
+                        <li><strong>\(a\) (pembilang)</strong>: Bagian yang diambil (contoh: 1 potong bakpia dari 4).</li>
+                        <li><strong>\(b\) (penyebut)</strong>: Total bagian keseluruhan (contoh: 1 dus bakpia dibagi 4).</li>
+                    </ul>
+                    
+                    <div style="background:#f8fafc;padding:1.5rem;border-radius:12px;margin-top:1rem;text-align:center;">
+                        <div style="display:flex;justify-content:center;gap:2rem;align-items:center;flex-wrap:wrap;">
+                            <!-- Bakpia Example -->
+                            <div style="flex:1;min-width:150px;">
+                                <div style="width:100px;height:100px;background:conic-gradient(#FF7D00 0% 25%, #f8fafc 25% 100%);border-radius:50%;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#FF7D00;">\(\frac{1}{4}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">\(\frac{1}{4}\) dus bakpia untuk Pak Joko</p>
+                            </div>
+                            <!-- Gudeg Example -->
+                            <div style="flex:1;min-width:150px;">
+                                <div style="width:100px;height:50px;background:linear-gradient(to right, #FF9F1C 0% 75%, #f8fafc 75% 100%);border-radius:8px;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:37.5%;transform:translate(-50%,-50%);font-weight:bold;color:#FF7D00;">\(\frac{3}{4}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">\(\frac{3}{4}\) kg gula untuk gudeg</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jenis-Jenis Pecahan -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-layer-group" style="color:#FF7D00;font-size:1.2em;"></i> Jenis-Jenis Pecahan
+                    </h3>
+                    
+                    <!-- 1. Pecahan Biasa -->
+                    <div style="background:#fff7ed;padding:1rem;border-radius:8px;margin-bottom:1rem;">
+                        <h4 style="color:#DD6B20;margin:0 0 0.5rem 0;">1. Pecahan Biasa</h4>
+                        <p style="color:#4a5568;margin:0;">Bentuk \(\frac{a}{b}\). Contoh dari kasus batik:</p>
+                        <div style="display:flex;align-items:center;gap:1rem;margin-top:0.5rem;">
+                            <div style="width:60px;height:30px;background:linear-gradient(to right, #E71D36 0% 33.33%, #f8fafc 33.33% 100%);border-radius:4px;border:1px solid #E71D36;"></div>
+                            <span style="color:#4a5568;">Motif Parang: <span style="font-weight:bold;color:#E71D36;">\(\frac{1}{3}\)</span> meter</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 2. Pecahan Campuran -->
+                    <div style="background:#f0f9ff;padding:1rem;border-radius:8px;margin-bottom:1rem;">
+                        <h4 style="color:#0C4A6E;margin:0 0 0.5rem 0;">2. Pecahan Campuran</h4>
+                        <p style="color:#4a5568;margin:0;">Gabungan bilangan bulat + pecahan. Contoh modifikasi kasus gudeg:</p>
+                        <div style="display:flex;align-items:center;gap:1rem;margin-top:0.5rem;">
+                            <div style="display:flex;align-items:center;">
+                                <div style="width:40px;height:40px;background:#4CC9F0;border-radius:4px;display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;">2</div>
+                                <div style="width:40px;height:40px;background:linear-gradient(to bottom, #4CC9F0, #2EC4B6);border-radius:4px;display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;">\(\frac{1}{4}\)</div>
+                            </div>
+                            <span style="color:#4a5568;">Total gula untuk 3 resep: <span style="font-weight:bold;color:#0C4A6E;">\(2\frac{1}{4}\) kg</span></span>
+                        </div>
+                    </div>
+                    
+                    <!-- 3. Pecahan Senilai -->
+                    <div style="background:#f5f3ff;padding:1rem;border-radius:8px;margin-bottom:1rem;">
+                        <h4 style="color:#5B21B6;margin:0 0 0.5rem 0;">3. Pecahan Senilai</h4>
+                        <p style="color:#4a5568;margin:0;">Nilai sama, bentuk berbeda. Contoh dari kasus bakpia:</p>
+                        <div style="display:flex;align-items:center;gap:1rem;margin-top:0.5rem;flex-wrap:wrap;">
+                            <div style="width:40px;height:40px;background:conic-gradient(#FF7D00 0% 50%, #f8fafc 50% 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;color:#FF7D00;">\(\frac{1}{2}\)</div>
+                            <span style="color:#4a5568;">=</span>
+                            <div style="width:40px;height:40px;background:conic-gradient(#FF7D00 0% 25%, #f8fafc 25% 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;color:#FF7D00;">\(\frac{1}{4}\)</div>
+                            <span style="color:#4a5568;">+</span>
+                            <div style="width:40px;height:40px;background:conic-gradient(#FF7D00 0% 25%, #f8fafc 25% 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;color:#FF7D00;">\(\frac{1}{4}\)</div>
+                            <span style="color:#4a5568;">→ <span style="font-weight:bold;color:#5B21B6;">\(\frac{1}{2} = \frac{1}{4} + \frac{1}{4}\)</span></span>
+                        </div>
+                    </div>
+                    
+                    <!-- 4. Pecahan Desimal -->
+                    <div style="background:#ecfdf5;padding:1rem;border-radius:8px;margin-bottom:1rem;">
+                        <h4 style="color:#065F46;margin:0 0 0.5rem 0;">4. Pecahan Desimal</h4>
+                        <p style="color:#4a5568;margin:0;">Bentuk persepuluhan. Contoh kasus gudeg:</p>
+                        <div style="display:flex;align-items:center;gap:1rem;margin-top:0.5rem;">
+                            <div style="width:100px;height:40px;background:linear-gradient(to right, #10B981 0% 50%, #ECFDF5 50% 100%);border-radius:6px;display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;">0.5</div>
+                            <span style="color:#4a5568;">Setara dengan <span style="font-weight:bold;color:#065F46;">\(\frac{1}{2}\) sdt ketumbar</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aktivitas Interaktif -->
+                <div style="background:#f8fafc;padding:1.5rem;border-radius:12px;margin-top:2rem;border:1px dashed #FF7D00;">
+                    <h3 style="color:#FF7D00;margin-top:0;font-weight:600;display:flex;align-items:center;gap:10px;">
+                        <i class="fas fa-lightbulb" style="font-size:1.2em;"></i> Coba Praktikkan!
+                    </h3>
+                   <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:1rem;">
+    <div style="flex:1;min-width:200px;background:white;padding:1rem;border-radius:8px;box-shadow:0 4px 6px rgba(0,0,0,0.05);">
+        <h4 style="color:#4a5568;margin:0 0 0.5rem 0;">💡 Bakpia Matematis</h4>
+        <p style="color:#4a5568;margin:0;font-size:0.9rem;">"Jika 1 dus bakpia dibagi 8 orang, berapa bagian masing-masing?"</p>
+        <div style="margin-top:0.5rem;">
+            <input type="text" id="bakpiaAnswer" placeholder="Jawaban..." style="width:100%;padding:0.5rem;border:1px solid #e2e8f0;border-radius:4px;">
+        </div>
+        <div style="margin-top:0.5rem;text-align:right;">
+            <button onclick="checkBakpiaAnswer()" style="background:#4CC9F0;color:white;border:none;padding:0.5rem 1rem;border-radius:4px;cursor:pointer;font-size:0.9rem;">
+                Periksa Jawaban
+            </button>
+        </div>
+        <div id="bakpiaFeedback" style="margin-top:0.5rem;display:none;"></div>
+    </div>
+    <!-- Kotak aktivitas lainnya... -->
+</div>
+
+<script>
+function checkBakpiaAnswer() {
+    const userAnswer = document.getElementById('bakpiaAnswer').value.trim().toLowerCase();
+    const feedbackDiv = document.getElementById('bakpiaFeedback');
+    
+    // Jawaban yang diterima (dalam berbagai format)
+    const correctAnswers = ['1/8', '⅛', '0.125', 'seperdelapan', '1 per 8'];
+    
+    // Memeriksa apakah jawaban user sesuai dengan salah satu format yang benar
+    const isCorrect = correctAnswers.some(answer => 
+        userAnswer === answer.toLowerCase()
+    );
+    
+    if (isCorrect) {
+    feedbackDiv.innerHTML = '<p style="color:#10B981;margin:0;">✅ Jawaban benar! Setiap orang mendapat <span style="font-weight:bold;">⅛</span> dus bakpia.</p>';
+} else {
+        feedbackDiv.innerHTML = '<p style="color:#E71D36;margin:0;">❌ Jawaban belum tepat. Coba ingat lagi: 1 dus dibagi 8 orang = <span style="font-weight:bold;">\(\frac{1}{8}\)</span> untuk masing-masing.</p>';
+    }
+    
+    feedbackDiv.style.display = 'block';
+    
+    // Tambahkan animasi feedback
+    feedbackDiv.style.animation = 'fadeIn 0.5s';
+}
+
+// Tambahkan style untuk animasi
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(5px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+`;
+document.head.appendChild(style);
+</script>
+                        <div style="flex:1;min-width:200px;background:white;padding:1rem;border-radius:8px;box-shadow:0 4px 6px rgba(0,0,0,0.05);">
+    <h4 style="color:#4a5568;margin:0 0 0.5rem 0;">🎨 Batik Pecahan</h4>
+    <p style="color:#4a5568;margin:0;font-size:0.9rem;">"Jika motif Kawung diperbesar jadi ⅓ meter, berapa total kain?"</p>
+    <div style="margin-top:0.5rem;">
+        <button onclick="showBatikSolution()" style="background:#4CC9F0;color:white;border:none;padding:0.5rem 1rem;border-radius:4px;cursor:pointer;font-size:0.9rem;">Lihat Solusi</button>
+    </div>
+    <div id="batikSolution" style="margin-top:0.8rem;display:none;padding:0.8rem;background:#f8fafc;border-radius:6px;border-left:3px solid #4CC9F0;animation:fadeIn 0.3s;">
+        <p style="margin:0;color:#4a5568;">
+            <span style="font-weight:bold;color:#0C4A6E;">Solusi:</span><br>
+            Motif Parang (⅓) + Motif Kawung (⅓) + Motif Ceplok (⅓) = <span style="font-weight:bold;">1 meter</span>
+        </p>
+    </div>
+</div>
+
+<script>
+function showBatikSolution() {
+    const solutionDiv = document.getElementById('batikSolution');
+    if (solutionDiv.style.display === 'none') {
+        solutionDiv.style.display = 'block';
+    } else {
+        solutionDiv.style.display = 'none';
+    }
+}
+</script>
+
+<style>
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+                    </div>
+                </div>
+
+                <!-- Navigasi Fase -->
+                <div style="display:flex;justify-content:space-between;margin-top:3rem;">
+                    
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+function showFractionTypes() {
+    // Interactive modal showing fraction conversions
+    alert("Simulasi interaktif: Drag bakpia/kain untuk melihat konversi pecahan!");
+}
+
+function checkAnswer(type) {
+    const answers = {
+        'bakpia': '\(\frac{1}{8}\) dus',
+        'batik': '\(\frac{1}{3}\) (Parang) + \(\frac{1}{3}\) (Kawung) + \(\frac{1}{3}\) (Ceplok) = 1 meter'
+    };
+    alert(`Jawaban: ${answers[type]}`);
+}
+
+function showPreviousPhase() {
+    document.getElementById('sifat').scrollIntoView({behavior: 'smooth'});
+}
+
+function showNextPhase() {
+    // You can add navigation to the next phase (Operasi Pecahan)
+    alert("Menuju ke fase operasi pecahan...");
+}
+</script>
+
+<!-- Add MathJax for proper LaTeX rendering -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+ 
+<!-- Fase 4: Membandingkan Pecahan (RME Kontekstual) -->
+<div id="perbandingan" class="tab-content">
+    <section class="about-section">
+        <h2 class="section-title">Fase 4: Membandingkan Pecahan dalam Konteks Nyata</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="g29.png" 
+                     alt="Perbandingan Pecahan" 
+                     style="border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.15);max-width:100%;height:auto;border:1px solid #eee;">
+                <div style="margin-top:1.5rem;text-align:center;">
+                    <button onclick="showComparisonTool()" style="background:linear-gradient(135deg, #FF9F1C, #FFBF69);color:white;border:none;padding:0.7rem 1.5rem;border-radius:8px;cursor:pointer;font-weight:500;transition:all 0.3s ease;box-shadow:0 4px 6px rgba(0,0,0,0.1);">
+                        <i class="fas fa-balance-scale" style="margin-right:8px;"></i> Alat Perbandingan
+                    </button>
+                </div>
+            </div>
+            <div class="about-text">
+                <h2 style="color:#4a5568;font-weight:600;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;">⚖️ Membandingkan Pecahan</h2>
+                <div class="context-example" style="background:#f8fafc;padding:1.5rem;border-radius:12px;border-left:4px solid #FF9F1C;margin-bottom:2rem;">
+                    <p style="font-style:italic;color:#4a5568;margin:0;font-size:1.05rem;">"Bagaimana menentukan bagian bakpia yang lebih besar? Atau takaran gula yang lebih kecil? Mari bandingkan!"</p>
+                </div>
+
+                <!-- 1. Konsep Dasar Perbandingan -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-arrows-alt-h" style="color:#2EC4B6;font-size:1.2em;"></i> Dasar Membandingkan
+                    </h3>
+                    
+                    <!-- Bakpia Comparison -->
+                    <div style="background:#f0fdf4;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;">
+                        <h4 style="color:#166534;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-cookie" style="color:#FF7D00;"></i> Kasus Bakpia
+                        </h4>
+                        <p style="color:#4a5568;">Pak Joko membagi 1 dus bakpia menjadi 8 bagian sama rata (\(\frac{1}{8}\)), sedangkan Bu Rina membagi dus serupa menjadi 4 bagian (\(\frac{1}{4}\)). Mana yang lebih besar?</p>
+                        
+                        <div style="display:flex;justify-content:center;gap:1.5rem;margin-top:1rem;flex-wrap:wrap;">
+                            <!-- 1/8 -->
+                            <div style="text-align:center;">
+                                <div style="width:90px;height:90px;background:conic-gradient(#FF7D00 0% 12.5%, #f8fafc 12.5% 100%);border-radius:50%;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#FF7D00;">\(\frac{1}{8}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">1 potong dari 8</p>
+                            </div>
+                            
+                            <!-- VS Symbol -->
+                            <div style="display:flex;align-items:center;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#E71D36;">?</div>
+                            </div>
+                            
+                            <!-- 1/4 -->
+                            <div style="text-align:center;">
+                                <div style="width:90px;height:90px;background:conic-gradient(#FF7D00 0% 25%, #f8fafc 25% 100%);border-radius:50%;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#FF7D00;">\(\frac{1}{4}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">1 potong dari 4</p>
+                            </div>
+                        </div>
+                        
+                        <div style="background:#dcfce7;padding:1rem;border-radius:8px;margin-top:1rem;display:none;" id="bakpiaSolution">
+                            <p style="color:#166534;margin:0;font-weight:500;">\(\frac{1}{4} > \frac{1}{8}\) karena potongan lebih sedikit = bagian lebih besar!</p>
+                        </div>
+                        
+                        <button onclick="toggleSolution('bakpiaSolution')" style="background:#22C55E;color:white;border:none;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;margin-top:1rem;display:flex;align-items:center;gap:6px;font-size:0.9rem;">
+                            <i class="fas fa-lightbulb"></i> Tunjukkan Solusi
+                        </button>
+                    </div>
+                    
+                    <!-- Gudeg Comparison -->
+                    <div style="background:#fef2f2;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;">
+                        <h4 style="color:#991B1B;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-utensils" style="color:#E71D36;"></i> Kasus Gudeg
+                        </h4>
+                        <p style="color:#4a5568;">Resep gudeg membutuhkan \(\frac{3}{4}\) kg gula merah, tetapi Ima hanya punya \(\frac{2}{3}\) kg. Cukupkah?</p>
+                        
+                        <div style="display:flex;justify-content:center;gap:1.5rem;margin-top:1rem;flex-wrap:wrap;">
+                            <!-- 3/4 -->
+                            <div style="text-align:center;">
+                                <div style="width:120px;height:40px;background:linear-gradient(to right, #FF9F1C 0% 75%, #f8fafc 75% 100%);border-radius:6px;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:37.5%;transform:translate(-50%,-50%);font-weight:bold;color:#991B1B;">\(\frac{3}{4}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Kebutuhan resep</p>
+                            </div>
+                            
+                            <!-- VS Symbol -->
+                            <div style="display:flex;align-items:center;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#E71D36;">?</div>
+                            </div>
+                            
+                            <!-- 2/3 -->
+                            <div style="text-align:center;">
+                                <div style="width:120px;height:40px;background:linear-gradient(to right, #FF9F1C 0% 66.66%, #f8fafc 66.66% 100%);border-radius:6px;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:33.33%;transform:translate(-50%,-50%);font-weight:bold;color:#991B1B;">\(\frac{2}{3}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Stok Ima</p>
+                            </div>
+                        </div>
+                        
+                        <div style="background:#fee2e2;padding:1rem;border-radius:8px;margin-top:1rem;display:none;" id="gudegSolution">
+                            <p style="color:#991B1B;margin:0;font-weight:500;">\(\frac{3}{4} = 0.75\) vs \(\frac{2}{3} ≈ 0.67\), jadi stok Ima <strong>kurang</strong>!</p>
+                        </div>
+                        
+                        <button onclick="toggleSolution('gudegSolution')" style="background:#EF4444;color:white;border:none;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;margin-top:1rem;display:flex;align-items:center;gap:6px;font-size:0.9rem;">
+                            <i class="fas fa-lightbulb"></i> Tunjukkan Solusi
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 2. Strategi Membandingkan -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-chess-board" style="color:#4CC9F0;font-size:1.2em;"></i> 3 Cara Membandingkan
+                    </h3>
+                    
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1.5rem;margin-top:1.5rem;">
+                        <!-- Metode 1 -->
+                        <div style="background:#eff6ff;padding:1.25rem;border-radius:10px;border-left:4px solid #3B82F6;">
+                            <h4 style="color:#1E40AF;margin-top:0;display:flex;align-items:center;gap:8px;">
+                                <i class="fas fa-ruler-combined"></i> 1. Penyebut Sama
+                            </h4>
+                            <p style="color:#4a5568;">Bandingkan pembilangnya saja. Contoh pada kain batik:</p>
+                            <div style="display:flex;justify-content:center;gap:1rem;margin:1rem 0;">
+                                <div style="width:60px;height:30px;background:linear-gradient(to right, #5B21B6 0% 40%, #f8fafc 40% 100%);border-radius:4px;border:1px solid #5B21B6;position:relative;">
+                                    <div style="position:absolute;top:50%;left:20%;transform:translate(-50%,-50%);font-weight:bold;color:#5B21B6;font-size:0.8rem;">\(\frac{2}{5}\)</div>
+                                </div>
+                                <span style="font-weight:bold;color:#1E40AF;">&lt;</span>
+                                <div style="width:60px;height:30px;background:linear-gradient(to right, #5B21B6 0% 60%, #f8fafc 60% 100%);border-radius:4px;border:1px solid #5B21B6;position:relative;">
+                                    <div style="position:absolute;top:50%;left:30%;transform:translate(-50%,-50%);font-weight:bold;color:#5B21B6;font-size:0.8rem;">\(\frac{3}{5}\)</div>
+                                </div>
+                            </div>
+                            <p style="color:#4a5568;font-size:0.9rem;">Motif \(\frac{2}{5}\)m lebih pendek dari \(\frac{3}{5}\)m</p>
+                        </div>
+                        
+                        <!-- Metode 2 -->
+                        <div style="background:#f5f3ff;padding:1.25rem;border-radius:10px;border-left:4px solid #7C3AED;">
+                            <h4 style="color:#5B21B6;margin-top:0;display:flex;align-items:center;gap:8px;">
+                                <i class="fas fa-project-diagram"></i> 2. Penyebut Beda
+                            </h4>
+                            <p style="color:#4a5568;">Samakan penyebut (KPK). Contoh pembagian bakpia:</p>
+                            <div style="margin:1rem 0;">
+                                <p style="color:#5B21B6;margin:0.5rem 0;font-size:0.9rem;">\(\frac{1}{4}\) vs \(\frac{2}{8}\) → \(\frac{2}{8}\) = \(\frac{2}{8}\)</p>
+                                <div style="display:flex;justify-content:center;gap:0.5rem;">
+                                    <div style="width:40px;height:40px;background:conic-gradient(#FF7D00 0% 25%, #f8fafc 25% 100%);border-radius:50%;"></div>
+                                    <span style="align-self:center;color:#5B21B6;font-weight:bold;">=</span>
+                                    <div style="width:40px;height:40px;background:conic-gradient(#FF7D00 0% 25%, #f8fafc 25% 100%);border-radius:50%;"></div>
+                                </div>
+                            </div>
+                            <p style="color:#4a5568;font-size:0.9rem;">\(\frac{1}{4}\) = \(\frac{2}{8}\) (bagian sama besar)</p>
+                        </div>
+                        
+                        <!-- Metode 3 -->
+                        <div style="background:#ecfdf5;padding:1.25rem;border-radius:10px;border-left:4px solid #10B981;">
+                            <h4 style="color:#065F46;margin-top:0;display:flex;align-items:center;gap:8px;">
+                                <i class="fas fa-calculator"></i> 3. Desimal
+                            </h4>
+                            <p style="color:#4a5568;">Konversi ke bentuk desimal. Contoh takaran gula:</p>
+                            <div style="background:#d1fae5;padding:0.75rem;border-radius:8px;margin:1rem 0;text-align:center;">
+                                <p style="margin:0;color:#065F46;font-weight:500;">
+                                    \(\frac{3}{4}\) = 0.75 &nbsp;&nbsp;>&nbsp;&nbsp; \(\frac{2}{3}\) ≈ 0.67
+                                </p>
+                            </div>
+                            <p style="color:#4a5568;font-size:0.9rem;">Lebih mudah dibandingkan dalam bentuk desimal</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aktivitas Interaktif -->
+                <div style="background:#f8fafc;padding:1.5rem;border-radius:12px;margin-top:2rem;border:1px dashed #4CC9F0;">
+                    <h3 style="color:#4CC9F0;margin-top:0;font-weight:600;display:flex;align-items:center;gap:10px;">
+                        <i class="fas fa-tasks" style="font-size:1.2em;"></i> Latihan Kontekstual
+                    </h3>
+                    
+                    <!-- Soal 1 -->
+                    <div style="background:white;padding:1.25rem;border-radius:10px;margin-top:1.5rem;box-shadow:0 4px 6px rgba(0,0,0,0.05);">
+                        <h4 style="color:#4a5568;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-cookie-bite" style="color:#FF7D00;"></i> Soal Bakpia
+                        </h4>
+                        <p style="color:#4a5568;">Jika 1 dus bakpia dibagi 6 orang (\(\frac{1}{6}\)) vs dibagi 3 orang (\(\frac{1}{3}\)), mana yang lebih besar?</p>
+                        <div style="display:flex;gap:1rem;margin-top:1rem;">
+                            <button onclick="checkComparisonAnswer(1, '1/3 lebih besar karena pembagi lebih sedikit')" style="background:#EFF6FF;color:#3B82F6;border:1px solid #BFDBFE;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">\(\frac{1}{6}\)</button>
+                            <button onclick="checkComparisonAnswer(1, '1/3 lebih besar karena pembagi lebih sedikit')" style="background:#EFF6FF;color:#3B82F6;border:1px solid #BFDBFE;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">\(\frac{1}{3}\)</button>
+                            <button onclick="checkComparisonAnswer(1, '1/3 lebih besar karena pembagi lebih sedikit')" style="background:#EFF6FF;color:#3B82F6;border:1px solid #BFDBFE;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">Sama</button>
+                        </div>
+                        <div id="answer1" style="margin-top:1rem;display:none;"></div>
+                    </div>
+                    
+                    <!-- Soal 2 -->
+                    <div style="background:white;padding:1.25rem;border-radius:10px;margin-top:1.5rem;box-shadow:0 4px 6px rgba(0,0,0,0.05);">
+                        <h4 style="color:#4a5568;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-utensil-spoon" style="color:#E71D36;"></i> Soal Gudeg
+                        </h4>
+                        <p style="color:#4a5568;">Manakah yang lebih kecil: \(\frac{5}{8}\) kg gula merah atau \(\frac{2}{3}\) kg?</p>
+                        <div style="display:flex;gap:1rem;margin-top:1rem;">
+                            <button onclick="checkComparisonAnswer(2, '5/8 ≈ 0.625 vs 2/3 ≈ 0.667 → 5/8 lebih kecil')" style="background:#FEF2F2;color:#EF4444;border:1px solid #FECACA;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">\(\frac{5}{8}\)</button>
+                            <button onclick="checkComparisonAnswer(2, '5/8 ≈ 0.625 vs 2/3 ≈ 0.667 → 5/8 lebih kecil')" style="background:#FEF2F2;color:#EF4444;border:1px solid #FECACA;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">\(\frac{2}{3}\)</button>
+                            <button onclick="checkComparisonAnswer(2, '5/8 ≈ 0.625 vs 2/3 ≈ 0.667 → 5/8 lebih kecil')" style="background:#FEF2F2;color:#EF4444;border:1px solid #FECACA;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">Sama</button>
+                        </div>
+                        <div id="answer2" style="margin-top:1rem;display:none;"></div>
+                    </div>
+                </div>
+
+                <!-- Navigasi Fase -->
+                <div style="display:flex;justify-content:space-between;margin-top:3rem;">
+                  
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+function showComparisonTool() {
+    alert("Buka alat interaktif untuk membandingkan pecahan dengan drag-and-drop!");
+}
+
+function toggleSolution(id) {
+    const element = document.getElementById(id);
+    element.style.display = element.style.display === 'none' ? 'block' : 'none';
+}
+
+function checkComparisonAnswer(questionNum, correctExplanation) {
+    const answerDiv = document.getElementById(`answer${questionNum}`);
+    answerDiv.innerHTML = `
+        <div style="background:#ECFDF5;padding:1rem;border-radius:8px;border-left:4px solid #10B981;">
+            <p style="color:#065F46;margin:0;font-weight:500;">${correctExplanation}</p>
+        </div>
+    `;
+    answerDiv.style.display = 'block';
+}
+
+function showPreviousPhase() {
+    document.getElementById('faktor').scrollIntoView({behavior: 'smooth'});
+}
+
+function showNextPhase() {
+    alert("Menuju ke fase operasi pecahan...");
+}
+</script>
+<!-- Fase 5: Operasi Pecahan (RME Kontekstual) -->
+<div id="operasi-pecahan" class="tab-content">
+    <section class="about-section">
+        <h2 class="section-title">Fase 5: Operasi Pecahan dalam Kehidupan Sehari-hari</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="g30.png" 
+                     alt="Operasi Pecahan" 
+                     style="border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.15);max-width:100%;height:auto;border:1px solid #eee;">
+                <div style="margin-top:1.5rem;text-align:center;">
+                </div>
+            </div>
+            <div class="about-text">
+                <h2 style="color:#4a5568;font-weight:600;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;">🧮 Operasi Pecahan</h2>
+                <div class="context-example" style="background:#f8fafc;padding:1.5rem;border-radius:12px;border-left:4px solid #2EC4B6;margin-bottom:2rem;">
+                    <p style="font-style:italic;color:#4a5568;margin:0;font-size:1.05rem;">"Bagaimana menghitung total bakpia yang dibagikan? Atau menyesuaikan resep gudeg? Mari belajar operasi pecahan!"</p>
+                </div>
+
+                <!-- 1. Penjumlahan Pecahan -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-plus-circle" style="color:#3B82F6;font-size:1.2em;"></i> Penjumlahan Pecahan
+                    </h3>
+                    
+                    <!-- Contoh Kontekstual -->
+                    <div style="background:#EFF6FF;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;">
+                        <h4 style="color:#1E40AF;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-cookie" style="color:#FF7D00;"></i> Kasus Bakpia
+                        </h4>
+                        <p style="color:#4a5568;">Pak Joko membagi 1 dus bakpia menjadi 8 bagian. Hari pertama dijual \(\frac{3}{8}\) dus, hari kedua \(\frac{2}{8}\) dus. Berapa total penjualan?</p>
+                        
+                        <div style="display:flex;justify-content:center;gap:1.5rem;margin-top:1rem;flex-wrap:wrap;">
+                            <!-- Hari 1 -->
+                            <div style="text-align:center;">
+                                <div style="width:100px;height:100px;background:conic-gradient(#FF7D00 0% 37.5%, #f8fafc 37.5% 100%);border-radius:50%;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#FF7D00;">\(\frac{3}{8}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Hari Pertama</p>
+                            </div>
+                            
+                            <!-- Plus Symbol -->
+                            <div style="display:flex;align-items:center;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#3B82F6;">+</div>
+                            </div>
+                            
+                            <!-- Hari 2 -->
+                            <div style="text-align:center;">
+                                <div style="width:100px;height:100px;background:conic-gradient(#FF7D00 0% 25%, #f8fafc 25% 100%);border-radius:50%;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#FF7D00;">\(\frac{2}{8}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Hari Kedua</p>
+                            </div>
+                            
+                            <!-- Equal Symbol -->
+                            <div style="display:flex;align-items:center;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#3B82F6;">=</div>
+                            </div>
+                            
+                            <!-- Hasil -->
+                            <div style="text-align:center;">
+                                <div style="width:100px;height:100px;background:conic-gradient(#FF7D00 0% 62.5%, #f8fafc 62.5% 100%);border-radius:50%;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#FF7D00;">\(\frac{5}{8}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Total</p>
+                            </div>
+                        </div>
+                        
+                        <div style="background:#DBEAFE;padding:1rem;border-radius:8px;margin-top:1rem;">
+                            <p style="color:#1E40AF;margin:0;font-weight:500;">Aturan: Jika penyebut sama, jumlahkan pembilangnya: \(\frac{3}{8} + \frac{2}{8} = \frac{3+2}{8} = \frac{5}{8}\)</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Penyebut Berbeda -->
+                    <div style="background:#F0FDF4;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;">
+                        <h4 style="color:#166534;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-utensils" style="color:#22C55E;"></i> Kasus Resep
+                        </h4>
+                        <p style="color:#4a5568;">Ima mencampur \(\frac{1}{2}\) kg gula merah dan \(\frac{1}{3}\) kg gula pasir. Berapa total gula?</p>
+                        
+                        <div style="display:flex;justify-content:center;gap:1rem;margin-top:1rem;flex-wrap:wrap;">
+                            <div style="text-align:center;">
+                                <div style="width:120px;height:60px;background:linear-gradient(to right, #FF9F1C 0% 50%, #f8fafc 50% 100%);border-radius:6px;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:25%;transform:translate(-50%,-50%);font-weight:bold;color:#166534;">\(\frac{1}{2}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Gula Merah</p>
+                            </div>
+                            
+                            <div style="display:flex;align-items:center;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#22C55E;">+</div>
+                            </div>
+                            
+                            <div style="text-align:center;">
+                                <div style="width:120px;height:60px;background:linear-gradient(to right, #FF9F1C 0% 33.33%, #f8fafc 33.33% 100%);border-radius:6px;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:16.66%;transform:translate(-50%,-50%);font-weight:bold;color:#166534;">\(\frac{1}{3}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Gula Pasir</p>
+                            </div>
+                            
+                            <div style="display:flex;align-items:center;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#22C55E;">=</div>
+                            </div>
+                            
+                            <div style="text-align:center;">
+                                <div style="width:120px;height:60px;background:linear-gradient(to right, #FF9F1C 0% 83.33%, #f8fafc 83.33% 100%);border-radius:6px;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:41.66%;transform:translate(-50%,-50%);font-weight:bold;color:#166534;">\(\frac{5}{6}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Total</p>
+                            </div>
+                        </div>
+                        
+                        <div style="background:#DCFCE7;padding:1rem;border-radius:8px;margin-top:1rem;">
+                            <p style="color:#166534;margin:0;font-weight:500;">Langkah Penyelesaian:</p>
+                            <ol style="color:#166534;margin:0.5rem 0 0 1rem;padding-left:1rem;">
+                                <li>Cari KPK penyebut: KPK dari 2 dan 3 adalah 6</li>
+                                <li>Ubah ke pecahan senilai: \(\frac{1}{2} = \frac{3}{6}\) dan \(\frac{1}{3} = \frac{2}{6}\)</li>
+                                <li>Jumlahkan: \(\frac{3}{6} + \frac{2}{6} = \frac{5}{6}\)</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Pengurangan Pecahan -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-minus-circle" style="color:#EF4444;font-size:1.2em;"></i> Pengurangan Pecahan
+                    </h3>
+                    
+                    <!-- Contoh Kontekstual -->
+                    <div style="background:#FEF2F2;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;">
+                        <h4 style="color:#991B1B;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-box-open" style="color:#EF4444;"></i> Kasus Stok Bakpia
+                        </h4>
+                        <p style="color:#4a5568;">Pak Joko memiliki \(\frac{7}{8}\) dus bakpia. Jika terjual \(\frac{3}{8}\) dus, berapa sisa stok?</p>
+                        
+                        <div style="display:flex;justify-content:center;gap:1.5rem;margin-top:1rem;flex-wrap:wrap;">
+                            <!-- Stok Awal -->
+                            <div style="text-align:center;">
+                                <div style="width:100px;height:100px;background:conic-gradient(#FF7D00 0% 87.5%, #f8fafc 87.5% 100%);border-radius:50%;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#FF7D00;">\(\frac{7}{8}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Stok Awal</p>
+                            </div>
+                            
+                            <!-- Minus Symbol -->
+                            <div style="display:flex;align-items:center;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#EF4444;">-</div>
+                            </div>
+                            
+                            <!-- Terjual -->
+                            <div style="text-align:center;">
+                                <div style="width:100px;height:100px;background:conic-gradient(#FF7D00 0% 37.5%, #f8fafc 37.5% 100%);border-radius:50%;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#FF7D00;">\(\frac{3}{8}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Terjual</p>
+                            </div>
+                            
+                            <!-- Equal Symbol -->
+                            <div style="display:flex;align-items:center;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#EF4444;">=</div>
+                            </div>
+                            
+                            <!-- Hasil -->
+                            <div style="text-align:center;">
+                                <div style="width:100px;height:100px;background:conic-gradient(#FF7D00 0% 50%, #f8fafc 50% 100%);border-radius:50%;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#FF7D00;">\(\frac{4}{8}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Sisa</p>
+                            </div>
+                        </div>
+                        
+                        <div style="background:#FEE2E2;padding:1rem;border-radius:8px;margin-top:1rem;">
+                            <p style="color:#991B1B;margin:0;font-weight:500;">Aturan: Jika penyebut sama, kurangkan pembilang: \(\frac{7}{8} - \frac{3}{8} = \frac{4}{8} = \frac{1}{2}\) (disederhanakan)</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Penyebut Berbeda -->
+                    <div style="background:#ECFDF5;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;">
+                        <h4 style="color:#065F46;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-weight-scale" style="color:#10B981;"></i> Kasus Takaran Bahan
+                        </h4>
+                        <p style="color:#4a5568;">Resep membutuhkan \(\frac{3}{4}\) kg tepung, tetapi Ima hanya punya \(\frac{1}{2}\) kg. Berapa kekurangannya?</p>
+                        
+                        <div style="display:flex;justify-content:center;gap:1rem;margin-top:1rem;flex-wrap:wrap;">
+                            <div style="text-align:center;">
+                                <div style="width:120px;height:60px;background:linear-gradient(to right, #FF9F1C 0% 75%, #f8fafc 75% 100%);border-radius:6px;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:37.5%;transform:translate(-50%,-50%);font-weight:bold;color:#065F46;">\(\frac{3}{4}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Kebutuhan</p>
+                            </div>
+                            
+                            <div style="display:flex;align-items:center;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#10B981;">-</div>
+                            </div>
+                            
+                            <div style="text-align:center;">
+                                <div style="width:120px;height:60px;background:linear-gradient(to right, #FF9F1C 0% 50%, #f8fafc 50% 100%);border-radius:6px;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:25%;transform:translate(-50%,-50%);font-weight:bold;color:#065F46;">\(\frac{1}{2}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Stok</p>
+                            </div>
+                            
+                            <div style="display:flex;align-items:center;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#10B981;">=</div>
+                            </div>
+                            
+                            <div style="text-align:center;">
+                                <div style="width:120px;height:60px;background:linear-gradient(to right, #FF9F1C 0% 25%, #f8fafc 25% 100%);border-radius:6px;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:12.5%;transform:translate(-50%,-50%);font-weight:bold;color:#065F46;">\(\frac{1}{4}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Kekurangan</p>
+                            </div>
+                        </div>
+                        
+                        <div style="background:#D1FAE5;padding:1rem;border-radius:8px;margin-top:1rem;">
+                            <p style="color:#065F46;margin:0;font-weight:500;">Langkah Penyelesaian:</p>
+                            <ol style="color:#065F46;margin:0.5rem 0 0 1rem;padding-left:1rem;">
+                                <li>Samakan penyebut: KPK 4 dan 2 adalah 4</li>
+                                <li>Ubah \(\frac{1}{2}\) menjadi \(\frac{2}{4}\)</li>
+                                <li>Kurangi: \(\frac{3}{4} - \frac{2}{4} = \frac{1}{4}\)</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Perkalian Pecahan -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-times-circle" style="color:#7C3AED;font-size:1.2em;"></i> Perkalian Pecahan
+                    </h3>
+                    
+                    <!-- Contoh Kontekstual -->
+                    <div style="background:#F5F3FF;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;">
+                        <h4 style="color:#5B21B6;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-boxes-stacked" style="color:#7C3AED;"></i> Kasus Pesanan Bakpia
+                        </h4>
+                        <p style="color:#4a5568;">Setiap dus berisi \(\frac{3}{4}\) kg bakpia. Jika Bu Rina memesan 2\(\frac{1}{2}\) dus, berapa total beratnya?</p>
+                        
+                        <div style="display:flex;justify-content:center;gap:1.5rem;margin-top:1rem;flex-wrap:wrap;">
+                            <!-- Per Dus -->
+                            <div style="text-align:center;">
+                                <div style="width:120px;height:60px;background:linear-gradient(to right, #FF7D00 0% 75%, #f8fafc 75% 100%);border-radius:6px;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:37.5%;transform:translate(-50%,-50%);font-weight:bold;color:#5B21B6;">\(\frac{3}{4}\) kg</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Per Dus</p>
+                            </div>
+                            
+                            <!-- Times Symbol -->
+                            <div style="display:flex;align-items:center;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#7C3AED;">×</div>
+                            </div>
+                            
+                            <!-- Jumlah -->
+                            <div style="text-align:center;">
+                                <div style="width:120px;height:60px;background:linear-gradient(to right, #FF7D00 0% 100%, #f8fafc 100% 100%);border-radius:6px;margin:0 auto;position:relative;border:1px dashed #7C3AED;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#5B21B6;">2\(\frac{1}{2}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Jumlah Dus</p>
+                            </div>
+                            
+                            <!-- Equal Symbol -->
+                            <div style="display:flex;align-items:center;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#7C3AED;">=</div>
+                            </div>
+                            
+                            <!-- Hasil -->
+                            <div style="text-align:center;">
+                                <div style="width:120px;height:60px;background:linear-gradient(to right, #FF7D00 0% 187.5%, #f8fafc 187.5% 100%);border-radius:6px;margin:0 auto;position:relative;overflow:hidden;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#5B21B6;">1\(\frac{7}{8}\) kg</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Total</p>
+                            </div>
+                        </div>
+                        
+                        <div style="background:#EDE9FE;padding:1rem;border-radius:8px;margin-top:1rem;">
+                            <p style="color:#5B21B6;margin:0;font-weight:500;">Langkah Penyelesaian:</p>
+                            <ol style="color:#5B21B6;margin:0.5rem 0 0 1rem;padding-left:1rem;">
+                                <li>Ubah bilangan campuran: 2\(\frac{1}{2}\) = \(\frac{5}{2}\)</li>
+                                <li>Kalikan pembilang dengan pembilang: 3×5 = 15</li>
+                                <li>Kalikan penyebut dengan penyebut: 4×2 = 8</li>
+                                <li>Hasil: \(\frac{15}{8}\) = 1\(\frac{7}{8}\)</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Pembagian Pecahan -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-divide" style="color:#EC4899;font-size:1.2em;"></i> Pembagian Pecahan
+                    </h3>
+                    
+                    <!-- Contoh Kontekstual -->
+                    <div style="background:#FDF2F8;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;">
+                        <h4 style="color:#9D174D;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-people-group" style="color:#EC4899;"></i> Kasus Pembagian Bakpia
+                        </h4>
+                        <p style="color:#4a5568;">Pak Joko memiliki 3\(\frac{1}{2}\) dus bakpia untuk dibagikan ke 7 pedagang sama rata. Berapa masing-masing bagian?</p>
+                        
+                        <div style="display:flex;justify-content:center;gap:1.5rem;margin-top:1rem;flex-wrap:wrap;">
+                            <!-- Total -->
+                            <div style="text-align:center;">
+                                <div style="width:120px;height:60px;background:linear-gradient(to right, #FF7D00 0% 100%, #f8fafc 100% 100%);border-radius:6px;margin:0 auto;position:relative;border:1px dashed #EC4899;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#9D174D;">3\(\frac{1}{2}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Total Bakpia</p>
+                            </div>
+                            
+                            <!-- Divide Symbol -->
+                            <div style="display:flex;align-items:center;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#EC4899;">÷</div>
+                            </div>
+                            
+                            <!-- Pedagang -->
+                            <div style="text-align:center;">
+                                <div style="width:60px;height:60px;background:#FBCFE8;border-radius:50%;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#9D174D;">7</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Pedagang</p>
+                            </div>
+                            
+                            <!-- Equal Symbol -->
+                            <div style="display:flex;align-items:center;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#EC4899;">=</div>
+                            </div>
+                            
+                            <!-- Hasil -->
+                            <div style="text-align:center;">
+                                <div style="width:120px;height:60px;background:linear-gradient(to right, #FF7D00 0% 50%, #f8fafc 50% 100%);border-radius:6px;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:25%;transform:translate(-50%,-50%);font-weight:bold;color:#9D174D;">\(\frac{1}{2}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Per Pedagang</p>
+                            </div>
+                        </div>
+                        
+                        <div style="background:#FCE7F3;padding:1rem;border-radius:8px;margin-top:1rem;">
+                            <p style="color:#9D174D;margin:0;font-weight:500;">Langkah Penyelesaian:</p>
+                            <ol style="color:#9D174D;margin:0.5rem 0 0 1rem;padding-left:1rem;">
+                                <li>Ubah bilangan campuran: 3\(\frac{1}{2}\) = \(\frac{7}{2}\)</li>
+                                <li>Ubah pembagian menjadi perkalian dengan kebalikan: \(\frac{7}{2} ÷ 7 = \frac{7}{2} × \frac{1}{7}\)</li>
+                                <li>Kalikan: \(\frac{7×1}{2×7} = \frac{7}{14} = \frac{1}{2}\)</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aktivitas Interaktif -->
+                <div style="background:#f8fafc;padding:1.5rem;border-radius:12px;margin-top:2rem;border:1px dashed #4CC9F0;">
+                    <h3 style="color:#4CC9F0;margin-top:0;font-weight:600;display:flex;align-items:center;gap:10px;">
+                        <i class="fas fa-tasks" style="font-size:1.2em;"></i> Latihan Operasi Pecahan
+                    </h3>
+                    
+                    <!-- Soal 1: Penjumlahan -->
+                    <div style="background:white;padding:1.25rem;border-radius:10px;margin-top:1.5rem;box-shadow:0 4px 6px rgba(0,0,0,0.05);">
+                        <h4 style="color:#4a5568;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-plus" style="color:#3B82F6;"></i> Soal Penjumlahan
+                        </h4>
+                        <p style="color:#4a5568;">Bu Rina mencampur \(\frac{2}{3}\) kg tepung dan \(\frac{1}{4}\) kg maizena. Berapa total campuran?</p>
+                        <div style="display:flex;gap:1rem;margin-top:1rem;">
+                            <button onclick="checkOperationAnswer(1, 'KPK 3 dan 4 adalah 12 → 2/3=8/12, 1/4=3/12 → 8/12 + 3/12 = 11/12')" style="background:#EFF6FF;color:#3B82F6;border:1px solid #BFDBFE;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">\(\frac{11}{12}\)</button>
+                            <button onclick="checkOperationAnswer(1, 'KPK 3 dan 4 adalah 12 → 2/3=8/12, 1/4=3/12 → 8/12 + 3/12 = 11/12')" style="background:#EFF6FF;color:#3B82F6;border:1px solid #BFDBFE;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">\(\frac{3}{7}\)</button>
+                            <button onclick="checkOperationAnswer(1, 'KPK 3 dan 4 adalah 12 → 2/3=8/12, 1/4=3/12 → 8/12 + 3/12 = 11/12')" style="background:#EFF6FF;color:#3B82F6;border:1px solid #BFDBFE;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">\(\frac{5}{12}\)</button>
+                        </div>
+                        <div id="operationAnswer1" style="margin-top:1rem;display:none;"></div>
+                    </div>
+                    
+                    <!-- Soal 2: Perkalian -->
+                    <div style="background:white;padding:1.25rem;border-radius:10px;margin-top:1.5rem;box-shadow:0 4px 6px rgba(0,0,0,0.05);">
+                        <h4 style="color:#4a5568;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-times" style="color:#7C3AED;"></i> Soal Perkalian
+                        </h4>
+                        <p style="color:#4a5568;">Jika 1 loyang kue membutuhkan \(\frac{3}{4}\) kg tepung, berapa kebutuhan untuk 2\(\frac{1}{3}\) loyang?</p>
+                        <div style="display:flex;gap:1rem;margin-top:1rem;">
+                            <button onclick="checkOperationAnswer(2, '2 1/3 = 7/3 → 3/4 × 7/3 = 21/12 = 1 9/12 = 1 3/4 kg')" style="background:#F5F3FF;color:#7C3AED;border:1px solid #DDD6FE;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">1\(\frac{3}{4}\) kg</button>
+                            <button onclick="checkOperationAnswer(2, '2 1/3 = 7/3 → 3/4 × 7/3 = 21/12 = 1 9/12 = 1 3/4 kg')" style="background:#F5F3FF;color:#7C3AED;border:1px solid #DDD6FE;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">2\(\frac{1}{4}\) kg</button>
+                            <button onclick="checkOperationAnswer(2, '2 1/3 = 7/3 → 3/4 × 7/3 = 21/12 = 1 9/12 = 1 3/4 kg')" style="background:#F5F3FF;color:#7C3AED;border:1px solid #DDD6FE;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">\(\frac{7}{12}\) kg</button>
+                        </div>
+                        <div id="operationAnswer2" style="margin-top:1rem;display:none;"></div>
+                    </div>
+                </div>
+
+                <!-- Navigasi Fase -->
+                <div style="display:flex;justify-content:space-between;margin-top:3rem;">
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+function showFractionCalculator() {
+    alert("Buka kalkulator pecahan interaktif untuk berlatih operasi!");
+}
+function checkOperationAnswer(questionNum, correctExplanation) {
+    const answerDiv = document.getElementById(`operationAnswer${questionNum}`);
+    
+    // Toggle tampilan penjelasan
+    if (answerDiv.style.display === "block") {
+        answerDiv.style.display = "none";
+    } else {
+        answerDiv.innerHTML = `
+            <div style="background:#f0fdf4;padding:1rem;border-radius:8px;border-left:4px solid #10b981;">
+                <p style="color:#065f46;margin:0;font-weight:500;">Penyelesaian:</p>
+                <p style="color:#065f46;margin:0.5rem 0 0 0;">${correctExplanation}</p>
+            </div>
+        `;
+        answerDiv.style.display = "block";
+    }
+}
+
+function showPreviousPhase() {
+    // Navigasi ke fase sebelumnya (Perbandingan)
+    document.getElementById('operasi-pecahan').style.display = 'none';
+    document.getElementById('perbandingan-pecahan').style.display = 'block';
+    window.scrollTo(0, 0);
+}
+
+function showNextPhase() {
+    // Navigasi ke fase berikutnya (Aplikasi Pecahan)
+    document.getElementById('operasi-pecahan').style.display = 'none';
+    document.getElementById('aplikasi-pecahan').style.display = 'block';
+    window.scrollTo(0, 0);
+}
+</script>
+
+<!-- Fase 6: Operasi Campuran Pecahan (RME Kontekstual) -->
+<div id="operasi-campuran-pecahan" class="tab-content">
+    <section class="about-section">
+        <h2 class="section-title">Fase 6: Operasi Campuran Pecahan dalam Bisnis Bakpia</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="g32.png" 
+                     alt="Operasi Campuran Pecahan" 
+                     style="border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.15);max-width:100%;height:auto;border:1px solid #eee;">
+                <div style="margin-top:1.5rem;text-align:center;">
+                </div>
+            </div>
+            <div class="about-text">
+                <h2 style="color:#4a5568;font-weight:600;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;">🧮 Operasi Campuran Pecahan</h2>
+                <div class="context-example" style="background:#f8fafc;padding:1.5rem;border-radius:12px;border-left:4px solid #FF9F1C;margin-bottom:2rem;">
+                    <p style="font-style:italic;color:#4a5568;margin:0;font-size:1.05rem;">"Bagaimana menghitung total persediaan bakpia setelah pembelian dan penjualan? Atau menyesuaikan resep untuk produksi massal? Mari pelajari operasi campuran pecahan!"</p>
+                </div>
+
+                <!-- 1. Konsep Dasar -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-chess-board" style="color:#FF9F1C;font-size:1.2em;"></i> Memahami Bilangan Campuran
+                    </h3>
+                    
+                    <div style="background:#FFF7ED;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;">
+                        <h4 style="color:#9A3412;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-boxes-packing" style="color:#F97316;"></i> Kasus Stok Awal Bakpia
+                        </h4>
+                        <p style="color:#4a5568;">Pak Joko memiliki 2 dus penuh bakpia dan 3/4 dus tambahan. Bagaimana menyatakannya dalam bilangan campuran?</p>
+                        
+                        <div style="display:flex;justify-content:center;gap:1.5rem;margin-top:1rem;flex-wrap:wrap;">
+                            <!-- Dus Penuh -->
+                            <div style="text-align:center;">
+                                <div style="width:100px;height:100px;background:conic-gradient(#FF7D00 0% 100%, #f8fafc 100% 100%);border-radius:50%;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#9A3412;">2</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Dus Penuh</p>
+                            </div>
+                            
+                            <!-- Plus Symbol -->
+                            <div style="display:flex;align-items:center;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#F97316;">+</div>
+                            </div>
+                            
+                            <!-- Pecahan -->
+                            <div style="text-align:center;">
+                                <div style="width:100px;height:100px;background:conic-gradient(#FF7D00 0% 75%, #f8fafc 75% 100%);border-radius:50%;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#9A3412;">\(\frac{3}{4}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Tambahan</p>
+                            </div>
+                            
+                            <!-- Equal Symbol -->
+                            <div style="display:flex;align-items:center;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#F97316;">=</div>
+                            </div>
+                            
+                            <!-- Hasil -->
+                            <div style="text-align:center;">
+                                <div style="width:100px;height:100px;background:conic-gradient(#FF7D00 0% 100%, #FF7D00 100% 175%);border-radius:50%;margin:0 auto;position:relative;border:2px dashed #F97316;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#9A3412;">2\(\frac{3}{4}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Bilangan Campuran</p>
+                            </div>
+                        </div>
+                        
+                        <div style="background:#FFEDD5;padding:1rem;border-radius:8px;margin-top:1rem;">
+                            <p style="color:#9A3412;margin:0;font-weight:500;">Konversi ke Pecahan Biasa: \(2\frac{3}{4} = \frac{(2×4)+3}{4} = \frac{11}{4}\)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Operasi Campuran -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-calculator" style="color:#3B82F6;font-size:1.2em;"></i> Operasi Hitung Campuran
+                    </h3>
+                    
+                    <!-- Contoh 1: Penjumlahan dan Pengurangan -->
+                    <div style="background:#EFF6FF;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;">
+                        <h4 style="color:#1E40AF;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-warehouse" style="color:#3B82F6;"></i> Kasus Manajemen Stok
+                        </h4>
+                        <p style="color:#4a5568;">Pak Joko memiliki stok awal 3\(\frac{1}{2}\) dus bakpia. Hari ini menerima kiriman 2\(\frac{1}{4}\) dus dan menjual 1\(\frac{3}{4}\) dus. Berapa stok akhir?</p>
+                        
+                        <div style="background:#DBEAFE;padding:1rem;border-radius:8px;margin-top:1rem;">
+                            <p style="color:#1E40AF;margin:0;font-weight:500;">Langkah Penyelesaian:</p>
+                            <ol style="color:#1E40AF;margin:0.5rem 0 0 1rem;padding-left:1rem;">
+                                <li>Ubah semua ke pecahan biasa:
+                                    <ul style="margin:0.25rem 0 0 1rem;">
+                                        <li>\(3\frac{1}{2} = \frac{7}{2}\)</li>
+                                        <li>\(2\frac{1}{4} = \frac{9}{4}\)</li>
+                                        <li>\(1\frac{3}{4} = \frac{7}{4}\)</li>
+                                    </ul>
+                                </li>
+                                <li>Samakan penyebut (KPK 2 dan 4 adalah 4):
+                                    <ul style="margin:0.25rem 0 0 1rem;">
+                                        <li>\(\frac{7}{2} = \frac{14}{4}\)</li>
+                                    </ul>
+                                </li>
+                                <li>Hitung operasi: \(\frac{14}{4} + \frac{9}{4} - \frac{7}{4} = \frac{16}{4} = 4\) dus</li>
+                            </ol>
+                        </div>
+                        
+                        <div style="display:flex;justify-content:center;gap:1.5rem;margin-top:1.5rem;flex-wrap:wrap;">
+                            <!-- Stok Awal -->
+                            <div style="text-align:center;">
+                                <div style="width:100px;height:100px;background:conic-gradient(#3B82F6 0% 100%, #3B82F6 100% 150%, #f8fafc 150% 100%);border-radius:50%;margin:0 auto;position:relative;border:1px dashed #1E40AF;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#1E40AF;">3\(\frac{1}{2}\)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Stok Awal</p>
+                            </div>
+                            
+                            <!-- Plus -->
+                            <div style="display:flex;align-items:center;flex-direction:column;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#3B82F6;">+</div>
+                                <div style="width:60px;height:60px;background:#BFDBFE;border-radius:50%;margin:0.5rem 0;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#1E40AF;">2\(\frac{1}{4}\)</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Minus -->
+                            <div style="display:flex;align-items:center;flex-direction:column;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#EF4444;">-</div>
+                                <div style="width:60px;height:60px;background:#FECACA;border-radius:50%;margin:0.5rem 0;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#991B1B;">1\(\frac{3}{4}\)</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Equal -->
+                            <div style="display:flex;align-items:center;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#10B981;">=</div>
+                            </div>
+                            
+                            <!-- Hasil -->
+                            <div style="text-align:center;">
+                                <div style="width:100px;height:100px;background:conic-gradient(#10B981 0% 100%, #f8fafc 100% 100%);border-radius:50%;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#065F46;">4 dus</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Stok Akhir</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contoh 2: Perkalian dan Pembagian -->
+                    <div style="background:#F0FDF4;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;">
+                        <h4 style="color:#166534;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-industry" style="color:#10B981;"></i> Kasus Produksi Massal
+                        </h4>
+                        <p style="color:#4a5568;">Untuk memproduksi 1 dus bakpia dibutuhkan 1\(\frac{1}{2}\) kg tepung. Jika Pak Joko memiliki 5\(\frac{1}{4}\) kg tepung, berapa dus bakpia yang bisa dibuat? Berapa sisa tepung?</p>
+                        
+                        <div style="background:#DCFCE7;padding:1rem;border-radius:8px;margin-top:1rem;">
+                            <p style="color:#166534;margin:0;font-weight:500;">Langkah Penyelesaian:</p>
+                            <ol style="color:#166534;margin:0.5rem 0 0 1rem;padding-left:1rem;">
+                                <li>Ubah ke pecahan biasa:
+                                    <ul style="margin:0.25rem 0 0 1rem;">
+                                        <li>\(5\frac{1}{4} = \frac{21}{4}\) kg tepung</li>
+                                        <li>\(1\frac{1}{2} = \frac{3}{2}\) kg per dus</li>
+                                    </ul>
+                                </li>
+                                <li>Bagi total tepung dengan kebutuhan per dus: \(\frac{21}{4} ÷ \frac{3}{2} = \frac{21}{4} × \frac{2}{3} = \frac{42}{12} = 3\frac{6}{12} = 3\frac{1}{2}\) dus</li>
+                                <li>Artinya bisa membuat 3 dus penuh</li>
+                                <li>Hitung sisa tepung: \(\frac{21}{4} - (3 × \frac{3}{2}) = \frac{21}{4} - \frac{9}{2} = \frac{21}{4} - \frac{18}{4} = \frac{3}{4}\) kg</li>
+                            </ol>
+                        </div>
+                        
+                        <div style="display:flex;justify-content:center;gap:1rem;margin-top:1.5rem;flex-wrap:wrap;">
+                            <!-- Tepung Tersedia -->
+                            <div style="text-align:center;">
+                                <div style="width:120px;height:80px;background:linear-gradient(to right, #F59E0B 0% 100%, #F59E0B 100% 125%, #f8fafc 125% 100%);border-radius:8px;margin:0 auto;position:relative;border:1px dashed #92400E;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#92400E;">5\(\frac{1}{4}\) kg</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Tepung Tersedia</p>
+                            </div>
+                            
+                            <!-- Divide -->
+                            <div style="display:flex;align-items:center;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#EC4899;">÷</div>
+                            </div>
+                            
+                            <!-- Kebutuhan per Dus -->
+                            <div style="text-align:center;">
+                                <div style="width:120px;height:80px;background:linear-gradient(to right, #F59E0B 0% 100%, #f8fafc 100% 100%);border-radius:8px;margin:0 auto;position:relative;border-left:4px solid #10B981;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#92400E;">1\(\frac{1}{2}\) kg</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Per Dus</p>
+                            </div>
+                            
+                            <!-- Equal -->
+                            <div style="display:flex;align-items:center;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#10B981;">=</div>
+                            </div>
+                            
+                            <!-- Hasil Produksi -->
+                            <div style="text-align:center;">
+                                <div style="width:100px;height:100px;background:conic-gradient(#10B981 0% 100%, #10B981 100% 150%, #f8fafc 150% 100%);border-radius:50%;margin:0 auto;position:relative;border:1px dashed #065F46;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#065F46;">3 dus</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Bisa Diproduksi</p>
+                            </div>
+                            
+                            <!-- Sisa -->
+                            <div style="text-align:center;">
+                                <div style="width:60px;height:60px;background:#6EE7B7;border-radius:50%;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#065F46;">\(\frac{3}{4}\) kg</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Sisa Tepung</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Operasi Kompleks -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-brain" style="color:#7C3AED;font-size:1.2em;"></i> Operasi Campuran Kompleks
+                    </h3>
+                    
+                    <div style="background:#F5F3FF;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;">
+                        <h4 style="color:#5B21B6;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-chart-line" style="color:#7C3AED;"></i> Kasus Analisis Bisnis
+                        </h4>
+                        <p style="color:#4a5568;">Dalam seminggu, Toko Bakpia Pak Joko menjual \(2\frac{1}{2}\) dus di hari kerja (Senin-Jumat) dan \(3\frac{3}{4}\) dus di akhir pekan (Sabtu-Minggu). Jika harga per dus Rp120.000, berapa total pendapatan mingguan?</p>
+                        
+                        <div style="background:#EDE9FE;padding:1rem;border-radius:8px;margin-top:1rem;">
+                            <p style="color:#5B21B6;margin:0;font-weight:500;">Langkah Penyelesaian:</p>
+                            <ol style="color:#5B21B6;margin:0.5rem 0 0 1rem;padding-left:1rem;">
+                                <li>Hitung total penjualan:
+                                    <ul style="margin:0.25rem 0 0 1rem;">
+                                        <li>Hari kerja: \(5 × 2\frac{1}{2} = 5 × \frac{5}{2} = \frac{25}{2}\) dus</li>
+                                        <li>Akhir pekan: \(2 × 3\frac{3}{4} = 2 × \frac{15}{4} = \frac{30}{4}\) dus</li>
+                                        <li>Total: \(\frac{25}{2} + \frac{30}{4} = \frac{50}{4} + \frac{30}{4} = \frac{80}{4} = 20\) dus</li>
+                                    </ul>
+                                </li>
+                                <li>Hitung pendapatan: \(20 × 120.000 = Rp2.400.000\)</li>
+                            </ol>
+                        </div>
+                        
+                        <div style="display:flex;justify-content:center;gap:1rem;margin-top:1.5rem;flex-wrap:wrap;">
+                            <!-- Penjualan Hari Kerja -->
+                            <div style="text-align:center;">
+                                <div style="width:120px;height:80px;background:linear-gradient(to right, #A78BFA 0% 50%, #f8fafc 50% 100%);border-radius:8px;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:25%;transform:translate(-50%,-50%);font-weight:bold;color:#5B21B6;">2\(\frac{1}{2}\)</div>
+                                    <div style="position:absolute;bottom:10px;width:100%;text-align:center;font-size:0.8rem;color:#5B21B6;">per hari (5 hari)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Hari Kerja</p>
+                            </div>
+                            
+                            <!-- Plus -->
+                            <div style="display:flex;align-items:center;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#3B82F6;">+</div>
+                            </div>
+                            
+                            <!-- Penjualan Akhir Pekan -->
+                            <div style="text-align:center;">
+                                <div style="width:120px;height:80px;background:linear-gradient(to right, #A78BFA 0% 75%, #f8fafc 75% 100%);border-radius:8px;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:37.5%;transform:translate(-50%,-50%);font-weight:bold;color:#5B21B6;">3\(\frac{3}{4}\)</div>
+                                    <div style="position:absolute;bottom:10px;width:100%;text-align:center;font-size:0.8rem;color:#5B21B6;">per hari (2 hari)</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Akhir Pekan</p>
+                            </div>
+                            
+                            <!-- Times -->
+                            <div style="display:flex;align-items:center;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#7C3AED;">×</div>
+                            </div>
+                            
+                            <!-- Harga -->
+                            <div style="text-align:center;">
+                                <div style="width:120px;height:80px;background:#C7D2FE;border-radius:8px;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#1E40AF;">Rp120.000</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Harga per Dus</p>
+                            </div>
+                            
+                            <!-- Equal -->
+                            <div style="display:flex;align-items:center;">
+                                <div style="font-size:1.5rem;font-weight:bold;color:#10B981;">=</div>
+                            </div>
+                            
+                            <!-- Total -->
+                            <div style="text-align:center;">
+                                <div style="width:150px;height:80px;background:linear-gradient(135deg, #10B981, #34D399);border-radius:8px;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:white;">Rp2.400.000</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Total Pendapatan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aktivitas Interaktif -->
+                <div style="background:#f8fafc;padding:1.5rem;border-radius:12px;margin-top:2rem;border:1px dashed #FF9F1C;">
+                    <h3 style="color:#FF9F1C;margin-top:0;font-weight:600;display:flex;align-items:center;gap:10px;">
+                        <i class="fas fa-tasks" style="font-size:1.2em;"></i> Latihan Operasi Campuran
+                    </h3>
+                    
+                    <!-- Soal 1: Operasi Campuran -->
+                    <div style="background:white;padding:1.25rem;border-radius:10px;margin-top:1.5rem;box-shadow:0 4px 6px rgba(0,0,0,0.05);">
+                        <h4 style="color:#4a5568;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-calculator" style="color:#F97316;"></i> Soal Operasi Campuran
+                        </h4>
+                        <p style="color:#4a5568;">Pak Joko memiliki 4\(\frac{1}{2}\) dus bakpia. Dia membeli lagi 2\(\frac{3}{4}\) dus, kemudian menjual 3\(\frac{1}{8}\) dus. Berapa sisa bakpia?</p>
+                        <div style="display:flex;gap:1rem;margin-top:1rem;flex-wrap:wrap;">
+                            <button onclick="checkMixedAnswer(1, '4 1/2 = 9/2, 2 3/4 = 11/4, 3 1/8 = 25/8 → KPK 2,4,8 adalah 8 → 36/8 + 22/8 - 25/8 = 33/8 = 4 1/8 dus')" style="background:#FFEDD5;color:#9A3412;border:1px solid #FDBA74;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">4\(\frac{1}{8}\) dus</button>
+                            <button onclick="checkMixedAnswer(1, '4 1/2 = 9/2, 2 3/4 = 11/4, 3 1/8 = 25/8 → KPK 2,4,8 adalah 8 → 36/8 + 22/8 - 25/8 = 33/8 = 4 1/8 dus')" style="background:#FFEDD5;color:#9A3412;border:1px solid #FDBA74;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">3\(\frac{7}{8}\) dus</button>
+                            <button onclick="checkMixedAnswer(1, '4 1/2 = 9/2, 2 3/4 = 11/4, 3 1/8 = 25/8 → KPK 2,4,8 adalah 8 → 36/8 + 22/8 - 25/8 = 33/8 = 4 1/8 dus')" style="background:#FFEDD5;color:#9A3412;border:1px solid #FDBA74;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">4\(\frac{3}{8}\) dus</button>
+                        </div>
+                        <div id="mixedAnswer1" style="margin-top:1rem;display:none;"></div>
+                    </div>
+                    
+                    <!-- Soal 2: Aplikasi Bisnis -->
+                    <div style="background:white;padding:1.25rem;border-radius:10px;margin-top:1.5rem;box-shadow:0 4px 6px rgba(0,0,0,0.05);">
+                        <h4 style="color:#4a5568;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-business-time" style="color:#7C3AED;"></i> Soal Aplikasi Bisnis
+                        </h4>
+                        <p style="color:#4a5568;">Jika 1 dus bakpia berisi 20 biji dan Pak Joko memiliki stok 3\(\frac{3}{5}\) dus, berapa total biji bakpia yang tersedia?</p>
+                        <div style="display:flex;gap:1rem;margin-top:1rem;flex-wrap:wrap;">
+                            <button onclick="checkMixedAnswer(2, '3 3/5 = 18/5 → 18/5 × 20 = (18×20)/5 = 360/5 = 72 biji')" style="background:#F5F3FF;color:#5B21B6;border:1px solid #C4B5FD;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">72 biji</button>
+                            <button onclick="checkMixedAnswer(2, '3 3/5 = 18/5 → 18/5 × 20 = (18×20)/5 = 360/5 = 72 biji')" style="background:#F5F3FF;color:#5B21B6;border:1px solid #C4B5FD;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">68 biji</button>
+                            <button onclick="checkMixedAnswer(2, '3 3/5 = 18/5 → 18/5 × 20 = (18×20)/5 = 360/5 = 72 biji')" style="background:#F5F3FF;color:#5B21B6;border:1px solid #C4B5FD;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">76 biji</button>
+                        </div>
+                        <div id="mixedAnswer2" style="margin-top:1rem;display:none;"></div>
+                    </div>
+                </div>
+
+                <!-- Navigasi Fase -->
+                <div style="display:flex;justify-content:space-between;margin-top:3rem;">
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+function showMixedFractionCalculator() {
+    alert("Buka kalkulator pecahan campuran untuk berlatih operasi kompleks!");
+}
+
+function checkMixedAnswer(questionNum, correctExplanation) {
+    const answerDiv = document.getElementById(`mixedAnswer${questionNum}`);
+    
+    if (answerDiv.style.display === "block") {
+        answerDiv.style.display = "none";
+    } else {
+        answerDiv.innerHTML = `
+            <div style="background:#f0fdf4;padding:1rem;border-radius:8px;border-left:4px solid #10b981;">
+                <p style="color:#065f46;margin:0;font-weight:500;">Penyelesaian:</p>
+                <p style="color:#065f46;margin:0.5rem 0 0 0;">${correctExplanation}</p>
+            </div>
+        `;
+        answerDiv.style.display = "block";
+    }
+}
+
+function showPreviousPhase() {
+    // Navigasi ke fase sebelumnya (Operasi Dasar Pecahan)
+    document.getElementById('operasi-campuran-pecahan').style.display = 'none';
+    document.getElementById('operasi-pecahan').style.display = 'block';
+    window.scrollTo(0, 0);
+}
+
+function showNextPhase() {
+    // Navigasi ke fase berikutnya (Aplikasi Lanjutan)
+    document.getElementById('operasi-campuran-pecahan').style.display = 'none';
+    document.getElementById('aplikasi-lanjutan').style.display = 'block';
+    window.scrollTo(0, 0);
+}
+</script>
+
+<div id="refleksi" class="tab-content">
+    <section class="about-section">
+        <h2 class="section-title">Refleksi Pembelajaran Bilangan Pecahan</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="g33.png" 
+                     alt="Refleksi Pecahan" 
+                     style="border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.15);max-width:100%;height:auto;border:1px solid #eee;">
+                <div style="margin-top:1.5rem;text-align:center;">
+            
+                </div>
+            </div>
+            <div class="about-text">
+                <h2 style="color:#4a5568;font-weight:600;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;">📚 Inti Pembelajaran Pecahan</h2>
+                <div class="context-example" style="background:#f8fafc;padding:1.5rem;border-radius:12px;border-left:4px solid #FF7D00;margin-bottom:2rem;">
+                    <p style="font-style:italic;color:#4a5568;margin:0;font-size:1.05rem;">"Dari konsep dasar hingga penerapan kompleks, pecahan adalah alat matematika yang powerful dalam kehidupan sehari-hari!"</p>
+                </div>
+
+                <!-- 1. Pengertian Pecahan -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-question-circle" style="color:#4CC9F0;font-size:1.2em;"></i> Pengertian Dasar
+                    </h3>
+                    
+                    <div style="background:#EFF6FF;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;">
+                        <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+                            <div style="flex:1;min-width:200px;">
+                                <div style="width:120px;height:120px;background:conic-gradient(#FF7D00 0% 40%, #f8fafc 40% 100%);border-radius:50%;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#FF7D00;text-align:center;">
+                                        <span style="font-size:1.2em;">a</span><br>
+                                        <hr style="margin:5px 0;border-top:2px solid #FF7D00;width:80%;">
+                                        <span style="font-size:1.2em;">b</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="flex:2;min-width:250px;">
+                                <p style="color:#4a5568;"><strong>Pecahan</strong> adalah bilangan yang menggambarkan bagian dari keseluruhan, ditulis sebagai <span style="color:#FF7D00;font-weight:bold;">\(\frac{a}{b}\)</span> dimana:</p>
+                                <ul style="color:#4a5568;margin-left:1.5rem;">
+                                    <li><strong>a (pembilang)</strong>: Bagian yang diambil/dimiliki</li>
+                                    <li><strong>b (penyebut)</strong>: Total bagian keseluruhan</li>
+                                </ul>
+                                <p style="color:#4a5568;margin-top:1rem;"><i>Contoh: \(\frac{1}{4}\) dus bakpia berarti 1 bagian dari 4 bagian yang sama.</i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Jenis-Jenis Pecahan -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-layer-group" style="color:#FF7D00;font-size:1.2em;"></i> Jenis-Jenis Pecahan
+                    </h3>
+                    
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1.5rem;margin-top:1.5rem;">
+                        <!-- Pecahan Biasa -->
+                        <div style="background:#FFF7ED;padding:1.25rem;border-radius:10px;border-left:4px solid #FF7D00;">
+                            <h4 style="color:#9A3412;margin-top:0;display:flex;align-items:center;gap:8px;">
+                                <i class="fas fa-pie-chart" style="color:#FF7D00;"></i> Pecahan Biasa
+                            </h4>
+                            <p style="color:#4a5568;">Bentuk \(\frac{a}{b}\) dengan a dan b bilangan bulat.</p>
+                            <div style="text-align:center;margin-top:1rem;">
+                                <div style="width:80px;height:80px;background:conic-gradient(#FF7D00 0% 60%, #f8fafc 60% 100%);border-radius:50%;margin:0 auto;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#FF7D00;">\(\frac{3}{5}\)</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pecahan Campuran -->
+                        <div style="background:#F0FDF4;padding:1.25rem;border-radius:10px;border-left:4px solid #10B981;">
+                            <h4 style="color:#065F46;margin-top:0;display:flex;align-items:center;gap:8px;">
+                                <i class="fas fa-boxes-stacked" style="color:#10B981;"></i> Pecahan Campuran
+                            </h4>
+                            <p style="color:#4a5568;">Gabungan bilangan bulat dan pecahan biasa.</p>
+                            <div style="text-align:center;margin-top:1rem;">
+                                <div style="display:flex;justify-content:center;align-items:center;gap:5px;">
+                                    <div style="width:30px;height:30px;background:#10B981;border-radius:4px;display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;">2</div>
+                                    <div style="width:30px;height:30px;background:linear-gradient(to bottom, #10B981, #34D399);border-radius:4px;display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;">\(\frac{1}{2}\)</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pecahan Desimal -->
+                        <div style="background:#EFF6FF;padding:1.25rem;border-radius:10px;border-left:4px solid #3B82F6;">
+                            <h4 style="color:#1E40AF;margin-top:0;display:flex;align-items:center;gap:8px;">
+                                <i class="fas fa-divide" style="color:#3B82F6;"></i> Pecahan Desimal
+                            </h4>
+                            <p style="color:#4a5568;">Pecahan dalam bentuk persepuluhan.</p>
+                            <div style="text-align:center;margin-top:1rem;">
+                                <div style="width:100px;height:40px;background:linear-gradient(to right, #3B82F6 0% 75%, #f8fafc 75% 100%);border-radius:6px;margin:0 auto;display:flex;align-items:center;justify-content:center;font-weight:bold;color:#1E40AF;">0.75</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Perbandingan Pecahan -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-balance-scale" style="color:#E71D36;font-size:1.2em;"></i> Membandingkan Pecahan
+                    </h3>
+                    
+                    <div style="background:#FEF2F2;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;">
+                        <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+                            <div style="flex:1;min-width:200px;">
+                                <div style="display:flex;justify-content:center;gap:1rem;margin-bottom:1rem;">
+                                    <div style="width:80px;height:80px;background:conic-gradient(#FF7D00 0% 50%, #f8fafc 50% 100%);border-radius:50%;position:relative;">
+                                        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#FF7D00;">\(\frac{1}{2}\)</div>
+                                    </div>
+                                    <div style="display:flex;align-items:center;">
+                                        <span style="font-size:1.5rem;font-weight:bold;color:#E71D36;">></span>
+                                    </div>
+                                    <div style="width:80px;height:80px;background:conic-gradient(#FF7D00 0% 25%, #f8fafc 25% 100%);border-radius:50%;position:relative;">
+                                        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:bold;color:#FF7D00;">\(\frac{1}{4}\)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="flex:2;min-width:250px;">
+                                <p style="color:#4a5568;"><strong>3 Cara Membandingkan Pecahan:</strong></p>
+                                <ol style="color:#4a5568;margin-left:1.5rem;">
+                                    <li><strong>Penyebut sama</strong>: Bandingkan pembilang</li>
+                                    <li><strong>Penyebut beda</strong>: Samakan penyebut (KPK)</li>
+                                    <li><strong>Desimal</strong>: Konversi ke bentuk desimal</li>
+                                </ol>
+                                <p style="color:#4a5568;margin-top:1rem;"><i>Contoh: \(\frac{3}{4}\) > \(\frac{2}{3}\) karena 0.75 > 0.67</i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Operasi Dasar Pecahan -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-calculator" style="color:#2EC4B6;font-size:1.2em;"></i> Operasi Dasar Pecahan
+                    </h3>
+                    
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1.5rem;margin-top:1.5rem;">
+                        <!-- Penjumlahan -->
+                        <div style="background:#ECFDF5;padding:1.25rem;border-radius:10px;border-left:4px solid #10B981;">
+                            <h4 style="color:#065F46;margin-top:0;display:flex;align-items:center;gap:8px;">
+                                <i class="fas fa-plus" style="color:#10B981;"></i> Penjumlahan
+                            </h4>
+                            <p style="color:#4a5568;">Samakan penyebut, jumlahkan pembilang:</p>
+                            <div style="text-align:center;margin-top:1rem;">
+                                <p style="color:#065F46;font-weight:bold;">\(\frac{1}{4} + \frac{1}{2} = \frac{1}{4} + \frac{2}{4} = \frac{3}{4}\)</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Pengurangan -->
+                        <div style="background:#FEF2F2;padding:1.25rem;border-radius:10px;border-left:4px solid #EF4444;">
+                            <h4 style="color:#B91C1C;margin-top:0;display:flex;align-items:center;gap:8px;">
+                                <i class="fas fa-minus" style="color:#EF4444;"></i> Pengurangan
+                            </h4>
+                            <p style="color:#4a5568;">Samakan penyebut, kurangkan pembilang:</p>
+                            <div style="text-align:center;margin-top:1rem;">
+                                <p style="color:#B91C1C;font-weight:bold;">\(\frac{3}{4} - \frac{1}{2} = \frac{3}{4} - \frac{2}{4} = \frac{1}{4}\)</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Perkalian -->
+                        <div style="background:#F5F3FF;padding:1.25rem;border-radius:10px;border-left:4px solid #7C3AED;">
+                            <h4 style="color:#5B21B6;margin-top:0;display:flex;align-items:center;gap:8px;">
+                                <i class="fas fa-times" style="color:#7C3AED;"></i> Perkalian
+                            </h4>
+                            <p style="color:#4a5568;">Kalikan pembilang dengan pembilang, penyebut dengan penyebut:</p>
+                            <div style="text-align:center;margin-top:1rem;">
+                                <p style="color:#5B21B6;font-weight:bold;">\(\frac{1}{2} × \frac{3}{4} = \frac{3}{8}\)</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Pembagian -->
+                        <div style="background:#F0F9FF;padding:1.25rem;border-radius:10px;border-left:4px solid #0EA5E9;">
+                            <h4 style="color:#0369A1;margin-top:0;display:flex;align-items:center;gap:8px;">
+                                <i class="fas fa-divide" style="color:#0EA5E9;"></i> Pembagian
+                            </h4>
+                            <p style="color:#4a5568;">Balik pecahan kedua lalu kalikan:</p>
+                            <div style="text-align:center;margin-top:1rem;">
+                                <p style="color:#0369A1;font-weight:bold;">\(\frac{1}{2} ÷ \frac{1}{4} = \frac{1}{2} × \frac{4}{1} = \frac{4}{2} = 2\)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Operasi Campuran -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-random" style="color:#FF9F1C;font-size:1.2em;"></i> Operasi Campuran Pecahan
+                    </h3>
+                    
+                    <div style="background:#FFFBEB;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;">
+                        <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+                            <div style="flex:1;min-width:200px;">
+                                <div style="background:#FEF3C7;padding:1rem;border-radius:8px;text-align:center;">
+                                    <p style="color:#92400E;font-weight:bold;margin:0;">Contoh Soal:</p>
+                                    <p style="color:#92400E;margin:0.5rem 0 0 0;">\(2\frac{1}{2} + \frac{3}{4} × \frac{1}{2} - \frac{1}{8}\)</p>
+                                </div>
+                            </div>
+                            <div style="flex:2;min-width:250px;">
+                                <p style="color:#4a5568;"><strong>Langkah Penyelesaian:</strong></p>
+                                <ol style="color:#4a5568;margin-left:1.5rem;">
+                                    <li>Ubah ke pecahan biasa: \(2\frac{1}{2} = \frac{5}{2}\)</li>
+                                    <li>Kerjakan perkalian dulu: \(\frac{3}{4} × \frac{1}{2} = \frac{3}{8}\)</li>
+                                    <li>Samakan penyebut: \(\frac{5}{2} = \frac{20}{8}\)</li>
+                                    <li>Hitung: \(\frac{20}{8} + \frac{3}{8} - \frac{1}{8} = \frac{22}{8} = 2\frac{6}{8} = 2\frac{3}{4}\)</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Penerapan dalam Kehidupan -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-lightbulb" style="color:#4895EF;font-size:1.2em;"></i> Penerapan Praktis
+                    </h3>
+                    
+                    <div style="background:#F0F9FF;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;">
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:1rem;">
+                            <div style="background:white;padding:1rem;border-radius:8px;box-shadow:0 4px 6px rgba(0,0,0,0.05);">
+                                <div style="width:50px;height:50px;background:#BFDBFE;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto;color:#1E40AF;font-size:1.5rem;">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <p style="color:#4a5568;text-align:center;margin-top:0.5rem;"><strong>Memasak</strong><br>Menyesuaikan resep</p>
+                            </div>
+                            
+                            <div style="background:white;padding:1rem;border-radius:8px;box-shadow:0 4px 6px rgba(0,0,0,0.05);">
+                                <div style="width:50px;height:50px;background:#D1FAE5;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto;color:#065F46;font-size:1.5rem;">
+                                    <i class="fas fa-wallet"></i>
+                                </div>
+                                <p style="color:#4a5568;text-align:center;margin-top:0.5rem;"><strong>Keuangan</strong><br>Membagi anggaran</p>
+                            </div>
+                            
+                            <div style="background:white;padding:1rem;border-radius:8px;box-shadow:0 4px 6px rgba(0,0,0,0.05);">
+                                <div style="width:50px;height:50px;background:#FEE2E2;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto;color:#B91C1C;font-size:1.5rem;">
+                                    <i class="fas fa-ruler-combined"></i>
+                                </div>
+                                <p style="color:#4a5568;text-align:center;margin-top:0.5rem;"><strong>Pengukuran</strong><br>Membagi bahan bangunan</p>
+                            </div>
+                            
+                            <div style="background:white;padding:1rem;border-radius:8px;box-shadow:0 4px 6px rgba(0,0,0,0.05);">
+                                <div style="width:50px;height:50px;background:#EDE9FE;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto;color:#5B21B6;font-size:1.5rem;">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <p style="color:#4a5568;text-align:center;margin-top:0.5rem;"><strong>Waktu</strong><br>Membagi jadwal</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kesimpulan -->
+                <div style="background:#FFFBEB;padding:1.5rem;border-radius:12px;margin-top:2rem;border-left:4px solid #F59E0B;">
+                    <h3 style="color:#92400E;margin-top:0;display:flex;align-items:center;gap:10px;">
+                        <i class="fas fa-star" style="color:#F59E0B;"></i> Kesimpulan Utama
+                    </h3>
+                    <ul style="color:#92400E;margin-left:1.5rem;">
+                        <li>Pecahan merepresentasikan bagian dari keseluruhan</li>
+                        <li>Pahami jenis-jenis pecahan dan konversinya</li>
+                        <li>Untuk membandingkan, samakan penyebut atau konversi ke desimal</li>
+                        <li>Dalam operasi campuran, ikuti urutan operasi matematika</li>
+                        <li>Pecahan sangat berguna dalam berbagai situasi kehidupan nyata</li>
+                    </ul>
+                    <div style="text-align:center;margin-top:1.5rem;">
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+function showReflectionSummary() {
+    alert("Ringkasan konsep pecahan telah ditampilkan!");
+}
+
+function showPracticeProblems() {
+    alert("Mengarahkan ke bank soal latihan pecahan...");
+}
+</script>
+
+<!-- Fase 7: Aplikasi Pecahan dalam Kehidupan Sehari-hari -->
+<div id="penerapan" class="tab-content">
+    <section class="about-section">
+        <h2 class="section-title">Fase 7: Penerapan Pecahan dalam Aktivitas Sehari-hari</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="g35.png" 
+                     alt="Penerapan Pecahan" 
+                     style="border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.15);max-width:100%;height:auto;border:1px solid #eee;">
+                <div style="margin-top:1.5rem;text-align:center;">
+                
+                </div>
+            </div>
+            <div class="about-text">
+                <h2 style="color:#4a5568;font-weight:600;border-bottom:2px solid #e2e8f0;padding-bottom:0.5rem;">🌍 Pecahan dalam Kehidupan Sehari-hari</h2>
+                <div class="context-example" style="background:#f8fafc;padding:1.5rem;border-radius:12px;border-left:4px solid #4895EF;margin-bottom:2rem;">
+                    <p style="font-style:italic;color:#4a5568;margin:0;font-size:1.05rem;">"Dari membagi kue ulang tahun sampai mengatur waktu belajar, pecahan ada di sekitar kita!"</p>
+                </div>
+
+                <!-- 1. Penerapan di Dapur -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-utensils" style="color:#EF476F;font-size:1.2em;"></i> Aplikasi dalam Memasak
+                    </h3>
+                    
+                    <div style="background:#FFF0F3;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;">
+                        <h4 style="color:#B91C1C;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-cookie-bite" style="color:#EF476F;"></i> Kasus Resep Keluarga
+                        </h4>
+                        <p style="color:#4a5568;">Ima ingin membuat bakpia dengan resep turun temurun yang biasanya untuk 4\(\frac{1}{2}\) lusin, tetapi hanya perlu membuat 1\(\frac{1}{2}\) lusin. Bagaimana menyesuaikan takaran bahan?</p>
+                        
+                        <div style="display:flex;justify-content:center;gap:1rem;margin-top:1.5rem;flex-wrap:wrap;">
+                            <!-- Resep Asli -->
+                            <div style="text-align:center;flex:1;min-width:120px;">
+                                <div style="background:#FECDD3;padding:1rem;border-radius:8px;height:100px;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;">
+                                        <p style="font-weight:bold;color:#B91C1C;margin:0;">Resep Asli</p>
+                                        <p style="color:#B91C1C;margin:0.5rem 0 0 0;">4\(\frac{1}{2}\) lusin</p>
+                                    </div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Takaran Awal</p>
+                            </div>
+                            
+                            <!-- Faktor Skala -->
+                            <div style="text-align:center;flex:1;min-width:120px;">
+                                <div style="background:#FECDD3;padding:1rem;border-radius:8px;height:100px;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;">
+    <p style="font-weight:bold;color:#B91C1C;margin:0;">Faktor Skala</p>
+    <p style="color:#B91C1C;margin:0.5rem 0 0 0;">\(\frac{1\frac{1}{2}}{4\frac{1}{2}} = \frac{1}{3}\)</p>
+</div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Perhitungan</p>
+                            </div>
+                            
+                            <!-- Bahan Contoh -->
+                            <div style="text-align:center;flex:1;min-width:120px;">
+                                <div style="background:#FECDD3;padding:1rem;border-radius:8px;height:100px;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;">
+                                        <p style="font-weight:bold;color:#B91C1C;margin:0;">Contoh:</p>
+                                        <p style="color:#B91C1C;margin:0.5rem 0 0 0;">2\(\frac{1}{4}\) kg → \(\frac{3}{4}\) kg</p>
+                                    </div>
+                                </div>
+                                <p style="margin-top:0.5rem;color:#4a5568;">Penyesuaian</p>
+                            </div>
+                        </div>
+                        
+                        <div style="background:#FEE2E2;padding:1rem;border-radius:8px;margin-top:1rem;">
+                            <p style="color:#B91C1C;margin:0;font-weight:500;">Langkah Penyelesaian:</p>
+                            <ol style="color:#B91C1C;margin:0.5rem 0 0 1rem;padding-left:1rem;">
+                                <li>Hitung faktor skala: \(\frac{1\frac{1}{2}}{4\frac{1}{2}} = \frac{\frac{3}{2}}{\frac{9}{2}} = \frac{3}{9} = \frac{1}{3}\)</li>
+                                <li>Kalikan semua bahan dengan \(\frac{1}{3}\):
+                                    <ul style="margin:0.25rem 0 0 1rem;">
+                                        <li>Tepung: \(2\frac{1}{4} × \frac{1}{3} = \frac{9}{4} × \frac{1}{3} = \frac{9}{12} = \frac{3}{4}\) kg</li>
+                                        <li>Gula: \(1\frac{1}{2} × \frac{1}{3} = \frac{3}{2} × \frac{1}{3} = \frac{3}{6} = \frac{1}{2}\) kg</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Penerapan dalam Waktu -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-clock" style="color:#3A86FF;font-size:1.2em;"></i> Aplikasi dalam Manajemen Waktu
+                    </h3>
+                    
+                    <div style="background:#EFF6FF;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;">
+                        <h4 style="color:#1E40AF;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-user-graduate" style="color:#3A86FF;"></i> Kasus Jadwal Belajar
+                        </h4>
+                        <p style="color:#4a5568;">Andi memiliki waktu belajar 3\(\frac{1}{2}\) jam sehari. Dia membaginya untuk:
+                            <br>- Matematika: \(\frac{1}{4}\) dari total waktu
+                            <br>- IPA: \(\frac{1}{3}\) dari sisa waktu setelah Matematika
+                            <br>- Bahasa: Waktu tersisa
+                        </p>
+                        
+                        <div style="display:flex;justify-content:space-between;margin-top:1.5rem;flex-wrap:wrap;gap:1rem;">
+                            <!-- Matematika -->
+                            <div style="flex:1;min-width:150px;">
+                                <div style="background:#BFDBFE;padding:1rem;border-radius:8px;text-align:center;">
+                                    <p style="font-weight:bold;color:#1E40AF;margin:0;">Matematika</p>
+                                    <p style="color:#1E40AF;margin:0.5rem 0 0 0;">\(\frac{1}{4} × 3\frac{1}{2} = \frac{7}{8}\) jam</p>
+                                    <div style="width:100%;height:10px;background:#DBEAFE;border-radius:5px;margin-top:0.5rem;">
+                                        <div style="width:25%;height:100%;background:#1E40AF;border-radius:5px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- IPA -->
+                            <div style="flex:1;min-width:150px;">
+                                <div style="background:#BFDBFE;padding:1rem;border-radius:8px;text-align:center;">
+                                    <p style="font-weight:bold;color:#1E40AF;margin:0;">IPA</p>
+                                    <p style="color:#1E40AF;margin:0.5rem 0 0 0;">\(\frac{1}{3} × \frac{21}{8} = \frac{7}{8}\) jam</p>
+                                    <div style="width:100%;height:10px;background:#DBEAFE;border-radius:5px;margin-top:0.5rem;">
+                                        <div style="width:25%;height:100%;background:#1E40AF;border-radius:5px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Bahasa -->
+                            <div style="flex:1;min-width:150px;">
+                                <div style="background:#BFDBFE;padding:1rem;border-radius:8px;text-align:center;">
+                                    <p style="font-weight:bold;color:#1E40AF;margin:0;">Bahasa</p>
+                                    <p style="color:#1E40AF;margin:0.5rem 0 0 0;">1\(\frac{3}{4}\) jam</p>
+                                    <div style="width:100%;height:10px;background:#DBEAFE;border-radius:5px;margin-top:0.5rem;">
+                                        <div style="width:50%;height:100%;background:#1E40AF;border-radius:5px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="background:#DBEAFE;padding:1rem;border-radius:8px;margin-top:1rem;">
+                            <p style="color:#1E40AF;margin:0;font-weight:500;">Perhitungan Detail:</p>
+                            <ol style="color:#1E40AF;margin:0.5rem 0 0 1rem;padding-left:1rem;">
+                                <li>Total waktu: \(3\frac{1}{2} = \frac{7}{2}\) jam</li>
+                                <li>Matematika: \(\frac{1}{4} × \frac{7}{2} = \frac{7}{8}\) jam</li>
+                                <li>Sisa waktu: \(\frac{7}{2} - \frac{7}{8} = \frac{28}{8} - \frac{7}{8} = \frac{21}{8}\) jam</li>
+                                <li>IPA: \(\frac{1}{3} × \frac{21}{8} = \frac{7}{8}\) jam</li>
+                                <li>Bahasa: \(\frac{21}{8} - \frac{7}{8} = \frac{14}{8} = 1\frac{6}{8} = 1\frac{3}{4}\) jam</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Penerapan dalam Keuangan -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-money-bill-wave" style="color:#10B981;font-size:1.2em;"></i> Aplikasi dalam Keuangan
+                    </h3>
+                    
+                    <div style="background:#ECFDF5;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;">
+                        <h4 style="color:#065F46;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-piggy-bank" style="color:#10B981;"></i> Kasus Anggaran Bulanan
+                        </h4>
+                        <p style="color:#4a5568;">Keluarga Andi memiliki penghasilan Rp5.250.000 per bulan. Mereka mengalokasikan:
+                            <br>- \(\frac{2}{5}\) untuk kebutuhan pokok
+                            <br>- \(\frac{1}{3}\) untuk tagihan & transportasi
+                            <br>- \(\frac{1}{6}\) untuk tabungan
+                            <br>- Sisanya untuk hiburan
+                        </p>
+                        
+                        <div style="margin-top:1.5rem;">
+                            <div style="width:100%;height:20px;background:#D1FAE5;border-radius:10px;overflow:hidden;margin-bottom:0.5rem;">
+                                <div style="width:40%;height:100%;background:#10B981;float:left;" title="Kebutuhan Pokok"></div>
+                                <div style="width:33.33%;height:100%;background:#34D399;float:left;" title="Tagihan & Transportasi"></div>
+                                <div style="width:16.67%;height:100%;background:#6EE7B7;float:left;" title="Tabungan"></div>
+                                <div style="width:10%;height:100%;background:#A7F3D0;float:left;" title="Hiburan"></div>
+                            </div>
+                            
+                            <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:1rem;">
+                                <div style="flex:1;min-width:120px;">
+                                    <div style="background:#D1FAE5;padding:0.75rem;border-radius:6px;text-align:center;">
+                                        <p style="font-weight:bold;color:#065F46;margin:0;font-size:0.9rem;">Kebutuhan Pokok</p>
+                                        <p style="color:#065F46;margin:0.25rem 0 0 0;font-size:0.9rem;">Rp2.100.000</p>
+                                    </div>
+                                </div>
+                                
+                                <div style="flex:1;min-width:120px;">
+                                    <div style="background:#D1FAE5;padding:0.75rem;border-radius:6px;text-align:center;">
+                                        <p style="font-weight:bold;color:#065F46;margin:0;font-size:0.9rem;">Tagihan</p>
+                                        <p style="color:#065F46;margin:0.25rem 0 0 0;font-size:0.9rem;">Rp1.750.000</p>
+                                    </div>
+                                </div>
+                                
+                                <div style="flex:1;min-width:120px;">
+                                    <div style="background:#D1FAE5;padding:0.75rem;border-radius:6px;text-align:center;">
+                                        <p style="font-weight:bold;color:#065F46;margin:0;font-size:0.9rem;">Tabungan</p>
+                                        <p style="color:#065F46;margin:0.25rem 0 0 0;font-size:0.9rem;">Rp875.000</p>
+                                    </div>
+                                </div>
+                                
+                                <div style="flex:1;min-width:120px;">
+                                    <div style="background:#D1FAE5;padding:0.75rem;border-radius:6px;text-align:center;">
+                                        <p style="font-weight:bold;color:#065F46;margin:0;font-size:0.9rem;">Hiburan</p>
+                                        <p style="color:#065F46;margin:0.25rem 0 0 0;font-size:0.9rem;">Rp525.000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="background:#D1FAE5;padding:1rem;border-radius:8px;margin-top:1rem;">
+                            <p style="color:#065F46;margin:0;font-weight:500;">Perhitungan:</p>
+                            <ol style="color:#065F46;margin:0.5rem 0 0 1rem;padding-left:1rem;">
+                                <li>Kebutuhan pokok: \(\frac{2}{5} × 5.250.000 = 2.100.000\)</li>
+                                <li>Tagihan: \(\frac{1}{3} × 5.250.000 = 1.750.000\)</li>
+                                <li>Tabungan: \(\frac{1}{6} × 5.250.000 = 875.000\)</li>
+                                <li>Total alokasi: \( \frac{2}{5} + \frac{1}{3} + \frac{1}{6} = \frac{12}{30} + \frac{10}{30} + \frac{5}{30} = \frac{27}{30} = \frac{9}{10} \)</li>
+                                <li>Hiburan: \(1 - \frac{9}{10} = \frac{1}{10} = 525.000\)</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Penerapan dalam Pengukuran -->
+                <div style="margin:2rem 0;">
+                    <h3 style="color:#4a5568;display:flex;align-items:center;gap:12px;font-weight:600;">
+                        <i class="fas fa-ruler-combined" style="color:#F59E0B;font-size:1.2em;"></i> Aplikasi dalam Pengukuran
+                    </h3>
+                    
+                    <div style="background:#FFFBEB;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;">
+                        <h4 style="color#92400E;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-tape" style="color:#F59E0B;"></i> Kasus Renovasi Rumah
+                        </h4>
+                        <p style="color:#4a5568;">Pak Joko ingin memasang rak di dinding yang panjangnya 2\(\frac{3}{4}\) meter. Dia memiliki 3 papan dengan panjang masing-masing \(\frac{7}{8}\) meter. Cukupkah papan-papan tersebut?</p>
+                        
+                        <div style="display:flex;justify-content:center;gap:1.5rem;margin-top:1.5rem;flex-wrap:wrap;">
+                            <!-- Kebutuhan -->
+                            <div style="text-align:center;">
+                                <div style="width:120px;height:60px;background:#FDE68A;border-radius:6px;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+                                        <p style="font-weight:bold;color:#92400E;margin:0;">Kebutuhan</p>
+                                        <p style="color:#92400E;margin:0.25rem 0 0 0;">2\(\frac{3}{4}\) m</p>
+                                    </div>
+                                </div>
+                                <div style="height:20px;width:100%;background:linear-gradient(to right, #F59E0B 0%, #F59E0B 100%);margin-top:0.5rem;border-radius:3px;"></div>
+                            </div>
+                            
+                            <!-- Papan 1 -->
+                            <div style="text-align:center;">
+                                <div style="width:120px;height:60px;background:#FDE68A;border-radius:6px;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+                                        <p style="font-weight:bold;color:#92400E;margin:0;">Papan 1</p>
+                                        <p style="color:#92400E;margin:0.25rem 0 0 0;">\(\frac{7}{8}\) m</p>
+                                    </div>
+                                </div>
+                                <div style="height:20px;width:87.5%;background:linear-gradient(to right, #F59E0B 0%, #F59E0B 87.5%);margin-top:0.5rem;border-radius:3px;"></div>
+                            </div>
+                            
+                            <!-- Papan 2 -->
+                            <div style="text-align:center;">
+                                <div style="width:120px;height:60px;background:#FDE68A;border-radius:6px;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+                                        <p style="font-weight:bold;color:#92400E;margin:0;">Papan 2</p>
+                                        <p style="color:#92400E;margin:0.25rem 0 0 0;">\(\frac{7}{8}\) m</p>
+                                    </div>
+                                </div>
+                                <div style="height:20px;width:87.5%;background:linear-gradient(to right, #F59E0B 0%, #F59E0B 87.5%);margin-top:0.5rem;border-radius:3px;"></div>
+                            </div>
+                            
+                            <!-- Papan 3 -->
+                            <div style="text-align:center;">
+                                <div style="width:120px;height:60px;background:#FDE68A;border-radius:6px;position:relative;">
+                                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+                                        <p style="font-weight:bold;color:#92400E;margin:0;">Papan 3</p>
+                                        <p style="color:#92400E;margin:0.25rem 0 0 0;">\(\frac{7}{8}\) m</p>
+                                    </div>
+                                </div>
+                                <div style="height:20px;width:87.5%;background:linear-gradient(to right, #F59E0B 0%, #F59E0B 87.5%);margin-top:0.5rem;border-radius:3px;"></div>
+                            </div>
+                        </div>
+                        
+                        <div style="background:#FEF3C7;padding:1rem;border-radius:8px;margin-top:1rem;">
+                            <p style="color:#92400E;margin:0;font-weight:500;">Analisis:</p>
+                            <ul style="color:#92400E;margin:0.5rem 0 0 1rem;padding-left:1rem;">
+                                <li>Total panjang papan: \(3 × \frac{7}{8} = \frac{21}{8} = 2\frac{5}{8}\) meter</li>
+                                <li>Kebutuhan: \(2\frac{3}{4} = \frac{11}{4} = 2\frac{6}{8}\) meter</li>
+                                <li>Selisih: \(2\frac{6}{8} - 2\frac{5}{8} = \frac{1}{8}\) meter kurang</li>
+                                <li>Solusi: Pak Joko perlu memotong 1 papan tambahan sepanjang \(\frac{1}{8}\) meter</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aktivitas Interaktif -->
+                <div style="background:#f8fafc;padding:1.5rem;border-radius:12px;margin-top:2rem;border:1px dashed #4895EF;">
+                    <h3 style="color:#4895EF;margin-top:0;font-weight:600;display:flex;align-items:center;gap:10px;">
+                        <i class="fas fa-tasks" style="font-size:1.2em;"></i> Latihan Aplikasi Pecahan
+                    </h3>
+                    
+                    <!-- Soal 1: Memasak -->
+                    <div style="background:white;padding:1.25rem;border-radius:10px;margin-top:1.5rem;box-shadow:0 4px 6px rgba(0,0,0,0.05);">
+                        <h4 style="color:#4a5568;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-mortar-pestle" style="color:#EF476F;"></i> Soal Resep Masakan
+                        </h4>
+                        <p style="color:#4a5568;">Resep kue membutuhkan 3\(\frac{1}{4}\) cangkir tepung untuk 12 porsi. Jika Anda ingin membuat 9 porsi, berapa tepung yang dibutuhkan?</p>
+                        <div style="display:flex;gap:1rem;margin-top:1rem;flex-wrap:wrap;">
+                            <button onclick="checkApplicationAnswer(1, 'Faktor skala = 9/12 = 3/4 → 3 1/4 × 3/4 = 13/4 × 3/4 = 39/16 = 2 7/16 cangkir')" style="background:#FFF0F3;color:#B91C1C;border:1px solid #FDA4AF;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">2\(\frac{7}{16}\) cangkir</button>
+                            <button onclick="checkApplicationAnswer(1, 'Faktor skala = 9/12 = 3/4 → 3 1/4 × 3/4 = 13/4 × 3/4 = 39/16 = 2 7/16 cangkir')" style="background:#FFF0F3;color:#B91C1C;border:1px solid #FDA4AF;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">2\(\frac{1}{2}\) cangkir</button>
+                            <button onclick="checkApplicationAnswer(1, 'Faktor skala = 9/12 = 3/4 → 3 1/4 × 3/4 = 13/4 × 3/4 = 39/16 = 2 7/16 cangkir')" style="background:#FFF0F3;color:#B91C1C;border:1px solid #FDA4AF;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">2\(\frac{3}{4}\) cangkir</button>
+                        </div>
+                        <div id="applicationAnswer1" style="margin-top:1rem;display:none;"></div>
+                    </div>
+                    
+                    <!-- Soal 2: Keuangan -->
+                    <div style="background:white;padding:1.25rem;border-radius:10px;margin-top:1.5rem;box-shadow:0 4px 6px rgba(0,0,0,0.05);">
+                        <h4 style="color:#4a5568;margin-top:0;display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-wallet" style="color:#10B981;"></i> Soal Anggaran Keuangan
+                        </h4>
+                        <p style="color:#4a5568;">Seorang siswa menerima uang saku Rp300.000 per minggu. Dia menggunakan \(\frac{1}{3}\) untuk transportasi, \(\frac{1}{4}\) untuk makan, dan \(\frac{1}{6}\) untuk fotokopi. Berapa sisa uangnya?</p>
+                        <div style="display:flex;gap:1rem;margin-top:1rem;flex-wrap:wrap;">
+                            <button onclick="checkApplicationAnswer(2, 'Total pengeluaran = 1/3 + 1/4 + 1/6 = 4/12 + 3/12 + 2/12 = 9/12 = 3/4 → Sisa = 1 - 3/4 = 1/4 → 1/4 × 300.000 = Rp75.000')" style="background:#ECFDF5;color:#065F46;border:1px solid #6EE7B7;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">Rp75.000</button>
+                            <button onclick="checkApplicationAnswer(2, 'Total pengeluaran = 1/3 + 1/4 + 1/6 = 4/12 + 3/12 + 2/12 = 9/12 = 3/4 → Sisa = 1 - 3/4 = 1/4 → 1/4 × 300.000 = Rp75.000')" style="background:#ECFDF5;color:#065F46;border:1px solid #6EE7B7;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">Rp90.000</button>
+                            <button onclick="checkApplicationAnswer(2, 'Total pengeluaran = 1/3 + 1/4 + 1/6 = 4/12 + 3/12 + 2/12 = 9/12 = 3/4 → Sisa = 1 - 3/4 = 1/4 → 1/4 × 300.000 = Rp75.000')" style="background:#ECFDF5;color:#065F46;border:1px solid #6EE7B7;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;flex:1;">Rp60.000</button>
+                        </div>
+                        <div id="applicationAnswer2" style="margin-top:1rem;display:none;"></div>
+                    </div>
+                </div>
+
+                <!-- Navigasi Fase -->
+                <div style="display:flex;justify-content:space-between;margin-top:3rem;">
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+function showRealWorldApplications() {
+    alert("Mari temukan lebih banyak contoh penerapan pecahan di sekitar kita!");
+}
+
+function checkApplicationAnswer(questionNum, correctExplanation) {
+    const answerDiv = document.getElementById(`applicationAnswer${questionNum}`);
+    
+    if (answerDiv.style.display === "block") {
+        answerDiv.style.display = "none";
+    } else {
+        answerDiv.innerHTML = `
+            <div style="background:#f0fdf4;padding:1rem;border-radius:8px;border-left:4px solid #10b981;">
+                <p style="color:#065f46;margin:0;font-weight:500;">Penyelesaian:</p>
+                <p style="color:#065f46;margin:0.5rem 0 0 0;">${correctExplanation}</p>
+            </div>
+        `;
+        answerDiv.style.display = "block";
+    }
+}
+
+function showPreviousPhase() {
+    // Navigasi ke fase sebelumnya (Operasi Campuran Pecahan)
+    document.getElementById('aplikasi-pecahan').style.display = 'none';
+    document.getElementById('operasi-campuran-pecahan').style.display = 'block';
+    window.scrollTo(0, 0);
+}
+
+function showNextPhase() {
+    // Navigasi ke fase berikutnya (Evaluasi)
+    document.getElementById('aplikasi-pecahan').style.display = 'none';
+    document.getElementById('evaluasi-pecahan').style.display = 'block';
+    window.scrollTo(0, 0);
+}
+</script>
+<!-- Proses Matematisasi -->
+      <section class="about-section">
+        <h2 class="section-title">Proses Matematisasi dalam RME</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Fase 1</div>
+              <h3 class="timeline-title">Konteks Nyata</h3>
+              <p>
+                Memulai dengan masalah autentik dari kehidupan sehari-hari
+                yang melibatkan bilangan pecahan.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Fase 2</div>
+              <h3 class="timeline-title">Model Of Represntasi</h3>
+              <p>
+                Siswa mengembangkan model representasi bentuk pecahan untuk memahami konsep.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Fase 3</div>
+              <h3 class="timeline-title">Model For Representasi</h3>
+              <p>
+                  Mengetahui pengertian dari bilangan pecahan dan jenis-jenisnya.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Fase 4</div>
+              <h3 class="timeline-title">Model Of Comparisons</h3>
+              <p>
+                  Membandingkan pecahan dalam konteks nyata.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-date">Fase 5</div>
+                <h3 class="timeline-title">Model Of Operations</h3>
+                <p>
+                  Mengetahui operasi pada bilangan pecahan (penjumlahan, pemngurangan, perkalian, dan pembagian).
+                </p>
+              </div>
+            </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Fase 6</div>
+              <h3 class="timeline-title">Model For Mixed Operations</h3>
+              <p>
+                Mengembangkan bentuk operasi pecahan menjadi bentuk operasi pecahan campuran.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Fase 7</div>
+              <h3 class="timeline-title">Refleksi</h3>
+              <p>
+                Menyimpulkan pembelajaran bilangan pecahan.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Fase 8</div>
+              <h3 class="timeline-title">Penerapan</h3>
+              <p>
+                Mengaplikasikan konsep ke situasi baru yang lebih kompleks.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div style="text-align: center; padding: 1.5rem 0; background: #f8f9fc;">
+  <button 
+    onclick="window.location.href='open2.html'"
+    style="
+      background: var(--rme-orange);
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    "
+    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.2)'"
+    onmouseout="this.style.transform=''; this.style.boxShadow=''"
+  >
+    <i class="fas fa-arrow-left"></i> Kembali ke Materi Utama
+  </button>
+</div>
+  </div>
+        <!-- FAQ Section -->
+        <section class="about-section">
+            <h2 class="section-title">Pertanyaan Umum tentang Bilangan Pecahan</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Mengapa penting mempelajari bilangan pecahan?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Bilangan bulat penting karena:</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Digunakan dalam berbagai situasi kehidupan nyata</li>
+                            <li>Dasar untuk memahami konsep matematika lebih lanjut</li>
+                            <li>Membantu mengembangkan pemikiran abstrak</li>
+                            <li>Esensial untuk pemecahan masalah sehari-hari</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Bagaimana cara terbaik mengajarkan bilangan negatif?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Beberapa strategi efektif:</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Gunakan konteks nyata seperti suhu atau keuangan</li>
+                            <li>Visualisasi dengan garis bilangan</li>
+                            <li>Permainan interaktif dengan kartu bernilai positif/negatif</li>
+                            <li>Analog dengan konsep yang sudah dikenal siswa</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Tentang MathRME</h3>
+                <p>MathRME adalah platform pembelajaran matematika berbasis Realistic Mathematics Education yang menghubungkan konsep matematika dengan kehidupan nyata.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Sumber Belajar</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Modul Pembelajaran</a></li>
+                    <li><a href="#">Video Pembelajaran</a></li>
+                    <li><a href="#">Lembar Aktivitas</a></li>
+                    <li><a href="#">Bank Soal Kontekstual</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Kontak Kami</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Pendidikan Realistik No. 123, Jakarta</p>
+                <p><i class="fas fa-phone"></i> +62 123 4567 890</p>
+                <p><i class="fas fa-envelope"></i> info@mathrme.id</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 MathRME - Realistic Mathematics Education. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Fungsi untuk tab navigasi
+        function openTab(evt, tabName) {
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+
+            const tabButtons = document.getElementsByClassName("tab-button");
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Fungsi untuk FAQ dropdown
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentNode;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+    
+  </script>
+  <!-- Tambahkan ini sebelum tag </body> di file index2.html Anda -->
+<style>
+    /* Tombol Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(to right, var(--rme-orange), #FF5400);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+  
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+  
+    .back-to-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+  
+  <div class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+  
+  <script>
+    // Tampilkan/sembunyikan tombol saat scroll
+    window.onscroll = function() {
+      const backToTopBtn = document.querySelector('.back-to-top');
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    };
+  
+    // Fungsi untuk scroll ke atas
+    function scrollToTop() {
+      // Scroll ke tab container
+      const tabsContainer = document.querySelector('.tabs-container');
+      if (tabsContainer) {
+        tabsContainer.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        // Fallback jika tidak menemukan tabs container
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+    }
+  </script>
+</body>
+</html>

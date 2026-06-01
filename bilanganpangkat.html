@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang RME | MathRME</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset dan Variabel Warna */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --rme-orange: #FF7D00;
+            --rme-blue: #4CC9F0;
+            --rme-dark: #2b2d42;
+            --rme-light: #f8f9fa;
+            --rme-green: #2EC4B6;
+            --rme-red: #E71D36;
+            --rme-yellow: #FF9F1C;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--rme-orange), #FF5400);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--rme-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--rme-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Tentang RME */
+        .about-hero {
+            background: linear-gradient(135deg, rgba(255, 125, 0, 0.1), rgba(76, 201, 240, 0.2));
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://img.freepik.com/free-vector/hand-drawn-math-formula-pattern_23-2148156772.jpg') center/cover;
+            opacity: 0.05;
+            z-index: -1;
+        }
+
+        .about-hero h1 {
+            font-size: 3.5rem;
+            color: var(--rme-orange);
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            color: var(--rme-dark);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Container Utama */
+        .main-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Tab Navigasi */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .tab-button {
+            padding: 1rem 2rem;
+            background: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            color: var(--rme-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-button::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--rme-orange);
+            transition: width 0.3s ease;
+        }
+
+        .tab-button.active {
+            background: var(--rme-orange);
+            color: white;
+        }
+
+        .tab-button.active::before {
+            width: 100%;
+        }
+
+        .tab-button:hover:not(.active) {
+            background: #f0f0f0;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Konten Tentang RME */
+        .about-section {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            color: var(--rme-orange);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--rme-orange), var(--rme-blue));
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            color: var(--rme-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .about-image:hover {
+            transform: translateY(-10px);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Karakteristik RME */
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-top-color: var(--rme-orange);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(255, 125, 0, 0.1), rgba(76, 201, 240, 0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--rme-orange);
+            font-size: 1.8rem;
+        }
+
+        .feature-card h3 {
+            color: var(--rme-blue);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #666;
+        }
+
+        /* Timeline RME */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 3rem auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--rme-orange), var(--rme-blue));
+        }
+
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: -15px;
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 15px solid white;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -15px;
+            border-left: none;
+            border-right: 15px solid white;
+        }
+
+        .timeline-date {
+            color: var(--rme-orange);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            color: var(--rme-blue);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--rme-orange);
+            top: 30px;
+            right: -10px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+
+        /* Interaktif FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: linear-gradient(to right, rgba(255, 125, 0, 0.1), white);
+            color: var(--rme-dark);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(to right, rgba(255, 125, 0, 0.2), white);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-question {
+            background: linear-gradient(to right, var(--rme-orange), rgba(255, 125, 0, 0.2));
+            color: white;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 1.5rem;
+            padding-top: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, var(--rme-dark), #1a1a2e);
+            color: white;
+            padding: 3rem 2rem 1rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--rme-blue);
+        }
+
+        .footer-column p {
+            margin-bottom: 1rem;
+            color: #adb5bd;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--rme-blue);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--rme-orange);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                margin-top: 2rem;
+            }
+
+            .timeline::before {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-content::before {
+                left: -15px;
+                border-left: none;
+                border-right: 15px solid white;
+            }
+
+            .timeline-dot {
+                left: 21px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .about-section {
+                padding: 2rem 1rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+   <!-- Header -->
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <span>MathRME</span>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Materi <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="cp.html">CP ATP</a>
+                    <a href="petakonsep.html">Peta Konsep</a>
+                </div>
+            </li>
+            <li><a href="#">Log in</a></li>
+            <li><a href="#">Sign Up</a></li>
+            <li><a href="tentangrme.html">Tentang RME</a></li>
+        </ul>
+        
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+</header>
+
+<style>
+/* Existing navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+    position: relative;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+/* Dropdown styles - CHANGED TO SOLID ORANGE */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--rme-orange); /* Changed to solid orange */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dropdown-content a {
+    color: white; /* Changed text color to white */
+    padding: 12px 16px;
+    display: block;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255,255,255,0.2); /* Slightly lighter orange on hover */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-toggle i {
+    margin-left: 5px;
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-toggle i {
+    transform: rotate(180deg);
+}
+
+/* Hide mobile menu button on desktop */
+.mobile-menu-btn {
+    display: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+    
+    /* Show menu when active */
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, var(--rme-orange), #FF5400);
+        padding: 1rem;
+        z-index: 100;
+    }
+    
+    .nav-links.active li {
+        margin: 0.5rem 0;
+    }
+    
+    .dropdown-content {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        background-color: rgba(255,125,0,0.8); /* Semi-transparent orange for mobile */
+    }
+    
+    .dropdown-content a {
+        color: white;
+        padding: 8px 0;
+    }
+}
+</style>
+
+<script>
+// Mobile menu toggle functionality
+document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('active');
+});
+</script>
+
+    <!-- Hero Bilangan Bulat -->
+    <section class="about-hero">
+        <h1>Eksplorasi Bilangan Berpangkat</h1>
+        <p>Memahami konsep bilangan berpangkat melalui masalah dunia nyata dan pengalaman konkret</p>
+    </section>
+
+    <!-- Konten Utama -->
+    <div class="main-container">
+        <!-- Tab Navigasi -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event, 'konteks')">Pengertian Bilangan Berpangkat</button>
+            <button class="tab-button" onclick="openTab(event, 'sifat')">Sifat-Sifat</button>
+            <button class="tab-button" onclick="openTab(event, 'faktor')">Faktor & Kelipatan</button>
+        </div>
+
+        <!-- Tab Masalah Kontekstual -->
+        <div id="konteks" class="tab-content active">
+            <section class="about-section">
+                <h2 class="section-title">Bilangan Bulat dalam Kehidupan Sehari-hari</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Penerapan Bilangan Bulat</h2>
+                        <p>Bilangan bulat digunakan dalam berbagai situasi nyata seperti:</p>
+                        <ul style="margin-left: 1.5rem; color: #555; margin-bottom: 1.5rem;">
+                            <li><strong>Suhu</strong>: Perbedaan suhu di atas/bawah 0°C</li>
+                            <li><strong>Ketinggian</strong>: Posisi di atas/bawah permukaan laut</li>
+                            <li><strong>Keuangan</strong>: Saldo positif (tabungan) dan negatif (hutang)</li>
+                            <li><strong>Olahraga</strong>: Selisih gol dalam pertandingan</li>
+                        </ul>
+                        <p>Contoh masalah kontekstual:</p>
+                        <p>"Suhu di puncak gunung -5°C, sedangkan di kota 12°C. Berapa perbedaan suhunya?"</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://img.freepik.com/free-vector/temperature-scale-thermometer-celsius-fahrenheit_107791-2340.jpg" alt="Ilustrasi Suhu">
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-section">
+                <h2 class="section-title">Aktivitas Pembelajaran</h2>
+                <div class="features-container">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-temperature-low"></i>
+                        </div>
+                        <h3>Simulasi Suhu</h3>
+                        <p>Menggunakan termometer untuk memahami operasi bilangan bulat melalui perubahan suhu.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <h3>Permainan Keuangan</h3>
+                        <p>Simulasi transaksi keuangan dengan uang mainan untuk memahami bilangan positif dan negatif.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h3>Peta Ketinggian</h3>
+                        <p>Menganalisis peta topografi dengan berbagai elevasi untuk memahami perbandingan bilangan bulat.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Tab Sifat-Sifat -->
+        <div id="sifat" class="tab-content">
+            <section class="about-section">
+                <h2 class="section-title">Sifat-Sifat Bilangan Bulat</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Operasi Dasar Bilangan Bulat</h2>
+                        <p>Bilangan bulat memiliki sifat-sifat khusus dalam operasi matematika:</p>
+                        <ul style="margin-left: 1.5rem; color: #555; margin-bottom: 1.5rem;">
+                            <li><strong>Sifat Komutatif</strong>: a + b = b + a</li>
+                            <li><strong>Sifat Asosiatif</strong>: (a + b) + c = a + (b + c)</li>
+                            <li><strong>Sifat Distributif</strong>: a × (b + c) = a × b + a × c</li>
+                            <li><strong>Elemen Identitas</strong>: a + 0 = a dan a × 1 = a</li>
+                        </ul>
+                        <p>Contoh penerapan:</p>
+                        <p>"Jika suhu naik 5°C dari -3°C, maka suhu sekarang adalah -3 + 5 = 2°C"</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://img.freepik.com/free-vector/math-concept-illustration_114360-8174.jpg" alt="Ilustrasi Operasi Bilangan">
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-section">
+                <h2 class="section-title">Permainan Matematika</h2>
+                <div class="features-container">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-dice"></i>
+                        </div>
+                        <h3>Dadu Bilangan</h3>
+                        <p>Permainan dengan dadu bernilai positif dan negatif untuk melatih operasi bilangan bulat.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chess-board"></i>
+                        </div>
+                        <h3>Papan Permainan</h3>
+                        <p>Permainan papan dengan langkah maju (positif) dan mundur (negatif) berdasarkan operasi bilangan.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h3>Puzzle Sifat</h3>
+                        <p>Menyusun puzzle yang menunjukkan hubungan antar sifat operasi bilangan bulat.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Tab Faktor & Kelipatan -->
+        <div id="faktor" class="tab-content">
+            <section class="about-section">
+                <h2 class="section-title">Faktor dan Kelipatan</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Konsep FPB dan KPK</h2>
+                        <p>Faktor dan kelipatan dapat dipahami melalui masalah kontekstual:</p>
+                        <ul style="margin-left: 1.5rem; color: #555; margin-bottom: 1.5rem;">
+                            <li><strong>FPB (Faktor Persekutuan Terbesar)</strong>: Menentukan pembagi terbesar untuk menyederhanakan pecahan atau membagi kelompok</li>
+                            <li><strong>KPK (Kelipatan Persekutuan Terkecil)</strong>: Menentukan waktu bersamaan untuk jadwal berulang atau penyamaan penyebut</li>
+                        </ul>
+                        <p>Contoh masalah:</p>
+                        <p>"Andi berenang setiap 6 hari, Budi setiap 8 hari. Kapan mereka akan berenang bersama lagi?"</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://img.freepik.com/free-vector/hand-drawn-mathematics-pattern_23-2149072842.jpg" alt="Ilustrasi FPB KPK">
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-section">
+                <h2 class="section-title">Aktivitas Pembelajaran</h2>
+                <div class="features-container">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>Jadwal Rutinitas</h3>
+                        <p>Menganalisis jadwal kegiatan rutin untuk memahami konsep KPK.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cookie"></i>
+                        </div>
+                        <h3>Pembagian Kue</h3>
+                        <p>Permainan membagi kue (kertas) untuk memahami konsep FPB.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bus"></i>
+                        </div>
+                        <h3>Jadwal Transportasi</h3>
+                        <p>Menganalisis jadwal keberangkatan bus/kereta untuk menerapkan FPB dan KPK.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="about-section">
+            <h2 class="section-title">Pertanyaan Umum tentang Bilangan Berpangkat</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Mengapa penting mempelajari bilangan berpangkat?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Bilangan bulat penting karena:</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Digunakan dalam berbagai situasi kehidupan nyata</li>
+                            <li>Dasar untuk memahami konsep matematika lebih lanjut</li>
+                            <li>Membantu mengembangkan pemikiran abstrak</li>
+                            <li>Esensial untuk pemecahan masalah sehari-hari</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Bagaimana cara terbaik mengajarkan bilangan negatif?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Beberapa strategi efektif:</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Gunakan konteks nyata seperti suhu atau keuangan</li>
+                            <li>Visualisasi dengan garis bilangan</li>
+                            <li>Permainan interaktif dengan kartu bernilai positif/negatif</li>
+                            <li>Analog dengan konsep yang sudah dikenal siswa</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Tentang MathRME</h3>
+                <p>MathRME adalah platform pembelajaran matematika berbasis Realistic Mathematics Education yang menghubungkan konsep matematika dengan kehidupan nyata.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Sumber Belajar</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Modul Pembelajaran</a></li>
+                    <li><a href="#">Video Pembelajaran</a></li>
+                    <li><a href="#">Lembar Aktivitas</a></li>
+                    <li><a href="#">Bank Soal Kontekstual</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Kontak Kami</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Pendidikan Realistik No. 123, Jakarta</p>
+                <p><i class="fas fa-phone"></i> +62 123 4567 890</p>
+                <p><i class="fas fa-envelope"></i> info@mathrme.id</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 MathRME - Realistic Mathematics Education. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Fungsi untuk tab navigasi
+        function openTab(evt, tabName) {
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+
+            const tabButtons = document.getElementsByClassName("tab-button");
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Fungsi untuk FAQ dropdown
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentNode;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

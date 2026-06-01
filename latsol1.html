@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathRME - Latihan Bilangan Bulat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Variabel Warna */
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #f72585;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --rme-orange: #FF7D00;
+            --rme-blue: #4CC9F0;
+            --correct-color: #4CAF50;
+            --incorrect-color: #F44336;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e2f4ff 100%);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--rme-orange), #FF5400);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--rme-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--rme-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown styles */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--rme-orange);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            z-index: 1;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            display: block;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-toggle i {
+            margin-left: 5px;
+            font-size: 0.8em;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-toggle i {
+            transform: rotate(180deg);
+        }
+
+        /* Mobile menu button */
+        .mobile-menu-btn {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Quiz Container */
+        .quiz-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-header h1 {
+            font-size: 2.2rem;
+            color: var(--rme-orange);
+            margin-bottom: 0.5rem;
+        }
+
+        .quiz-header p {
+            color: #6c757d;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--rme-orange), #FF5400);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        /* Question Card */
+        .question-card {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            border-left: 5px solid var(--rme-blue);
+            transition: all 0.3s ease;
+            display: none; /* Semua soal awalnya disembunyikan */
+        }
+
+        .question-card.active {
+            display: block; /* Hanya soal aktif yang ditampilkan */
+            border-left: 5px solid var(--rme-orange);
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+
+        .options-container {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .option {
+            padding: 1rem;
+            background-color: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .option:hover {
+            border-color: var(--rme-blue);
+            transform: translateY(-2px);
+        }
+
+        .option input {
+            margin-right: 1rem;
+        }
+
+        .option.correct {
+            background-color: rgba(76, 175, 80, 0.1);
+            border-color: var(--correct-color);
+            color: var(--correct-color);
+        }
+
+        .option.incorrect {
+            background-color: rgba(244, 67, 54, 0.1);
+            border-color: var(--incorrect-color);
+            color: var(--incorrect-color);
+        }
+
+        /* Navigation Buttons */
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .nav-button {
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .prev-button {
+            background-color: #f0f0f0;
+            color: var(--dark-color);
+        }
+
+        .prev-button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .next-button {
+            background: linear-gradient(to right, var(--rme-orange), #FF5400);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 125, 0, 0.3);
+        }
+
+        .next-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 125, 0, 0.4);
+            background: linear-gradient(to right, #FF5400, var(--rme-orange));
+        }
+
+        /* Results Section */
+        .results-container {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        .results-container h2 {
+            font-size: 2rem;
+            color: var(--rme-orange);
+            margin-bottom: 1rem;
+        }
+
+        .score-display {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--rme-blue);
+            margin: 1rem 0;
+        }
+
+        .feedback-message {
+            margin-bottom: 2rem;
+            color: #6c757d;
+        }
+
+        .restart-button {
+            background: linear-gradient(to right, var(--rme-blue), #4361ee);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(76, 201, 240, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .restart-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(76, 201, 240, 0.6);
+            background: linear-gradient(to right, #4361ee, var(--rme-blue));
+        }
+/* Tambahkan di bagian CSS */
+.results-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.back-button {
+    background: linear-gradient(to right, #6c757d, #495057);
+    color: white;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.back-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(108, 117, 125, 0.4);
+    background: linear-gradient(to right, #495057, #6c757d);
+    color: white;
+    text-decoration: none;
+}
+.restart-button {
+    /* existing styles */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #2b2d42, #1a1a2e);
+            color: white;
+            padding: 3rem 2rem 1rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--rme-blue);
+        }
+
+        .footer-column p {
+            margin-bottom: 1rem;
+            color: #adb5bd;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--rme-blue);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--rme-orange);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .quiz-container {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+            
+            .quiz-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .question-text {
+                font-size: 1.1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span>MathRME</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" id="dropdown-toggle">Materi <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content" id="dropdown-content">
+                        <a href="cp.html">CP ATP</a>
+                        <a href="petakonsep.html">Peta Konsep</a>
+                    </div>
+                <li><a href="tentangrme.html">Tentang RME</a></li>
+            </ul>
+            
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Quiz Container -->
+<div class="quiz-container">
+    <div class="quiz-header">
+        <h1><i class="fas fa-calculator"></i> Latihan Bilangan Pecahan</h1>
+        <p>Uji pemahamanmu tentang jenis pecahan, perbandingan, operasi hitung, dan operasi campuran dalam konteks kehidupan sehari-hari</p>
+    </div>
+    
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+    
+    <!-- Question 1 -->
+    <div class="question-card active" id="question-1">
+        <div class="question-text">
+            1. Ibu membagi sebuah kue menjadi 8 bagian sama besar. Adik makan 2 bagian, kakak makan 1 bagian, dan sisanya disimpan. Berapa bagian kue yang disimpan dalam bentuk pecahan sederhana?
+        </div>
+        <div class="options-container">
+            <label class="option">
+                <input type="radio" name="q1" value="A"> A. 3/8
+            </label>
+            <label class="option">
+                <input type="radio" name="q1" value="B"> B. 5/8
+            </label>
+            <label class="option">
+                <input type="radio" name="q1" value="C"> C. 1/2
+            </label>
+            <label class="option">
+                <input type="radio" name="q1" value="D"> D. 3/4
+            </label>
+        </div>
+    </div>
+    
+    <!-- Question 2 -->
+    <div class="question-card" id="question-2">
+        <div class="question-text">
+            2. Di toko bahan kue, gula pasir dikemas dalam kemasan 1½ kg. Jika Ibu membeli 3 kemasan, berapa total berat gula yang dibeli Ibu?
+        </div>
+        <div class="options-container">
+            <label class="option">
+                <input type="radio" name="q2" value="A"> A. 3½ kg
+            </label>
+            <label class="option">
+                <input type="radio" name="q2" value="B"> B. 4 kg
+            </label>
+            <label class="option">
+                <input type="radio" name="q2" value="C"> C. 4½ kg
+            </label>
+            <label class="option">
+                <input type="radio" name="q2" value="D"> D. 5 kg
+            </label>
+        </div>
+    </div>
+    
+    <!-- Question 3 -->
+    <div class="question-card" id="question-3">
+        <div class="question-text">
+            3. Sebotol sirup berisi 1¾ liter. Jika digunakan untuk membuat minuman sebanyak ⅝ liter, berapa sisa sirup dalam botol?
+        </div>
+        <div class="options-container">
+            <label class="option">
+                <input type="radio" name="q3" value="A"> A. 1 liter
+            </label>
+            <label class="option">
+                <input type="radio" name="q3" value="B"> B. 1⅛ liter
+            </label>
+            <label class="option">
+                <input type="radio" name="q3" value="C"> C. 1¼ liter
+            </label>
+            <label class="option">
+                <input type="radio" name="q3" value="D"> D. 1⅜ liter
+            </label>
+        </div>
+    </div>
+    
+    <!-- Question 4 -->
+    <div class="question-card" id="question-4">
+        <div class="question-text">
+            4. Di kelas 6, ⅖ siswa menyukai matematika, ¼ menyukai IPA, dan sisanya menyukai bahasa. Manakah pernyataan yang benar?
+        </div>
+        <div class="options-container">
+            <label class="option">
+                <input type="radio" name="q4" value="A"> A. Lebih banyak siswa yang menyukai IPA daripada matematika
+            </label>
+            <label class="option">
+                <input type="radio" name="q4" value="B"> B. Lebih banyak siswa yang menyukai bahasa daripada matematika
+            </label>
+            <label class="option">
+                <input type="radio" name="q4" value="C"> C. Matematika lebih disukai daripada IPA
+            </label>
+            <label class="option">
+                <input type="radio" name="q4" value="D"> D. Bahasa lebih sedikit disukai daripada IPA
+            </label>
+        </div>
+    </div>
+    
+    <!-- Question 5 -->
+    <div class="question-card" id="question-5">
+        <div class="question-text">
+            5. Sebuah proyek bangunan membutuhkan 12¾ sak semen. Jika sudah digunakan 8½ sak, berapa sak semen yang masih tersisa?
+        </div>
+        <div class="options-container">
+            <label class="option">
+                <input type="radio" name="q5" value="A"> A. 3¼ sak
+            </label>
+            <label class="option">
+                <input type="radio" name="q5" value="B"> B. 4¼ sak
+            </label>
+            <label class="option">
+                <input type="radio" name="q5" value="C"> C. 4½ sak
+            </label>
+            <label class="option">
+                <input type="radio" name="q5" value="D"> D. 5¼ sak
+            </label>
+        </div>
+    </div>
+    
+    <!-- Question 6 -->
+    <div class="question-card" id="question-6">
+        <div class="question-text">
+            6. Pak Budi memiliki sebidang tanah yang ⅓ bagiannya ditanami jagung, ¼ bagian ditanami kedelai, dan sisanya untuk kolam ikan. Berapa bagian tanah yang digunakan untuk kolam ikan?
+        </div>
+        <div class="options-container">
+            <label class="option">
+                <input type="radio" name="q6" value="A"> A. 5/12
+            </label>
+            <label class="option">
+                <input type="radio" name="q6" value="B"> B. 7/12
+            </label>
+            <label class="option">
+                <input type="radio" name="q6" value="C"> C. ½
+            </label>
+            <label class="option">
+                <input type="radio" name="q6" value="D"> D. ⅔
+            </label>
+        </div>
+    </div>
+    
+    <!-- Question 7 -->
+    <div class="question-card" id="question-7">
+        <div class="question-text">
+            7. Seorang penjahit membutuhkan ⅞ meter kain untuk membuat sebuah baju. Jika dia memiliki 5½ meter kain, berapa banyak baju yang dapat dibuat?
+        </div>
+        <div class="options-container">
+            <label class="option">
+                <input type="radio" name="q7" value="A"> A. 4 baju
+            </label>
+            <label class="option">
+                <input type="radio" name="q7" value="B"> B. 5 baju
+            </label>
+            <label class="option">
+                <input type="radio" name="q7" value="C"> C. 6 baju
+            </label>
+            <label class="option">
+                <input type="radio" name="q7" value="D"> D. 7 baju
+            </label>
+        </div>
+    </div>
+    
+    <!-- Question 8 -->
+    <div class="question-card" id="question-8">
+        <div class="question-text">
+            8. Di sebuah acara, 2/3 dari total hadiah adalah buku, 1/6 adalah alat tulis, dan sisanya mainan. Jika total hadiah 120 buah, berapa banyak mainan yang dibagikan?
+        </div>
+        <div class="options-container">
+            <label class="option">
+                <input type="radio" name="q8" value="A"> A. 20
+            </label>
+            <label class="option">
+                <input type="radio" name="q8" value="B"> B. 24
+            </label>
+            <label class="option">
+                <input type="radio" name="q8" value="C"> C. 30
+            </label>
+            <label class="option">
+                <input type="radio" name="q8" value="D"> D. 36
+            </label>
+        </div>
+    </div>
+    
+    <!-- Question 9 -->
+    <div class="question-card" id="question-9">
+        <div class="question-text">
+            9. Sebuah resep membutuhkan ¾ sendok teh garam. Jika kamu ingin membuat 2½ kali resep tersebut, berapa sendok teh garam yang dibutuhkan?
+        </div>
+        <div class="options-container">
+            <label class="option">
+                <input type="radio" name="q9" value="A"> A. 1¼ sendok teh
+            </label>
+            <label class="option">
+                <input type="radio" name="q9" value="B"> B. 1⅞ sendok teh
+            </label>
+            <label class="option">
+                <input type="radio" name="q9" value="C"> C. 2¼ sendok teh
+            </label>
+            <label class="option">
+                <input type="radio" name="q9" value="D"> D. 2½ sendok teh
+            </label>
+        </div>
+    </div>
+    
+    <!-- Question 10 -->
+    <div class="question-card" id="question-10">
+        <div class="question-text">
+            10. Sebuah mobil menempuh jarak 60 km dalam 1¼ jam. Berapa kecepatan rata-rata mobil tersebut dalam km/jam?
+        </div>
+        <div class="options-container">
+            <label class="option">
+                <input type="radio" name="q10" value="A"> A. 45 km/jam
+            </label>
+            <label class="option">
+                <input type="radio" name="q10" value="B"> B. 48 km/jam
+            </label>
+            <label class="option">
+                <input type="radio" name="q10" value="C"> C. 50 km/jam
+            </label>
+            <label class="option">
+                <input type="radio" name="q10" value="D"> D. 52 km/jam
+            </label>
+        </div>
+    </div>
+</div>
+
+
+        
+       <!-- Navigation Buttons -->
+<div class="quiz-navigation">
+    <button class="nav-button prev-button" id="prev-button" disabled>
+        <i class="fas fa-arrow-left"></i> Sebelumnya
+    </button>
+    <button class="nav-button next-button" id="next-button">
+        Selanjutnya <i class="fas fa-arrow-right"></i>
+    </button>
+    <button class="nav-button next-button" id="finish-button" style="display: none;">
+        Selesai <i class="fas fa-check"></i>
+    </button>
+</div>
+
+<!-- Confirmation Modal -->
+<div class="confirmation-modal" id="confirmation-modal" style="display: none;">
+    <div class="modal-content">
+        <h3><i class="fas fa-question-circle" style="color: var(--rme-orange);"></i> Konfirmasi</h3>
+        <p style="color: var(--dark-color);">Apakah Anda yakin ingin menyelesaikan latihan?</p>
+        <div class="modal-buttons">
+            <button class="modal-button confirm-button" id="confirm-yes" style="background: linear-gradient(to right, var(--rme-orange), #FF5400);">Ya</button>
+            <button class="modal-button confirm-button" id="confirm-no" style="background: #f0f0f0; color: var(--dark-color);">Tidak</button>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Confirmation Modal Styles - Updated to match your design */
+    .confirmation-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none; /* Changed from flex to none */
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+    
+    .modal-content {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 90%;
+        text-align: center;
+        animation: modalFadeIn 0.3s ease;
+    }
+    
+    @keyframes modalFadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .modal-content h3 {
+        color: var(--rme-orange);
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+    
+    .modal-content p {
+        margin-bottom: 1.5rem;
+        color: var(--dark-color);
+        font-size: 1.1rem;
+    }
+    
+    .modal-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .modal-button {
+        padding: 0.8rem 1.8rem;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        font-size: 1rem;
+    }
+    
+    #confirm-yes {
+        background: linear-gradient(to right, var(--rme-orange), #FF5400);
+        color: white;
+        box-shadow: 0 4px 15px rgba(255, 125, 0, 0.3);
+    }
+    
+    #confirm-yes:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(255, 125, 0, 0.4);
+        background: linear-gradient(to right, #FF5400, var(--rme-orange));
+    }
+    
+    #confirm-no {
+        background: #f0f0f0;
+        color: var(--dark-color);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    #confirm-no:hover {
+        background: #e0e0e0;
+        transform: translateY(-3px);
+    }
+</style>
+
+<script>
+    // Quiz Variables
+const confirmationModal = document.getElementById('confirmation-modal');
+const confirmYes = document.getElementById('confirm-yes'); // Fixed typo from 'confirm-yes' to 'confirm-yes'
+const confirmNo = document.getElementById('confirm-no');
+const finishbutton = document.getElementById('finish-button');
+
+// Function to check if all questions are answered
+function checkAllQuestionsAnswered() {
+    for (let i = 1; i <= totalQuestions; i++) {
+        if (!isAnswerSelected(i)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+// Finish Button Event Listener with Confirmation
+finishButton.addEventListener('click', function() {
+    // Check if all questions are answered using the helper function
+    if (checkAllQuestionsAnswered()) {
+        // Show confirmation modal
+        confirmationModal.style.display = 'flex';
+    } else {
+        // Show alert with more helpful information
+        const unansweredCount = Array.from({length: totalQuestions}, (_, i) => i + 1)
+                               .filter(q => !isAnswerSelected(q)).length;
+        alert(`Anda belum menjawab ${unansweredCount} soal! Silakan lengkapi terlebih dahulu.`);
+    }
+});
+
+// Confirm Yes - Proceed to results
+confirmYes.addEventListener('click', function() {
+    confirmationModal.style.display = 'none';
+    saveAnswer(currentQuestion);
+    highlightAnswers();
+    showResults();
+});
+
+// Confirm No - Return to quiz
+confirmNo.addEventListener('click', function() {
+    confirmationModal.style.display = 'none';
+});
+
+// Close modal when clicking outside
+confirmationModal.addEventListener('click', function(e) {
+    if (e.target === confirmationModal) {
+        confirmationModal.style.display = 'none';
+    }
+});
+        
+        if (allAnswered) {
+            // Show confirmation modal
+            confirmationModal.style.display = 'flex';
+        } else {
+            alert('Anda belum menjawab semua soal! Silakan lengkapi terlebih dahulu.');
+        }
+    ;
+    
+    // Confirm Yes - Proceed to results
+    confirmYes.addEventListener('click', function() {
+        confirmationModal.style.display = 'none';
+        saveAnswer(currentQuestion);
+        highlightAnswers();
+        showResults();
+    });
+    
+    // Confirm No - Return to quiz
+    confirmNo.addEventListener('click', function() {
+        confirmationModal.style.display = 'none';
+    });
+    
+    // Close modal when clicking outside
+    confirmationModal.addEventListener('click', function(e) {
+        if (e.target === confirmationModal) {
+            confirmationModal.style.display = 'none';
+        }
+    });
+</script>
+        
+        <!-- Results Section -->
+ <div class="results-container" id="results-container">
+    <h2>Hasil Latihan</h2>
+    <div class="score-display" id="score-display">0/10</div>
+    <p class="feedback-message" id="feedback-message"></p>
+    <div id="answer-feedback"></div>
+    <div class="results-buttons">
+        <a href="open2.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Kembali
+        </a>
+        <button class="restart-button" id="restart-button">
+            <i class="fas fa-redo"></i> Ulangi Latihan
+        </button>
+    </div>
+</div>
+</div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Tentang MathRME</h3>
+                <p>MathRME adalah platform pembelajaran matematika berbasis Realistic Mathematics Education yang menghubungkan konsep matematika dengan kehidupan nyata.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Konteks Pembelajaran</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Keuangan</a></li>
+                    <li><a href="#">Kuliner</a></li>
+                    <li><a href="#">Olahraga</a></li>
+                    <li><a href="#">Seni & Desain</a></li>
+                    <li><a href="#">Lingkungan</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Kontak Kami</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Perjuangan By Pass Sunyaragi, Kota Cirebon, jawa Barat, Indonesia</p>
+                <p><i class="fas fa-phone"></i> +62 123 4567 890</p>
+                <p><i class="fas fa-envelope"></i> info@mathrme.id</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 MathRME - Realistic Mathematics Education. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Quiz Variables
+        const totalQuestions = 10;
+        let currentQuestion = 1;
+        const userAnswers = Array(totalQuestions).fill(null);
+        
+        // Correct Answers
+        const correctAnswers = {
+            q1: "B",
+            q2: "C",
+            q3: "B",
+            q4: "C",
+            q5: "B",
+            q6: "A",
+            q7: "C",
+            q8: "A",
+            q9: "B",
+            q10: "B"
+        };
+        
+        // DOM Elements
+        const progressBar = document.getElementById('progress-bar');
+        const prevButton = document.getElementById('prev-button');
+        const nextButton = document.getElementById('next-button');
+        const finishButton = document.getElementById('finish-button');
+        const resultsContainer = document.getElementById('results-container');
+        const scoreDisplay = document.getElementById('score-display');
+        const feedbackMessage = document.getElementById('feedback-message');
+        const answerFeedback = document.getElementById('answer-feedback');
+        const restartButton = document.getElementById('restart-button');
+        const dropdownToggle = document.getElementById('dropdown-toggle');
+        const dropdownContent = document.getElementById('dropdown-content');
+        
+        // Initialize - Hide all questions except first
+        document.querySelectorAll('.question-card').forEach((card, index) => {
+            if (index !== 0) {
+                card.style.display = 'none';
+            }
+        });
+        
+        // Update Progress Bar
+        function updateProgress() {
+            const progress = (currentQuestion / totalQuestions) * 100;
+            progressBar.style.width = `${progress}%`;
+            
+            // Show/hide finish button
+            if (currentQuestion === totalQuestions) {
+                nextButton.style.display = 'none';
+                finishButton.style.display = 'block';
+            } else {
+                nextButton.style.display = 'block';
+                finishButton.style.display = 'none';
+            }
+            
+            // Disable prev button on first question
+            prevButton.disabled = currentQuestion === 1;
+        }
+        
+        // Navigate to Question
+        function goToQuestion(questionNumber) {
+            // Hide current question
+            document.getElementById(`question-${currentQuestion}`).classList.remove('active');
+            document.getElementById(`question-${currentQuestion}`).style.display = 'none';
+            
+            // Update current question
+            currentQuestion = questionNumber;
+            
+            // Show new question
+            document.getElementById(`question-${currentQuestion}`).style.display = 'block';
+            document.getElementById(`question-${currentQuestion}`).classList.add('active');
+            
+            // Update progress
+            updateProgress();
+            
+            // Scroll to top of question
+            window.scrollTo({
+                top: document.getElementById(`question-${currentQuestion}`).offsetTop - 100,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Save Answer
+        function saveAnswer(questionNumber) {
+            const selectedOption = document.querySelector(`input[name="q${questionNumber}"]:checked`);
+            if (selectedOption) {
+                userAnswers[questionNumber - 1] = selectedOption.value;
+            }
+        }
+        
+        // Check if answer is selected
+        function isAnswerSelected(questionNumber) {
+            return document.querySelector(`input[name="q${questionNumber}"]:checked`) !== null;
+        }
+        
+        // Calculate Score
+        function calculateScore() {
+            let score = 0;
+            for (let i = 0; i < totalQuestions; i++) {
+                const questionNumber = i + 1;
+                if (userAnswers[i] === correctAnswers[`q${questionNumber}`]) {
+                    score++;
+                }
+            }
+            return score;
+        }
+        
+        // Show Results
+        function showResults() {
+            const score = calculateScore();
+            const percentage = (score / totalQuestions) * 100;
+            
+            // Display score
+            scoreDisplay.textContent = `${score}/${totalQuestions}`;
+            
+            // Display feedback message
+            if (percentage >= 80) {
+                feedbackMessage.textContent = "Luar biasa! Kamu sangat menguasai materi bilangan bulat.";
+            } else if (percentage >= 60) {
+                feedbackMessage.textContent = "Bagus! Kamu sudah paham, tapi masih perlu sedikit latihan lagi.";
+            } else if (percentage >= 40) {
+                feedbackMessage.textContent = "Cukup baik. Coba pelajari lagi materi yang masih kurang dipahami.";
+            } else {
+                feedbackMessage.textContent = "Jangan menyerah! Pelajari lagi materinya dan coba lagi.";
+            }
+            
+            // Show incorrect answers
+            answerFeedback.innerHTML = "<h3>Pembahasan:</h3>";
+            for (let i = 0; i < totalQuestions; i++) {
+                const questionNumber = i + 1;
+                const isCorrect = userAnswers[i] === correctAnswers[`q${questionNumber}`];
+                
+                if (!isCorrect) {
+                    const questionText = document.querySelector(`#question-${questionNumber} .question-text`).textContent;
+                    answerFeedback.innerHTML += `
+                        <div class="problem-card" style="margin-bottom: 1rem;">
+                            <h4>Soal ${questionNumber}: ${questionText}</h4>
+                            <p>Jawaban kamu: ${userAnswers[i] || 'Tidak diisi'}</p>
+                            <p>Jawaban benar: ${correctAnswers[`q${questionNumber}`]}</p>
+                        </div>
+                    `;
+                }
+            }
+            
+            // Hide quiz and show results
+            document.querySelectorAll('.question-card').forEach(card => card.style.display = 'none');
+            document.querySelector('.quiz-navigation').style.display = 'none';
+            resultsContainer.style.display = 'block';
+            
+            // Scroll to results
+            window.scrollTo({
+                top: resultsContainer.offsetTop - 50,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Highlight Correct/Incorrect Answers
+        function highlightAnswers() {
+            for (let i = 0; i < totalQuestions; i++) {
+                const questionNumber = i + 1;
+                const options = document.querySelectorAll(`#question-${questionNumber} .option`);
+                
+                options.forEach(option => {
+                    const input = option.querySelector('input');
+                    if (input.value === correctAnswers[`q${questionNumber}`]) {
+                        option.classList.add('correct');
+                    } else if (input.checked && input.value !== correctAnswers[`q${questionNumber}`]) {
+                        option.classList.add('incorrect');
+                    }
+                });
+            }
+        }
+        
+        // Toggle Dropdown Menu
+        function toggleDropdown() {
+            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+            const icon = dropdownToggle.querySelector('i');
+            icon.style.transform = dropdownContent.style.display === 'block' ? 'rotate(180deg)' : 'rotate(0)';
+        }
+        
+        // Event Listeners
+        prevButton.addEventListener('click', () => {
+            saveAnswer(currentQuestion);
+            goToQuestion(currentQuestion - 1);
+        });
+        
+        nextButton.addEventListener('click', () => {
+            if (isAnswerSelected(currentQuestion)) {
+                saveAnswer(currentQuestion);
+                goToQuestion(currentQuestion + 1);
+            } else {
+                alert('Silakan pilih jawaban terlebih dahulu!');
+            }
+        });
+        
+        finishButton.addEventListener('click', () => {
+            saveAnswer(currentQuestion);
+            highlightAnswers();
+            showResults();
+        });
+        
+        restartButton.addEventListener('click', () => {
+            // Reset quiz
+            currentQuestion = 1;
+            userAnswers.fill(null);
+            
+            // Reset all selections
+            document.querySelectorAll('input[type="radio"]').forEach(input => {
+                input.checked = false;
+            });
+            
+            // Remove highlights
+            document.querySelectorAll('.option').forEach(option => {
+                option.classList.remove('correct', 'incorrect');
+            });
+            
+            // Show all questions and navigation
+            document.querySelectorAll('.question-card').forEach((card, index) => {
+                card.style.display = index === 0 ? 'block' : 'none';
+                card.classList.remove('active');
+                if (index === 0) card.classList.add('active');
+            });
+            
+            document.querySelector('.quiz-navigation').style.display = 'flex';
+            resultsContainer.style.display = 'none';
+            
+            // Update progress
+            updateProgress();
+            
+            // Scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Dropdown toggle
+        dropdownToggle.addEventListener('click',)
+    </script>
+</body>
+</html>

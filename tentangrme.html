@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang RME | MathRME</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset dan Variabel Warna */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --rme-orange: #FF7D00;
+            --rme-blue: #4CC9F0;
+            --rme-dark: #2b2d42;
+            --rme-light: #f8f9fa;
+            --rme-green: #2EC4B6;
+            --rme-red: #E71D36;
+            --rme-yellow: #FF9F1C;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--rme-orange), #FF5400);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--rme-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--rme-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Tentang RME */
+        .about-hero {
+            background: linear-gradient(135deg, rgba(255, 125, 0, 0.1), rgba(76, 201, 240, 0.2));
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://img.freepik.com/free-vector/hand-drawn-math-formula-pattern_23-2148156772.jpg') center/cover;
+            opacity: 0.05;
+            z-index: -1;
+        }
+
+        .about-hero h1 {
+            font-size: 3.5rem;
+            color: var(--rme-orange);
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            color: var(--rme-dark);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Container Utama */
+        .main-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Tab Navigasi */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .tab-button {
+            padding: 1rem 2rem;
+            background: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            color: var(--rme-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-button::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--rme-orange);
+            transition: width 0.3s ease;
+        }
+
+        .tab-button.active {
+            background: var(--rme-orange);
+            color: white;
+        }
+
+        .tab-button.active::before {
+            width: 100%;
+        }
+
+        .tab-button:hover:not(.active) {
+            background: #f0f0f0;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Konten Tentang RME */
+        .about-section {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            color: var(--rme-orange);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--rme-orange), var(--rme-blue));
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            color: var(--rme-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .about-image:hover {
+            transform: translateY(-10px);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Karakteristik RME */
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-top-color: var(--rme-orange);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(255, 125, 0, 0.1), rgba(76, 201, 240, 0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--rme-orange);
+            font-size: 1.8rem;
+        }
+
+        .feature-card h3 {
+            color: var(--rme-blue);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #666;
+        }
+
+        /* Timeline RME */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 3rem auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--rme-orange), var(--rme-blue));
+        }
+
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: -15px;
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 15px solid white;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -15px;
+            border-left: none;
+            border-right: 15px solid white;
+        }
+
+        .timeline-date {
+            color: var(--rme-orange);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            color: var(--rme-blue);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--rme-orange);
+            top: 30px;
+            right: -10px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+
+        /* Interaktif FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: linear-gradient(to right, rgba(255, 125, 0, 0.1), white);
+            color: var(--rme-dark);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(to right, rgba(255, 125, 0, 0.2), white);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-question {
+            background: linear-gradient(to right, var(--rme-orange), rgba(255, 125, 0, 0.2));
+            color: white;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 1.5rem;
+            padding-top: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, var(--rme-dark), #1a1a2e);
+            color: white;
+            padding: 3rem 2rem 1rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--rme-blue);
+        }
+
+        .footer-column p {
+            margin-bottom: 1rem;
+            color: #adb5bd;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--rme-blue);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--rme-orange);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                margin-top: 2rem;
+            }
+
+            .timeline::before {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-content::before {
+                left: -15px;
+                border-left: none;
+                border-right: 15px solid white;
+            }
+
+            .timeline-dot {
+                left: 21px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .about-section {
+                padding: 2rem 1rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+   <!-- Header -->
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <span>MathRME</span>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Materi <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="cp.html">CP ATP</a>
+                    <a href="petakonsep.html">Peta Konsep</a>
+                </div>
+            <li><a href="tentangrme.html">Tentang RME</a></li>
+        </ul>
+        
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+</header>
+
+<style>
+/* Existing navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+    position: relative;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+/* Dropdown styles - CHANGED TO SOLID ORANGE */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--rme-orange); /* Changed to solid orange */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dropdown-content a {
+    color: white; /* Changed text color to white */
+    padding: 12px 16px;
+    display: block;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255,255,255,0.2); /* Slightly lighter orange on hover */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-toggle i {
+    margin-left: 5px;
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-toggle i {
+    transform: rotate(180deg);
+}
+
+/* Hide mobile menu button on desktop */
+.mobile-menu-btn {
+    display: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+    
+    /* Show menu when active */
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, var(--rme-orange), #FF5400);
+        padding: 1rem;
+        z-index: 100;
+    }
+    
+    .nav-links.active li {
+        margin: 0.5rem 0;
+    }
+    
+    .dropdown-content {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        background-color: rgba(255,125,0,0.8); /* Semi-transparent orange for mobile */
+    }
+    
+    .dropdown-content a {
+        color: white;
+        padding: 8px 0;
+    }
+}
+</style>
+
+<script>
+// Mobile menu toggle functionality
+document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('active');
+});
+</script>
+
+    <!-- Hero Tentang RME -->
+    <section class="about-hero">
+        <h1>Realistic Mathematics Education</h1>
+        <p>Sebuah pendekatan pembelajaran matematika yang menghubungkan konsep abstrak dengan situasi nyata untuk pemahaman yang lebih mendalam</p>
+    </section>
+
+    <!-- Tab Navigasi -->
+    <div class="main-container">
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event, 'pengertian')">Pengertian</button>
+            <button class="tab-button" onclick="openTab(event, 'sejarah')">Sejarah</button>
+            <button class="tab-button" onclick="openTab(event, 'karakteristik')">Karakteristik</button>
+            <button class="tab-button" onclick="openTab(event, 'implementasi')">Implementasi</button>
+        </div>
+
+        <!-- Tab Pengertian -->
+        <div id="pengertian" class="tab-content active">
+            <section class="about-section">
+                <h2 class="section-title">Apa itu RME?</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Realistic Mathematics Education</h2>
+                        <p>RME adalah pendekatan pembelajaran matematika yang dikembangkan di Belanda sejak tahun 1970-an oleh Hans Freudenthal dan koleganya. Pendekatan ini berlandaskan pada filosofi bahwa matematika adalah aktivitas manusia dan harus dikaitkan dengan realitas kehidupan.</p>
+                        <p>Dalam RME, pembelajaran dimulai dari masalah kontekstual yang bermakna bagi siswa, kemudian secara bertahap berkembang menuju tingkat abstraksi yang lebih tinggi melalui proses matematisasi.</p>
+                        <p>Freudenthal percaya bahwa siswa tidak boleh diajarkan matematika sebagai produk jadi, tetapi harus diberikan kesempatan untuk "menemukan kembali" matematika melalui aktivitas yang bermakna.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://img.freepik.com/free-vector/hand-drawn-science-education-background_23-2148499325.jpg" alt="Ilustrasi RME">
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-section">
+                <h2 class="section-title">Prinsip Dasar RME</h2>
+                <div class="features-container">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe-asia"></i>
+                        </div>
+                        <h3>Matematisasi</h3>
+                        <p>Proses mengubah masalah nyata menjadi model matematika melalui aktivitas horizontal (konteks ke model) dan vertikal (pengembangan konsep matematika).</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Penemuan Kembali</h3>
+                        <p>Siswa diberikan kesempatan untuk menemukan kembali konsep matematika melalui bimbingan guru, bukan sekedar menerima pengetahuan jadi.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h3>Model Bertahap</h3>
+                        <p>Pembelajaran melalui tahapan: situasi kontekstual → model of → model for → konsep matematika formal.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Tab Sejarah -->
+        <div id="sejarah" class="tab-content">
+            <section class="about-section">
+                <h2 class="section-title">Sejarah Perkembangan RME</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">1971</div>
+                            <h3 class="timeline-title">Kelahiran RME</h3>
+                            <p>Hans Freudenthal mendirikan Institut Freudenthal di Utrecht University, Belanda, yang menjadi pusat pengembangan RME.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">1980-an</div>
+                            <h3 class="timeline-title">Pengembangan Kurikulum</h3>
+                            <p>RME diimplementasikan dalam kurikulum matematika sekolah dasar di Belanda dengan fokus pada matematisasi pengalaman sehari-hari.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">1990-an</div>
+                            <h3 class="timeline-title">Ekspansi Internasional</h3>
+                            <p>RME mulai diadopsi oleh negara-negara lain seperti Amerika Serikat, Inggris, dan beberapa negara Asia termasuk Indonesia.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2000-an</div>
+                            <h3 class="timeline-title">Penelitian Intensif</h3>
+                            <p>Banyak penelitian dilakukan untuk menguji efektivitas RME dalam berbagai konteks budaya dan sistem pendidikan.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Sekarang</div>
+                            <h3 class="timeline-title">Pengembangan Berkelanjutan</h3>
+                            <p>RME terus berkembang dengan integrasi teknologi dan penyesuaian dengan kebutuhan abad 21.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Tab Karakteristik -->
+        <div id="karakteristik" class="tab-content">
+            <section class="about-section">
+                <h2 class="section-title">5 Karakteristik Utama RME</h2>
+                <div class="features-container">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Konteks Nyata</h3>
+                        <p>Pembelajaran dimulai dari masalah kontekstual yang bermakna bagi siswa, seperti situasi kehidupan sehari-hari, permainan, atau cerita.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3>Model dan Matematisasi</h3>
+                        <p>Siswa mengembangkan model matematika sendiri untuk memecahkan masalah (matematisasi horizontal) dan mengembangkan konsep (matematisasi vertikal).</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Interaksi dan Diskusi</h3>
+                        <p>Proses pembelajaran menekankan pada interaksi sosial dimana siswa berdiskusi, berdebat, dan bernegosiasi makna matematika.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h3>Keterkaitan Konsep</h3>
+                        <p>Topik-topik matematika diajarkan secara terintegrasi dengan menunjukkan hubungan antar konsep (jaringan konseptual).</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h3>Struktur Bertahap</h3>
+                        <p>Pembelajaran melalui tahapan progresif dari konkret ke abstrak dengan menggunakan model-model bertingkat.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-section">
+                <h2 class="section-title">Peran Guru dalam RME</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="https://img.freepik.com/free-vector/teacher-standing-near-blackboard-holding-stick-isolated-flat-vector-illustration-cartoon-female-character-school-class-lesson-concept_74855-8600.jpg" alt="Peran Guru">
+                    </div>
+                    <div class="about-text">
+                        <p>Dalam RME, guru berperan sebagai:</p>
+                        <ul style="margin-left: 1.5rem; color: #555; margin-bottom: 1.5rem;">
+                            <li><strong>Fasilitator</strong> yang membimbing proses matematisasi</li>
+                            <li><strong>Desainer</strong> situasi pembelajaran yang bermakna</li>
+                            <li><strong>Pengamat</strong> yang memahami pemikiran siswa</li>
+                            <li><strong>Pemandu</strong> yang membantu siswa menyusun pengetahuan</li>
+                        </ul>
+                        <p>Guru tidak memberikan pengetahuan jadi, tetapi menciptakan kondisi dimana siswa dapat aktif mengkonstruksi pengetahuan matematika mereka sendiri.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Tab Implementasi -->
+        <div id="implementasi" class="tab-content">
+            <section class="about-section">
+                <h2 class="section-title">Implementasi RME di Kelas</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Langkah-langkah Pembelajaran RME</h2>
+                        <ol style="margin-left: 1.5rem; color: #555; margin-bottom: 1.5rem;">
+                            <li><strong>Memahami konteks</strong>: Memulai dengan masalah dunia nyata yang relevan</li>
+                            <li><strong>Eksplorasi</strong>: Siswa mengeksplorasi masalah menggunakan pengetahuan awal</li>
+                            <li><strong>Pengembangan model</strong>: Siswa mengembangkan model informal untuk memecahkan masalah</li>
+                            <li><strong>Diskusi kelas</strong>: Berbagi dan memperbaiki model melalui interaksi sosial</li>
+                            <li><strong>Abstraksi</strong>: Mengembangkan konsep matematika formal dari model</li>
+                            <li><strong>Aplikasi</strong>: Menerapkan konsep pada masalah baru</li>
+                        </ol>
+                        <p>Proses ini bersifat siklus dan iteratif, dimana siswa terus menyempurnakan pemahaman mereka melalui berbagai konteks dan masalah.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://img.freepik.com/free-vector/classroom-scene-illustration_1284-65339.jpg" alt="Implementasi RME">
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-section">
+                <h2 class="section-title">Contoh Aktivitas RME</h2>
+                <div class="features-container">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shopping-basket"></i>
+                        </div>
+                        <h3>Belanja di Pasar</h3>
+                        <p>Menggunakan situasi belanja untuk mempelajari operasi hitung bilangan bulat dan pecahan melalui simulasi transaksi.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3>Survey Kelas</h3>
+                        <p>Mengumpulkan data nyata dari siswa untuk mempelajari statistika dasar dan representasi data.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-ruler-combined"></i>
+                        </div>
+                        <h3>Desain Ruangan</h3>
+                        <p>Merancang denah ruangan sederhana untuk memahami konsep skala, luas, dan keliling.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="about-section">
+            <h2 class="section-title">Pertanyaan Umum tentang RME</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Apa beda RME dengan pendekatan pembelajaran matematika tradisional?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Pendekatan tradisional seringkali mengajarkan matematika sebagai produk jadi dengan langkah-langkah prosedural yang harus dihafal. Sedangkan RME:</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Mulai dari konteks nyata bukan abstrak</li>
+                            <li>Menekankan pada pemahaman konseptual bukan prosedur</li>
+                            <li>Memberi kesempatan siswa mengembangkan model sendiri</li>
+                            <li>Menggunakan interaksi sosial sebagai bagian pembelajaran</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Apakah RME cocok untuk semua topik matematika?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>RME dapat diterapkan pada hampir semua topik matematika, meskipun beberapa konsep sangat abstrak mungkin membutuhkan kreativitas lebih dalam menemukan konteks yang sesuai. Prinsip utama adalah menghubungkan konsep dengan pengalaman nyata siswa, baik secara langsung maupun melalui analogi dan model.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Bagaimana menilai pembelajaran dalam RME?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Penilaian dalam RME bersifat holistik dan berfokus pada:</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Proses berpikir siswa bukan hanya jawaban akhir</li>
+                            <li>Kemampuan memodelkan masalah nyata</li>
+                            <li>Kemampuan bernalar dan berargumentasi</li>
+                            <li>Pemahaman konseptual bukan hanya keterampilan prosedural</li>
+                        </ul>
+                        <p>Teknik penilaian dapat mencakup observasi, portofolio, penilaian kinerja, dan tes tertulis dengan masalah kontekstual.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Apakah RME efektif untuk siswa yang kesulitan matematika?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Banyak penelitian menunjukkan RME sangat membantu siswa yang kesulitan karena:</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Memulai dari konteks yang familiar mengurangi kecemasan</li>
+                            <li>Model visual dan konkret membantu pemahaman</li>
+                            <li>Proses bertahap memungkinkan siswa membangun pengetahuan secara progresif</li>
+                            <li>Interaksi sosial memberikan dukungan teman sebaya</li>
+                        </ul>
+                        <p>Namun, guru perlu memberikan scaffolding (dukungan belajar) yang tepat sesuai kebutuhan individu siswa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Tentang MathRME</h3>
+                <p>MathRME adalah platform pembelajaran matematika berbasis Realistic Mathematics Education yang menghubungkan konsep matematika dengan kehidupan nyata.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Sumber Belajar</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Modul Pembelajaran</a></li>
+                    <li><a href="#">Video Pembelajaran</a></li>
+                    <li><a href="#">Lembar Aktivitas</a></li>
+                    <li><a href="#">Bank Soal Kontekstual</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Kontak Kami</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Perjuangan By Pass Sunyaragi, Kota Cirebon, jawa Barat, Indonesia</p>
+                <p><i class="fas fa-phone"></i> +62 123 4567 890</p>
+                <p><i class="fas fa-envelope"></i> info@mathrme.id</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 MathRME - Realistic Mathematics Education. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+        // Fungsi navigasi tab
+        function openTab(evt, tabId) {
+            // Sembunyikan semua tab
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
+        
+            // Hapus class 'active' dari semua tombol
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => button.classList.remove('active'));
+        
+            // Tampilkan tab yang dipilih
+            document.getElementById(tabId).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+        
+        // FAQ Accordion
+        document.addEventListener('DOMContentLoaded', function () {
+            const faqItems = document.querySelectorAll('.faq-item');
+        
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+        
+                question.addEventListener('click', () => {
+                    // Tutup semua item lain
+                    faqItems.forEach(i => {
+                        if (i !== item) i.classList.remove('active');
+                    });
+        
+                    // Toggle item yang diklik
+                    item.classList.toggle('active');
+                });
+            });
+        });
+        </script>
+        
+</body>
+</html>

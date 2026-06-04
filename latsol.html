@@ -6,7 +6,6 @@
     <title>MathRME - Latihan Bilangan Bulat</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reset CSS */
         * {
             margin: 0;
             padding: 0;
@@ -14,7 +13,6 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Variabel Warna */
         :root {
             --primary-color: #4361ee;
             --secondary-color: #3a0ca3;
@@ -25,108 +23,105 @@
             --rme-blue: #4CC9F0;
             --correct-color: #4CAF50;
             --incorrect-color: #F44336;
+            --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 35px rgba(0, 0, 0, 0.12);
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e2f4ff 100%);
+            background: linear-gradient(145deg, #f4f9ff 0%, #e8f0fa 100%);
             color: var(--dark-color);
             line-height: 1.6;
+            min-height: 100vh;
         }
 
         /* Header */
         header {
-            background: linear-gradient(to right, var(--rme-orange), #FF5400);
+            background: linear-gradient(105deg, var(--rme-orange) 0%, #FF3D00 100%);
             color: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 0.8rem 2rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
             position: sticky;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(2px);
         }
 
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            gap: 10px;
         }
 
         .logo i {
-            margin-right: 10px;
-            color: white;
+            font-size: 1.8rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
         }
 
         .nav-links {
             display: flex;
             list-style: none;
             align-items: center;
+            gap: 1.2rem;
         }
 
         .nav-links li {
-            margin-left: 2rem;
             position: relative;
         }
 
         .nav-links a {
             color: white;
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
-            position: relative;
+            font-weight: 600;
+            padding: 0.5rem 0.8rem;
+            border-radius: 40px;
+            transition: var(--transition);
+            letter-spacing: 0.3px;
         }
 
         .nav-links a:hover {
-            color: var(--rme-blue);
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--rme-blue);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Dropdown styles */
+        /* Dropdown */
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: var(--rme-orange);
-            min-width: 160px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-            border-radius: 5px;
-            z-index: 1;
+            background: var(--rme-orange);
+            min-width: 170px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            z-index: 10;
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
+            margin-top: 10px;
+            backdrop-filter: blur(4px);
+            overflow: hidden;
         }
 
         .dropdown-content a {
-            color: white;
             padding: 12px 16px;
-            display: block;
             text-align: center;
-            transition: background-color 0.3s ease;
+            display: block;
+            font-weight: 500;
         }
 
         .dropdown-content a:hover {
-            background-color: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.3);
         }
 
         .dropdown:hover .dropdown-content {
@@ -134,31 +129,30 @@
         }
 
         .dropdown-toggle i {
-            margin-left: 5px;
-            font-size: 0.8em;
-            transition: transform 0.3s ease;
+            transition: transform 0.25s;
         }
 
         .dropdown:hover .dropdown-toggle i {
             transform: rotate(180deg);
         }
 
-        /* Mobile menu button */
         .mobile-menu-btn {
             display: none;
-            color: white;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             cursor: pointer;
         }
 
-        /* Quiz Container */
+        /* Main Container */
         .quiz-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 2rem auto;
-            padding: 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 2rem 2rem 2rem 2rem;
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 42px;
+            box-shadow: var(--shadow-lg);
+            backdrop-filter: blur(2px);
+            transition: var(--transition);
+            border: 1px solid rgba(255,125,0,0.15);
         }
 
         .quiz-header {
@@ -167,275 +161,319 @@
         }
 
         .quiz-header h1 {
-            font-size: 2.2rem;
-            color: var(--rme-orange);
+            font-size: 2.4rem;
+            background: linear-gradient(135deg, var(--rme-orange), #FF5400);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
             margin-bottom: 0.5rem;
-        }
-
-        .quiz-header p {
-            color: #6c757d;
+            font-weight: 800;
         }
 
         .progress-container {
-            width: 100%;
+            background: #eef2f7;
+            border-radius: 40px;
             height: 10px;
-            background-color: #f0f0f0;
-            border-radius: 5px;
-            margin: 1rem 0;
+            margin: 1.5rem 0;
             overflow: hidden;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
         }
 
         .progress-bar {
-            height: 100%;
-            background: linear-gradient(to right, var(--rme-orange), #FF5400);
+            background: linear-gradient(90deg, var(--rme-orange), #FF5400);
             width: 0%;
+            height: 100%;
+            border-radius: 40px;
             transition: width 0.5s ease;
+            box-shadow: 0 0 6px rgba(255,125,0,0.5);
         }
 
         /* Question Card */
         .question-card {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            border-radius: 10px;
-            background-color: #f8f9fa;
-            border-left: 5px solid var(--rme-blue);
-            transition: all 0.3s ease;
-            display: none; /* Semua soal awalnya disembunyikan */
+            background: white;
+            border-radius: 32px;
+            padding: 1.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: none;
         }
 
         .question-card.active {
-            display: block; /* Hanya soal aktif yang ditampilkan */
-            border-left: 5px solid var(--rme-orange);
-            background-color: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: block;
+            border-left: 8px solid var(--rme-orange);
+            box-shadow: var(--shadow-md);
+            transform: scale(1.01);
         }
 
         .question-text {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-            color: var(--secondary-color);
+            font-size: 1.3rem;
+            font-weight: 600;
+            background: linear-gradient(145deg, #1e2a3a, #0f1722);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 1.6rem;
+            padding-right: 0.5rem;
+            line-height: 1.5;
         }
 
         .options-container {
-            display: grid;
-            gap: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
         }
 
         .option {
-            padding: 1rem;
-            background-color: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
+            background: #ffffff;
+            border: 2px solid #e9ecef;
+            border-radius: 60px;
+            padding: 0.9rem 1.5rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             display: flex;
             align-items: center;
+            gap: 12px;
+            font-weight: 500;
         }
 
         .option:hover {
             border-color: var(--rme-blue);
-            transform: translateY(-2px);
+            background: #f9fcff;
+            transform: translateX(6px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
         .option input {
-            margin-right: 1rem;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--rme-orange);
+            cursor: pointer;
         }
 
         .option.correct {
-            background-color: rgba(76, 175, 80, 0.1);
+            background: rgba(76, 175, 80, 0.12);
             border-color: var(--correct-color);
-            color: var(--correct-color);
+            color: #2c6e2f;
         }
 
         .option.incorrect {
-            background-color: rgba(244, 67, 54, 0.1);
+            background: rgba(244, 67, 54, 0.08);
             border-color: var(--incorrect-color);
-            color: var(--incorrect-color);
+            color: #b91c1c;
         }
 
-        /* Navigation Buttons */
+        /* Navigation */
         .quiz-navigation {
             display: flex;
             justify-content: space-between;
+            gap: 1rem;
             margin-top: 2rem;
         }
 
         .nav-button {
-            padding: 0.8rem 1.5rem;
+            padding: 0.8rem 2rem;
             border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            font-weight: 700;
+            font-size: 1rem;
             border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .prev-button {
-            background-color: #f0f0f0;
-            color: var(--dark-color);
+            background: #eef2ff;
+            color: #1e293b;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
 
-        .prev-button:hover {
-            background-color: #e0e0e0;
+        .prev-button:hover:not(:disabled) {
+            background: #e2e8f0;
+            transform: translateX(-4px);
         }
 
-        .next-button {
-            background: linear-gradient(to right, var(--rme-orange), #FF5400);
+        .prev-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .next-button, #finish-button {
+            background: linear-gradient(100deg, var(--rme-orange), #FF5400);
             color: white;
-            box-shadow: 0 4px 15px rgba(255, 125, 0, 0.3);
+            box-shadow: 0 6px 14px rgba(255, 125, 0, 0.35);
         }
 
-        .next-button:hover {
+        .next-button:hover, #finish-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 125, 0, 0.4);
-            background: linear-gradient(to right, #FF5400, var(--rme-orange));
+            box-shadow: 0 12px 22px rgba(255, 125, 0, 0.4);
         }
 
-        /* Results Section */
+        /* Results */
         .results-container {
             display: none;
             text-align: center;
+            background: white;
+            border-radius: 42px;
             padding: 2rem;
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin-top: 2rem;
-        }
-
-        .results-container h2 {
-            font-size: 2rem;
-            color: var(--rme-orange);
-            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+            box-shadow: var(--shadow-lg);
         }
 
         .score-display {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--rme-blue);
-            margin: 1rem 0;
+            font-size: 3.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--rme-blue), #2b6ef0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin: 0.5rem 0;
         }
 
         .feedback-message {
-            margin-bottom: 2rem;
-            color: #6c757d;
+            font-size: 1.1rem;
+            margin: 1rem 0;
+        }
+
+        .results-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .restart-button, .back-button {
+            padding: 0.75rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
         }
 
         .restart-button {
-            background: linear-gradient(to right, var(--rme-blue), #4361ee);
+            background: linear-gradient(95deg, var(--rme-blue), #3a86ff);
             color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(76, 201, 240, 0.4);
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            display: inline-block;
-            margin-top: 1rem;
+            box-shadow: 0 4px 12px rgba(76,201,240,0.3);
         }
 
         .restart-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(76, 201, 240, 0.6);
-            background: linear-gradient(to right, #4361ee, var(--rme-blue));
+            filter: brightness(1.02);
         }
-/* Tambahkan di bagian CSS */
-.results-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
-    flex-wrap: wrap;
-}
 
-.back-button {
-    background: linear-gradient(to right, #6c757d, #495057);
-    color: white;
-    padding: 0.8rem 1.8rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
+        .back-button {
+            background: #475569;
+            color: white;
+        }
 
-.back-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(108, 117, 125, 0.4);
-    background: linear-gradient(to right, #495057, #6c757d);
-    color: white;
-    text-decoration: none;
-}
-.restart-button {
-    /* existing styles */
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
+        .back-button:hover {
+            background: #1e293b;
+            transform: translateY(-3px);
+        }
+
+        /* Modal */
+        .confirmation-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(3px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1100;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 36px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            animation: fadeScale 0.2s ease;
+            box-shadow: var(--shadow-lg);
+        }
+
+        @keyframes fadeScale {
+            from { opacity: 0; transform: scale(0.96); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .modal-button {
+            padding: 0.65rem 1.8rem;
+            border-radius: 40px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* Answer feedback inside results */
+        #answer-feedback h3 {
+            margin: 1rem 0 0.8rem;
+            color: var(--rme-orange);
+        }
+
+        .problem-card {
+            background: #f8fafc;
+            border-radius: 24px;
+            padding: 1rem;
+            text-align: left;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--rme-blue);
+        }
+
         /* Footer */
         footer {
-            background: linear-gradient(to right, #2b2d42, #1a1a2e);
-            color: white;
+            background: linear-gradient(110deg, #1a2a3a, #0f1a24);
+            color: #f1f5f9;
             padding: 3rem 2rem 1rem;
-            margin-top: 3rem;
+            margin-top: 4rem;
+            border-radius: 32px 32px 0 0;
         }
 
         .footer-content {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin-bottom: 2rem;
         }
 
         .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
             position: relative;
             padding-bottom: 10px;
+            margin-bottom: 1rem;
         }
 
         .footer-column h3::after {
             content: '';
+            width: 50px;
+            height: 3px;
+            background: var(--rme-blue);
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--rme-blue);
-        }
-
-        .footer-column p {
-            margin-bottom: 1rem;
-            color: #adb5bd;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: #adb5bd;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--rme-blue);
-            padding-left: 5px;
+            border-radius: 5px;
         }
 
         .social-links {
@@ -445,780 +483,241 @@
         }
 
         .social-links a {
+            background: rgba(255,255,255,0.1);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         .social-links a:hover {
-            background-color: var(--rme-orange);
+            background: var(--rme-orange);
             transform: translateY(-3px);
         }
 
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #adb5bd;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
             .quiz-container {
-                padding: 1.5rem;
                 margin: 1rem;
+                padding: 1.2rem;
             }
-            
-            .quiz-header h1 {
-                font-size: 1.8rem;
-            }
-            
-            .question-text {
-                font-size: 1.1rem;
-            }
-            
             .nav-links {
                 display: none;
             }
-            
             .mobile-menu-btn {
                 display: block;
+            }
+            .question-text {
+                font-size: 1.1rem;
+            }
+            .option {
+                padding: 0.7rem 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <i class="fas fa-chalkboard-teacher"></i>
-                <span>MathRME</span>
-            </div>
-            
-            <ul class="nav-links">
-                <li><a href="index.html">Beranda</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" id="dropdown-toggle">Materi <i class="fas fa-chevron-down"></i></a>
-                    <div class="dropdown-content" id="dropdown-content">
-                        <a href="cp.html">CP ATP</a>
-                        <a href="petakonsep.html">Peta Konsep</a>
-                    </div>
-                <li><a href="tentangrme.html">Tentang RME</a></li>
-            </ul>
-            
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
-    </header>
 
-    <!-- Quiz Container -->
-    <div class="quiz-container">
-        <div class="quiz-header">
-            <h1><i class="fas fa-calculator"></i> Latihan Bilangan Bulat</h1>
-            <p>Uji pemahamanmu tentang garis bilangan, operasi hitung, KPK dan FPB dalam konteks nyata</p>
-        </div>
-        
-        <div class="progress-container">
-            <div class="progress-bar" id="progress-bar"></div>
-        </div>
-        
-        <!-- Question 1 -->
-        <div class="question-card active" id="question-1">
-            <div class="question-text">
-                1. Suhu di puncak gunung pagi ini -5°C. Siang hari naik 8°C, dan malam hari turun 3°C. Berapa suhu sekarang?
-            </div>
-            <div class="options-container">
-                <label class="option">
-                    <input type="radio" name="q1" value="A"> A. 0°C
-                </label>
-                <label class="option">
-                    <input type="radio" name="q1" value="B"> B. 6°C
-                </label>
-                <label class="option">
-                    <input type="radio" name="q1" value="C"> C. 10°C
-                </label>
-                <label class="option">
-                    <input type="radio" name="q1" value="D"> D. 16°C
-                </label>
-            </div>
-        </div>
-        
-        <!-- Question 2 -->
-        <div class="question-card" id="question-2">
-            <div class="question-text">
-                2. Sebuah lift berada di lantai 8, kemudian turun 3 lantai, lalu naik 5 lantai. Di lantai berapa lift sekarang?
-            </div>
-            <div class="options-container">
-                <label class="option">
-                    <input type="radio" name="q2" value="A"> A. Lantai 1
-                </label>
-                <label class="option">
-                    <input type="radio" name="q2" value="B"> B. Lantai 2
-                </label>
-                <label class="option">
-                    <input type="radio" name="q2" value="C"> C. Lantai 10
-                </label>
-                <label class="option">
-                    <input type="radio" name="q2" value="D"> D. Lantai 25
-                </label>
-            </div>
-        </div>
-        
-        <!-- Question 3 -->
-        <div class="question-card" id="question-3">
-            <div class="question-text">
-                3. Ibu membeli 3 kg jeruk dengan harga Rp12.000/kg, 2 kg apel dengan harga Rp15.000/kg, dan 1 kg anggur dengan harga Rp25.000/kg. Jika ibu membayar dengan uang Rp100.000, berapa kembaliannya?
-            </div>
-            <div class="options-container">
-                <label class="option">
-                    <input type="radio" name="q3" value="A"> A. Rp9.000
-                </label>
-                <label class="option">
-                    <input type="radio" name="q3" value="B"> B. Rp11.000
-                </label>
-                <label class="option">
-                    <input type="radio" name="q3" value="C"> C. Rp13.000
-                </label>
-                <label class="option">
-                    <input type="radio" name="q3" value="D"> D. Rp15.000
-                </label>
-            </div>
-        </div>
-        
-        <!-- Question 4 -->
-        <div class="question-card" id="question-4">
-            <div class="question-text">
-                4. Sebuah kapal selam berada 120 m di bawah permukaan laut, kemudian naik 45 m, lalu turun lagi 30 m. Posisi kapal selam sekarang adalah...
-            </div>
-            <div class="options-container">
-                <label class="option">
-                    <input type="radio" name="q4" value="A"> A. 75 m di bawah permukaan laut
-                </label>
-                <label class="option">
-                    <input type="radio" name="q4" value="B"> B. 105 m di bawah permukaan laut
-                </label>
-                <label class="option">
-                    <input type="radio" name="q4" value="C"> C. 135 m di bawah permukaan laut
-                </label>
-                <label class="option">
-                    <input type="radio" name="q4" value="D"> D. 195 m di bawah permukaan laut
-                </label>
-            </div>
-        </div>
-        
-        <!-- Question 5 -->
-        <div class="question-card" id="question-5">
-            <div class="question-text">
-                5. Andi mempunyai hutang Rp25.000 kepada Budi. Kemudian Andi membayar Rp15.000, dan meminjam lagi Rp10.000. Berapa hutang Andi sekarang?
-            </div>
-            <div class="options-container">
-                <label class="option">
-                    <input type="radio" name="q5" value="A"> A. Rp10.000
-                </label>
-                <label class="option">
-                    <input type="radio" name="q5" value="B"> B. Rp20.000
-                </label>
-                <label class="option">
-                    <input type="radio" name="q5" value="C"> C. Rp30.000
-                </label>
-                <label class="option">
-                    <input type="radio" name="q5" value="D"> D. Rp50.000
-                </label>
-            </div>
-        </div>
-        
-        <!-- Question 6 -->
-        <div class="question-card" id="question-6">
-            <div class="question-text">
-                6. Lampu A menyala setiap 6 detik, lampu B setiap 8 detik. Jika keduanya menyala bersama pada detik ke-0, pada detik keberapakah mereka akan menyala bersama lagi?
-            </div>
-            <div class="options-container">
-                <label class="option">
-                    <input type="radio" name="q6" value="A"> A. 12
-                </label>
-                <label class="option">
-                    <input type="radio" name="q6" value="B"> B. 24
-                </label>
-                <label class="option">
-                    <input type="radio" name="q6" value="C"> C. 36
-                </label>
-                <label class="option">
-                    <input type="radio" name="q6" value="D"> D. 48
-                </label>
-            </div>
-        </div>
-        
-        <!-- Question 7 -->
-        <div class="question-card" id="question-7">
-            <div class="question-text">
-                7. Sebuah kelas akan dibagi menjadi beberapa kelompok dengan jumlah anggota sama banyak. Jika ada 24 siswa perempuan dan 36 siswa laki-laki, berapa jumlah anggota terbanyak yang mungkin dalam satu kelompok?
-            </div>
-            <div class="options-container">
-                <label class="option">
-                    <input type="radio" name="q7" value="A"> A. 6
-                </label>
-                <label class="option">
-                    <input type="radio" name="q7" value="B"> B. 8
-                </label>
-                <label class="option">
-                    <input type="radio" name="q7" value="C"> C. 12
-                </label>
-                <label class="option">
-                    <input type="radio" name="q7" value="D"> D. 24
-                </label>
-            </div>
-        </div>
-        
-        <!-- Question 8 -->
-        <div class="question-card" id="question-8">
-            <div class="question-text">
-                8. Sebuah toko memberikan diskon 20% + 15% untuk sebuah barang yang harga normalnya Rp200.000. Berapa harga setelah diskon?
-            </div>
-            <div class="options-container">
-                <label class="option">
-                    <input type="radio" name="q8" value="A"> A. Rp136.000
-                </label>
-                <label class="option">
-                    <input type="radio" name="q8" value="B"> B. Rp140.000
-                </label>
-                <label class="option">
-                    <input type="radio" name="q8" value="C"> C. Rp144.000
-                </label>
-                <label class="option">
-                    <input type="radio" name="q8" value="D"> D. Rp148.000
-                </label>
-            </div>
-        </div>
-        
-        <!-- Question 9 -->
-        <div class="question-card" id="question-9">
-            <div class="question-text">
-                9. Pada garis bilangan, titik A berada 5 satuan di kiri 0, dan titik B berada 7 satuan di kanan A. Dimana posisi titik B?
-            </div>
-            <div class="options-container">
-                <label class="option">
-                    <input type="radio" name="q9" value="A"> A. -12
-                </label>
-                <label class="option">
-                    <input type="radio" name="q9" value="B"> B. -2
-                </label>
-                <label class="option">
-                    <input type="radio" name="q9" value="C"> C. 2
-                </label>
-                <label class="option">
-                    <input type="radio" name="q9" value="D"> D. 12
-                </label>
-            </div>
-        </div>
-        
-        <!-- Question 10 -->
-        <div class="question-card" id="question-10">
-            <div class="question-text">
-                10. Sebuah bus berangkat dari terminal setiap 30 menit, sedangkan bus lain setiap 45 menit. Jika mereka berangkat bersama pada pukul 06.00, pukul berapa mereka akan berangkat bersama lagi?
-            </div>
-            <div class="options-container">
-                <label class="option">
-                    <input type="radio" name="q10" value="A"> A. 07.30
-                </label>
-                <label class="option">
-                    <input type="radio" name="q10" value="B"> B. 08.00
-                </label>
-                <label class="option">
-                    <input type="radio" name="q10" value="C"> C. 08.30
-                </label>
-                <label class="option">
-                    <input type="radio" name="q10" value="D"> D. 09.00
-                </label>
-            </div>
-        </div>
-        
-       <!-- Navigation Buttons -->
-<div class="quiz-navigation">
-    <button class="nav-button prev-button" id="prev-button" disabled>
-        <i class="fas fa-arrow-left"></i> Sebelumnya
-    </button>
-    <button class="nav-button next-button" id="next-button">
-        Selanjutnya <i class="fas fa-arrow-right"></i>
-    </button>
-    <button class="nav-button next-button" id="finish-button" style="display: none;">
-        Selesai <i class="fas fa-check"></i>
-    </button>
+<header>
+    <nav class="navbar">
+        <div class="logo"><i class="fas fa-chalkboard-teacher"></i><span>MathRME</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Materi <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="cp.html">CP ATP</a>
+                    <a href="petakonsep.html">Peta Konsep</a>
+                </div>
+            </li>
+            <li><a href="tentangrme.html">Tentang RME</a></li>
+        </ul>
+        <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+    </nav>
+</header>
+
+<div class="quiz-container">
+    <div class="quiz-header">
+        <h1><i class="fas fa-calculator"></i> Latihan Bilangan Bulat</h1>
+        <p>Garis bilangan, operasi hitung, KPK & FPB dalam konteks nyata</p>
+    </div>
+    <div class="progress-container"><div class="progress-bar" id="progress-bar"></div></div>
+
+    <!-- soal 1 - 10 (tetap asli) -->
+    <div class="question-card active" id="question-1"><div class="question-text">1. Suhu di puncak gunung pagi ini -5°C. Siang hari naik 8°C, dan malam hari turun 3°C. Berapa suhu sekarang?</div><div class="options-container"><label class="option"><input type="radio" name="q1" value="A"> A. 0°C</label><label class="option"><input type="radio" name="q1" value="B"> B. 6°C</label><label class="option"><input type="radio" name="q1" value="C"> C. 10°C</label><label class="option"><input type="radio" name="q1" value="D"> D. 16°C</label></div></div>
+    <div class="question-card" id="question-2"><div class="question-text">2. Sebuah lift berada di lantai 8, kemudian turun 3 lantai, lalu naik 5 lantai. Di lantai berapa lift sekarang?</div><div class="options-container"><label class="option"><input type="radio" name="q2" value="A"> A. Lantai 1</label><label class="option"><input type="radio" name="q2" value="B"> B. Lantai 2</label><label class="option"><input type="radio" name="q2" value="C"> C. Lantai 10</label><label class="option"><input type="radio" name="q2" value="D"> D. Lantai 25</label></div></div>
+    <div class="question-card" id="question-3"><div class="question-text">3. Ibu membeli 3 kg jeruk dengan harga Rp12.000/kg, 2 kg apel dengan harga Rp15.000/kg, dan 1 kg anggur dengan harga Rp25.000/kg. Jika ibu membayar dengan uang Rp100.000, berapa kembaliannya?</div><div class="options-container"><label class="option"><input type="radio" name="q3" value="A"> A. Rp9.000</label><label class="option"><input type="radio" name="q3" value="B"> B. Rp11.000</label><label class="option"><input type="radio" name="q3" value="C"> C. Rp13.000</label><label class="option"><input type="radio" name="q3" value="D"> D. Rp15.000</label></div></div>
+    <div class="question-card" id="question-4"><div class="question-text">4. Sebuah kapal selam berada 120 m di bawah permukaan laut, kemudian naik 45 m, lalu turun lagi 30 m. Posisi kapal selam sekarang adalah...</div><div class="options-container"><label class="option"><input type="radio" name="q4" value="A"> A. 75 m di bawah permukaan laut</label><label class="option"><input type="radio" name="q4" value="B"> B. 105 m di bawah permukaan laut</label><label class="option"><input type="radio" name="q4" value="C"> C. 135 m di bawah permukaan laut</label><label class="option"><input type="radio" name="q4" value="D"> D. 195 m di bawah permukaan laut</label></div></div>
+    <div class="question-card" id="question-5"><div class="question-text">5. Andi mempunyai hutang Rp25.000 kepada Budi. Kemudian Andi membayar Rp15.000, dan meminjam lagi Rp10.000. Berapa hutang Andi sekarang?</div><div class="options-container"><label class="option"><input type="radio" name="q5" value="A"> A. Rp10.000</label><label class="option"><input type="radio" name="q5" value="B"> B. Rp20.000</label><label class="option"><input type="radio" name="q5" value="C"> C. Rp30.000</label><label class="option"><input type="radio" name="q5" value="D"> D. Rp50.000</label></div></div>
+    <div class="question-card" id="question-6"><div class="question-text">6. Lampu A menyala setiap 6 detik, lampu B setiap 8 detik. Jika keduanya menyala bersama pada detik ke-0, pada detik keberapakah mereka akan menyala bersama lagi?</div><div class="options-container"><label class="option"><input type="radio" name="q6" value="A"> A. 12</label><label class="option"><input type="radio" name="q6" value="B"> B. 24</label><label class="option"><input type="radio" name="q6" value="C"> C. 36</label><label class="option"><input type="radio" name="q6" value="D"> D. 48</label></div></div>
+    <div class="question-card" id="question-7"><div class="question-text">7. Sebuah kelas akan dibagi menjadi beberapa kelompok dengan jumlah anggota sama banyak. Jika ada 24 siswa perempuan dan 36 siswa laki-laki, berapa jumlah anggota terbanyak yang mungkin dalam satu kelompok?</div><div class="options-container"><label class="option"><input type="radio" name="q7" value="A"> A. 6</label><label class="option"><input type="radio" name="q7" value="B"> B. 8</label><label class="option"><input type="radio" name="q7" value="C"> C. 12</label><label class="option"><input type="radio" name="q7" value="D"> D. 24</label></div></div>
+    <div class="question-card" id="question-8"><div class="question-text">8. Sebuah toko memberikan diskon 20% + 15% untuk sebuah barang yang harga normalnya Rp200.000. Berapa harga setelah diskon?</div><div class="options-container"><label class="option"><input type="radio" name="q8" value="A"> A. Rp136.000</label><label class="option"><input type="radio" name="q8" value="B"> B. Rp140.000</label><label class="option"><input type="radio" name="q8" value="C"> C. Rp144.000</label><label class="option"><input type="radio" name="q8" value="D"> D. Rp148.000</label></div></div>
+    <div class="question-card" id="question-9"><div class="question-text">9. Pada garis bilangan, titik A berada 5 satuan di kiri 0, dan titik B berada 7 satuan di kanan A. Dimana posisi titik B?</div><div class="options-container"><label class="option"><input type="radio" name="q9" value="A"> A. -12</label><label class="option"><input type="radio" name="q9" value="B"> B. -2</label><label class="option"><input type="radio" name="q9" value="C"> C. 2</label><label class="option"><input type="radio" name="q9" value="D"> D. 12</label></div></div>
+    <div class="question-card" id="question-10"><div class="question-text">10. Sebuah bus berangkat dari terminal setiap 30 menit, sedangkan bus lain setiap 45 menit. Jika mereka berangkat bersama pada pukul 06.00, pukul berapa mereka akan berangkat bersama lagi?</div><div class="options-container"><label class="option"><input type="radio" name="q10" value="A"> A. 07.30</label><label class="option"><input type="radio" name="q10" value="B"> B. 08.00</label><label class="option"><input type="radio" name="q10" value="C"> C. 08.30</label><label class="option"><input type="radio" name="q10" value="D"> D. 09.00</label></div></div>
+
+    <div class="quiz-navigation">
+        <button class="nav-button prev-button" id="prev-button" disabled><i class="fas fa-arrow-left"></i> Sebelumnya</button>
+        <button class="nav-button next-button" id="next-button">Selanjutnya <i class="fas fa-arrow-right"></i></button>
+        <button class="nav-button next-button" id="finish-button" style="display: none;">Selesai <i class="fas fa-check"></i></button>
+    </div>
 </div>
 
-<!-- Confirmation Modal -->
 <div class="confirmation-modal" id="confirmation-modal" style="display: none;">
     <div class="modal-content">
-        <h3><i class="fas fa-question-circle" style="color: var(--rme-orange);"></i> Konfirmasi</h3>
-        <p style="color: var(--dark-color);">Apakah Anda yakin ingin menyelesaikan latihan?</p>
+        <h3><i class="fas fa-question-circle"></i> Konfirmasi</h3>
+        <p>Apakah Anda yakin ingin menyelesaikan latihan?</p>
         <div class="modal-buttons">
-            <button class="modal-button confirm-button" id="confirm-yes" style="background: linear-gradient(to right, var(--rme-orange), #FF5400);">Ya</button>
-            <button class="modal-button confirm-button" id="confirm-no" style="background: #f0f0f0; color: var(--dark-color);">Tidak</button>
+            <button class="modal-button" id="confirm-yes" style="background: linear-gradient(100deg,var(--rme-orange),#FF5400); color:white;">Ya</button>
+            <button class="modal-button" id="confirm-no" style="background:#f1f5f9;">Tidak</button>
         </div>
     </div>
 </div>
 
-<style>
-    /* Confirmation Modal Styles - Updated to match your design */
-    .confirmation-modal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: none; /* Changed from flex to none */
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-    }
-    
-    .modal-content {
-        background-color: white;
-        padding: 2rem;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        max-width: 400px;
-        width: 90%;
-        text-align: center;
-        animation: modalFadeIn 0.3s ease;
-    }
-    
-    @keyframes modalFadeIn {
-        from { opacity: 0; transform: translateY(-20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .modal-content h3 {
-        color: var(--rme-orange);
-        margin-bottom: 1rem;
-        font-size: 1.5rem;
-    }
-    
-    .modal-content p {
-        margin-bottom: 1.5rem;
-        color: var(--dark-color);
-        font-size: 1.1rem;
-    }
-    
-    .modal-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 1.5rem;
-    }
-    
-    .modal-button {
-        padding: 0.8rem 1.8rem;
-        border-radius: 50px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        border: none;
-        font-size: 1rem;
-    }
-    
-    #confirm-yes {
-        background: linear-gradient(to right, var(--rme-orange), #FF5400);
-        color: white;
-        box-shadow: 0 4px 15px rgba(255, 125, 0, 0.3);
-    }
-    
-    #confirm-yes:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(255, 125, 0, 0.4);
-        background: linear-gradient(to right, #FF5400, var(--rme-orange));
-    }
-    
-    #confirm-no {
-        background: #f0f0f0;
-        color: var(--dark-color);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    
-    #confirm-no:hover {
-        background: #e0e0e0;
-        transform: translateY(-3px);
-    }
-</style>
-
-<script>
-    // Quiz Variables
-const confirmationModal = document.getElementById('confirmation-modal');
-const confirmYes = document.getElementById('confirm-yes'); // Fixed typo from 'confirm-yes' to 'confirm-yes'
-const confirmNo = document.getElementById('confirm-no');
-const finishbutton = document.getElementById('finish-button');
-
-// Function to check if all questions are answered
-function checkAllQuestionsAnswered() {
-    for (let i = 1; i <= totalQuestions; i++) {
-        if (!isAnswerSelected(i)) {
-            return false;
-        }
-    }
-    return true;
-}
-
-// Finish Button Event Listener with Confirmation
-finishButton.addEventListener('click', function() {
-    // Check if all questions are answered using the helper function
-    if (checkAllQuestionsAnswered()) {
-        // Show confirmation modal
-        confirmationModal.style.display = 'flex';
-    } else {
-        // Show alert with more helpful information
-        const unansweredCount = Array.from({length: totalQuestions}, (_, i) => i + 1)
-                               .filter(q => !isAnswerSelected(q)).length;
-        alert(`Anda belum menjawab ${unansweredCount} soal! Silakan lengkapi terlebih dahulu.`);
-    }
-});
-
-// Confirm Yes - Proceed to results
-confirmYes.addEventListener('click', function() {
-    confirmationModal.style.display = 'none';
-    saveAnswer(currentQuestion);
-    highlightAnswers();
-    showResults();
-});
-
-// Confirm No - Return to quiz
-confirmNo.addEventListener('click', function() {
-    confirmationModal.style.display = 'none';
-});
-
-// Close modal when clicking outside
-confirmationModal.addEventListener('click', function(e) {
-    if (e.target === confirmationModal) {
-        confirmationModal.style.display = 'none';
-    }
-});
-        
-        if (allAnswered) {
-            // Show confirmation modal
-            confirmationModal.style.display = 'flex';
-        } else {
-            alert('Anda belum menjawab semua soal! Silakan lengkapi terlebih dahulu.');
-        }
-    ;
-    
-    // Confirm Yes - Proceed to results
-    confirmYes.addEventListener('click', function() {
-        confirmationModal.style.display = 'none';
-        saveAnswer(currentQuestion);
-        highlightAnswers();
-        showResults();
-    });
-    
-    // Confirm No - Return to quiz
-    confirmNo.addEventListener('click', function() {
-        confirmationModal.style.display = 'none';
-    });
-    
-    // Close modal when clicking outside
-    confirmationModal.addEventListener('click', function(e) {
-        if (e.target === confirmationModal) {
-            confirmationModal.style.display = 'none';
-        }
-    });
-</script>
-        
-        <!-- Results Section -->
- <div class="results-container" id="results-container">
+<div class="results-container" id="results-container">
     <h2>Hasil Latihan</h2>
     <div class="score-display" id="score-display">0/10</div>
     <p class="feedback-message" id="feedback-message"></p>
     <div id="answer-feedback"></div>
     <div class="results-buttons">
-        <a href="open1.html" class="back-button">
-            <i class="fas fa-arrow-left"></i> Kembali
-        </a>
-        <button class="restart-button" id="restart-button">
-            <i class="fas fa-redo"></i> Ulangi Latihan
-        </button>
+        <a href="open1.html" class="back-button"><i class="fas fa-arrow-left"></i> Kembali</a>
+        <button class="restart-button" id="restart-button"><i class="fas fa-redo"></i> Ulangi Latihan</button>
     </div>
 </div>
-</div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>Tentang MathRME</h3>
-                <p>MathRME adalah platform pembelajaran matematika berbasis Realistic Mathematics Education yang menghubungkan konsep matematika dengan kehidupan nyata.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="footer-column">
-                <h3>Konteks Pembelajaran</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Keuangan</a></li>
-                    <li><a href="#">Kuliner</a></li>
-                    <li><a href="#">Olahraga</a></li>
-                    <li><a href="#">Seni & Desain</a></li>
-                    <li><a href="#">Lingkungan</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Kontak Kami</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Jl. Perjuangan By Pass Sunyaragi, Kota Cirebon, jawa Barat, Indonesia</p>
-                <p><i class="fas fa-phone"></i> +62 123 4567 890</p>
-                <p><i class="fas fa-envelope"></i> info@mathrme.id</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 MathRME - Realistic Mathematics Education. All Rights Reserved.</p>
-        </div>
-    </footer>
+<footer>
+    <div class="footer-content">
+        <div class="footer-column"><h3>Tentang MathRME</h3><p>Platform RME menghubungkan matematika dengan kehidupan nyata.</p><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div>
+        <div class="footer-column"><h3>Konteks Pembelajaran</h3><ul class="footer-links"><li>Keuangan</li><li>Kuliner</li><li>Olahraga</li><li>Seni & Desain</li></ul></div>
+        <div class="footer-column"><h3>Kontak Kami</h3><p><i class="fas fa-map-marker-alt"></i> Jl. Perjuangan By Pass, Cirebon</p><p><i class="fas fa-phone"></i> +62 123 4567 890</p><p><i class="fas fa-envelope"></i> info@mathrme.id</p></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2025 MathRME - Realistic Mathematics Education.</p></div>
+</footer>
 
-    <script>
-        // Quiz Variables
-        const totalQuestions = 10;
-        let currentQuestion = 1;
-        const userAnswers = Array(totalQuestions).fill(null);
-        
-        // Correct Answers
-        const correctAnswers = {
-            q1: "A",
-            q2: "C",
-            q3: "A",
-            q4: "B",
-            q5: "B",
-            q6: "B",
-            q7: "C",
-            q8: "A",
-            q9: "C",
-            q10: "D"
-        };
-        
-        // DOM Elements
-        const progressBar = document.getElementById('progress-bar');
-        const prevButton = document.getElementById('prev-button');
-        const nextButton = document.getElementById('next-button');
-        const finishButton = document.getElementById('finish-button');
-        const resultsContainer = document.getElementById('results-container');
-        const scoreDisplay = document.getElementById('score-display');
-        const feedbackMessage = document.getElementById('feedback-message');
-        const answerFeedback = document.getElementById('answer-feedback');
-        const restartButton = document.getElementById('restart-button');
-        const dropdownToggle = document.getElementById('dropdown-toggle');
-        const dropdownContent = document.getElementById('dropdown-content');
-        
-        // Initialize - Hide all questions except first
-        document.querySelectorAll('.question-card').forEach((card, index) => {
-            if (index !== 0) {
-                card.style.display = 'none';
-            }
-        });
-        
-        // Update Progress Bar
-        function updateProgress() {
-            const progress = (currentQuestion / totalQuestions) * 100;
-            progressBar.style.width = `${progress}%`;
-            
-            // Show/hide finish button
-            if (currentQuestion === totalQuestions) {
-                nextButton.style.display = 'none';
-                finishButton.style.display = 'block';
-            } else {
-                nextButton.style.display = 'block';
-                finishButton.style.display = 'none';
-            }
-            
-            // Disable prev button on first question
-            prevButton.disabled = currentQuestion === 1;
-        }
-        
-        // Navigate to Question
-        function goToQuestion(questionNumber) {
-            // Hide current question
-            document.getElementById(`question-${currentQuestion}`).classList.remove('active');
-            document.getElementById(`question-${currentQuestion}`).style.display = 'none';
-            
-            // Update current question
-            currentQuestion = questionNumber;
-            
-            // Show new question
-            document.getElementById(`question-${currentQuestion}`).style.display = 'block';
-            document.getElementById(`question-${currentQuestion}`).classList.add('active');
-            
-            // Update progress
-            updateProgress();
-            
-            // Scroll to top of question
-            window.scrollTo({
-                top: document.getElementById(`question-${currentQuestion}`).offsetTop - 100,
-                behavior: 'smooth'
+<script>
+    const totalQuestions = 10;
+    let currentQuestion = 1;
+    let userAnswers = Array(totalQuestions).fill(null);
+    const correctAnswers = { q1:"A", q2:"C", q3:"A", q4:"B", q5:"B", q6:"B", q7:"C", q8:"A", q9:"C", q10:"D" };
+
+    const progressBar = document.getElementById('progress-bar');
+    const prevBtn = document.getElementById('prev-button');
+    const nextBtn = document.getElementById('next-button');
+    const finishBtn = document.getElementById('finish-button');
+    const resultsDiv = document.getElementById('results-container');
+    const restartBtn = document.getElementById('restart-button');
+    const confirmModal = document.getElementById('confirmation-modal');
+    const confirmYes = document.getElementById('confirm-yes');
+    const confirmNo = document.getElementById('confirm-no');
+
+    function updateProgress() {
+        const percent = (currentQuestion / totalQuestions) * 100;
+        progressBar.style.width = `${percent}%`;
+        if (currentQuestion === totalQuestions) { nextBtn.style.display = 'none'; finishBtn.style.display = 'block'; }
+        else { nextBtn.style.display = 'block'; finishBtn.style.display = 'none'; }
+        prevBtn.disabled = (currentQuestion === 1);
+    }
+
+    function goToQuestion(qNum) {
+        document.getElementById(`question-${currentQuestion}`).classList.remove('active');
+        document.getElementById(`question-${currentQuestion}`).style.display = 'none';
+        currentQuestion = qNum;
+        const newCard = document.getElementById(`question-${currentQuestion}`);
+        newCard.style.display = 'block';
+        newCard.classList.add('active');
+        updateProgress();
+        window.scrollTo({ top: newCard.offsetTop - 90, behavior: 'smooth' });
+    }
+
+    function saveCurrentAnswer() {
+        const selected = document.querySelector(`input[name="q${currentQuestion}"]:checked`);
+        if (selected) userAnswers[currentQuestion-1] = selected.value;
+    }
+
+    function isAnswered(qNum) {
+        return document.querySelector(`input[name="q${qNum}"]:checked`) !== null;
+    }
+
+    function allQuestionsAnswered() {
+        for (let i=1; i<=totalQuestions; i++) if (!isAnswered(i)) return false;
+        return true;
+    }
+
+    function highlightAnswers() {
+        for (let i=1;i<=totalQuestions;i++) {
+            const opts = document.querySelectorAll(`#question-${i} .option`);
+            opts.forEach(opt => {
+                const val = opt.querySelector('input').value;
+                if (val === correctAnswers[`q${i}`]) opt.classList.add('correct');
+                else if (opt.querySelector('input').checked && val !== correctAnswers[`q${i}`]) opt.classList.add('incorrect');
             });
         }
-        
-        // Save Answer
-        function saveAnswer(questionNumber) {
-            const selectedOption = document.querySelector(`input[name="q${questionNumber}"]:checked`);
-            if (selectedOption) {
-                userAnswers[questionNumber - 1] = selectedOption.value;
+    }
+
+    function calculateScore() {
+        let score=0;
+        for(let i=0;i<totalQuestions;i++) if(userAnswers[i] === correctAnswers[`q${i+1}`]) score++;
+        return score;
+    }
+
+    function showResults() {
+        const score = calculateScore();
+        const percent = (score/totalQuestions)*100;
+        document.getElementById('score-display').innerText = `${score}/${totalQuestions}`;
+        let msg = "";
+        if(percent>=80) msg="Luar biasa! Kamu sangat menguasai materi bilangan bulat.";
+        else if(percent>=60) msg="Bagus! Masih perlu sedikit latihan lagi.";
+        else if(percent>=40) msg="Cukup baik. Pelajari kembali materi yang kurang.";
+        else msg="Jangan menyerah! Pelajari lagi dan coba lagi.";
+        document.getElementById('feedback-message').innerText = msg;
+        const feedbackDiv = document.getElementById('answer-feedback');
+        feedbackDiv.innerHTML = "<h3>📘 Pembahasan:</h3>";
+        for(let i=1;i<=totalQuestions;i++) {
+            if(userAnswers[i-1] !== correctAnswers[`q${i}`]) {
+                const qText = document.querySelector(`#question-${i} .question-text`).innerText;
+                feedbackDiv.innerHTML += `<div class="problem-card"><strong>Soal ${i}:</strong> ${qText}<br>✔ Jawaban benar: ${correctAnswers[`q${i}`]}<br>✖ Jawaban kamu: ${userAnswers[i-1] || 'Tidak diisi'}</div>`;
             }
         }
-        
-        // Check if answer is selected
-        function isAnswerSelected(questionNumber) {
-            return document.querySelector(`input[name="q${questionNumber}"]:checked`) !== null;
+        if(feedbackDiv.innerHTML === "<h3>📘 Pembahasan:</h3>") feedbackDiv.innerHTML += "<p style='padding:0.5rem'>✨ Semua jawaban benar! Hebat!</p>";
+        document.querySelector('.quiz-container .quiz-navigation').style.display = 'none';
+        document.querySelectorAll('.question-card').forEach(c => c.style.display = 'none');
+        resultsDiv.style.display = 'block';
+        window.scrollTo({ top: resultsDiv.offsetTop - 40, behavior: 'smooth' });
+    }
+
+    function resetQuiz() {
+        currentQuestion = 1;
+        userAnswers.fill(null);
+        document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+        document.querySelectorAll('.option').forEach(o => o.classList.remove('correct','incorrect'));
+        for(let i=1;i<=totalQuestions;i++) {
+            let card = document.getElementById(`question-${i}`);
+            card.style.display = (i===1 ? 'block' : 'none');
+            if(i===1) card.classList.add('active'); else card.classList.remove('active');
         }
-        
-        // Calculate Score
-        function calculateScore() {
-            let score = 0;
-            for (let i = 0; i < totalQuestions; i++) {
-                const questionNumber = i + 1;
-                if (userAnswers[i] === correctAnswers[`q${questionNumber}`]) {
-                    score++;
-                }
-            }
-            return score;
-        }
-        
-        // Show Results
-        function showResults() {
-            const score = calculateScore();
-            const percentage = (score / totalQuestions) * 100;
-            
-            // Display score
-            scoreDisplay.textContent = `${score}/${totalQuestions}`;
-            
-            // Display feedback message
-            if (percentage >= 80) {
-                feedbackMessage.textContent = "Luar biasa! Kamu sangat menguasai materi bilangan bulat.";
-            } else if (percentage >= 60) {
-                feedbackMessage.textContent = "Bagus! Kamu sudah paham, tapi masih perlu sedikit latihan lagi.";
-            } else if (percentage >= 40) {
-                feedbackMessage.textContent = "Cukup baik. Coba pelajari lagi materi yang masih kurang dipahami.";
-            } else {
-                feedbackMessage.textContent = "Jangan menyerah! Pelajari lagi materinya dan coba lagi.";
-            }
-            
-            // Show incorrect answers
-            answerFeedback.innerHTML = "<h3>Pembahasan:</h3>";
-            for (let i = 0; i < totalQuestions; i++) {
-                const questionNumber = i + 1;
-                const isCorrect = userAnswers[i] === correctAnswers[`q${questionNumber}`];
-                
-                if (!isCorrect) {
-                    const questionText = document.querySelector(`#question-${questionNumber} .question-text`).textContent;
-                    answerFeedback.innerHTML += `
-                        <div class="problem-card" style="margin-bottom: 1rem;">
-                            <h4>Soal ${questionNumber}: ${questionText}</h4>
-                            <p>Jawaban kamu: ${userAnswers[i] || 'Tidak diisi'}</p>
-                            <p>Jawaban benar: ${correctAnswers[`q${questionNumber}`]}</p>
-                        </div>
-                    `;
-                }
-            }
-            
-            // Hide quiz and show results
-            document.querySelectorAll('.question-card').forEach(card => card.style.display = 'none');
-            document.querySelector('.quiz-navigation').style.display = 'none';
-            resultsContainer.style.display = 'block';
-            
-            // Scroll to results
-            window.scrollTo({
-                top: resultsContainer.offsetTop - 50,
-                behavior: 'smooth'
-            });
-        }
-        
-        // Highlight Correct/Incorrect Answers
-        function highlightAnswers() {
-            for (let i = 0; i < totalQuestions; i++) {
-                const questionNumber = i + 1;
-                const options = document.querySelectorAll(`#question-${questionNumber} .option`);
-                
-                options.forEach(option => {
-                    const input = option.querySelector('input');
-                    if (input.value === correctAnswers[`q${questionNumber}`]) {
-                        option.classList.add('correct');
-                    } else if (input.checked && input.value !== correctAnswers[`q${questionNumber}`]) {
-                        option.classList.add('incorrect');
-                    }
-                });
-            }
-        }
-        
-        // Toggle Dropdown Menu
-        function toggleDropdown() {
-            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-            const icon = dropdownToggle.querySelector('i');
-            icon.style.transform = dropdownContent.style.display === 'block' ? 'rotate(180deg)' : 'rotate(0)';
-        }
-        
-        // Event Listeners
-        prevButton.addEventListener('click', () => {
-            saveAnswer(currentQuestion);
-            goToQuestion(currentQuestion - 1);
-        });
-        
-        nextButton.addEventListener('click', () => {
-            if (isAnswerSelected(currentQuestion)) {
-                saveAnswer(currentQuestion);
-                goToQuestion(currentQuestion + 1);
-            } else {
-                alert('Silakan pilih jawaban terlebih dahulu!');
-            }
-        });
-        
-        finishButton.addEventListener('click', () => {
-            saveAnswer(currentQuestion);
-            highlightAnswers();
-            showResults();
-        });
-        
-        restartButton.addEventListener('click', () => {
-            // Reset quiz
-            currentQuestion = 1;
-            userAnswers.fill(null);
-            
-            // Reset all selections
-            document.querySelectorAll('input[type="radio"]').forEach(input => {
-                input.checked = false;
-            });
-            
-            // Remove highlights
-            document.querySelectorAll('.option').forEach(option => {
-                option.classList.remove('correct', 'incorrect');
-            });
-            
-            // Show all questions and navigation
-            document.querySelectorAll('.question-card').forEach((card, index) => {
-                card.style.display = index === 0 ? 'block' : 'none';
-                card.classList.remove('active');
-                if (index === 0) card.classList.add('active');
-            });
-            
-            document.querySelector('.quiz-navigation').style.display = 'flex';
-            resultsContainer.style.display = 'none';
-            
-            // Update progress
-            updateProgress();
-            
-            // Scroll to top
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Dropdown toggle
-        dropdownToggle.addEventListener('click',)
-    </script>
+        document.querySelector('.quiz-container .quiz-navigation').style.display = 'flex';
+        resultsDiv.style.display = 'none';
+        updateProgress();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Event Listeners
+    prevBtn.addEventListener('click', () => { saveCurrentAnswer(); if(currentQuestion>1) goToQuestion(currentQuestion-1); });
+    nextBtn.addEventListener('click', () => {
+        if(isAnswered(currentQuestion)) { saveCurrentAnswer(); goToQuestion(currentQuestion+1); }
+        else alert('Silakan pilih jawaban terlebih dahulu!');
+    });
+    finishBtn.addEventListener('click', () => {
+        saveCurrentAnswer();
+        if(allQuestionsAnswered()) confirmModal.style.display = 'flex';
+        else { let unanswered = 0; for(let i=1;i<=totalQuestions;i++) if(!isAnswered(i)) unanswered++; alert(`Anda belum menjawab ${unanswered} soal. Lengkapi dulu.`); }
+    });
+    confirmYes.addEventListener('click', () => { confirmModal.style.display = 'none'; highlightAnswers(); showResults(); });
+    confirmNo.addEventListener('click', () => { confirmModal.style.display = 'none'; });
+    confirmModal.addEventListener('click', (e) => { if(e.target === confirmModal) confirmModal.style.display = 'none'; });
+    restartBtn.addEventListener('click', resetQuiz);
+    updateProgress();
+</script>
 </body>
 </html>
